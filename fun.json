@@ -1,0 +1,79 @@
+[
+    {
+        "title": "Quick Conquest",
+        "url": "https://quickconquest.com/",
+        "desc": "Command and conquer the world, quickly!",
+        "category": "strategy",
+        "screenshot": "/new/assets/img/quickconquest.png",
+        "icon": "/new/assets/img/quickconquest-icon.png"
+    },
+    {
+        "title": "Pure CSS Carlton Dance",
+        "url": "https://cdr2.com/carlton-css/",
+        "desc": "A silly pure CSS Carlton, doing his dance.",
+        "category": "fun",
+        "screenshot": "/new/assets/img/carlton.gif",
+        "animation": "/new/assets/img/carlton.gif",
+        "icon": "/new/assets/img/carlton-icon.png"
+    },
+    {
+        "title": "Job Hunt Simulator",
+        "url": "https://cdr2.com/jobfun/",
+        "desc": "How it feels to be looking for a job right now.",
+        "category": "action, maze",
+        "screenshot": "/new/assets/img/jobhunt.gif",
+        "animation": "/new/assets/img/jobhunt.gif",
+        "icon": "/new/assets/img/jobhunt-icon.png"
+    },
+    {
+        "title": "The Bees",
+        "url": "https://cdr2.com/bees/",
+        "desc": "You are an outdoor enthusiast with a severe allergy to bees. Shoot the bees before they kill you! Displays the current conditions of the sky and weather as the game progresses.",
+        "category": "shooter",
+        "screenshot": "/new/assets/img/bees.gif",
+        "animation": "/new/assets/img/bees.gif",
+        "icon": "/new/assets/img/bees-icon.png"
+    },
+    {
+        "title": "Wordoku",
+        "url": "https://cdr2.com/wordoku/",
+        "desc": "Sudoku games with 9-letter words",
+        "category": "puzzle",
+        "screenshot": "/new/assets/img/wordoku.png",
+        "icon": "/new/assets/img/wordoku-icon.png"
+    },
+    {
+        "title": "Grapple",
+        "url": "https://cdr2.com/grapple/grapple.html",
+        "desc": "Swing your way up to safety! I made this when I found the animated GIF. What else could I do?",
+        "category": "puzzle",
+        "screenshot": "/new/assets/img/grapple.gif",
+        "animation": "/new/assets/img/grapple.gif",
+        "icon": "/new/assets/img/grapple-icon.png"
+    },
+    {
+        "title": "Parallax",
+        "url": "https://cdr2.com/parallax/parallax.html",
+        "desc": "Just a little doodle playing around with the parallax effect. I thought it came out nice.",
+        "category": "mildly-entertaining",
+        "screenshot": "/new/assets/img/parallax.gif",
+        "animation": "/new/assets/img/parallax.gif",
+        "icon": "/new/assets/img/parallax-icon.png"
+    },
+    {
+        "title": "Grapple",
+        "url": "https://cdr2.com/grapple/grapple.html",
+        "desc": "Swing your way up to safety! I made this when I found the animated GIF. What else could I do?",
+        "category": "puzzle",
+        "screenshot": "/new/assets/img/grapple.gif",
+        "animation": "/new/assets/img/grapple.gif",
+        "icon": "/new/assets/img/grapple-icon.png"
+    }
+
+
+
+
+
+
+
+]

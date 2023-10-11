@@ -1,0 +1,160 @@
+{
+    "sidemenu": [
+        {
+            "title": "Home",
+            "link": "/new/home.html",
+            "icon": "fas fa-home"
+        },
+        {
+            "title": "Contact Me",
+            "link": "contact.html",
+            "icon": "fas fa-envelope"
+        },
+        {
+            "title": "Resume",
+            "link": "/cv/generated/list.php",
+            "icon": "fa-regular fa-file",
+			"_children": [
+				{
+					"title": "Base Resume",
+					"link": "/cv/generated/spartan.pdf",
+					"icon": "fas fa-envelope-open-text"
+				},
+                {
+					"title": "Themed Resumes",
+					"link": "/cv/generated/list.php",
+					"icon": "fas fa-rectangle-list"
+				},
+                {
+					"title": "Questions to ask",
+					"link": "/jobhunt/questions.html",
+					"icon": "fas fa-file-lines"
+				},
+                {
+					"title": "Coverletter Tool",
+					"link": "/jobhunt/coverletter/",
+					"icon": "fas fa-clipboard-question"
+				}
+            ]
+        },
+        {
+            "title": "Blog Posts",
+            "link": "/new/blog/",
+            "icon": "fa-regular fa-message",
+            "_children": [
+                {
+                    "title": "Ancient Petroglyphs",
+                    "fulltitle": "The Global Aurora Theory",
+                    "link": "/new/blog/rockart.html",
+                    "target": "iframe",
+                    "icon": "fas fa-palette"
+                },
+                {
+                    "title": "AI for Ads",
+                    "fulltitle": "Data-Driven Decisions: Utilizing AI/ML in Your Advertising Platform",
+                    "link": "/new/blog/ai-ads.html",
+                    "target": "iframe",
+                    "icon": "fas fa-rectangle-ad"
+                },
+                {
+                    "title": "Scaling Up",
+                    "fulltitle": "Scaling Up: How to Manage a High-Volume Mobile Advertising Platform",
+                    "link": "/new/blog/scaling-up.html",
+                    "target": "iframe",
+                    "icon": "fa-solid fa-arrow-up-right-dots"
+                },
+                {
+                    "title": "From 0 to 100",
+                    "fulltitle": "From 0 to 100: A Guide to Assembling and Leading a Stellar Development Team",
+                    "link": "/new/blog/stellar-dev.html",
+                    "target": "iframe",
+                    "icon": "fas fa-hand-holding-dollar"
+                },
+                {
+                    "title": "Adapting to Agile",
+                    "fulltitle": "Adapting to Agile: How to Successfully Implement Agile Methodologies in Your Team",
+                    "link": "/new/blog/agile-howto.html",
+                    "target": "iframe",
+                    "icon": "fas fa-diagram-project"
+                },
+                {
+                    "title": "Crossing the Divide",
+                    "fulltitle": "Crossing the Divide: Bridging the Gap Between Software Engineering and Physical Computing",
+                    "link": "/new/blog/digital-divide.html",
+                    "target": "iframe",
+                    "icon": "fas fa-gears"
+                },
+                {
+                    "title": "Code Review Culture",
+                    "fulltitle": "Code Review Culture: How to Foster Excellence and Accountability Among Developers",
+                    "link": "/new/blog/codereview.html",
+                    "target": "iframe",
+                    "icon": "fas fa-code"
+                },
+                {
+                    "title": "Real-Time Bidding",
+                    "fulltitle": "Real-Time Bidding: A Deep Dive into RTB Systems and Its Impact on Online Advertising",
+                    "link": "/new/blog/rtb-thoughts.html",
+                    "target": "iframe",
+                    "icon": "fas fa-rectangle-ad"
+                }            ]
+        },
+        {
+            "title": "Fun",
+            "icon": "fas fa-bolt",
+            "link": "fun.html",
+			"_children": [
+				{
+					"title": "Job Hunt Simulator",
+					"link": "/jobfun/",
+					"icon": "fas fa-magnifying-glass-dollar"
+				},{
+					"title": "The Bees",
+					"link": "/bees/",
+					"icon": "fas bee"
+				},{
+					"title": "Carlton Dance",
+					"link": "/carlton-css/",
+					"icon": "/new/assets/img/dance.svg"
+				},{
+					"title": "Quick Conquest",
+					"link": "https://quickconquest.com/",
+                    "target": "_blank",
+					"icon": "fas fa-building"
+				}
+            ]
+        },
+        {
+            "title": "Tools",
+            "icon": "fas fa-gear",
+            "link": "fun.html",
+			"_children": [
+				{
+					"title": "Invoice Generator",
+					"link": "/invoice/",
+					"icon": "fas fa-file-invoice-dollar"
+				},{
+					"title": "The Bees",
+					"link": "/bees/",
+					"icon": "fas bee"
+				}
+            ]
+        },
+       {
+            "title": "Help",
+            "link": "help.html",
+            "icon": "fa-solid fa-circle-question",
+            "hidden": true
+        }
+    ],
+    "topmenu": [
+        {
+            "title": "Home",
+            "link": "/"
+        },
+        {
+            "title": "Contact",
+            "link": "contact.html"
+        }
+    ]
+}

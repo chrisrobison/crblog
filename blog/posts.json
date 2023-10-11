@@ -1,0 +1,91 @@
+[
+        {
+            "title": "Ancient Petroglyphs: A Theory of Global Catastrophe",
+            "shorttitle": "Ancient Petroglyphs",
+            "subtitle": "A Theory of Global Catastrophe",
+            "link": "/new/blog/rockart.html",
+            "name": "rockart",
+            "target": "iframe",
+            "hero": "/new/assets/img/petroglyphs.jpg",
+            "icon": "fas fa-palette",
+            "blurb": "I love a good mystery. I was recently watching some youtube videos on ancient petroglyphs and rock art around California and the southwest and it got me thinking. The similarities between many of the figures from various sites is striking. After doing a bit of research online, it seems this imagery is not limited to North America but can be found all over the world! What's going on here?"
+        },
+        {
+            "title": "Data-Driven Decisions: Utilizing AI/ML in Your Advertising Platform",
+            "shorttitle": "Data-Driven Decisions",
+            "subtitle": "Utilizing AI/ML in Your Advertising Platform",
+            "link": "/new/blog/ai-ads.html",
+            "name": "ai-ads",
+            "target": "iframe",
+            "hero": "/new/assets/img/robot-reading.jpg",
+            "icon": "fas fa-rectangle-ad",
+            "blurb": "In today's ultra-competitive online advertising landscape, leveraging data isn't just a bonus; it's a necessity. As someone who's led a mobile team in a prominent online ad company, I've seen first-hand how Artificial Intelligence and Machine Learning (AI/ML) can turn data into actionable insights, leading to more efficient and effective ad campaigns."
+        },
+        {
+            "title": "Scaling Up: How to Manage a High-Volume Mobile Advertising Platform",
+            "shorttitle": "Scaling Up",
+            "subtitle": "How to Manage a High-Volume Mobile Advertising Platform",
+            "link": "/new/blog/scaling-up.html",
+            "name": "scaling-up",
+            "target": "iframe",
+            "hero": "/new/assets/img/scalingup.png",
+            "video": "/new/assets/img/scalingup.mp4",
+            "icon": "fa-solid fa-arrow-up-right-dots",
+            "blurb": "In today's fast-paced digital landscape, managing a high-volume mobile advertising platform can be a monumental task. As your user base grows, so does the complexity of serving ads at scale while maintaining performance and user experience. Based on years of experience in the online ad industry, here's a guide on how to scale up your mobile advertising platform effectively."
+        },
+        {
+            "title": "From 0 to 100: A Guide to Assembling and Leading a Stellar Development Team",
+            "shorttitle": "From 0 to 100",
+            "subtitle": "A Guide to Assembling and Leading a Stellar Development Team",
+            "link": "/new/blog/stellar-dev.html",
+            "name": "stellar-dev",
+            "hero": "/new/assets/img/stellardev.jpg",
+            "target": "iframe",
+            "icon": "fas fa-hand-holding-dollar",
+            "blurb": "Assembling and leading a high-performing development team is a challenge that many engineering managers face. Over the years, I've navigated this task in multiple roles and learned that a stellar team is more than the sum of its parts. Here's a guide to building and leading a development team that truly excels."
+        },
+        {
+            "title": "Adapting to Agile: How to Successfully Implement Agile Methodologies in Your Team",
+            "shorttitle": "Adapting to Agile",
+            "subtitle": "How to Successfully Implement Agile Methodologies in Your Team",
+            "link": "/new/blog/agile-howto.html",
+            "name": "agile",
+            "hero": "/new/assets/img/agile.jpg",
+            "target": "iframe",
+            "icon": "fas fa-diagram-project",
+            "blurb": "Agile is more than just a buzzword; it's a methodology that has revolutionized the software development landscape. Transitioning from traditional development models to Agile is a significant shift that requires buy-in at all levels. Here's my guide on how to successfully implement Agile methodologies in your team, based on years of experience in the tech industry."
+        },
+        {
+            "title": "Crossing the Divide: Bridging the Gap Between Software Engineering and Physical Computing",
+            "shorttitle": "Crossing the Divide",
+            "subtitle": "Bridging the Gap Between Software Engineering and Physical Computing",
+            "link": "/new/blog/digital-divide.html",
+            "name": "digital-divide",
+            "hero": "/new/assets/img/digitaldivide.jpg",
+            "target": "iframe",
+            "icon": "fas fa-gears",
+            "blurb": "The realms of software engineering and physical computing have often been seen as separate entities. One deals with lines of code, abstract data structures, and virtual environments, while the other focuses on embedded systems, hardware-software interactions, and the tangible world. However, as someone deeply involved in both disciplines—from coding complex algorithms to designing 3D printers—the line separating these two fields is blurring more than ever. Here's how and why these domains should and are coming together."
+        },
+        {
+            "title": "Code Review Culture: How to Foster Excellence and Accountability Among Developers",
+            "shorttitle": "Code Review Culture",
+            "subtitle": "How to Foster Excellence and Accountability Among Developers",
+            "link": "/new/blog/codereview.html",
+            "name": "codereview",
+            "hero": "/new/assets/img/codereview.jpg",
+            "target": "iframe",
+            "icon": "fas fa-code",
+            "blurb": "As someone who's worn multiple hats—from developer to engineering manager—I've witnessed firsthand the power of a strong code review culture. Code reviews are not just a formality but a linchpin in building a sustainable and healthy engineering team. Here's why code review culture is essential and how you can foster excellence and accountability among developers."
+        },
+        {
+            "title": "Real-Time Bidding: A Deep Dive into RTB Systems and Its Impact on Online Advertising",
+            "shorttitle": "Real-Time Bidding",
+            "subtitle": "A Deep Dive into RTB Systems and Its Impact on Online Advertising",
+            "link": "/new/blog/rtb-thoughts.html",
+            "name": "rtb-thoughts",
+            "hero": "/new/assets/img/robot-reading.jpg",
+            "target": "iframe",
+            "icon": "fas fa-rectangle-ad",
+            "blurb": "Real-Time Bidding (RTB) has revolutionized the online advertising landscape, making it more efficient, targeted, and profitable for all stakeholders involved. Drawing upon years of experience in the online ad industry, this post aims to provide a deep dive into the intricate world of RTB systems and explore their far-reaching impact on the advertising ecosystem."
+        }
+    ]

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christopher Robison: Blog Entry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/new/assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="/new/assets/css/adminlte.min.css">
+<style>
+* { box-sizing: border-box; font-family: "Lexend", "Helvetica", sans-serif; }
+  a {
+    color: #333;
+  }
+  a.showlink::after {
+    content: " ";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3Cpath d='M353 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    height: 1rem;
+    width: 1rem;
+    position: relative;
+    display: inline-block;
+    top: 2px;
+    left: 4px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .tinyhero {
+    width: 24rem;
+      margin: 0.5rem auto;
+  }
+  ul.entries {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-around;
+    justify-content: space-around;
+  }
+  ul.entries li {
+    padding: 1rem;
+    width: 25rem;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #0003;
+    box-shadow: 0.25rem 0.25rem 0.25rem #0003;
+    margin-bottom: 1rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  ul.entries li div {
+    text-align: left;
+  }
+  .entries h2 {
+    font-size: 1.5rem;
+  }
+  .entries h3 {
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+  .blurb {
+    font-size: 14px;
+    height: 5rem;
+    overflow: hidden;
+  }
+  @media screen and (max-width: 600px) {
+    ul.entries {
+      padding: 0; margin: 0;
+    }
+  }
+</style>
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Blog Posts</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Blog Posts</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content sanserif">
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+    </div>
+    <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/new/assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/new/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/new/assets/js/adminlte.min.js"></script>
+  <script>
+    (function() {
+      let app = {
+        init: function() {
+          app.loadList("posts.json");
+        },
+        data: {
+
+        },
+        loadList: function(url) {
+          fetch(url).then(r=>r.json()).then(data=>{
+            app.renderList(data);
+            app.data.entries = data;
+          });
+        },
+        renderList: function(data) {
+          let out = "<ul class='entries'>";
+          for (let item of data) {
+            out += `<li>
+              <a href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.shorttitle}', '${item.name}', true, event);"><img src="${item.hero}" class="tinyhero"></a>
+              <div><a href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.shorttitle}', '${item.name}', true, event);"><h2>${item.shorttitle}</h2><h3>${item.subtitle}</h3></a><p class="blurb">${item.blurb}</p>
+                <a href="${item.link}" style="float:right;font-size:12px;" onclick="return parent.app.loadTab('${item.link}', '${item.shorttitle}', '${item.name}', true, event);">Read more...</a>
+             </div>
+            </li>`;
+          }
+          out += `</ul>`;
+          document.querySelector(".content").innerHTML = out;
+        }
+      };
+
+      window.app = app;
+      app.init();
+    })();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Christopher Robison Portal">
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/new/assets/touch-icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/new/assets/touch-icon-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/new/assets/touch-icon-167.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/new/assets/touch-icon-120.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/new/assets/touch-icon-114.png">
+      <link rel="apple-touch-icon" sizes="87x87" href="/new/assets/touch-icon-87.png">
+      <link rel="apple-touch-icon" sizes="80x80" href="/new/assets/touch-icon-80.png">
+
+    <title>Christopher Robison's Portal</title>
+
+    <link rel="icon" type="image/png" href="/favicon2.png" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="assets/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="assets/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <style>
+    body {
+    }
+    #overlay {
+        position: absolute;
+        z-index: 99999;
+        top: 0px;
+        left: 0px;
+        height: 100vh;
+        width: 100vw;
+        background-color: #0002;
+        display:none;
+    }
+    #loader {
+        position: absolute;
+        z-index: 99999;
+        top: 50%;
+        left: 50%;
+    }
+    #Business {
+        width: 12em;
+    }
+    label {
+        color: #eee;
+    }
+    .main-footer {
+    }
+
+    .navbar-nav[role=tablist] .nav-item {
+        border-right: 1px solid #0006;
+        border-left: 1px solid #fff6;
+        background: #0002;
+        border-top-left-radius: 1rem;
+        position: relative;
+        border-top-right-radius: 1rem;
+        top: 0.6rem;
+    }
+    .navbar-nav[role=tablist] .nav-item.active {
+        background: #f9f9f9;
+        top: 5px;
+        box-shadow: -2px 0px 2px #0003;
+        z-index: 999;
+    }
+  .content-wrapper.iframe-mode .navbar-nav {
+    overflow:hidden;
+    }
+  .cdr.pacjob {
+      /* background-color: #FFFFFF; */
+background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8" standalone="no"%3F><!-- Created with Inkscape (http://www.inkscape.org/) --><svg width="210mm" height="297mm" viewBox="0 0 210 297" version="1.1" id="svg528" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs525" /><g id="layer1" transform="matrix(0.5392214,0,0,0.5392214,18.892735,27.612465)"><circle style="fill:%23000000;stroke-width:0.264583" id="path645" cx="105.13274" cy="124.05664" r="64.130974" /><path style="fill:%23ffffff;stroke-width:0.264583" d="m 105.12924,125.11847 54.35445,-35.731119 c 0,0 10.73844,15.840259 10.6492,34.208769 -0.0892,18.36851 -10.46774,34.50255 -10.46774,34.50255 l -54.53241,-31.41372 z" id="path707" /><circle style="fill:%23ffffff;stroke-width:0.264583" id="path761" cx="115.30214" cy="83.544724" r="10.779311" /><circle style="fill:%23000000;stroke-width:0.264583" id="path765" cx="121.54603" cy="84.004288" r="2.973603" /></g></svg>');
+/* background-attachment: fixed | scroll; */
+/* background-size: auto | cover | contain | 500px 250px; */
+/* background-position: center | right 30px bottom 15px; */
+/* background-repeat: no-repeat | repeat | repeat-x; */
+/* background-origin: border-box | padding-box | content-box; */
+/* background-clip: border-box | padding-box | content-box; */
+/* background-blend-mode: multiply | screen | overlay; */
+  }
+        .bee {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='151.622' height='141.827' viewBox='0 0 151.622 141.827'%3E%3Cpath id='Path_1' data-name='Path 1' d='M149.131,115.847c-.956.767-.3,5.731,1.406,12.459a105.857,105.857,0,0,0,10.037,24.878c8.493,15.045,16.639,21.591,24.44,23.4,7.688,1.777,15.471-1.021,23.009-4.767,2.143-1.064,2.736-3.007,2.208-5.466-.8-3.712-3.622-8.389-7.667-13.4a128.021,128.021,0,0,0-15.711-15.883c-15.494-13.355-33.366-24.473-37.722-21.219Zm14.628-50.626a3.534,3.534,0,1,1,1.44,6.919c-5.2,1.1-8.994,3.053-11.49,5.795a15.4,15.4,0,0,0-3.718,8.252c6.666,3.981,11.286,12.154,11.286,18.709a9.745,9.745,0,0,1-1.959,6.2c9.512,3.656,21.564,11.494,32.158,20.626a134.977,134.977,0,0,1,16.6,16.795c4.7,5.82,8.035,11.495,9.08,16.36,1.244,5.8-.39,10.489-6,13.274-8.769,4.356-17.972,7.575-27.717,5.321a30.708,30.708,0,0,1-10.459-4.685,38.166,38.166,0,0,1-7.91,17.138,30.167,30.167,0,0,1-46.668,0,38.156,38.156,0,0,1-7.91-17.138,30.692,30.692,0,0,1-10.459,4.685c-9.745,2.254-18.948-.965-27.717-5.321-5.608-2.785-7.242-7.477-6-13.274,1.045-4.865,4.378-10.54,9.078-16.36a135.029,135.029,0,0,1,16.594-16.794c10.6-9.132,22.65-16.971,32.162-20.627a9.753,9.753,0,0,1-1.96-6.2c0-6.555,4.619-14.726,11.286-18.707a15.387,15.387,0,0,0-3.718-8.254c-2.5-2.742-6.293-4.7-11.49-5.795a3.534,3.534,0,1,1,1.44-6.919c6.727,1.42,11.779,4.106,15.283,7.952a21.873,21.873,0,0,1,5.251,10.688,14.569,14.569,0,0,1,2.982,0,21.884,21.884,0,0,1,5.253-10.688c3.5-3.845,8.555-6.532,15.283-7.952Zm-13.133,84.014H132.84c-1.159,2.483-2.412,4.943-3.75,7.317h25.286c-1.338-2.374-2.591-4.834-3.75-7.317Zm15.986,24.184q-1.243-1.259-2.489-2.694h-44.78q-1.244,1.434-2.489,2.694a40.112,40.112,0,0,0,.709,4.621H165.9a40.112,40.112,0,0,0,.709-4.621Zm-33.683-45.113c1.7-6.728,2.363-11.692,1.406-12.459-4.357-3.254-22.23,7.867-37.725,21.221A127.85,127.85,0,0,0,80.9,152.949c-4.045,5.009-6.87,9.686-7.667,13.4-.527,2.459.066,4.4,2.209,5.466,7.538,3.746,15.321,6.544,23.009,4.767,7.8-1.805,15.946-8.353,24.44-23.4a105.9,105.9,0,0,0,10.037-24.878Zm26.017,63.907H124.52a23.144,23.144,0,0,0,34.426,0Z' transform='translate(-65.922 -65.146)' fill='%23c2c7d0' fill-rule='evenodd'/%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat no-repeat;
+            background-position: center bottom;
+            background-size: contain;
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+ 
+</style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse" data-panel-auto-height-mode="height">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/new/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/new/contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div class="navbar-search-block">
+                        <form class="form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge notification-count"></span>
+                    </a>
+                    <div id="notificationList" class="dropdown-menu dropdown-menu-lg dropdown-menu-right ">
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">Notifications</a>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">5</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">5 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 3 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 2 new trips
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="/new/" class="brand-link">
+                <span class="brand-text font-weight-light">Christopher Robison Portal</span>
+            </a>
+
+           <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Christopher Robison</a>
+                    </div>
+                </div>
+                <div class="form-inline">
+                <div class="input-group" data-widget="sidebar-search">
+                  <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                      <i class="fas fa-fw fa-search"></i>
+                    </button>
+                  </div>
+                </div><div class="sidebar-search-results"><div class="list-group"><a href="#" class="list-group-item"><div class="search-title"><strong class="text-light"></strong>N<strong class="text-light"></strong>o<strong class="text-light"></strong> <strong class="text-light"></strong>e<strong class="text-light"></strong>l<strong class="text-light"></strong>e<strong class="text-light"></strong>m<strong class="text-light"></strong>e<strong class="text-light"></strong>n<strong class="text-light"></strong>t<strong class="text-light"></strong> <strong class="text-light"></strong>f<strong class="text-light"></strong>o<strong class="text-light"></strong>u<strong class="text-light"></strong>n<strong class="text-light"></strong>d<strong class="text-light"></strong>!<strong class="text-light"></strong></div><div class="search-path"></div></a></div></div>
+              </div>
+                <!-- Sidebar Menu -->
+                <nav id='sidemenu' class="mt-2">
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="false">
+            <div class="nav navbar navbar-expand navbar-white navbar-light border-bottom p-0">
+                <!--a class="nav-link bg-light" href="#" data-widget="iframe-scrollleft"><i class="fas fa-angle-double-left"></i></a-->
+                <ul class="navbar-nav" role="tablist">
+                    <li class="nav-item active" role="presentation"><a class="nav-link active" data-toggle="row" id="tab-index" href="#panel-index" role="tab" aria-controls="panel-index" aria-selected="true">Home</a></li>
+                </ul>
+                <!--a class="nav-link bg-light" href="#" data-widget="iframe-scrollright"><i class="fas fa-angle-double-right"></i></a-->
+                <a class="nav-link bg-light" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade active show" id="panel-index" role="tabpanel" aria-labelledby="tab-index"><iframe id='home-iframe' src="home.html" style="height: 84vh;"></iframe></div>
+                <div class="tab-empty">
+                    <h2 class="display-4">No tab selected!</h2>
+                </div>
+                <div class="tab-loading">
+                    <div>
+                        <h2 class="display-4">Tab is loading <i class="fa fa-sync fa-spin"></i></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+<div id="overlay"><div class="loader" id="loader"></div></div>
+    <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- jQuery UI 1.11.4 -->
+    <!--script src="assets/jquery-ui/jquery-ui.min.js"></script-->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <!--script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- overlayScrollbars -->
+    <!--script src="assets/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script-->
+    <!-- AdminLTE App -->
+        <script src="assets/js/adminlte.min.js"></script>
+    <script src="main.js?2023100703"></script>
+    <script>
+        app.init(app.getNav);
+    </script>
+</body>
+
+</html>
