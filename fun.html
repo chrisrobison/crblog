@@ -9,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/new/assets/fontawesome-free-6.4.0-web/css/all.min.css">
-  <link rel="stylesheet" href="/new/assets/css/adminlte.css">
+  <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/adminlte.css">
 <style>
 ul#funlist { 
   display: flex;
@@ -101,19 +101,19 @@ ul#funlist li:hover {
                 </li>
                  <li>
                     <a href="https://cdr2.com/jobfun/" target="_blank">
-                        <img src="/new/assets/img/jobhunt.gif" class="screenshot"><br>
+                        <img src="assets/img/jobhunt.gif" class="screenshot"><br>
                         Job Hunt Simulator 
                     </a>
                 </li>
                 <li>
                     <a href="https://cdr2.com/bees/" target="_blank">
-                        <img src="/new/assets/img/bees2.gif" class="screenshot"><br>
+                        <img src="assets/img/bees2.gif" class="screenshot"><br>
                         The Bees
                     </a>
                 </li>
                  <li>
                     <a href="https://cdr2.com/carlton-css/" target="_blank">
-                        <img src="/new/assets/img/carlton.gif" class="screenshot"><br>
+                        <img src="assets/img/carlton.gif" class="screenshot"><br>
                         Pure CSS Carlton Dance
                     </a>
                 </li>
@@ -139,11 +139,11 @@ ul#funlist li:hover {
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="/new/assets/jquery/jquery.min.js"></script>
+<script src="assets/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/new/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/new/assets/js/adminlte.min.js"></script>
+<script src="assets/js/adminlte.min.js"></script>
 <script>
 (function() {
   const $ = str => document.querySelector(str);
@@ -159,7 +159,7 @@ ul#funlist li:hover {
     makeList: function(data) {
       let out = "";
       for (const item of data) {
-        //  loadTab: function(url="/new/home.html", title="New Tab", name="newtab", autoshow=true, evt) {
+        //  loadTab: function(url="home.html", title="New Tab", name="newtab", autoshow=true, evt) {
         let tabname = item.title.replace(/\W/g, '');
         out += `<li>
   <a href="${item.url}" class="fun-link" onclick="return parent.app.loadTab('${item.url}', '${item.title}', '${tabname}', true, event)" target="_blank">

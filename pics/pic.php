@@ -18,7 +18,7 @@
 
         $out = new stdClass();
         $out->html = <<<EOT
-<div class='pic'><img src="/new/pics/{$img}" alt="{$mycaption->caption}"><caption>{$mycaption->caption}</caption></div>
+<div class='pic'><img src="{$img}" alt="{$mycaption->caption}"><caption>{$mycaption->caption}</caption></div>
 EOT;
         $out->caption = $mycaption;
         $out->image = $img;

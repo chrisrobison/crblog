@@ -129,7 +129,7 @@ const $$ = str => document.querySelectorAll(str);
         makeIndex: function(data) {
             let out = document.createElement("ul");
             data.forEach(item=>{
-                out.innerHTML += `<li><figure><img src='/new/pics/${item.image}' class='thumb'><figcaption>${item.caption}</figcaption></figure></li>`;
+                out.innerHTML += `<li><figure><img src='${item.image}' class='thumb'><figcaption>${item.caption}</figcaption></figure></li>`;
             });
             $("main").appendChild(out);
         },

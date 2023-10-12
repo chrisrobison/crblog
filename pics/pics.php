@@ -15,7 +15,7 @@
 
         $obj = new stdClass();
         $obj->html = <<<EOT
-<div class='pic'><img src="/new/pics/{$img}" alt="{$mycaption->caption}"><caption>{$mycaption->caption}</caption></div>
+<div class='pic'><img src="pics/{$img}" alt="{$mycaption->caption}"><caption>{$mycaption->caption}</caption></div>
 EOT;
         $obj->caption = $mycaption;
         $obj->image = $img;

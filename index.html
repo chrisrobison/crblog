@@ -8,13 +8,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Christopher Robison Portal">
     <link rel="apple-touch-icon" href="touch-icon-iphone.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/new/assets/touch-icon-152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/new/assets/touch-icon-180.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/new/assets/touch-icon-167.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/new/assets/touch-icon-120.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/new/assets/touch-icon-114.png">
-      <link rel="apple-touch-icon" sizes="87x87" href="/new/assets/touch-icon-87.png">
-      <link rel="apple-touch-icon" sizes="80x80" href="/new/assets/touch-icon-80.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/touch-icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/touch-icon-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/touch-icon-167.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/touch-icon-120.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/touch-icon-114.png">
+      <link rel="apple-touch-icon" sizes="87x87" href="assets/touch-icon-87.png">
+      <link rel="apple-touch-icon" sizes="80x80" href="assets/touch-icon-80.png">
 
     <title>Christopher Robison's Portal</title>
 
@@ -99,20 +99,20 @@ background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"
  
 </style>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse" data-panel-auto-height-mode="height">
+<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" onclick="saveMenuState()" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/new/" class="nav-link">Home</a>
+                    <a href="" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/new/contact.html" class="nav-link">Contact</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
 
@@ -189,7 +189,7 @@ background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="/new/" class="brand-link">
+            <a href="/crblog" class="brand-link">
                 <span class="brand-text font-weight-light">Christopher Robison Portal</span>
             </a>
 
@@ -274,9 +274,27 @@ background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"
     <!--script src="assets/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script-->
     <!-- AdminLTE App -->
         <script src="assets/js/adminlte.min.js"></script>
-    <script src="main.js?2023100703"></script>
+    <script src="main.js"></script>
     <script>
+        function saveMenuState() {
+            let state = 0;
+            if (!document.body.classList.contains("sidebar-collapse")) {
+                state = 1;
+            }
+            localStorage.setItem("menustate", state);
+        }
+
+        function getMenuState() {
+            let state = localStorage.getItem("menustate");
+
+            if (state) { 
+                document.body.classList.add("sidebar-collapse");
+            } else {
+                document.body.classList.remove("sidebar-collapse");
+            }
+        }
         app.init(app.getNav);
+        getMenuState();
     </script>
 </body>
 

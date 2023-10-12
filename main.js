@@ -86,7 +86,7 @@
                 document.querySelectorAll("iframe").forEach(item=>{ item.contentDocument.location.reload() });
             });;
         },
-        loadTab: function(url="/new/home.html", title="New Tab", name="newtab", autoshow=true, evt) {
+        loadTab: function(url="home.html", title="New Tab", name="newtab", autoshow=true, evt) {
             //document.querySelector("#overlay").style.display = "block";
             //setTimeout(function() { document.querySelector("#overlay").style.display = "none"; }, 3000);
 
