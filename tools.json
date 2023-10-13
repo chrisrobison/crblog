@@ -1,0 +1,10 @@
+[
+    {
+        "title": "Invoice Generator",
+        "url": "/invoice/",
+        "desc": "Generate invoices quickly and easily with my Invoice Generator. Your data is securely stored locally and is never sent over the network. Works offline too!",
+        "category": "productivity",
+        "screenshot": "assets/img/invoice.png",
+        "icon": "assets/img/quickconquest-icon.png"
+    }
+]

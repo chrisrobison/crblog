@@ -18,7 +18,7 @@
 
     <title>Christopher Robison's Portal</title>
 
-    <link rel="icon" type="image/png" href="/favicon2.png" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +77,9 @@
   .content-wrapper.iframe-mode .navbar-nav {
     overflow:hidden;
     }
+  .nav-sidebar .nav-treeview {
+    line-height: 1;
+  }
   .cdr.pacjob {
       /* background-color: #FFFFFF; */
 background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8" standalone="no"%3F><!-- Created with Inkscape (http://www.inkscape.org/) --><svg width="210mm" height="297mm" viewBox="0 0 210 297" version="1.1" id="svg528" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs525" /><g id="layer1" transform="matrix(0.5392214,0,0,0.5392214,18.892735,27.612465)"><circle style="fill:%23000000;stroke-width:0.264583" id="path645" cx="105.13274" cy="124.05664" r="64.130974" /><path style="fill:%23ffffff;stroke-width:0.264583" d="m 105.12924,125.11847 54.35445,-35.731119 c 0,0 10.73844,15.840259 10.6492,34.208769 -0.0892,18.36851 -10.46774,34.50255 -10.46774,34.50255 l -54.53241,-31.41372 z" id="path707" /><circle style="fill:%23ffffff;stroke-width:0.264583" id="path761" cx="115.30214" cy="83.544724" r="10.779311" /><circle style="fill:%23000000;stroke-width:0.264583" id="path765" cx="121.54603" cy="84.004288" r="2.973603" /></g></svg>');
@@ -278,7 +281,7 @@ background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"
     <script>
         function saveMenuState() {
             let state = 0;
-            if (!document.body.classList.contains("sidebar-collapse")) {
+            if (document.body.classList.contains("sidebar-collapse")) {
                 state = 1;
             }
             localStorage.setItem("menustate", state);
@@ -286,11 +289,11 @@ background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"
 
         function getMenuState() {
             let state = localStorage.getItem("menustate");
-
+            console.log(`Menu state: ${state}`);
             if (state) { 
-                document.body.classList.add("sidebar-collapse");
-            } else {
                 document.body.classList.remove("sidebar-collapse");
+            } else {
+                document.body.classList.add("sidebar-collapse");
             }
         }
         app.init(app.getNav);

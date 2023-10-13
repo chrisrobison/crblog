@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css">
   <link rel="stylesheet" href="assets/css/adminlte.css">
 <style>
-ul#funlist { 
+ul#toollist { 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
 }
-ul#funlist li {
+ul#toollist li {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -33,20 +33,20 @@ ul#funlist li {
   transition: all 50ms linear;
   transform: scale(1);
 }
-ul#funlist li:hover {
+ul#toollist li:hover {
   transform: scale(1.1);
 
 }
-.fun-desc {
+.tool-desc {
   font-size: 0.8em;
   font-weight: 300;
 }
-.fun-link {
+.tool-link {
   color: #000;
   font-weight: 700;
   font-size: 1.1rem;
 }
-.fun-link:hover {
+.tool-link:hover {
   text-decoration: underline;
 }
 .screenshot {
@@ -79,46 +79,19 @@ ul#funlist li:hover {
     <!-- Main content -->
     <section class="content sanserif" style="flex-direction:column;">
         <div class="blog sanserif">
-            <h1>Entertaining Things</h1>
+            <h1>Tools</h1>
             <hr>
             <blockquote style="font-size:0.9em;font-weight:300;">
-              Fun is one of the most important - and underrated - ingredients in any successful venture. If you're not having fun, then it's probably time to call it quits and try something else.
-              <cite>-- Sir Richard Branson</cite>
+              Technology is nothing. What's important is that you have a faith in people, that they're basically good and smart, and if you give them tools, they'll do wonderful things with them.
+              <cite>-- Steve Jobs</cite>
             </blockquote>
             <hr>
-            <p>This is a small collection of some of the silly, fun projects I've done in the past that are the result of 
-                recreational programming, trying out various ideas or demonstrating something new.  
-                None of these are meant to be complete;
-                They are "works-in-progress" that I'll touch from time to time and improve on.  Some are 
-                more complete than others, some things may not even run.  They are just for fun.  So enjoy!
+            <p>
+              A few online tools I've made that I find useful.
             </p>
           </div>
           <div class="sanserif">
-            <ul id="funlist">
-                <li>
-                    <a href="https://quickconquest.com" target="_blank">
-                        <img src="assets/img/quickconquest.png" class="screenshot"><br>
-                        Quick Conquest
-                    </a>
-                </li>
-                 <li>
-                    <a href="https://cdr2.com/jobfun/" target="_blank">
-                        <img src="assets/img/jobhunt.gif" class="screenshot"><br>
-                        Job Hunt Simulator 
-                    </a>
-                </li>
-                <li>
-                    <a href="https://cdr2.com/bees/" target="_blank">
-                        <img src="assets/img/bees2.gif" class="screenshot"><br>
-                        The Bees
-                    </a>
-                </li>
-                 <li>
-                    <a href="https://cdr2.com/carlton-css/" target="_blank">
-                        <img src="assets/img/carlton.gif" class="screenshot"><br>
-                        Pure CSS Carlton Dance
-                    </a>
-                </li>
+            <ul id="toollist">
             </ul>
         </div>
     </section>
@@ -152,10 +125,10 @@ ul#funlist li:hover {
   const $$ = str => document.querySelectorAll(str);
   let app = {
     init: function() {
-      fetch("fun.json").then(r=>r.json()).then(data=>{
+      fetch("tools.json").then(r=>r.json()).then(data=>{
         app.data = data;
         let out = app.makeList(data);
-        $("#funlist").innerHTML = out;
+        $("#toollist").innerHTML = out;
       });
     },
     makeList: function(data) {
@@ -164,11 +137,11 @@ ul#funlist li:hover {
         //  loadTab: function(url="home.html", title="New Tab", name="newtab", autoshow=true, evt) {
         let tabname = item.title.replace(/\W/g, '');
         out += `<li>
-  <a href="${item.url}" class="fun-link" onclick="return parent.app.loadTab('${item.url}', '${item.title}', '${tabname}', true, event)" target="_blank">
+  <a href="${item.url}" class="tool-link" onclick="return parent.app.loadTab('${item.url}', '${item.title}', '${tabname}', true, event)" target="_blank">
       <img src="${item.screenshot}" class="screenshot"><br>
-      <div class="fun-title">${item.title}</div>
+      <div class="tool-title">${item.title}</div>
   </a>
-  <div class="fun-desc">${item.desc}</div>
+  <div class="tool-desc">${item.desc}</div>
 </li>`;
       }
       
