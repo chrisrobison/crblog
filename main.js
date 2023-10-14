@@ -63,7 +63,8 @@
             return out;
         },
         makeList: async function(arr, noul=false, noicons=false) {
-            let out = (noul) ? "" : `<ul class="nav nav-treeview">`;
+            let icos = noicons ? "icons-no" : "icons-yes";
+            let out = (noul) ? "" : `<ul class="nav nav-treeview ${icos}">`;
             let target, haschild, hasinclude, toggle = '', arrow = `<i class="right fas fa-angle-left" onclick="parentElement.parentElement.parentElement.classList.toggle('menu-open');"></i>`;
             let mopen = 0;
             
@@ -94,7 +95,7 @@
                         haschild = 1;
                     }
                     if (haschild) {
-                        out += await app.makeList(item["_children"], false, true);
+                        out += await app.makeList(item["_children"], false, !item["_childicons"]);
                     }
                     out += "</li>";
                     mopen = 0;
@@ -109,8 +110,16 @@
                 evt.stopPropagation();
             }
 
+            
+            document.querySelectorAll(".fa-circle-dot")?.forEach(el=>{el.classList.remove("fa-circle-dot"); el.classList.add("fa-circle")});
+
             if (who) {
+                if (who.closest(".icons-no")) {
+                    who.querySelector("i").classList.remove("fa-circle");
+                    who.querySelector("i").classList.add("fa-circle-dot");
+                }
                 let tgt = who.getAttribute("target");
+                who.parentElement.classList.add("active");
                 if (tgt == "_blank") {
                     window.open(who.getAttribute("href"), tgt);
                 } else {

@@ -13,6 +13,7 @@
     {
       "title": "Links",
       "icon": "fas fa-link",
+      "_childicons": true,
       "_children": [
         {
           "title": "LinkedIn",
@@ -38,6 +39,7 @@
       "title": "Resume",
       "url": "/cv/generated/list2.php",
       "icon": "fa-regular fa-file",
+      "_childicons": true,
       "_children": [
         {
           "title": "Styled Resumes",
@@ -65,6 +67,7 @@
       "title": "Blog Posts",
       "url": "blog/",
       "icon": "fa-regular fa-message",
+      "_childicons": false,
       "_children": [
         {
           "title": "Ancient Petroglyphs",
@@ -128,94 +131,110 @@
       "title": "Fun",
       "icon": "fas fa-bolt",
       "url": "fun.html",
+      "_childicons": true,
       "_children": [
         {
-          "title": "Quick Conquest",
-          "url": "https://quickconquest.com/",
-          "desc": "Command and conquer the world, quickly!",
-          "category": "strategy",
-          "screenshot": "assets/img/quickconquest.png",
-          "icon": "fas fa-building"
+          "title": "Games",
+          "url": "fun.html?type=games",
+          "icon": "fas fa-dice",
+          "_childicons": false,
+          "_children": [
+            {
+              "title": "Quick Conquest",
+              "url": "https://quickconquest.com/",
+              "desc": "Command and conquer the world, quickly!",
+              "category": "strategy",
+              "screenshot": "assets/img/quickconquest.png",
+              "icon": "fas fa-building"
+            },
+            {
+              "title": "Carlton Dance in CSS",
+              "url": "https://cdr2.com/carlton-css/",
+              "desc": "A silly pure CSS Carlton, doing his dance.",
+              "category": "fun",
+              "screenshot": "assets/img/carlton.gif",
+              "animation": "assets/img/carlton.gif",
+              "icon": "assets/img/dance.svg"
+            },
+            {
+              "title": "Job Hunt Simulator",
+              "url": "https://cdr2.com/jobfun/",
+              "desc": "How it feels to be looking for a job right now.",
+              "category": "action, maze",
+              "screenshot": "assets/img/jobhunt.gif",
+              "animation": "assets/img/jobhunt.gif",
+              "icon": "fas fa-magnifying-glass-dollar"
+            },
+             {
+              "title": "Bouncing Button",
+              "url": "https://bouncingbutton.com/",
+              "desc": "Avoid holes and collect buttons in this simple puzzle aim game.",
+              "category": "puzzle",
+              "screenshot": "assets/img/bouncingbutton.png",
+              "icon": "fas fa-circle-dot"
+            },
+            
+            {
+              "title": "The Bees",
+              "url": "https://cdr2.com/bees/",
+              "desc": "You are an outdoor enthusiast with a severe allergy to bees. Shoot the bees before they kill you! Displays the current conditions of the sky and weather as the game progresses.",
+              "category": "shooter",
+              "screenshot": "assets/img/bees.gif",
+              "animation": "assets/img/bees.gif",
+              "icon": "fas bee"
+            },
+            {
+              "title": "Wordoku",
+              "url": "https://cdr2.com/wordoku/",
+              "desc": "Sudoku games with 9-letter words",
+              "category": "puzzle",
+              "screenshot": "assets/img/wordoku.png",
+              "icon": "fas fa-table-cells"
+            },
+            {
+              "title": "Grapple",
+              "url": "https://cdr2.com/grapple/grapple.html",
+              "desc": "Swing your way up to safety! I made this when I found the animated GIF. What else could I do?",
+              "category": "puzzle",
+              "screenshot": "assets/img/grapple.gif",
+              "animation": "assets/img/grapple.gif",
+              "icon": "assets/img/dance.svg"
+            },
+            {
+              "title": "Balloon Pop",
+              "url": "/balloon-pop/",
+              "desc": "Quick little balloon popping game I made for my friends daughter.",
+              "category": "shooter",
+              "screenshot": "assets/img/balloonpop.png",
+              "animation": "assets/img/balloonpop.gif",
+              "icon": "assets/img/balloon.svg"
+            }
+          ]
         },
         {
-          "title": "Carlton Dance in CSS",
-          "url": "https://cdr2.com/carlton-css/",
-          "desc": "A silly pure CSS Carlton, doing his dance.",
-          "category": "fun",
-          "screenshot": "assets/img/carlton.gif",
-          "animation": "assets/img/carlton.gif",
-          "icon": "assets/img/dance.svg"
-        },
-        {
-          "title": "Job Hunt Simulator",
-          "url": "https://cdr2.com/jobfun/",
-          "desc": "How it feels to be looking for a job right now.",
-          "category": "action, maze",
-          "screenshot": "assets/img/jobhunt.gif",
-          "animation": "assets/img/jobhunt.gif",
-          "icon": "fas fa-magnifying-glass-dollar"
-        },
-         {
-          "title": "Bouncing Button",
-          "url": "https://bouncingbutton.com/",
-          "desc": "Avoid holes and collect buttons in this simple puzzle aim game.",
-          "category": "puzzle",
-          "screenshot": "assets/img/bouncingbutton.png",
-          "icon": "fas fa-circle-dot"
-        },
-        
-        {
-          "title": "The Bees",
-          "url": "https://cdr2.com/bees/",
-          "desc": "You are an outdoor enthusiast with a severe allergy to bees. Shoot the bees before they kill you! Displays the current conditions of the sky and weather as the game progresses.",
-          "category": "shooter",
-          "screenshot": "assets/img/bees.gif",
-          "animation": "assets/img/bees.gif",
-          "icon": "fas bee"
-        },
-        {
-          "title": "Wordoku",
-          "url": "https://cdr2.com/wordoku/",
-          "desc": "Sudoku games with 9-letter words",
-          "category": "puzzle",
-          "screenshot": "assets/img/wordoku.png",
-          "icon": "fas fa-table-cells"
-        },
-        {
-          "title": "Grapple",
-          "url": "https://cdr2.com/grapple/grapple.html",
-          "desc": "Swing your way up to safety! I made this when I found the animated GIF. What else could I do?",
-          "category": "puzzle",
-          "screenshot": "assets/img/grapple.gif",
-          "animation": "assets/img/grapple.gif",
-          "icon": "assets/img/dance.svg"
-        },
-        {
-          "title": "Balloon Pop",
-          "url": "/balloon-pop/",
-          "desc": "Quick little balloon popping game I made for my friends daughter.",
-          "category": "shooter",
-          "screenshot": "assets/img/balloonpop.png",
-          "animation": "assets/img/balloonpop.gif",
-          "icon": "assets/img/balloon.svg"
-        },
-        {
-          "title": "Parallax",
-          "url": "https://cdr2.com/parallax/parallax.html",
-          "desc": "Just a little doodle playing around with the parallax effect. I thought it came out nice.",
-          "category": "doodle",
-          "screenshot": "assets/img/parallax.gif",
-          "animation": "assets/img/parallax.gif",
-          "icon": "fas fa-layer-group"
-        },
-        {
-          "title": "Waterfall",
-          "url": "/waterfall/",
-          "desc": "Pure CSS cinemagraph of a waterfall.",
-          "category": "doodle",
-          "screenshot": "assets/img/waterfall.png",
-          "animation": "assets/img/waterfall.gif",
-          "icon": "fas fa-image"
+          "title": "Doodles",
+          "icon": "fas fa-palette",
+          "_childIcons": true,
+          "_children": [
+            {
+              "title": "Parallax",
+              "url": "https://cdr2.com/parallax/parallax.html",
+              "desc": "Just a little doodle playing around with the parallax effect. I thought it came out nice.",
+              "category": "doodle",
+              "screenshot": "assets/img/parallax.gif",
+              "animation": "assets/img/parallax.gif",
+              "icon": "fas fa-layer-group"
+            },
+            {
+              "title": "Waterfall",
+              "url": "/waterfall/",
+              "desc": "Pure CSS cinemagraph of a waterfall.",
+              "category": "doodle",
+              "screenshot": "assets/img/waterfall.png",
+              "animation": "assets/img/waterfall.gif",
+              "icon": "fas fa-image"
+            }
+          ]
         }
       ]
     },
@@ -223,6 +242,7 @@
       "title": "Tools",
       "icon": "fas fa-gear",
       "url": "tools.html",
+      "_childicons": true,
       "_children": [
         {
           "title": "Invoice Generator",
@@ -238,12 +258,23 @@
           "title": "Album Explorer",
           "url": "/autonomic/carousel/",
           "icon": "fas fa-music"
+        },
+        {
+          "title": "Booze Cluez",
+          "url": "https://boozecluez.com",
+          "icon": "fas fa-beer-mug-empty"
+        },
+        {
+          "title": "SF Street History",
+          "url": "/sfhistory/",
+          "icon": "fas fa-map-location-dot"
         }
-      ]
+]
     },
     {
       "title": "Miscellaneous",
       "icon": "fas fa-box-open",
+      "_childicons": true,
       "_children": [
         {
           "title": "Privacy Policy",
