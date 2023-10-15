@@ -125,7 +125,7 @@ ul#toollist li:hover {
   const $$ = str => document.querySelectorAll(str);
   let app = {
     init: function() {
-      fetch("tools.json").then(r=>r.json()).then(data=>{
+      fetch("nav/tools.json").then(r=>r.json()).then(data=>{
         app.data = data;
         let out = app.makeList(data);
         $("#toollist").innerHTML = out;

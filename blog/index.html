@@ -157,7 +157,7 @@
             out += `<li>
               <a class="heroWrap" href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.shorttitle}', '${item.name}', true, event);"><img src="${item.hero}" class="tinyhero"></a>
               <div><a href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.shorttitle}', '${item.name}', true, event);"><h2>${item.shorttitle}</h2><h3>${item.subtitle}</h3></a><hr><p class="blurb">${item.blurb}</p>
-                <a href="${item.link}" style="float:right;font-size:12px;" onclick="return parent.app.loadTab('${item.link}', '${item.shorttitle}', '${item.name}', true, event);">Read more...</a>
+                <a href="${item.link}" style="float:right;font-size:12px;" onclick="return parent.app.loadTab('${item.link}', '${item.shorttitle}', '${item.shorttitle.replace(/\W/g,'')}', true, event);">Read more...</a>
              </div>
             </li>`;
           }

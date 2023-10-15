@@ -1,0 +1,20 @@
+[
+        {
+          "title": "LinkedIn",
+          "url": "https://linkedin.com/in/crobison",
+          "icon": "fa-brands fa-linkedin",
+          "target": "_blank"
+        },
+        {
+          "title": "Github",
+          "url": "https://github.com/chrisrobison",
+          "icon": "fa-brands fa-github",
+          "target": "_blank"
+        },
+        {
+          "title": "CodePen",
+          "url": "https://codepen.io/ChristopherRobison",
+          "icon": "fa-brands fa-codepen",
+          "target": "_blank"
+        }
+      ]

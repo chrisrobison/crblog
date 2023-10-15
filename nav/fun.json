@@ -1,0 +1,15 @@
+[
+    {
+          "title": "Games",
+          "url": "fun.html?type=games",
+          "icon": "fas fa-dice",
+          "_childicons": false,
+          "_include": "nav/games.json"
+    },
+    {
+          "title": "Doodles",
+          "icon": "fas fa-palette",
+          "_childIcons": true,
+          "_include": "nav/doodles.json"
+    }
+]

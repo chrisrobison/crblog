@@ -1,0 +1,89 @@
+{
+  "sidemenu": [
+    {
+      "title": "Home",
+      "url": "home.html",
+      "icon": "fas fa-home"
+    },
+    {
+      "title": "Contact Me",
+      "url": "contact.html",
+      "icon": "fas fa-envelope"
+    },
+    {
+      "title": "Links",
+      "icon": "fas fa-link",
+      "hidden": true,
+      "_childicons": true,
+      "_include": "nav/links.json"
+    },
+    {
+      "title": "Resume",
+      "url": "/cv/generated/list2.php",
+      "icon": "fa-regular fa-file",
+      "_childicons": true,
+      "_include": "nav/resume.json"
+    },
+    {
+      "title": "Blog Posts",
+      "url": "blog/",
+      "icon": "fa-regular fa-message",
+      "_childicons": false,
+      "_include": "nav/blog.json"
+    },
+    {
+      "title": "Fun",
+      "icon": "fas fa-bolt",
+      "url": "fun.html",
+      "_childicons": true,
+      "_include": "nav/fun.json"
+    },
+    {
+      "title": "Tools",
+      "icon": "fas fa-gear",
+      "url": "tools.html",
+      "_childicons": true,
+      "_include": "nav/tools.json"
+    },
+    {
+      "title": "Miscellaneous",
+      "icon": "fas fa-box-open",
+      "_childicons": true,
+      "_children": [
+        {
+          "title": "Privacy Policy",
+          "url": "/policies/privacy.html",
+          "icon": "fas fa-book"
+        },
+        {
+          "title": "Cookie Policy",
+          "url": "/policies/cookie-policy.html",
+          "icon": "fas fa-passport"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "/policies/tos.html",
+          "icon": "fa-solid fa-bell-concierge"
+        }
+         
+      ]
+    },
+    {
+      "title": "Help",
+      "url": "help.html",
+      "icon": "fa-solid fa-circle-question",
+      "hidden": true
+    }
+  ],
+  "topmenu": [
+    {
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "title": "Contact",
+      "url": "contact.html"
+    }
+  ]
+}
+

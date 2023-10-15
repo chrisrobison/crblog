@@ -7,15 +7,19 @@
     }
     window.app = app = {
         ...window['app'],
-        addData: async function(data) {
-                app.data.nav = data;
-                console.dir(data);
-                app.state.loaded = true;
-                app.buildNav(data["sidemenu"]);
-             
+        addData: function(data) {
+            app.data.nav = data;
+            console.dir(data);
+            app.state.loaded = true;
+            
+            let navhtml = app.buildNav(data["sidemenu"]);
+            return navhtml; 
         },
-        init: function() {
-            fetch("nav.json").then(response=>response.json()).then(app.addData);
+        init: async function() {
+            let navjson = await app.getNav("nav/nav.json");
+            app.addData(navjson);
+
+            // fetch("nav.json").then(response=>response.json()).then(app.addData);
             jQuery(".content-wrapper").IFrame({ 
                 onTabClick(item) {
                     console.log(`onTabClick`);
@@ -53,16 +57,45 @@
             },
             nav: {}
         },
-        buildNav: async function(tree) {
+        getNav: async function(url="nav2.json") {
+            let resp = await fetch(url);
+            let data = await resp.json();
+            
+            if (data) {
+              for (let item of data.sidemenu) {
+                if (item._include) {
+                  item._children = await app.getChildren(item._include);        
+                  delete item._include;
+                }
+              }
+            }
+
+            return data;
+        },
+        getChildren: async function(file) {
+            if (file) {
+              let resp = await fetch(file);
+              let children = await resp.json();
+              
+              for (let item of children) {
+                if (item._include) {
+                  item._children = await app.getChildren(item._include);
+                  delete item._include;
+                }
+              }
+              return children;
+            }
+        },
+        buildNav: function(tree) {
             let out = `<ul class="nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">`;
-            out += await app.makeList(tree, true);
+            out += app.makeList(tree, true);
             out += `</ul>`;
 
             $("#sidemenu").innerHTML = out;
             jQuery("ul").Treeview();
             return out;
         },
-        makeList: async function(arr, noul=false, noicons=false) {
+        makeList: function(arr, noul=false, noicons=false) {
             let icos = noicons ? "icons-no" : "icons-yes";
             let out = (noul) ? "" : `<ul class="nav nav-treeview ${icos}">`;
             let target, haschild, hasinclude, toggle = '', arrow = `<i class="right fas fa-angle-left" onclick="parentElement.parentElement.parentElement.classList.toggle('menu-open');"></i>`;
@@ -84,18 +117,9 @@
                         navicon = " <i class='far fa-circle'></i> ";
                     }
                     out += `<li class="nav-item${menuopen}"><a href="${item.url}" ${target} onclick="return app.doClick(this, event)" class="nav-link">${navicon}<p>${item.title}${toggle}</p></a>`;
-                    if (hasinclude) {
-                        console.log(`grabbing ${item._include}`);
-                        const resp = await fetch(item._include);
-                        console.log("response");
-                        console.dir(resp);
-                        item["_children"] = await resp.json();
-                        console.log("item children");
-                        console.dir(item["_children"]);
-                        haschild = 1;
-                    }
+                    
                     if (haschild) {
-                        out += await app.makeList(item["_children"], false, !item["_childicons"]);
+                        out += app.makeList(item["_children"], false, !item["_childicons"]);
                     }
                     out += "</li>";
                     mopen = 0;

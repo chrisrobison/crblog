@@ -13,263 +13,37 @@
     {
       "title": "Links",
       "icon": "fas fa-link",
+      "hidden": true,
       "_childicons": true,
-      "_children": [
-        {
-          "title": "LinkedIn",
-          "url": "https://linkedin.com/in/crobison",
-          "icon": "fa-brands fa-linkedin",
-          "target": "_blank"
-        },
-        {
-          "title": "Github",
-          "url": "https://github.com/chrisrobison",
-          "icon": "fa-brands fa-github",
-          "target": "_blank"
-        },
-        {
-          "title": "CodePen",
-          "url": "https://codepen.io/ChristopherRobison",
-          "icon": "fa-brands fa-codepen",
-          "target": "_blank"
-        }
-      ]
+      "_include": "nav/links.json"
     },
     {
       "title": "Resume",
       "url": "/cv/generated/list2.php",
       "icon": "fa-regular fa-file",
       "_childicons": true,
-      "_children": [
-        {
-          "title": "Styled Resumes",
-          "url": "/cv/generated/list2.php",
-          "icon": "fas fa-rectangle-list"
-        },
-        {
-          "title": "Plain Resume",
-          "url": "/cv/generated/spartan.html",
-          "icon": "fas fa-envelope-open-text"
-        },
-        {
-          "title": "Questions to ask",
-          "url": "/jobhunt/questions.html",
-          "icon": "fas fa-file-lines"
-        },
-        {
-          "title": "Coverletter Tool",
-          "url": "/jobhunt/coverletter/",
-          "icon": "fas fa-clipboard-question"
-        }
-      ]
+      "_include": "nav/resume.json"
     },
     {
       "title": "Blog Posts",
       "url": "blog/",
       "icon": "fa-regular fa-message",
       "_childicons": false,
-      "_children": [
-        {
-          "title": "Ancient Petroglyphs",
-          "fulltitle": "The Global Aurora Theory",
-          "url": "blog/rockart.html",
-          "target": "iframe",
-          "icon": "fas fa-palette"
-        },
-        {
-          "title": "AI for Ads",
-          "fulltitle": "Data-Driven Decisions: Utilizing AI/ML in Your Advertising Platform",
-          "url": "blog/ai-ads.html",
-          "target": "iframe",
-          "icon": "fas fa-rectangle-ad"
-        },
-        {
-          "title": "Scaling Up",
-          "fulltitle": "Scaling Up: How to Manage a High-Volume Mobile Advertising Platform",
-          "url": "blog/scaling-up.html",
-          "target": "iframe",
-          "icon": "fa-solid fa-arrow-up-right-dots"
-        },
-        {
-          "title": "From 0 to 100",
-          "fulltitle": "From 0 to 100: A Guide to Assembling and Leading a Stellar Development Team",
-          "url": "blog/stellar-dev.html",
-          "target": "iframe",
-          "icon": "fas fa-hand-holding-dollar"
-        },
-        {
-          "title": "Adapting to Agile",
-          "fulltitle": "Adapting to Agile: How to Successfully Implement Agile Methodologies in Your Team",
-          "url": "blog/agile-howto.html",
-          "target": "iframe",
-          "icon": "fas fa-diagram-project"
-        },
-        {
-          "title": "Crossing the Divide",
-          "fulltitle": "Crossing the Divide: Bridging the Gap Between Software Engineering and Physical Computing",
-          "url": "blog/digital-divide.html",
-          "target": "iframe",
-          "icon": "fas fa-gears"
-        },
-        {
-          "title": "Code Review Culture",
-          "fulltitle": "Code Review Culture: How to Foster Excellence and Accountability Among Developers",
-          "url": "blog/codereview.html",
-          "target": "iframe",
-          "icon": "fas fa-code"
-        },
-        {
-          "title": "Real-Time Bidding",
-          "fulltitle": "Real-Time Bidding: A Deep Dive into RTB Systems and Its Impact on Online Advertising",
-          "url": "blog/rtb-thoughts.html",
-          "target": "iframe",
-          "icon": "fas fa-rectangle-ad"
-        }
-      ]
+      "_include": "nav/blog.json"
     },
     {
       "title": "Fun",
       "icon": "fas fa-bolt",
       "url": "fun.html",
       "_childicons": true,
-      "_children": [
-        {
-          "title": "Games",
-          "url": "fun.html?type=games",
-          "icon": "fas fa-dice",
-          "_childicons": false,
-          "_children": [
-            {
-              "title": "Quick Conquest",
-              "url": "https://quickconquest.com/",
-              "desc": "Command and conquer the world, quickly!",
-              "category": "strategy",
-              "screenshot": "assets/img/quickconquest.png",
-              "icon": "fas fa-building"
-            },
-            {
-              "title": "Carlton Dance in CSS",
-              "url": "https://cdr2.com/carlton-css/",
-              "desc": "A silly pure CSS Carlton, doing his dance.",
-              "category": "fun",
-              "screenshot": "assets/img/carlton.gif",
-              "animation": "assets/img/carlton.gif",
-              "icon": "assets/img/dance.svg"
-            },
-            {
-              "title": "Job Hunt Simulator",
-              "url": "https://cdr2.com/jobfun/",
-              "desc": "How it feels to be looking for a job right now.",
-              "category": "action, maze",
-              "screenshot": "assets/img/jobhunt.gif",
-              "animation": "assets/img/jobhunt.gif",
-              "icon": "fas fa-magnifying-glass-dollar"
-            },
-             {
-              "title": "Bouncing Button",
-              "url": "https://bouncingbutton.com/",
-              "desc": "Avoid holes and collect buttons in this simple puzzle aim game.",
-              "category": "puzzle",
-              "screenshot": "assets/img/bouncingbutton.png",
-              "icon": "fas fa-circle-dot"
-            },
-            
-            {
-              "title": "The Bees",
-              "url": "https://cdr2.com/bees/",
-              "desc": "You are an outdoor enthusiast with a severe allergy to bees. Shoot the bees before they kill you! Displays the current conditions of the sky and weather as the game progresses.",
-              "category": "shooter",
-              "screenshot": "assets/img/bees.gif",
-              "animation": "assets/img/bees.gif",
-              "icon": "fas bee"
-            },
-            {
-              "title": "Wordoku",
-              "url": "https://cdr2.com/wordoku/",
-              "desc": "Sudoku games with 9-letter words",
-              "category": "puzzle",
-              "screenshot": "assets/img/wordoku.png",
-              "icon": "fas fa-table-cells"
-            },
-            {
-              "title": "Grapple",
-              "url": "https://cdr2.com/grapple/grapple.html",
-              "desc": "Swing your way up to safety! I made this when I found the animated GIF. What else could I do?",
-              "category": "puzzle",
-              "screenshot": "assets/img/grapple.gif",
-              "animation": "assets/img/grapple.gif",
-              "icon": "assets/img/dance.svg"
-            },
-            {
-              "title": "Balloon Pop",
-              "url": "/balloon-pop/",
-              "desc": "Quick little balloon popping game I made for my friends daughter.",
-              "category": "shooter",
-              "screenshot": "assets/img/balloonpop.png",
-              "animation": "assets/img/balloonpop.gif",
-              "icon": "assets/img/balloon.svg"
-            }
-          ]
-        },
-        {
-          "title": "Doodles",
-          "icon": "fas fa-palette",
-          "_childIcons": true,
-          "_children": [
-            {
-              "title": "Parallax",
-              "url": "https://cdr2.com/parallax/parallax.html",
-              "desc": "Just a little doodle playing around with the parallax effect. I thought it came out nice.",
-              "category": "doodle",
-              "screenshot": "assets/img/parallax.gif",
-              "animation": "assets/img/parallax.gif",
-              "icon": "fas fa-layer-group"
-            },
-            {
-              "title": "Waterfall",
-              "url": "/waterfall/",
-              "desc": "Pure CSS cinemagraph of a waterfall.",
-              "category": "doodle",
-              "screenshot": "assets/img/waterfall.png",
-              "animation": "assets/img/waterfall.gif",
-              "icon": "fas fa-image"
-            }
-          ]
-        }
-      ]
+      "_include": "nav/fun.json"
     },
     {
       "title": "Tools",
       "icon": "fas fa-gear",
       "url": "tools.html",
       "_childicons": true,
-      "_children": [
-        {
-          "title": "Invoice Generator",
-          "url": "/invoice/",
-          "icon": "fas fa-file-invoice-dollar"
-        },
-        {
-          "title": "Thesaurus",
-          "url": "/thesaurus.html",
-          "icon": "fas fa-book"
-        },
-        {
-          "title": "Album Explorer",
-          "url": "/autonomic/carousel/",
-          "icon": "fas fa-music"
-        },
-        {
-          "title": "Booze Cluez",
-          "url": "https://boozecluez.com",
-          "icon": "fas fa-beer-mug-empty"
-        },
-        {
-          "title": "SF Street History",
-          "url": "/sfhistory/",
-          "icon": "fas fa-map-location-dot"
-        }
-]
+      "_include": "nav/tools.json"
     },
     {
       "title": "Miscellaneous",
@@ -312,3 +86,4 @@
     }
   ]
 }
+

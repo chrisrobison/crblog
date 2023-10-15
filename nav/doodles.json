@@ -1,0 +1,29 @@
+[
+            {
+              "title": "Parallax",
+              "url": "https://cdr2.com/parallax/parallax.html",
+              "desc": "Just a little doodle playing around with the parallax effect. I thought it came out nice.",
+              "category": "doodle",
+              "screenshot": "assets/img/parallax.gif",
+              "animation": "assets/img/parallax.gif",
+              "icon": "fas fa-layer-group"
+            },
+            {
+              "title": "Carlton Dance in CSS",
+              "url": "https://cdr2.com/carlton-css/",
+              "desc": "A silly pure CSS Carlton, doing his dance.",
+              "category": "fun",
+              "screenshot": "assets/img/carlton.gif",
+              "animation": "assets/img/carlton.gif",
+              "icon": "assets/img/dance.svg"
+            },
+            {
+              "title": "Waterfall",
+              "url": "/waterfall/",
+              "desc": "Pure CSS cinemagraph of a waterfall.",
+              "category": "doodle",
+              "screenshot": "assets/img/waterfall.png",
+              "animation": "assets/img/waterfall.gif",
+              "icon": "fas fa-image"
+            }
+          ]

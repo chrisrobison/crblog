@@ -1,5 +1,12 @@
 [
     {
+        "title": "Async/Await and Fetch",
+        "fulltitle": "A Guide for Real-World Application",
+        "url": "blog/async-fetch.html",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+     {
         "title": "Ancient Petroglyphs",
         "fulltitle": "The Global Aurora Theory",
         "url": "blog/rockart.html",

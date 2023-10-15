@@ -1,0 +1,27 @@
+[
+        {
+          "title": "Invoice Generator",
+          "url": "/invoice/",
+          "icon": "fas fa-file-invoice-dollar"
+        },
+        {
+          "title": "Thesaurus",
+          "url": "/thesaurus.html",
+          "icon": "fas fa-book"
+        },
+        {
+          "title": "Album Explorer",
+          "url": "/autonomic/carousel/",
+          "icon": "fas fa-music"
+        },
+        {
+          "title": "Booze Cluez",
+          "url": "https://boozecluez.com",
+          "icon": "fas fa-beer-mug-empty"
+        },
+        {
+          "title": "SF Street History",
+          "url": "/sfhistory/",
+          "icon": "fas fa-map-location-dot"
+        }
+]

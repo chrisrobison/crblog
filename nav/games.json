@@ -1,0 +1,63 @@
+[
+    {
+      "title": "Quick Conquest",
+      "url": "https://quickconquest.com/",
+      "desc": "Command and conquer the world, quickly!",
+      "category": "strategy",
+      "screenshot": "assets/img/quickconquest.png",
+      "icon": "fas fa-building"
+    },
+    {
+      "title": "Job Hunt Simulator",
+      "url": "https://cdr2.com/jobfun/",
+      "desc": "How it feels to be looking for a job right now.",
+      "category": "action, maze",
+      "screenshot": "assets/img/jobhunt.gif",
+      "animation": "assets/img/jobhunt.gif",
+      "icon": "fas fa-magnifying-glass-dollar"
+    },
+     {
+      "title": "Bouncing Button",
+      "url": "https://bouncingbutton.com/",
+      "desc": "Avoid holes and collect buttons in this simple puzzle aim game.",
+      "category": "puzzle",
+      "screenshot": "assets/img/bouncingbutton.png",
+      "icon": "fas fa-circle-dot"
+    },
+    {
+      "title": "The Bees",
+      "url": "https://cdr2.com/bees/",
+      "desc": "You are an outdoor enthusiast with a severe allergy to bees. Shoot the bees before they kill you! Displays the current conditions of the sky and weather as the game progresses.",
+      "category": "shooter",
+      "screenshot": "assets/img/bees.gif",
+      "animation": "assets/img/bees.gif",
+      "icon": "fas bee"
+    },
+    {
+      "title": "Wordoku",
+      "url": "https://cdr2.com/wordoku/",
+      "desc": "Sudoku games with 9-letter words",
+      "category": "puzzle",
+      "screenshot": "assets/img/wordoku.png",
+      "icon": "fas fa-table-cells"
+    },
+    {
+      "title": "Grapple",
+      "url": "https://cdr2.com/grapple/grapple.html",
+      "desc": "Swing your way up to safety! I made this when I found the animated GIF. What else could I do?",
+      "category": "puzzle",
+      "screenshot": "assets/img/grapple.gif",
+      "animation": "assets/img/grapple.gif",
+      "icon": "assets/img/dance.svg"
+    },
+    {
+      "title": "Balloon Pop",
+      "url": "/balloon-pop/",
+      "desc": "Quick little balloon popping game I made for my friends daughter.",
+      "category": "shooter",
+      "screenshot": "assets/img/balloonpop.png",
+      "animation": "assets/img/balloonpop.gif",
+      "icon": "assets/img/balloon.svg"
+    }
+]
+
