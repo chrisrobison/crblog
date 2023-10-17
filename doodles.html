@@ -152,7 +152,7 @@ ul#funlist li:hover {
   const $$ = str => document.querySelectorAll(str);
   let app = {
     init: function() {
-      fetch("nav/games.json").then(r=>r.json()).then(data=>{
+      fetch("nav/doodles.json").then(r=>r.json()).then(data=>{
         app.data = data;
         let out = app.makeList(data);
         $("#funlist").innerHTML = out;

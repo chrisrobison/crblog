@@ -34,7 +34,6 @@
     {
       "title": "Fun",
       "icon": "fas fa-bolt",
-      "url": "fun.html",
       "_childicons": true,
       "_include": "nav/fun.json"
     },

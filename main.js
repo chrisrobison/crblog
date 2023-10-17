@@ -20,23 +20,29 @@
             app.addData(navjson);
 
             // fetch("nav.json").then(response=>response.json()).then(app.addData);
-            jQuery(".content-wrapper").IFrame({ 
-                onTabClick(item) {
+            jQuery('.content-wrapper').IFrame({
+              onTabClick(item) {
                     console.log(`onTabClick`);
                     console.dir(item);
                     return item;
-                },
-                onTabChanged(item) {
+              },
+              onTabChanged(item) {
                     console.log(`onTabChanged`);
                     console.dir(item);
-                    return item;
-                },
-                onTabCreated(item) {
+                return item
+              },
+              onTabCreated(item) {
                     console.log(`onTabCreated`);
                     console.dir(item);
-                    return item;
-                },
-                allowDuplicates: false
+                return item
+              },
+              autoIframeMode: true,
+              autoItemActive: true,
+              autoShowNewTab: true,
+              autoDarkMode: true,
+              allowDuplicates: false,
+              loadingScreen: 500,
+              useNavbarItems: true
             });
         },
         state: {
@@ -188,8 +194,9 @@
                 jQuery(`#tab-${name}`).trigger("click");
             } else {
                 let cachebuster = new Date().getTime();
+                title = title.replace(/^([a-z])/, function(str) { return str.toUpperCase(); });
                 app.state.tabs[name] = {id: `tab-${name}`, title: `${title}` };
-                app.state.alltabs.push(jQuery(".content-wrapper").IFrame('createTab', title, url + `?bust=${cachebuster}`, name, autoshow));
+                jQuery(".content-wrapper").IFrame('createTab', title, url + `?bust=${cachebuster}`, name, autoshow);
             }
             return false;
         }

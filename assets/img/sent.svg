@@ -1,88 +1,4 @@
-<?php
-    $in = $_REQUEST;
-
-    $in['date'] = date("Y-m-d h:i:s");
-    $json = file_get_contents("incoming.txt");
-    $all = json_decode($json);
-
-    $all[] = $in;
-
-    file_put_contents("incoming.txt", json_encode($all));
-    
-
-?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body {
-            font-family: "Lexend", "Helvetica Neue", "Helvetica", sans-serif;
-            margin: 0;
-            padding: 0;
-            font-size: 14px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color:#000;
-        }
-
-        header {
-            background-color: #999;
-            color: #eee;
-            height: 0vh;
-        }
-
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            font-size: 32px;
-position: absolute;
-top: 0rem;
-text-align: center;
-height: 30rem;
-width: 100vw;
-z-index: 9999;
-color:#fff;
-text-shadow: 2px 2px 1px #000;
-
-        }
-
-        footer {
-            background-color: #666;
-            color: #eee;
-            height: 0vh;
-        }
-        h1 {
-            margin: 0px;
-        }
-
-        li {
-            display: flex;
-            flex-direction: row;
-            white-space: nowrap;
-        }
-        #bg {
-            width: 100vw;
-            height: 100vh;
-            position: absolute;
-            top:0px;
-            left: 0px;
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-<body>
-<svg id="bg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="e9Yjp3XycKs1" viewBox="0 -200 700 400" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="e9Yjp3XycKs1" viewBox="0 -200 700 400" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
 <style><![CDATA[
 #e9Yjp3XycKs14_tr {animation: e9Yjp3XycKs14_tr__tr 4000ms linear 1 normal forwards}@keyframes e9Yjp3XycKs14_tr__tr { 0% {transform: translate(1375.414001px,923.636321px) rotate(0deg);
 	animation-timing-function: cubic-bezier(0.215,0.61,0.355,1)} 12.5% {transform: translate(1375.414001px,923.636321px) rotate(50deg)} 100% {transform: translate(1375.414001px,923.636321px) rotate(50deg)}} #e9Yjp3XycKs14_tk {animation: e9Yjp3XycKs14_tk__tk 4000ms linear 1 normal forwards}@keyframes e9Yjp3XycKs14_tk__tk { 0% {transform: skewX(0deg) skewY(0deg);
@@ -225,7 +141,7 @@ text-shadow: 2px 2px 1px #000;
 	animation-timing-function: cubic-bezier(0.215,0.61,0.355,1)} 47.5% {transform: scale(0.7,1)} 56.25% {transform: scale(0.388674,1)} 100% {transform: scale(0.388674,1)}} #e9Yjp3XycKs101 {animation: e9Yjp3XycKs101_c_o 4000ms linear 1 normal forwards}@keyframes e9Yjp3XycKs101_c_o { 0% {opacity: 0} 50% {opacity: 0} 52.5% {opacity: 1} 100% {opacity: 1}}
 ]]></style>
 <g transform="matrix(.335245 0 0 0.335245 59.198993-200.565152)">
-		<rect width="1600" height="1199.8" rx="0" ry="0" transform="matrix(1.321372 0 0 1.018993-189.358241-13.218578)" fill="#ddd0"/>
+		<rect width="1600" height="1199.8" rx="0" ry="0" transform="matrix(1.321372 0 0 1.018993-189.358241-13.218578)" fill="#f7c436"/>
 		<g>
 		<g>
 		<rect width="45.63" height="353.56" rx="0" ry="0" transform="translate(836.08 612.2)" fill="#f77331"/>
@@ -373,60 +289,3 @@ text-shadow: 2px 2px 1px #000;
 		</g>
 		</g>
 		</svg>
-<main>
-<h1>Thank you, your message has been received.</h1>
-
-</main>
-<script>
-const $ = str => document.querySelector(str);
-const $$ = str => document.querySelectorAll(str);
-
-(function() {
-    const app = {
-        data: {},
-        state: {
-            loaded: false
-        },
-        init: function() {
-            app.state.loaded = true;
-        },
-        fetch: function(url, callback) {
-            fetch(url).then(response=>response.json()).then(data=>{
-                app.data = data;
-                app.state.loaded = true;
-                if (callback && typeof(callback) === "function") {
-                    callback(data);
-                }
-            });
-        },
-        display: function(data, tgt) {
-            let out = "<table><thead><tr>";
-            const keys = Object.keys(data[0]);
-            if (keys) {
-                keys.forEach(key => {
-                    out += `<th>${key}</th>`;
-                });
-            }
-            out += "</tr></thead><tbody>";
-            data.forEach(item=>{
-                out += `<tr>`;
-                keys.forEach(key => {
-                    out += `<td>${item[i]}</td>`;
-                });
-                out += `</tr>`;
-            });
-            out += "</tbody></table>";
-
-            if (tgt) {
-                tgt.innerHTML = out;
-            }
-            return out;
-        }
-    }
-    window.app = app;
-    app.init();
-})();
-</script>
-</body>
-
-</html>
