@@ -1,0 +1,124 @@
+[
+        {
+            "fulltitle": "Cross-Platform Mobile App Development Frameworks: Devil's Toolkits or Developer Nirvana?",
+            "title": "Cross-Platform Mobile Frameworks",
+            "subtitle": "Devil's Toolkits or Developer Nirvana?",
+            "link": "blog/mobile-frameworks.html",
+            "name": "mobileframeworks",
+            "target": "iframe",
+            "hero": "../assets/img/async-fetch2.jpg",
+            "icon": "fas fa-code",
+            "blurb": "The digital age has brought us an array of mobile devices running different operating systems like iOS and Android. Developing applications for multiple platforms usually involves writing distinct codebases for each OS, which can be cumbersome and time-consuming. This is where cross-platform mobile app development frameworks come into play."
+        },
+        {
+            "fulltitle": "Understanding the Javascript Event Loop: A Deep Dive",
+            "title": "The JS Event Loop",
+            "subtitle": "A Deep Dive",
+            "link": "blog/eventloop.html",
+            "name": "eventloop",
+            "target": "iframe",
+            "hero": "../assets/img/async-fetch2.jpg",
+            "icon": "fas fa-code",
+            "blurb": "JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we'll dissect the Event Loop to help you understand its inner workings."
+        },
+{
+            "fulltitle": "Mastering Async/Await and Fetch in JavaScript: A Guide for Real-World Application",
+            "title": "Async/Await and Fetch",
+            "subtitle": "A Guide for Real-World Application",
+            "link": "blog/async-fetch.html",
+            "name": "async-fetch",
+            "target": "iframe",
+            "hero": "../assets/img/async-fetch2.jpg",
+            "icon": "fas fa-code",
+            "blurb": "JavaScript, the language that's fundamental for front-end development, has evolved immensely over the years. One of the game-changing features introduced is the async/await syntax. This has revolutionized how developers write asynchronous code, making it more readable and manageable. Combine this with the fetch API for making network requests, and you've got a powerful toolkit at your fingertips."
+        },
+        {
+            "fulltitle": "Ancient Petroglyphs: A Theory of Global Catastrophe",
+            "title": "Ancient Petroglyphs",
+            "subtitle": "A Theory of Global Catastrophe",
+            "link": "blog/rockart.html",
+            "name": "rockart",
+            "target": "iframe",
+            "hero": "../assets/img/petroglyphs.jpg",
+            "icon": "fas fa-palette",
+            "blurb": "I was recently watching some youtube videos on ancient petroglyphs and rock art around California and the southwest and it got me thinking. The similarities between many of the figures from various sites is striking. After doing a bit of research online, it seems this imagery is not limited to North America but can be found all over the world! What's going on here?"
+        },
+        {
+            "fulltitle": "Data-Driven Decisions: Utilizing AI/ML in Your Advertising Platform",
+            "title": "Data-Driven Decisions",
+            "subtitle": "Utilizing AI/ML in Your Advertising Platform",
+            "link": "blog/ai-ads.html",
+            "name": "ai-ads",
+            "target": "iframe",
+            "hero": "../assets/img/robot-reading.jpg",
+            "icon": "fas fa-rectangle-ad",
+            "blurb": "In today's ultra-competitive online advertising landscape, leveraging data isn't just a bonus; it's a necessity. As someone who's led a mobile team in a prominent online ad company, I've seen first-hand how Artificial Intelligence and Machine Learning (AI/ML) can turn data into actionable insights, leading to more efficient and effective ad campaigns."
+        },
+        {
+            "fulltitle": "Scaling Up: How to Manage a High-Volume Mobile Advertising Platform",
+            "title": "Scaling Up",
+            "subtitle": "How to Manage a High-Volume Mobile Advertising Platform",
+            "link": "blog/scaling-up.html",
+            "name": "scaling-up",
+            "target": "iframe",
+            "hero": "../assets/img/scalingup.jpg",
+            "video": "../assets/img/scalingup.mp4",
+            "icon": "fa-solid fa-arrow-up-right-dots",
+            "blurb": "In today's fast-paced digital landscape, managing a high-volume mobile advertising platform can be a monumental task. As your user base grows, so does the complexity of serving ads at scale while maintaining performance and user experience. Based on years of experience in the online ad industry, here's a guide on how to scale up your mobile advertising platform effectively."
+        },
+        {
+            "fulltitle": "From 0 to 100: A Guide to Assembling and Leading a Stellar Development Team",
+            "title": "From 0 to 100",
+            "subtitle": "A Guide to Assembling and Leading a Stellar Development Team",
+            "link": "blog/stellar-dev.html",
+            "name": "stellar-dev",
+            "hero": "../assets/img/stellardev.jpg",
+            "target": "iframe",
+            "icon": "fas fa-hand-holding-dollar",
+            "blurb": "Assembling and leading a high-performing development team is a challenge that many engineering managers face. Over the years, I've navigated this task in multiple roles and learned that a stellar team is more than the sum of its parts. Here's a guide to building and leading a development team that truly excels."
+        },
+        {
+            "fulltitle": "Adapting to Agile: How to Successfully Implement Agile Methodologies in Your Team",
+            "title": "Adapting to Agile",
+            "subtitle": "How to Successfully Implement Agile Methodologies in Your Team",
+            "link": "blog/agile-howto.html",
+            "name": "agile",
+            "hero": "../assets/img/agile.jpg",
+            "target": "iframe",
+            "icon": "fas fa-diagram-project",
+            "blurb": "Agile is more than just a buzzword; it's a methodology that has revolutionized the software development landscape. Transitioning from traditional development models to Agile is a significant shift that requires buy-in at all levels. Here's my guide on how to successfully implement Agile methodologies in your team, based on years of experience in the tech industry."
+        },
+        {
+            "fulltitle": "Crossing the Divide: Bridging the Gap Between Software Engineering and Physical Computing",
+            "title": "Crossing the Divide",
+            "subtitle": "Bridging the Gap Between Software Engineering and Physical Computing",
+            "link": "blog/digital-divide.html",
+            "name": "digital-divide",
+            "hero": "../assets/img/digitaldivide.jpg",
+            "target": "iframe",
+            "icon": "fas fa-gears",
+            "blurb": "The realms of software engineering and physical computing have often been seen as separate entities. One deals with lines of code, abstract data structures, and virtual environments, while the other focuses on embedded systems, hardware-software interactions, and the tangible world. However, as someone deeply involved in both disciplines—from coding complex algorithms to designing 3D printers—the line separating these two fields is blurring more than ever. Here's how and why these domains should and are coming together."
+        },
+        {
+            "fulltitle": "Code Review Culture: How to Foster Excellence and Accountability Among Developers",
+            "title": "Code Review Culture",
+            "subtitle": "How to Foster Excellence and Accountability Among Developers",
+            "link": "blog/codereview.html",
+            "name": "codereview",
+            "hero": "../assets/img/codereview.jpg",
+            "target": "iframe",
+            "icon": "fas fa-code",
+            "blurb": "As someone who's worn multiple hats—from developer to engineering manager—I've witnessed firsthand the power of a strong code review culture. Code reviews are not just a formality but a linchpin in building a sustainable and healthy engineering team. Here's why code review culture is essential and how you can foster excellence and accountability among developers."
+        },
+        {
+            "fulltitle": "Real-Time Bidding: A Deep Dive into RTB Systems and Its Impact on Online Advertising",
+            "title": "Real-Time Bidding",
+            "subtitle": "A Deep Dive into RTB Systems and Its Impact on Online Advertising",
+            "link": "blog/rtb-thoughts.html",
+            "name": "rtb-thoughts",
+            "hero": "../assets/img/robot-reading.jpg",
+            "target": "iframe",
+            "icon": "fas fa-rectangle-ad",
+            "blurb": "Real-Time Bidding (RTB) has revolutionized the online advertising landscape, making it more efficient, targeted, and profitable for all stakeholders involved. Drawing upon years of experience in the online ad industry, this post aims to provide a deep dive into the intricate world of RTB systems and explore their far-reaching impact on the advertising ecosystem."
+        }
+    ]

@@ -9,6 +9,7 @@
     {
           "title": "Doodles",
           "icon": "fas fa-palette",
+          "url": "doodles.html?type=games",
           "_childIcons": true,
           "_include": "nav/doodles.json"
     }

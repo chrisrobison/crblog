@@ -22,13 +22,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blog Post</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
-              <li class="breadcrumb-item active">Blog Post</li>
+              <li class="breadcrumb-item active">%%title%%</li>
             </ol>
           </div>
         </div>
@@ -38,7 +37,13 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-
+          <h1 style="font-weight:900;">%%title%%</h1>
+          <h3>%%subtitle%%</h3>
+          <p><em>By Christopher Robison</em></p>
+          <hr>
+          <img height="241" width="640" src="%%hero%%" class="banner-pic"> 
+          <hr>
+          %%blogpost%%
         </div>
     </section>
     <!-- /.content -->
@@ -47,8 +52,8 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

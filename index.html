@@ -86,6 +86,9 @@
   .social-links {
     
   }
+  a.nav-link {
+    text-indent: -0.7rem;
+  }
   .user-panel div.image {
     display: flex;
     flex-direction: column;
@@ -314,6 +317,15 @@ background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"
             } else {
                 document.body.classList.add("sidebar-collapse");
             }
+        }
+        function fixIframeHeight() {
+            let  newheight = window.innerHeight - 
+                    document.querySelector(".nav.navbar").getBoundingClientRect()['height'] - 
+                    document.querySelector("nav.main-header").getBoundingClientRect()['height'];
+
+            document.querySelectorAll("iframe").forEach(el=>{
+                el.style.height = newheight + 'px';
+            });
         }
         app.init(app.getNav);
         getMenuState();

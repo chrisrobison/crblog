@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christopher Robison: Blog Entry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/adminlte.css">
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
+              <li class="breadcrumb-item active">%%shorttitle%%</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="blog">
+          <h1 style="font-weight:900;">Understanding the JavaScript Event Loop</h1>
+          <h3>A Brief Introduction</h3>
+          <p><em>By Christopher Robison</em></p>
+          <hr>
+          <img height="241" width="640" src="../assets/img/async-fetch2.jpg" class="banner-pic"> 
+          <hr>
+<h1 id="understanding-the-javascript-event-loop-a-deep-dive">Understanding the JavaScript Event Loop: A Brief Introduction</h1>
+<p>JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we’ll dissect the Event Loop to help you understand its inner workings.</p>
+<h2 id="the-call-stack-where-it-all-begins">The Call Stack: Where It All Begins</h2>
+<p>Before we dive into the Event Loop, it’s crucial to understand the Call Stack. Think of it as a stack of plates; the last plate you place on the stack will be the first one you take off. In JavaScript, when a function is invoked, it’s added to the Call Stack. The function is executed and removed from the stack once it’s finished.</p>
+<h2 id="heap-object-storage">Heap: Object Storage</h2>
+<p>The Heap is where objects are stored. Unlike the stack, which follows a last-in, first-out model, the Heap is unstructured, making it ideal for data storage.</p>
+<h2 id="the-event-queue-a-waiting-room">The Event Queue: A Waiting Room</h2>
+<p>JavaScript uses an Event Queue to keep track of all the events that occur. When an event happens—like a mouse click or data received from an API—the event’s callback function is placed into the Event Queue.</p>
+<h2 id="the-event-loop-the-grand-orchestrator">The Event Loop: The Grand Orchestrator</h2>
+<p>The Event Loop continuously checks the Call Stack to see if it’s empty. If it is, the Event Loop takes the first event from the Event Queue and moves it to the Call Stack for execution. This is how JavaScript manages to be non-blocking despite being single-threaded.</p>
+<h3 id="a-simple-analogy">A Simple Analogy</h3>
+<p>Imagine you’re cooking in a kitchen. You’ve got pasta boiling on one burner and sauce simmering on another. You can’t leave the pasta unattended, but you also need to stir the sauce. The Event Loop is like you—the chef—constantly checking each pot and knowing when to switch tasks to make sure nothing burns.</p>
+<h2 id="a-real-world-example">A Real-World Example</h2>
+<p>Let’s say you’ve got a button on your webpage that, when clicked, fetches data from an API. When the button is clicked, a ‘click’ event is registered, and its callback function is sent to the Event Queue. The Event Loop waits for the Call Stack to empty before moving the ‘click’ event’s callback function for execution. Once executed, the API data appears on your webpage—smooth and efficient.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The JavaScript Event Loop is an elegant solution to the challenges of asynchronous programming in a single-threaded environment. It ensures that JavaScript can handle multiple tasks simultaneously, without missing a beat. So, the next time your code performs like a well-oiled machine, tip your hat to the Event Loop—the unsung hero of JavaScript.</p>
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/adminlte.min.js"></script>
+</body>
+</html>
