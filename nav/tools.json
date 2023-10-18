@@ -1,28 +1,28 @@
 [
         {
           "title": "Invoice Generator",
-          "url": "/invoice/",
+          "link": "/invoice/",
           "icon": "fas fa-file-invoice-dollar",
           "desc": "A quick and easy invoice generator. Invoices can be saved and exported and you can generate PDF's.  Great for those \"one-time\" jobs.",
           "screenshot": "assets/img/invoice.png"
         },
         {
           "title": "Thesaurus",
-          "url": "/thesaurus.html",
+          "link": "/thesaurus.html",
           "desc": "World's simplest thesaurus without ads and nothing to sell.",
           "screenshot": "assets/img/thesaurus.jpg",
           "icon": "fas fa-book"
         },
         {
           "title": "Album Explorer",
-          "url": "/autonomic/carousel/",
+          "link": "/autonomic/carousel/",
           "icon": "fas fa-music",
           "desc": "Cool little album explorer idea I've been toying with.  You can add albums by name using the form at the top but be warned: there is no error handling for misspelled or missing album names. Click on an album to open it up and to see more information about the album such as track titles, history, other albums by the band and similar albums. Click an album anywhere to add it to your carousel. DOES NOT SAVE YOUR ADDITIONS. This is just a proof of concept.",
           "screenshot": "assets/img/coverflow.jpg"
         },
         {
           "title": "Booze Cluez",
-          "url": "https://boozecluez.com",
+          "link": "https://boozecluez.com",
           "icon": "fas fa-beer-mug-empty",
           "desc": "App to track an attempt to have one drink at every bar in San Francisco.",
           "screenshot": "assets/img/beerman.png"
@@ -30,7 +30,7 @@
         },
         {
           "title": "SF Street History",
-          "url": "/sfhistory/",
+          "link": "/sfhistory/",
           "icon": "fas fa-map-location-dot",
           "desc": "Explore the rich history of San Francisco street names and landmarks with maps, locations and history.",
           "screenshot": "assets/img/sfhistory.png"

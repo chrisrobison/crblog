@@ -1,7 +1,7 @@
 [
     {
       "title": "Quick Conquest",
-      "url": "https://quickconquest.com/",
+      "link": "https://quickconquest.com/",
       "desc": "Command and conquer the world, quickly!",
       "category": "strategy",
       "screenshot": "assets/img/quickconquest.png",
@@ -9,7 +9,7 @@
     },
     {
       "title": "Job Hunt Simulator",
-      "url": "https://cdr2.com/jobfun/",
+      "link": "https://cdr2.com/jobfun/",
       "desc": "How it feels to be looking for a job right now.",
       "category": "action, maze",
       "screenshot": "assets/img/jobhunt.gif",
@@ -18,7 +18,7 @@
     },
      {
       "title": "Bouncing Button",
-      "url": "https://bouncingbutton.com/",
+      "link": "https://bouncingbutton.com/",
       "desc": "Avoid holes and collect buttons in this simple puzzle aim game.",
       "category": "puzzle",
       "screenshot": "assets/img/bouncingbutton.png",
@@ -26,7 +26,7 @@
     },
     {
       "title": "The Bees",
-      "url": "https://cdr2.com/bees/",
+      "link": "https://cdr2.com/bees/",
       "desc": "You are an outdoor enthusiast with a severe allergy to bees. Shoot the bees before they kill you! Displays the current conditions of the sky and weather as the game progresses.",
       "category": "shooter",
       "screenshot": "assets/img/bees.gif",
@@ -35,7 +35,7 @@
     },
     {
       "title": "Wordoku",
-      "url": "https://cdr2.com/wordoku/",
+      "link": "https://cdr2.com/wordoku/",
       "desc": "Sudoku games with 9-letter words",
       "category": "puzzle",
       "screenshot": "assets/img/wordoku.png",
@@ -43,7 +43,7 @@
     },
     {
       "title": "Grapple",
-      "url": "https://cdr2.com/grapple/grapple.html",
+      "link": "https://cdr2.com/grapple/grapple.html",
       "desc": "Swing your way up to safety! I made this when I found the animated GIF. What else could I do?",
       "category": "puzzle",
       "screenshot": "assets/img/grapple.gif",
@@ -52,7 +52,7 @@
     },
     {
       "title": "Balloon Pop",
-      "url": "/balloon-pop/",
+      "link": "/balloon-pop/",
       "desc": "Quick little balloon popping game I made for my friends daughter.",
       "category": "shooter",
       "screenshot": "assets/img/balloonpop.png",

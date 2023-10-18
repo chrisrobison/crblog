@@ -2,12 +2,12 @@
   "sidemenu": [
     {
       "title": "Home",
-      "url": "home.html",
+      "link": "home.html",
       "icon": "fas fa-home"
     },
     {
       "title": "Contact Me",
-      "url": "contact.html",
+      "link": "contact.html",
       "icon": "fas fa-envelope"
     },
     {
@@ -19,14 +19,14 @@
     },
     {
       "title": "Resume",
-      "url": "/cv/generated/list2.php",
+      "link": "/cv/generated/list2.php",
       "icon": "fa-regular fa-file",
       "_childicons": true,
       "_include": "nav/resume.json"
     },
     {
       "title": "Blog Posts",
-      "url": "blog/",
+      "link": "blog/",
       "icon": "fa-regular fa-message",
       "_childicons": false,
       "_include": "nav/blog.json"
@@ -40,7 +40,7 @@
     {
       "title": "Tools",
       "icon": "fas fa-gear",
-      "url": "tools.html",
+      "link": "tools.html",
       "_childicons": true,
       "_include": "nav/tools.json"
     },
@@ -51,17 +51,17 @@
       "_children": [
         {
           "title": "Privacy Policy",
-          "url": "/policies/privacy.html",
+          "link": "/policies/privacy.html",
           "icon": "fas fa-book"
         },
         {
           "title": "Cookie Policy",
-          "url": "/policies/cookie-policy.html",
+          "link": "/policies/cookie-policy.html",
           "icon": "fas fa-passport"
         },
         {
           "title": "Terms of Service",
-          "url": "/policies/tos.html",
+          "link": "/policies/tos.html",
           "icon": "fa-solid fa-bell-concierge"
         }
          
@@ -69,7 +69,7 @@
     },
     {
       "title": "Help",
-      "url": "help.html",
+      "link": "help.html",
       "icon": "fa-solid fa-circle-question",
       "hidden": true
     }
@@ -77,11 +77,11 @@
   "topmenu": [
     {
       "title": "Home",
-      "url": "/"
+      "link": "/"
     },
     {
       "title": "Contact",
-      "url": "contact.html"
+      "link": "contact.html"
     }
   ]
 }

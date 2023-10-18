@@ -1,19 +1,19 @@
 [
         {
           "title": "LinkedIn",
-          "url": "https://linkedin.com/in/crobison",
+          "link": "https://linkedin.com/in/crobison",
           "icon": "fa-brands fa-linkedin",
           "target": "_blank"
         },
         {
           "title": "Github",
-          "url": "https://github.com/chrisrobison",
+          "link": "https://github.com/chrisrobison",
           "icon": "fa-brands fa-github",
           "target": "_blank"
         },
         {
           "title": "CodePen",
-          "url": "https://codepen.io/ChristopherRobison",
+          "link": "https://codepen.io/ChristopherRobison",
           "icon": "fa-brands fa-codepen",
           "target": "_blank"
         }

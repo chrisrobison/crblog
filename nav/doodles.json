@@ -1,7 +1,7 @@
 [
             {
               "title": "Parallax",
-              "url": "https://cdr2.com/parallax/parallax.html",
+              "link": "https://cdr2.com/parallax/parallax.html",
               "desc": "Just a little doodle playing around with the parallax effect. I thought it came out nice.",
               "category": "doodle",
               "screenshot": "assets/img/parallax.gif",
@@ -10,7 +10,7 @@
             },
             {
               "title": "Carlton Dance",
-              "url": "https://cdr2.com/carlton-css/",
+              "link": "https://cdr2.com/carlton-css/",
               "desc": "A silly pure CSS Carlton, doing his dance.",
               "category": "fun",
               "screenshot": "assets/img/carlton.gif",
@@ -19,11 +19,28 @@
             },
             {
               "title": "Waterfall",
-              "url": "/waterfall/",
+              "link": "/waterfall/",
               "desc": "Pure CSS cinemagraph of a waterfall.",
               "category": "doodle",
-              "screenshot": "assets/img/waterfall.png",
+              "screenshot": "assets/img/waterfall.gif",
               "animation": "assets/img/waterfall.gif",
               "icon": "fas fa-image"
-            }
-          ]
+            },
+            {
+              "title": "Chladni Patterns",
+              "link": "/chladni/",
+              "desc": "Chladni sound pattern simulator in JavaScript.",
+              "category": "doodle",
+              "screenshot": "assets/img/chladni.png",
+              "animation": "assets/img/chladni.gif",
+              "icon": "fas fa-image"
+            },
+            {
+              "title": "Arrows Illusion",
+              "link": "/arrows.html",
+              "desc": "I have no idea why I made this but here it is.",
+              "category": "doodle",
+              "screenshot": "assets/img/arrows.png",
+              "animation": "assets/img/arrows.gif",
+              "icon": "fas fa-image"
+            } ]

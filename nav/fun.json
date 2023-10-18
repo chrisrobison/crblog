@@ -1,7 +1,7 @@
 [
     {
           "title": "Games",
-          "url": "fun.html?type=games",
+          "link": "fun.html?type=games",
           "icon": "fas fa-dice",
           "_childicons": false,
           "_include": "nav/games.json"
@@ -9,7 +9,7 @@
     {
           "title": "Doodles",
           "icon": "fas fa-palette",
-          "url": "doodles.html?type=games",
+          "link": "doodles.html?type=doodle",
           "_childIcons": true,
           "_include": "nav/doodles.json"
     }
