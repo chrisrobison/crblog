@@ -46,13 +46,13 @@ while ($file = array_shift($argv)) {
     $out->title = $parts[0];
     $out->subtitle = $parts[1];
     $out->link = "blog/".$fparts[0].".html";
+    $out->name = strtolower(preg_replace("/\W/", '', $out->title));
     $out->target = "iframe";
     $out->hero = "../assets/img/".$fparts[0].".jpg";
     $out->icon = "fas fa-code";
     $out->blurb = $para[1];
 
     print "Done.\n";
-    print_r($out);
 
     print "\nWriting cleaned up markdown to tmp.md...";
     file_put_contents("tmp.md", join("\n", $lines));
@@ -76,19 +76,8 @@ while ($file = array_shift($argv)) {
     file_put_contents($fparts[0].".html", $html);
     print "Done.\n";
     print "Wrote ".strlen($html)." bytes to {$fparts[0]}.html\n";
-/*
-    {
-        "title": "Cross-Platform Mobile Frameworks",
-        "subtitle": "Devil's Toolkits or Developer Nirvana",
-        "fulltitle": "Cross-Platform Mobile App Development Frameworks: Devil's Toolkits or Developer Nirvana",
-        "link": "blog/mobile-frameworks.html",
-        "name": "mobileframeworks",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    */
-
     print "\nUpdating main site nav/blog.json...";
+    
     $out2 = new stdClass();
     $out2->title = $out->title;
     $out2->subtitle = $out->subtitle;
@@ -106,7 +95,7 @@ while ($file = array_shift($argv)) {
     file_put_contents("../nav/blog.json", json_encode($nav, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
     print "Done.\n\n";
 
-    print "Blog entry added. You should review posts.json, ../nav/blog.json and \n$fparts[0].html and change the hero image.\n";
+    print "Blog entry added. You should review the following files:\n\tposts.json\n\t../nav/blog.json\n\t$fparts[0].html\n\t../assets/img/$fparts[0].jpg\n\nBe sure to create or change the image $fparts[0].jpg\n";
 }
 
 ?>
