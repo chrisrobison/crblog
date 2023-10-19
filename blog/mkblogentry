@@ -57,7 +57,7 @@ while ($file = array_shift($argv)) {
     print "\nWriting cleaned up markdown to tmp.md...";
     file_put_contents("tmp.md", join("\n", $lines));
     print "Done.\nConverting markdown to html...";
-    $out->blogpost = `pandoc -f markdown -t html tmp.md`;
+    $out->blogpost = `pandoc --no-highlight -f markdown -t html5 tmp.md`;
     print "Done.\nRemoving tmp.md file...";
     $exe = `rm tmp.md`;
     print "Done.\n\n";

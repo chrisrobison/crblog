@@ -1,29 +1,14 @@
 [
     {
-        "fulltitle": "Caching Assets with Service Workers in JavaScript",
-        "title": "Caching Assets",
-        "subtitle": "Service Workers in JavaScript",
-        "link": "blog/service-workers.html",
-        "name": "service-workers",
-        "date": "2023-10-15",
-        "target": "iframe",
-        "hero": "../assets/img/service-workers.jpg",
-        "icon": "fas fa-code",
-        "tags": "JavaScript, Web, UI, Programming",
-        "blurb": "One of the biggest problems users face when using web apps is the loss of connectivity. You can't use it if you can't download it. The overriding issue has been that there was no client-side control mechanism for offline asset caching or intercepting network requests. But now we have Service Workers.  Service Workers are like magic elves that work in the background, making the web more powerful. They're perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. In this post, I'll walk through setting up a service worker for caching assets using a couple of different caching strategies."
-    },
-    {
         "fulltitle": "Balancing Fun and Functionality: The Key to a Fulfilling Life ",
         "title": "Balancing Fun and Functionality",
         "subtitle": "The Key to a Fulfilling Life ",
         "link": "blog/fun.html",
         "target": "iframe",
-        "name": "fun",
-        "date": "2023-03-15",
         "hero": "../assets/img/fun.jpg",
         "icon": "fas fa-code",
-        "tags": "Life Hacks, Business, Attitude",
-        "blurb": "Life is too short to be all work and no play, but it's also too valuable to squander away in idle fun. Striking the right balance between enjoyment and productivity isn't just a nice-to-have; it's essential for long-term well-being and success. Here's why incorporating fun into your life while still getting the job done is vital."
+        "blurb": "Life is too short to be all work and no play, but it's also too valuable to squander away in idle fun. Striking the right balance between enjoyment and productivity isn't just a nice-to-have; it's essential for long-term well-being and success. Here's why incorporating fun into your life while still getting the job done is vital.",
+        "blogpost": "<p>Life is too short to be all work and no play, but it\u2019s also too valuable to squander away in idle fun. Striking the right balance between enjoyment and productivity isn\u2019t just a nice-to-have; it\u2019s essential for long-term well-being and success. Here\u2019s why incorporating fun into your life while still getting the job done is vital.</p>\n<h2 id=\"boosts-creativity-and-problem-solving-skills\">Boosts Creativity and Problem-Solving Skills</h2>\n<p>When you\u2019re enjoying yourself, your brain releases endorphins, which can lead to increased creativity and better problem-solving skills. You become more open to new ideas and less stuck in your ways. Think about it; when you\u2019re relaxed, it\u2019s much easier to come up with innovative solutions. So, allowing time for fun can make you more efficient and effective in your work.</p>\n<h2 id=\"reduces-burnout\">Reduces Burnout</h2>\n<p>Work is important, but it\u2019s just one aspect of life. Focusing solely on work can lead to burnout, a state of emotional, physical, and mental exhaustion. The antidote? Fun! Engaging in activities you enjoy can act as a buffer against stress, making you more resilient in the long run.</p>\n<h2 id=\"improves-relationships\">Improves Relationships</h2>\n<p>Taking time for fun and relaxation often involves social activities, helping you build stronger relationships. These connections can be an excellent resource both personally and professionally. In a work context, this means better teamwork, more effective communication, and a generally more pleasant work environment.</p>\n<h2 id=\"keeps-you-grounded\">Keeps You Grounded</h2>\n<p>Incorporating fun into your routine also provides a sense of perspective. Not every task needs to be a life-or-death situation. Sometimes it\u2019s okay to let your hair down and remember that life is not just about hitting milestones; it\u2019s also about enjoying the journey.</p>\n<h2 id=\"tips-for-finding-the-right-balance\">Tips for Finding the Right Balance</h2>\n<ol type=\"1\">\n<li><p><strong>Prioritize:</strong> Not everything on your to-do list is urgent. Prioritize tasks and make sure to leave some time for activities you enjoy.</p></li>\n<li><p><strong>Schedule Fun:</strong> If it\u2019s not on the calendar, it won\u2019t happen. Make an effort to schedule leisure activities just like you would any other important appointment.</p></li>\n<li><p><strong>Set Boundaries:</strong> Make it a point to shut off from work after a certain hour. This discipline will not only make you more productive but also free up time for fun activities.</p></li>\n<li><p><strong>Be Present:</strong> Whether you\u2019re working or having fun, make sure to be present in the moment. This approach maximizes your enjoyment and effectiveness, no matter what you\u2019re doing.</p></li>\n</ol>\n<h2 id=\"conclusion\">Conclusion</h2>\n<p>Finding the right balance between fun and functionality is not a one-time act; it\u2019s an ongoing process. So the next time you\u2019re buried under a pile of work, remember that a little fun isn\u2019t just a frivolous indulgence\u2014it\u2019s a necessity. You might find that it not only makes life more enjoyable but also helps you get the job done better than ever before.</p>\n"
     },
     {
         "fulltitle": "Cross-Platform Mobile App Development Frameworks: Devil's Toolkits or Developer Nirvana?",
@@ -31,24 +16,20 @@
         "subtitle": "Devil's Toolkits or Developer Nirvana?",
         "link": "blog/mobile-frameworks.html",
         "name": "mobileframeworks",
-        "date": "2022-01-15",
         "target": "iframe",
         "hero": "../assets/img/mobile.jpg",
         "icon": "fas fa-code",
-        "tags": "Mobile Development, Programming, Cross-Platform",
         "blurb": "The digital age has brought us an array of mobile devices running different operating systems like iOS and Android. Developing applications for multiple platforms usually involves writing distinct codebases for each OS, which can be cumbersome and time-consuming. This is where cross-platform mobile app development frameworks come into play."
     },
     {
-        "fulltitle": "Understanding the Javascript Event Loop: A Quick Introduction",
+        "fulltitle": "Understanding the Javascript Event Loop: A Deep Dive",
         "title": "The JS Event Loop",
-        "subtitle": "A Quick Introduction",
+        "subtitle": "A Deep Dive",
         "link": "blog/eventloop.html",
         "name": "eventloop",
-        "date": "2021-08-22",
         "target": "iframe",
         "hero": "../assets/img/async-fetch2.jpg",
         "icon": "fas fa-code",
-        "tags": "JavaScript, Programming, Web",
         "blurb": "JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we'll dissect the Event Loop to help you understand its inner workings."
     },
     {
@@ -57,11 +38,9 @@
         "subtitle": "A Guide for Real-World Application",
         "link": "blog/async-fetch.html",
         "name": "async-fetch",
-        "date": "2021-01-10",
         "target": "iframe",
         "hero": "../assets/img/async-fetch2.jpg",
         "icon": "fas fa-code",
-        "tags": "JavaScript, Programming, Web",
         "blurb": "JavaScript, the language that's fundamental for front-end development, has evolved immensely over the years. One of the game-changing features introduced is the async/await syntax. This has revolutionized how developers write asynchronous code, making it more readable and manageable. Combine this with the fetch API for making network requests, and you've got a powerful toolkit at your fingertips."
     },
     {
@@ -70,11 +49,9 @@
         "subtitle": "A Theory of Global Catastrophe",
         "link": "blog/rockart.html",
         "name": "rockart",
-        "date": "2020-04-21",
         "target": "iframe",
         "hero": "../assets/img/petroglyphs.jpg",
         "icon": "fas fa-palette",
-        "tags": "Ancient History, Electric Universe, Lost Knowledge",
         "blurb": "I was recently watching some youtube videos on ancient petroglyphs and rock art around California and the southwest and it got me thinking. The similarities between many of the figures from various sites is striking. After doing a bit of research online, it seems this imagery is not limited to North America but can be found all over the world! What's going on here?"
     },
     {
@@ -83,11 +60,9 @@
         "subtitle": "Utilizing AI/ML in Your Advertising Platform",
         "link": "blog/ai-ads.html",
         "name": "ai-ads",
-        "date": "2020-01-08",
         "target": "iframe",
         "hero": "../assets/img/robot-reading.jpg",
         "icon": "fas fa-rectangle-ad",
-        "tags": "Database, AI, Advertising",
         "blurb": "In today's ultra-competitive online advertising landscape, leveraging data isn't just a bonus; it's a necessity. As someone who's led a mobile team in a prominent online ad company, I've seen first-hand how Artificial Intelligence and Machine Learning (AI/ML) can turn data into actionable insights, leading to more efficient and effective ad campaigns."
     },
     {
@@ -96,9 +71,7 @@
         "subtitle": "How to Manage a High-Volume Mobile Advertising Platform",
         "link": "blog/scaling-up.html",
         "name": "scaling-up",
-        "date": "2019-09-19",
         "target": "iframe",
-        "tags": "Production, Growth, Infrastructure",
         "hero": "../assets/img/scalingup.jpg",
         "video": "../assets/img/scalingup.mp4",
         "icon": "fa-solid fa-arrow-up-right-dots",
@@ -110,10 +83,8 @@
         "subtitle": "A Guide to Assembling and Leading a Stellar Development Team",
         "link": "blog/stellar-dev.html",
         "name": "stellar-dev",
-        "date": "2019-02-02",
         "hero": "../assets/img/stellardev.jpg",
         "target": "iframe",
-        "tags": "Growth, Team Building, Leadership",
         "icon": "fas fa-hand-holding-dollar",
         "blurb": "Assembling and leading a high-performing development team is a challenge that many engineering managers face. Over the years, I've navigated this task in multiple roles and learned that a stellar team is more than the sum of its parts. Here's a guide to building and leading a development team that truly excels."
     },
@@ -123,10 +94,8 @@
         "subtitle": "How to Successfully Implement Agile Methodologies in Your Team",
         "link": "blog/agile-howto.html",
         "name": "agile",
-        "date": "2019-06-13",
         "hero": "../assets/img/agile.jpg",
         "target": "iframe",
-        "tags": "Programming, Agile, Leadership",
         "icon": "fas fa-diagram-project",
         "blurb": "Agile is more than just a buzzword; it's a methodology that has revolutionized the software development landscape. Transitioning from traditional development models to Agile is a significant shift that requires buy-in at all levels. Here's my guide on how to successfully implement Agile methodologies in your team, based on years of experience in the tech industry."
     },
@@ -136,10 +105,8 @@
         "subtitle": "Bridging the Gap Between Software Engineering and Physical Computing",
         "link": "blog/digital-divide.html",
         "name": "digital-divide",
-        "date": "2019-09-27",
         "hero": "../assets/img/digitaldivide.jpg",
         "target": "iframe",
-        "tags": "Hardware, 3D Printing, Skynet",
         "icon": "fas fa-gears",
         "blurb": "The realms of software engineering and physical computing have often been seen as separate entities. One deals with lines of code, abstract data structures, and virtual environments, while the other focuses on embedded systems, hardware-software interactions, and the tangible world. However, as someone deeply involved in both disciplines\u2014from coding complex algorithms to designing 3D printers\u2014the line separating these two fields is blurring more than ever. Here's how and why these domains should and are coming together."
     },
@@ -149,11 +116,9 @@
         "subtitle": "How to Foster Excellence and Accountability Among Developers",
         "link": "blog/codereview.html",
         "name": "codereview",
-        "date": "2018-06-19",
         "hero": "../assets/img/codereview.jpg",
         "target": "iframe",
         "icon": "fas fa-code",
-        "tags": "Programming, Agile, Leadership",
         "blurb": "As someone who's worn multiple hats\u2014from developer to engineering manager\u2014I've witnessed firsthand the power of a strong code review culture. Code reviews are not just a formality but a linchpin in building a sustainable and healthy engineering team. Here's why code review culture is essential and how you can foster excellence and accountability among developers."
     },
     {
@@ -162,10 +127,8 @@
         "subtitle": "A Deep Dive into RTB Systems and Its Impact on Online Advertising",
         "link": "blog/rtb-thoughts.html",
         "name": "rtb-thoughts",
-        "date": "2017-12-10",
         "hero": "../assets/img/robot-reading.jpg",
         "target": "iframe",
-        "tags": "Advertising, Web, Programming",
         "icon": "fas fa-rectangle-ad",
         "blurb": "Real-Time Bidding (RTB) has revolutionized the online advertising landscape, making it more efficient, targeted, and profitable for all stakeholders involved. Drawing upon years of experience in the online ad industry, this post aims to provide a deep dive into the intricate world of RTB systems and explore their far-reaching impact on the advertising ecosystem."
     }

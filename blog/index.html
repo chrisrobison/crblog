@@ -31,7 +31,7 @@
     text-decoration: underline;
   }
   .tinyhero {
-    width: 24rem;
+    width: 21rem;
       margin: 0.5rem auto;
   }
   ul.entries {
@@ -42,7 +42,7 @@
   }
   ul.entries li {
     padding: 1rem;
-    width: 25rem;
+    width: 21rem;
     list-style: none;
     background: #fff;
     border: 1px solid #0003;
@@ -52,6 +52,7 @@
     text-align: center;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
   ul.entries li div {
     text-align: left;
@@ -140,7 +141,8 @@
     (function() {
       let app = {
         init: function() {
-          app.loadList("posts.json?123");
+          app.loadList("posts.json");
+          parent.fixIframeHeight();
         },
         data: {
 

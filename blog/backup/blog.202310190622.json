@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Balancing Fun and Functionality",
+        "subtitle": "The Key to a Fulfilling Life ",
+        "fulltitle": "Balancing Fun and Functionality: The Key to a Fulfilling Life ",
+        "link": "blog/fun.html",
+        "name": "balancingfunandfunctionality",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Cross-Platform Mobile Frameworks",
+        "subtitle": "Devil's Toolkits or Developer Nirvana",
+        "fulltitle": "Cross-Platform Mobile App Development Frameworks: Devil's Toolkits or Developer Nirvana",
+        "link": "blog/mobile-frameworks.html",
+        "name": "mobileframeworks",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "The JS Event Loop",
+        "subtitle": "A Brief Introduction",
+        "fulltitle": "Understanding the Javascript Event Loop: A Brief Introduction",
+        "link": "blog/eventloop.html",
+        "name": "eventloop",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Async/Await and Fetch",
+        "fulltitle": "Async/Await and Fetch: A Guide for Real-World Application",
+        "link": "blog/async-fetch.html",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Ancient Petroglyphs",
+        "fulltitle": "Ancient Petroglyphs: The Global Aurora Theory",
+        "link": "blog/rockart.html",
+        "target": "iframe",
+        "icon": "fas fa-palette"
+    },
+    {
+        "title": "AI for Ads",
+        "fulltitle": "Data-Driven Decisions: Utilizing AI/ML in Your Advertising Platform",
+        "link": "blog/ai-ads.html",
+        "target": "iframe",
+        "icon": "fas fa-rectangle-ad"
+    },
+    {
+        "title": "Scaling Up",
+        "fulltitle": "Scaling Up: How to Manage a High-Volume Mobile Advertising Platform",
+        "link": "blog/scaling-up.html",
+        "target": "iframe",
+        "icon": "fa-solid fa-arrow-up-right-dots"
+    },
+    {
+        "title": "From 0 to 100",
+        "fulltitle": "From 0 to 100: A Guide to Assembling and Leading a Stellar Development Team",
+        "link": "blog/stellar-dev.html",
+        "target": "iframe",
+        "icon": "fas fa-hand-holding-dollar"
+    },
+    {
+        "title": "Adapting to Agile",
+        "fulltitle": "Adapting to Agile: How to Successfully Implement Agile Methodologies in Your Team",
+        "link": "blog/agile-howto.html",
+        "target": "iframe",
+        "icon": "fas fa-diagram-project"
+    },
+    {
+        "title": "Crossing the Divide",
+        "fulltitle": "Crossing the Divide: Bridging the Gap Between Software Engineering and Physical Computing",
+        "link": "blog/digital-divide.html",
+        "target": "iframe",
+        "icon": "fas fa-gears"
+    },
+    {
+        "title": "Code Review Culture",
+        "fulltitle": "Code Review Culture: How to Foster Excellence and Accountability Among Developers",
+        "link": "blog/codereview.html",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Real-Time Bidding",
+        "fulltitle": "Real-Time Bidding: A Deep Dive into RTB Systems and Its Impact on Online Advertising",
+        "link": "blog/rtb-thoughts.html",
+        "target": "iframe",
+        "icon": "fas fa-rectangle-ad"
+    }
+]

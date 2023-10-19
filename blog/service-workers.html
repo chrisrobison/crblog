@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christopher Robison: Blog Entry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/adminlte.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
+              <li class="breadcrumb-item active">Caching Assets</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="blog">
+          <h1 style="font-weight:900;">Caching Assets</h1>
+          <h3>Using Service Workers in JavaScript</h3>
+          <p><em>By Christopher Robison</em></p>
+          <hr>
+          <img width="640" src="../assets/img/serviceworkers.jpg" class="banner-pic"> 
+          <hr>
+          <p>One of the biggest problems users face when using web apps is the loss of connectivity. You can’t use it if you can’t download it. The overriding issue has been that there was no client-side control mechanism for offline asset caching or intercepting network requests. But now we have Service Workers. Service Workers are like magic elves that work in the background, making the web more powerful. They’re perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. In this post, I’ll walk through setting up a service worker for caching assets using a couple of different caching strategies.</p>
+<p>A service worker functions like a proxy server, allowing you to modify requests and responses replacing them with items from its own cache.</p>
+<h2 id="setup-registering-a-service-worker">Setup: Registering a Service Worker</h2>
+<p>Before we dive into caching, we’ll need to register a service worker. Service Workers must be served over HTTPS as they are restricted to secure domains.</p>
+<blockquote>
+<p>If you don’t have a secure domain you can use, <code>localhost</code> is usually considered a secure origin by most browsers for local development.</p>
+</blockquote>
+<p>Save the following code in a file called <code>sw.js</code>.</p>
+<pre class="javascript"><code>self.addEventListener(&#39;install&#39;, (event) =&gt; {
+  // Your install logic here
+});
+
+self.addEventListener(&#39;fetch&#39;, (event) =&gt; {
+  // Your fetch logic here
+});</code></pre>
+<p>This next part is our entry point into using service workers. Include this code in your main JavaScript file (app.js) to register the service worker:</p>
+<pre class="javascript"><code>
+const registerServiceWorker = async () =&gt; {
+  if (&quot;serviceWorker&quot; in navigator) {
+    try {
+      const registration = await navigator.serviceWorker.register(&quot;/sw.js&quot;, {
+        scope: &quot;/&quot;,
+      });
+      if (registration.installing) {
+        console.log(&quot;Service worker installing&quot;);
+      } else if (registration.waiting) {
+        console.log(&quot;Service worker installed&quot;);
+      } else if (registration.active) {
+        console.log(&quot;Service worker active&quot;);
+      }
+    } catch (error) {
+      console.error(`Registration failed with ${error}`);
+    }
+  }
+};
+
+// …
+
+registerServiceWorker();
+</code></pre>
+<ol type="1">
+<li>The if-block performs a feature detection test to make sure service workers are supported before trying to register one.</li>
+<li>Then ServiceWorkerContainer.register() function is called to register the service worker for this site. The service worker code is in a JavaScript file residing inside our app</li>
+</ol>
+<p>Remember, that this code is run as a service worker, which runs in a worker context, and therefore has no DOM access.</p>
+<blockquote>
+<p>Note: By using service worker feature detection, browsers that do not support service workers will continue to work normally, they just won’t work offline.</p>
+</blockquote>
+<h2 id="fill-your-cache-install-activate">Fill your cache: install &amp; activate:</h2>
+<p>After the service worker is registered, the browser will attempt to <code>install</code> and then <code>activate</code> the service worker for your app.</p>
+<p>The <code>install</code> event is fired when an service worker installation is successfully completed. The <code>install</code> event is where you pre-fetch the assets you need to run your app offline and store them for later use. We use the Service Worker’s storage API, aptly named <code>cache</code>, which is basically a non-blocking persistent version of localStorage where we store our pre-fetched assets keyed by their request URL. The contents of the cache are kept until they are cleared or overwritten.</p>
+<p>Here’s how a service worker handles the install event:</p>
+<pre><code>const addResourcesToCache = async (resources) =&gt; {
+  const cache = await caches.open(&quot;v1&quot;);
+  await cache.addAll(resources);
+};
+
+self.addEventListener(&quot;install&quot;, (event) =&gt; {
+  event.waitUntil(
+    addResourcesToCache([
+      &quot;/&quot;,
+      &quot;/index.html&quot;,
+      &quot;/style.css&quot;,
+      &quot;/app.js&quot;,
+      &quot;/data.json&quot;,
+      &quot;/img/logo.jpg&quot;,
+      &quot;/img/image1.jpg&quot;,
+      &quot;/img/image2.jpg&quot;
+    ]),
+  );
+});
+</code></pre>
+<ol type="1">
+<li>First we add an <code>install</code> event listener to the service worker (hence self), and then chain a ExtendableEvent.waitUntil() method onto the event. This creates a promise that ensures that the service worker will not install until the code inside waitUntil() has completed.</li>
+<li>Inside addResourcesToCache() we use the caches.open() method to create a new cache called v1, which will be version 1 of our site resources cache. Then we call a function addAll() on the created cache with an array of URLs to cache.</li>
+<li>If the promise is rejected, the installation fails, and the worker won’t do anything. This is OK, as you can fix your code and then try again the next time registration occurs.</li>
+<li>After a successful installation, the service worker activates.</li>
+</ol>
+<h2 id="custom-responses-to-requests">Custom responses to requests</h2>
+<p>With our assets now cached, we need to instruct our service workers on how to serve our cached content. This is done within the fetch event.</p>
+<ol type="1">
+<li>A fetch event fires every time any resource controlled by a service worker is requested, which includes the documents inside the specified scope, and any resources referenced in those documents (for example if index.html makes a cross-origin request to embed an image, that still goes through its service worker.)</li>
+<li>Add an event listener for the <code>fetch</code> event to the service worker, then call the <code>respondWith()</code> method on the event to hijack the HTTP requests and respond with our cached content.</li>
+</ol>
+<pre><code>self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
+  event.respondWith(caches.match(event.request));
+});
+</code></pre>
+<p><code>caches.match(event.request)</code> allows us to match each resource requested from the network with the equivalent resource available in the cache, if there is a matching one available. The matching is done via URL and various headers, just like with normal HTTP requests.</p>
+<h2 id="failed-requests">Failed Requests</h2>
+<p><code>caches.match(event.request)</code> works great when it matches something in the service worker cache, but what about when there isn’t? As our code currently stands, there is no failure handling so our promise would end up resolving with <code>undefined</code> and we wouldn’t get anything returned.</p>
+<p>Let’s add some code that first tries the cache and falls back to a regular network request:</p>
+<pre><code>const cacheFirst = async (request) =&gt; {
+  const responseFromCache = await caches.match(request);
+  if (responseFromCache) {
+    return responseFromCache;
+  }
+  return fetch(request);
+};
+
+self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
+  event.respondWith(cacheFirst(event.request));
+});
+</code></pre>
+<p>If the resources aren’t in the cache, they are requested from the network. This is usually referred to as the <q>cache-then-network</q> strategy. But we can do better.</p>
+<p>By adding a few extra lines of code, we can not only request the un-cached resources from the network but we can also store them in our cache for later. This allows your app to consistently work offline, even when new resources are requested:</p>
+<pre><code>const putInCache = async (request, response) =&gt; {
+  const cache = await caches.open(&quot;v1&quot;);
+  await cache.put(request, response);
+};
+
+const cacheFirst = async (request) =&gt; {
+  const responseFromCache = await caches.match(request);
+  if (responseFromCache) {
+    return responseFromCache;
+  }
+  const responseFromNetwork = await fetch(request);
+  putInCache(request, responseFromNetwork.clone());
+  return responseFromNetwork;
+};
+
+self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
+  event.respondWith(cacheFirst(event.request));
+});</code></pre>
+<p>The only trouble we have now is that if the request doesn’t match anything in the cache, and the network is not available, our request will still fail. Let’s provide a default fallback so that whatever happens, the user will at least get something:</p>
+<pre><code>const putInCache = async (request, response) =&gt; {
+  const cache = await caches.open(&quot;v1&quot;);
+  await cache.put(request, response);
+};
+
+const cacheFirst = async ({ request, fallbackUrl }) =&gt; {
+  // First try to get the resource from the cache
+  const responseFromCache = await caches.match(request);
+  if (responseFromCache) {
+    return responseFromCache;
+  }
+
+  // Next try to get the resource from the network
+  try {
+    const responseFromNetwork = await fetch(request);
+    
+    // response cloned because responses can only be read once
+    putInCache(request, responseFromNetwork.clone());   
+    return responseFromNetwork;
+  } catch (error) {
+    const fallbackResponse = await caches.match(fallbackUrl);
+    if (fallbackResponse) {
+      return fallbackResponse;
+    }
+    // when even the fallback response is not available,
+    // there is nothing we can do, but we must always
+    // return a Response object. Let&#39;s return a nice message
+    return new Response(&quot;External resource unavailable&quot;, {
+      status: 408,
+      headers: { &quot;Content-Type&quot;: &quot;text/plain&quot; },
+    });
+  }
+};
+
+self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
+  event.respondWith(
+    cacheFirst({
+      request: event.request,
+      fallbackUrl: &quot;/img/image1.jpg&quot;,
+    }),
+  );
+});</code></pre>
+<h2 id="service-worker-updates">Service worker updates</h2>
+<p>If there is an updated version of a previously installed service worker, the newer version will be available on page refresh/reload. It is installed in the background but will not be activated yet. It is only activated when there are no longer any pages loaded that are still using the old service worker. As soon as nothing is using the old service worker, the new service worker will be activated.</p>
+<p>You will need to update your <code>install</code> event listener in the new service worker with a new version number:</p>
+<pre><code>const addResourcesToCache = async (resources) =&gt; {
+  const cache = await caches.open(&quot;v2&quot;);
+  await cache.addAll(resources);
+};
+
+self.addEventListener(&quot;install&quot;, (event) =&gt; {
+  event.waitUntil(
+    addResourcesToCache([
+      &quot;/&quot;,
+      &quot;/index.html&quot;,
+      &quot;/style.css&quot;,
+      &quot;/app.js&quot;,
+      &quot;/image-list.js&quot;,
+
+      // …
+
+      // include other new resources for the new version…
+    ]),
+  );
+});
+
+</code></pre>
+<h2 id="removing-stale-content">Removing stale content</h2>
+<p>When a service worker is updated to a new version, a new cache is created in the <code>install</code> event handler. If there are open pages that are using the previous version of the worker, both caches must be kept. You can use the <code>activate</code> event to remove data from the previous caches.</p>
+<p>Promises passed into <code>waitUntil()</code> will block other events until completion, so the clean-up operation is guaranteed to have completed by the time the first fetch event on the new service worker fires.</p>
+<pre><code>const deleteCache = async (key) =&gt; {
+  await caches.delete(key);
+};
+
+const deleteOldCaches = async () =&gt; {
+  const cacheKeepList = [&quot;v2&quot;];
+  const keyList = await caches.keys();
+  const cachesToDelete = keyList.filter((key) =&gt; !cacheKeepList.includes(key));
+  await Promise.all(cachesToDelete.map(deleteCache));
+};
+
+self.addEventListener(&quot;activate&quot;, (event) =&gt; {
+  event.waitUntil(deleteOldCaches());
+});
+</code></pre>
+
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/adminlte.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
