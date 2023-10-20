@@ -1,8 +1,10 @@
 # Caching Assets with Service Workers in JavaScript
 
-One of the biggest problems users face when using web apps is the loss of connectivity. You can't use it if you can't download it. The overriding issue has been that there was no client-side control mechanism for offline asset caching or intercepting network requests. But now we have Service Workers.  Service Workers are like magic elves that work in the background, making the web more powerful. They're perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. In this post, I'll walk through setting up a service worker for caching assets using a couple of different caching strategies. 
+We've all been there. You're on your computer, online taking care of business. You're just wrapping up the final part of a 6-part online job application form and you click submit. The page just spins and after a few seconds, you get the dreaded <q>Network not available</q> screen and all your work is now gone. Sure, browser    s have gotten better at recovering from these types of scenarios but we need to be able to write software that will work, offline or online, if we expect users to rely on our web-based applications.
 
-A service worker functions like a proxy server, allowing you to modify requests and responses replacing them with items from its own cache.
+Until recently, there was little you could do to address the loss of connectivity as there was no client-side control mechanism for offline asset caching nor any way to hook into and hijack network requests. But now there are Service Workers. They're perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. But don't confuse <code>Service Workers</code> with <code>Web Workers</code>; They are very similar but have one key diff erence: <code>Service Workers</code> are persistent while <code>Web Workers</code> are not. That means anything done in a Service Worker will continue to execute, even af ter the page has unloaded while anything done within a Web Worker is removed when the page is closed.</p> 
+
+tl;dr: A service worker functions like a proxy server, allowing you to modify requests and responses replacing them with items from its own cache. In this post, I’ll walk through setting up a service worker for caching assets and explore using a couple of different caching strategies.
 
 ## Setup: Registering a Service Worker
 
