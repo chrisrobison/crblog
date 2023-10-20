@@ -36,6 +36,15 @@
               "icon": "fas fa-image"
             },
             {
+              "title": "Butterchurn",
+              "link": "/butterchurn/examples/demo.html",
+              "desc": "Old school music visualization.",
+              "category": "doodle",
+              "screenshot": "assets/img/butterchurn.jpg",
+              "icon": "fas fa-image"
+            },
+
+            {
               "title": "Arrows Illusion",
               "link": "/arrows.html",
               "desc": "I have no idea why I made this but here it is.",
