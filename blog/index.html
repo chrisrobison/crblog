@@ -32,7 +32,7 @@
   }
   .tinyhero {
     width: 21rem;
-      margin: 0.5rem auto;
+      margin: 0 auto 0.5rem auto;
   }
   ul.entries {
     display: flex;
@@ -41,7 +41,7 @@
     justify-content: space-around;
   }
   ul.entries li {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
     width: 21rem;
     list-style: none;
     background: #fff;
@@ -49,13 +49,18 @@
     box-shadow: 0.25rem 0.25rem 0.25rem #0003;
     margin-bottom: 1rem;
     display: flex;
+    height: 26rem;
     text-align: center;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    position: relative;
   }
   ul.entries li div {
     text-align: left;
+  }
+  ul.entries li div.blogdate {
+    text-align: right;
   }
   .entries h2 {
     font-size: 1.5rem;
@@ -73,6 +78,7 @@
     height: 9rem;
     display: flex;
     overflow: hidden;
+    flex: none;
   }
   hr {
     height: 1px;
@@ -83,6 +89,42 @@
     ul.entries {
       padding: 0; margin: 0;
     }
+  }
+  .blogdate {
+    text-align: right;
+    font-size: 12px;
+    width: 100%;
+  }
+  .preview {
+    display: flex;
+    flex-direction: column;
+
+  }
+  p.blurb {
+    position: relative;
+    height: 100%;
+  }
+  p.blurb::after {
+    display: inline-block;
+    content: " ";
+    width: 100%;
+    height: 2rem;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 999;
+  }
+  .readmore {
+    height: 3rem;
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    right: 0px;
+    background: linear-gradient(0deg, #fff, 94%, transparent);
+    text-align: right;
+    padding-top: 0.75rem;
+    padding-right: .5rem;
   }
 </style>
 </head>
@@ -119,7 +161,12 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-    </div>
+    <.nav-item .nav-item p {
+    overflow: hidden;
+    display: inline-block;
+    width: 90%;
+    padding-left: 1rem;
+}/div>
     <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
   </footer>
 
@@ -153,14 +200,26 @@
             app.data.entries = data;
           });
         },
+        cleanDate(str) {
+          const months = ['','January','February','March','April','May','June','July','August','September','October','November','December'];
+          const st = ['','st','nd','rd','th'];
+          let parts = str.split(/\-/);
+          const monum = parts[1].toString().replace(/^0/,'');
+          return months[monum].substring(0, 3) + " " + parts[2].toString().replace(/^0/, '') + ", " + parts[0];
+
+        },
         renderList: function(data) {
           let out = "<ul class='entries'>";
           for (let item of data) {
+            let showdate = (item.date) ? app.cleanDate(item.date) : "";
             out += `<li>
               <a class="heroWrap" href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.title}', '${item.name}', true, event);"><img src="${item.hero}" class="tinyhero"></a>
-              <div><a href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.title}', '${item.name}', true, event);"><h2>${item.title}</h2><h3>${item.subtitle}</h3></a><hr><p class="blurb">${item.blurb}</p>
-                <a href="${item.link}" style="float:right;font-size:12px;" onclick="return parent.app.loadTab('${item.link}', '${item.title}', '${item.title.replace(/\W/g,'')}', true, event);">Read more...</a>
+              <div class="blogdate">${showdate}</div>
+              <div class="preview">
+                <a href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.title}', '${item.name}', true, event);"><h2>${item.title}</h2><h3>${item.subtitle}</h3></a><hr>
+                <p class="blurb">${item.blurb}</p>
              </div>
+             <a class="readmore" href="${item.link}" onclick="return parent.app.loadTab('${item.link}', '${item.title}', '${item.name}', true, event);">Read more...</a>
             </li>`;
           }
           out += `</ul>`;
