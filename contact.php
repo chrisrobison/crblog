@@ -1,14 +1,20 @@
 <?php
     $in = $_REQUEST;
-
+    
+if (array_key_exists("name", $in) && array_key_exists("email", $in)) {
+    $now = date("Ymdhis");
     $in['date'] = date("Y-m-d h:i:s");
     $json = file_get_contents("incoming.txt");
+
     $all = json_decode($json);
-
-    $all[] = $in;
-
-    file_put_contents("incoming.txt", json_encode($all));
-    
+    if (is_array($all)) {
+        $all[] = $in;
+        $now = date("Ymdhi");
+        $newjson = json_encode($all);
+        file_put_contents("incoming.txt", $newjson);
+        file_put_contents("incoming/$now.json", json_encode($in));
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +37,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color:#000;
+            background-color:#333;
         }
 
         header {
