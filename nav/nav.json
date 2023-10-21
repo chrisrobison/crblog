@@ -6,6 +6,11 @@
       "icon": "fas fa-home"
     },
     {
+      "title": "About Me",
+      "link": "about.html",
+      "icon": "fas fa-circle-info"
+    },
+    {
       "title": "Contact Me",
       "link": "contact.html",
       "icon": "fas fa-envelope"
@@ -34,6 +39,7 @@
     {
       "title": "Fun",
       "icon": "fas fa-bolt",
+      "link": "fun.html",
       "_childicons": true,
       "_include": "nav/fun.json"
     },
@@ -82,6 +88,14 @@
     {
       "title": "Contact",
       "link": "contact.html"
+    },
+    {
+      "title": "About",
+      "link": "about.html"
+    },
+    {
+      "title": "Blog",
+      "link": "blog/"
     }
   ]
 }

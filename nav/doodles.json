@@ -36,6 +36,16 @@
               "icon": "fas fa-image"
             },
             {
+              "title": "Phantom Zone",
+              "link": "/phantomzone.html",
+              "desc": "A re-creation of the <q>Phantom Zone</q> from Superman II but instead of General Zod, it's you!",
+              "category": "doodle",
+              "screenshot": "assets/img/phantomzone.gif",
+              "animation": "assets/img/phantomzone.mp4",
+              "icon": "fas fa-image"
+            },
+
+            {
               "title": "Butterchurn",
               "link": "/butterchurn/examples/demo.html",
               "desc": "Old school music visualization.",

@@ -7,13 +7,6 @@
           "screenshot": "assets/img/invoice.png"
         },
         {
-          "title": "Thesaurus",
-          "link": "/thesaurus.html",
-          "desc": "World's simplest thesaurus without ads and nothing to sell.",
-          "screenshot": "assets/img/thesaurus.jpg",
-          "icon": "fas fa-book"
-        },
-        {
           "title": "Album Explorer",
           "link": "/autonomic/carousel/",
           "icon": "fas fa-music",
@@ -35,5 +28,12 @@
           "desc": "Explore the rich history of San Francisco street names and landmarks with maps, locations and history.",
           "screenshot": "assets/img/sfhistory.png"
 
+        },
+        {
+          "title": "Thesaurus",
+          "link": "/thesaurus.html",
+          "desc": "World's simplest thesaurus without ads and nothing to sell.",
+          "screenshot": "assets/img/thesaurus.jpg",
+          "icon": "fas fa-book"
         }
 ]
