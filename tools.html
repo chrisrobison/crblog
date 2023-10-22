@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Christopher Robison: Blog Entry</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/adminlte.css">
-<style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Christopher Robison: Blog Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/adminlte.css">
+    <style>
 ul#toollist { 
   display: flex;
   flex-direction: row;
@@ -52,33 +52,41 @@ ul#toollist li:hover {
 }
 .screenshot {
 }
-</style>
-</head>
-<body class="hold-transition iframe-mode sanserif">
-<!-- Site wrapper -->
-<div class="wrapper">
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Fun Stuff</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Fun</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+@media screen and (max-width: 600px) { 
+  ul#toollist li {
+    width: 100%;
+  }
+  #toollist {
+    padding: 0;
+    margin: 0;
+  }
+}
+    </style>
+  </head>
+  <body class="hold-transition iframe-mode sanserif">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Tools</li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
 
-    <!-- Main content -->
-    <section class="content sanserif" style="flex-direction:column;">
-        <div class="blog sanserif">
+        <!-- Main content -->
+        <section class="content sanserif" style="flex-direction:column;">
+          <div class="blog sanserif">
             <h1>Tools</h1>
             <hr>
             <blockquote style="font-size:0.9em;font-weight:300;">
@@ -93,70 +101,71 @@ ul#toollist li:hover {
           <div class="sanserif">
             <ul id="toollist">
             </ul>
+          </div>
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
         </div>
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+        <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+      </footer>
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
-  </footer>
+    <!-- ./wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="assets/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="assets/js/adminlte.min.js"></script>
-<script>
-(function() {
-  const $ = str => document.querySelector(str);
-  const $$ = str => document.querySelectorAll(str);
-  let app = {
-    init: function() {
-      fetch("nav/tools.json").then(r=>r.json()).then(data=>{
-        app.data = data;
-        let out = app.makeList(data);
-        $("#toollist").innerHTML = out;
-      });
-    },
-    makeList: function(data) {
-      let out = "";
-      for (const item of data) {
-        //  loadTab: function(url="home.html", title="New Tab", name="newtab", autoshow=true, evt) {
-        let tabname = item.title.replace(/\W/g, '');
-        out += `<li>
-  <a href="${item.url}" class="tool-link" onclick="return parent.app.loadTab('${item.url}', '${item.title}', '${tabname}', true, event)" target="_blank">
+    <!-- jQuery -->
+    <script src="assets/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="assets/js/adminlte.min.js"></script>
+    <script>
+      (function() {
+        const $ = str => document.querySelector(str);
+        const $$ = str => document.querySelectorAll(str);
+        let app = {
+          init: function() {
+            parent.fixIframeHeight();
+            fetch("nav/tools.json").then(r=>r.json()).then(data=>{
+              app.data = data;
+              let out = app.makeList(data);
+              $("#toollist").innerHTML = out;
+            });
+          },
+          makeList: function(data) {
+            let out = "";
+            for (const item of data) {
+              //  loadTab: function(url="home.html", title="New Tab", name="newtab", autoshow=true, evt) {
+              let tabname = item.title.replace(/\W/g, '');
+              out += `<li>
+  <a href="${item.link}" class="tool-link" onclick="return parent.app.loadTab('${item.link}', '${item.title}', '${tabname}', true, event)" target="_blank">
       <img src="${item.screenshot}" class="screenshot"><br>
       <div class="tool-title">${item.title}</div>
   </a>
   <div class="tool-desc">${item.desc}</div>
 </li>`;
-      }
-      
-      return out;
-    },
-    data: {
+            }
 
-    },
-    state: {
+            return out;
+          },
+          data: {
 
-    }
-  };
-  window.app = app;
-  app.init();
-})();
-</script>
-</body>
+          },
+          state: {
+
+          }
+        };
+        window.app = app;
+        app.init();
+      })();
+    </script>
+  </body>
 </html>

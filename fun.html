@@ -156,6 +156,7 @@ ul#funlist li:hover {
         app.data = data;
         let out = app.makeList(data);
         $("#funlist").innerHTML = out;
+      parent.fixIframeHeight();
       });
     },
     makeList: function(data) {
@@ -164,7 +165,7 @@ ul#funlist li:hover {
         //  loadTab: function(url="home.html", title="New Tab", name="newtab", autoshow=true, evt) {
         let tabname = item.title.replace(/\W/g, '');
         out += `<li>
-  <a href="${item.url}" class="fun-link" onclick="return parent.app.loadTab('${item.url}', '${item.title}', '${tabname}', true, event)" target="_blank">
+  <a href="${item.link}" class="fun-link" onclick="return parent.app.loadTab('${item.link}', '${item.title}', '${tabname}', true, event)" target="_blank">
       <img src="${item.screenshot}" class="screenshot"><br>
       <div class="fun-title">${item.title}</div>
   </a>
