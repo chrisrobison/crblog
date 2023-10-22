@@ -1,5 +1,18 @@
 [
     {
+        "fulltitle": "Haunted History: San Francisco ",
+        "title": "Haunted History",
+        "subtitle": "San Francisco ",
+        "link": "blog/haunted-sf.html",
+        "name": "hauntedhistory",
+        "date": "2023-10-21",
+        "target": "iframe",
+        "hero": "../assets/img/haunted-sf.jpg",
+        "icon": "fas fa-ghost",
+        "tags": "San Francisco, SF, Ghost, Tours",
+        "blurb": "San Francisco has earned a reputation as a world-class haunted city. With it's beginnings as a gold rush town through today's technology boom, The City's tumultuous past has lured many tortured souls to remain. This is my personal list of haunted or spooky places in San Francisco that you don't usually see in other lists. This list is by no means exhaustive, just some places and stories I have found to be spooky and interesting."
+    },
+    {
         "fulltitle": "Caching Assets with Service Workers in JavaScript",
         "title": "Caching Assets",
         "subtitle": "Service Workers in JavaScript",
@@ -23,7 +36,7 @@
         "hero": "../assets/img/fun.jpg",
         "icon": "fas fa-code",
         "tags": "Life Hacks, Business, Attitude",
-        "blurb": "Life is too short to be all work and no play, but it's also too valuable to squander away in idle fun. Striking the right balance between enjoyment and productivity isn't just a nice-to-have; it's essential for long-term well-being and success. Here's why incorporating fun into your life while still getting the job done is vital."
+        "blurb": "Life is too valuable to squander in idle fun but it's also too short to be all work and no play. Striking the right balance between enjoyment and productivity isn't just a nice-to-have; it's essential for long-term well-being and success. Here's why incorporating fun into your life while still getting the job done is vital."
     },
     {
         "fulltitle": "Cross-Platform Mobile App Development Frameworks: Devil's Toolkits or Developer Nirvana?",
@@ -46,7 +59,7 @@
         "name": "eventloop",
         "date": "2021-08-22",
         "target": "iframe",
-        "hero": "../assets/img/async-fetch2.jpg",
+        "hero": "../assets/img/async-fetch.jpg",
         "icon": "fas fa-code",
         "tags": "JavaScript, Programming, Web",
         "blurb": "JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we'll dissect the Event Loop to help you understand its inner workings."

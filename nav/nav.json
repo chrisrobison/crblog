@@ -6,12 +6,12 @@
       "icon": "fas fa-home"
     },
     {
-      "title": "About Me",
+      "title": "About",
       "link": "about.html",
       "icon": "fas fa-circle-info"
     },
     {
-      "title": "Contact Me",
+      "title": "Contact",
       "link": "contact.html",
       "icon": "fas fa-envelope"
     },

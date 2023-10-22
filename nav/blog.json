@@ -1,5 +1,14 @@
 [
     {
+        "title": "Haunted History",
+        "subtitle": "San Francisco ",
+        "fulltitle": "Haunted History: San Francisco ",
+        "link": "blog/haunted-sf.html",
+        "name": "hauntedhistory",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
         "title": "Caching Assets",
         "subtitle": "Using Service Workers in Javascript",
         "fulltitle": "Caching Assets Using Service Workers in JavaScript",
