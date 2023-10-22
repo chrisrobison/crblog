@@ -52447,7 +52447,11 @@ section.content.serif, serif {
         width: 40rem;
     }
 .banner-pic {
-    width: 40rem;
+    width: 100%;
 }
+}
+
+.dark-mode a {
+  color: #cc0;
 }
 /*# sourceMappingURL=adminlte.css.map */

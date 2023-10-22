@@ -16,7 +16,7 @@
       "animation": "assets/img/jobhunt.gif",
       "icon": "fas fa-magnifying-glass-dollar"
     },
-     {
+    {
       "title": "Bouncing Button",
       "link": "https://bouncingbutton.com/",
       "desc": "Avoid holes and collect buttons in this simple puzzle aim game.",
@@ -34,6 +34,24 @@
       "icon": "fas bee"
     },
     {
+      "title": "Gridlock Panic",
+      "link": "https://gridlockpanic.com/",
+      "desc": "You control the flow of traffic but don't let the drivers get too angry.",
+      "category": "strategy,puzzle",
+      "screenshot": "assets/img/gridlockpanic.jpg",
+      "icon": "fas fa-table-cells"
+    },
+    {
+      "title": "ATC Panic",
+      "link": "https://atcpanic.com/",
+      "desc": "Air Traffic Control game where you land airplanes and helicoptors on the corrent landing strip. Don't let any aircraft collide or it's GAME OVER.",
+      "category": "strategy,puzzle",
+      "screenshot": "assets/img/atcpanic.jpg",
+      "icon": "fas fa-table-cells"
+    },
+
+
+    {
       "title": "Wordoku",
       "link": "https://cdr2.com/wordoku/",
       "desc": "Sudoku games with 9-letter words",
@@ -41,6 +59,7 @@
       "screenshot": "assets/img/wordoku.png",
       "icon": "fas fa-table-cells"
     },
+
     {
       "title": "Grapple",
       "link": "https://cdr2.com/grapple/grapple.html",
