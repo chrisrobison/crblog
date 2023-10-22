@@ -56,17 +56,17 @@
       "_children": [
         {
           "title": "Privacy Policy",
-          "link": "/policies/privacy.html",
+          "link": "/crblog/policies/privacy.html",
           "icon": "fas fa-book"
         },
         {
           "title": "Cookie Policy",
-          "link": "/policies/cookie-policy.html",
+          "link": "/crblog/policies/cookie-policy.html",
           "icon": "fas fa-passport"
         },
         {
           "title": "Terms of Service",
-          "link": "/policies/tos.html",
+          "link": "/crblog/policies/tos.html",
           "icon": "fa-solid fa-bell-concierge"
         }
          
