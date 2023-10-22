@@ -380,7 +380,7 @@ text-shadow: 2px 2px 1px #000;
 		</g>
 		</svg>
 <main>
-<h1>Thank you, your message has been received.</h1>
+<h2>Thank you, your message has been received.</h2>
 
 </main>
 <script>
