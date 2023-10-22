@@ -18,8 +18,11 @@
         init: async function() {
             let navjson = await app.getNav("nav/nav.json");
             app.addData(navjson);
-
-            // fetch("nav.json").then(response=>response.json()).then(app.addData);
+            app.buildTopNav(navjson.topmenu);
+            setInterval(function() { fixIframeHeight(); }, 5000);
+            document.addEventListener("click", function() {
+              setTimeout(function() { fixIframeHeight(); }, 2000);
+            });
             jQuery('.content-wrapper').IFrame({
               onTabClick(item) {
                     console.log(`onTabClick`);
@@ -92,6 +95,14 @@
               return children;
             }
         },
+        buildTopNav: function(topmenu) {
+            let out = `<li class="nav-item" style="margin-left:0.7rem;"><a class="nav-link" data-widget="pushmenu" onclick="saveMenuState()" href="#" role="button"><i class="fas fa-bars"></i></a></li>`;
+            for (const item of topmenu) {
+              out += `<li class="nav-item d-none d-sm-inline-block"><a href="${item.link}" class="nav-link">${item.title}</a></li>`;
+            }
+            $("#navbar-top-left").innerHTML = out;
+            return out;
+        },
         buildNav: function(tree) {
             let out = `<ul class="nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">`;
             out += app.makeList(tree, true);
@@ -112,7 +123,7 @@
                 if (!item['hidden']) {
                     haschild = item.hasOwnProperty("_children");
                     hasinclude = item.hasOwnProperty("_include");
-                    if (!item.url) item.url = "#";
+                    if (!item.link) item.link = "#";
                     toggle = (haschild || hasinclude) ? arrow : "";
                     //menuopen = (!mopen && noul && haschild) ? " menu-open" : '';
                     menuopen = item.open ? " menu-open" : "";
@@ -122,7 +133,7 @@
                     if (noicons) {
                         navicon = " <i class='far fa-circle'></i> ";
                     }
-                    out += `<li class="nav-item${menuopen}"><a href="${item.url}" ${target} onclick="return app.doClick(this, event)" class="nav-link">${navicon}<p>${item.title}${toggle}</p></a>`;
+                    out += `<li class="nav-item${menuopen}"><a href="${item.link}" ${target} title="${item.title} ${item.subtitle}" onclick="return app.doClick(this, event)" class="nav-link">${navicon}<p>${item.title}${toggle}</p></a>`;
                     
                     if (haschild) {
                         out += app.makeList(item["_children"], false, !item["_childicons"]);
@@ -139,7 +150,6 @@
                 evt.preventDefault();
                 evt.stopPropagation();
             }
-
             
             document.querySelectorAll(".fa-circle-dot")?.forEach(el=>{el.classList.remove("fa-circle-dot"); el.classList.add("fa-circle")});
 
@@ -157,34 +167,26 @@
                     if (href !== "#") {
                         app.loadTab(who.getAttribute("href"), who.innerText, who.innerText.replace(/\W/g, ''), true, evt);
                     }
-                    who.parentElement.classList.toggle("menu-open");
+                    let ma = who.closest("li");
+                    if (ma.querySelector("ul")) {
+                      ma.classList.toggle("menu-open");
+                    }
                 }
 
             }
-
+            setTimeout(function() { app.fixIframeHeight(); }, 1000);
             return false;
         },
-        override: function(id) {
-            console.log(`Switch business to BusinessID ${id}`);
-            fetch("/portal/api.php?type=switch&bid="+id).then(r=>r.json()).then(data=>{
-                console.log("Business ID override");
-                console.dir(data);
-                document.querySelectorAll("iframe").forEach(item=>{ item.contentWindow.location.reload() });
+        fixIframeHeight: function() {
+            let  newheight = window.innerHeight -
+                document.querySelector(".nav.navbar").getBoundingClientRect()['height'] -
+                document.querySelector("nav.main-header").getBoundingClientRect()['height'];
+
+            document.querySelectorAll("iframe").forEach(el=>{
+                el.style.height = newheight + 'px';
             });
         },
-        switchUser: function(evt, email) {
-            console.log(`Switch user to ${email}`);
-            console.dir(evt);
-            fetch("switch.php?email=" + email).then(r=>r.json()).then(data=>{
-                console.log("switched user");
-                console.dir(data);
-                document.querySelectorAll("iframe").forEach(item=>{ item.contentDocument.location.reload() });
-            });;
-        },
-        loadTab: function(url="home.html", title="New Tab", name="newtab", autoshow=true, evt) {
-            //document.querySelector("#overlay").style.display = "block";
-            //setTimeout(function() { document.querySelector("#overlay").style.display = "none"; }, 3000);
-
+        loadTab: function(url="home.html", tabtitle="New Tab", name="newtab", autoshow=true, evt) {
             if (evt) {
                 evt.preventDefault();
                 evt.stopPropagation();
@@ -192,12 +194,13 @@
             let tab = document.querySelector(`#tab-${name}`);
             if (tab) {
                 jQuery(`#tab-${name}`).trigger("click");
-            } else {
-                let cachebuster = new Date().getTime();
-                title = title.replace(/^([a-z])/, function(str) { return str.toUpperCase(); });
-                app.state.tabs[name] = {id: `tab-${name}`, title: `${title}` };
-                jQuery(".content-wrapper").IFrame('createTab', title, url + `?bust=${cachebuster}`, name, autoshow);
+            } else if (url && tabtitle && name) {
+                tabtitle = tabtitle.replace(/^([a-z])/, function(str) { return str.toUpperCase(); });
+
+                app.state.tabs[name] = {id: `tab-${name}`, title: `${tabtitle}` };
+                jQuery(".content-wrapper").IFrame('createTab', tabtitle, url, name, autoshow);
             }
+
             return false;
         }
 
