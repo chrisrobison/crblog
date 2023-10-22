@@ -47,6 +47,8 @@ while ($file = array_shift($argv)) {
     $out->subtitle = $parts[1];
     $out->link = "blog/".$fparts[0].".html";
     $out->name = strtolower(preg_replace("/\W/", '', $out->title));
+    $out->date = date("Y-m-d");
+    $out->tags = "";
     $out->target = "iframe";
     $out->hero = "../assets/img/".$fparts[0].".jpg";
     $out->icon = "fas fa-code";
@@ -68,6 +70,7 @@ while ($file = array_shift($argv)) {
         return isset($out->{$match[1]}) ? $out->{$match[1]} : "";
     }, $tpl);
     print "Done.\nGenerated ".strlen($html)." bytes of HTML.\n";
+    unset($out->blogpost);
     array_unshift($posts, $out);
     print "Added post to top of main blog list.\n";
     print "Saving new blog list...";
