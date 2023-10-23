@@ -1,5 +1,18 @@
 [
     {
+        "fulltitle": "The Evolution and Benefits of Client-Side JavaScript Modules",
+        "title": "The Evolution and Benefits of Client-Side JavaScript Modules",
+        "subtitle": null,
+        "link": "blog/modules.html",
+        "name": "theevolutionandbenefitsofclientsidejavascriptmodules",
+        "date": "2023-10-23",
+        "tags": "",
+        "target": "iframe",
+        "hero": "../assets/img/modules.jpg",
+        "icon": "fas fa-code",
+        "blurb": "JavaScript has come a long way since its inception in 1995. One of the most significant leaps in JavaScript's journey has been the introduction and widespread adoption of client-side modules. Modules have revolutionized how developers structure their code, making it more manageable, reusable, and efficient. Let's delve into the history, uses, and benefits of client-side JavaScript modules, complete with some code examples."
+    },
+    {
         "fulltitle": "Haunted History: San Francisco ",
         "title": "Haunted History",
         "subtitle": "San Francisco ",
@@ -52,9 +65,9 @@
         "blurb": "The digital age has brought us an array of mobile devices running different operating systems like iOS and Android. Developing applications for multiple platforms usually involves writing distinct codebases for each OS, which can be cumbersome and time-consuming. This is where cross-platform mobile app development frameworks come into play."
     },
     {
-        "fulltitle": "Understanding the Javascript Event Loop: A Quick Introduction",
+        "fulltitle": "The Javascript Event Loop: A Quick Look",
         "title": "The JS Event Loop",
-        "subtitle": "A Quick Introduction",
+        "subtitle": "A Quick Look",
         "link": "blog/eventloop.html",
         "name": "eventloop",
         "date": "2021-08-22",

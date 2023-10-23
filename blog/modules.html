@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christopher Robison: Blog Entry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/adminlte.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
+              <li class="breadcrumb-item active">Client-Side JS Modules</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="blog">
+          <img width="640" src="../assets/img/modules.jpg" class="banner-pic"> 
+          <hr>
+          <h1 style="font-weight:900;">The Evolution and Benefits of Client-Side JavaScript Modules</h1>
+          <h3></h3>
+          <p style="float:right;">October 23, 2023</p>
+          <p><em>By Christopher Robison</em></p>
+          <hr>
+          <p>JavaScript has come a long way since its inception in 1995. One of the most significant leaps in JavaScript’s journey has been the introduction and widespread adoption of client-side modules. Modules have revolutionized how developers structure their code, making it more manageable, reusable, and efficient. Let’s delve into the history, uses, and benefits of client-side JavaScript modules, complete with some code examples.</p>
+<h2 id="a-brief-history">A Brief History</h2>
+<p>Initially, JavaScript had no built-in concept of modules. Developers relied on script tags to load different JavaScript files, and all variables were global by default, leading to namespace pollution and conflicts.</p>
+<p>Fast-forward to 2009, and CommonJS set the ball rolling by proposing a server-side module system. AMD (Asynchronous Module Definition) and RequireJS soon followed, targeting client-side applications.</p>
+<p>ECMAScript 6 (ES6), released in 2015, introduced native JavaScript modules, bringing standardization to the language’s module system.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>Modules in ES6 are simple to use. You can export functions, objects, or values from a module using <code>export</code>, and import them elsewhere using <code>import</code>.</p>
+<p><em>Exporting a module:</em></p>
+<pre class="javascript"><code>// math.js
+export const add = (x, y) =&gt; x + y;
+export const subtract = (x, y) =&gt; x - y;</code></pre>
+<p><em>Importing a module:</em></p>
+<pre class="javascript"><code>// app.js
+import * as math from &#39;./math.js&#39;;
+
+console.log(math.add(2, 3));  // Output: 5
+console.log(math.subtract(7, 4));  // Output: 3</code></pre>
+<h2 id="benefits">Benefits</h2>
+<h3 id="code-organization">Code Organization</h3>
+<p>Modules help you to organize your code better. Each module can focus on a single responsibility, making your codebase easier to maintain.</p>
+<h3 id="reusability">Reusability</h3>
+<p>Modules are reusable across different projects. You can easily share your code without copy-pasting it everywhere.</p>
+<h3 id="scope-management">Scope Management</h3>
+<p>Variables declared inside a module are scoped to the module, preventing accidental global variable pollution.</p>
+<h3 id="lazy-loading">Lazy Loading</h3>
+<p>With dynamic imports, you can lazily load parts of your application, leading to quicker initial load times.</p>
+<h2 id="real-world-examples">Real-world Examples</h2>
+<p>If you’ve ever built a React app, you’ve already encountered modules. Each React component can be its own module.</p>
+<pre class="javascript"><code>// Button.js
+import React from &#39;react&#39;;
+
+const Button = ({ label }) =&gt; {
+  return (
+    &lt;button&gt;{label}&lt;/button&gt;
+  );
+};
+
+export default Button;</code></pre>
+<pre class="javascript"><code>// App.js
+import React from &#39;react&#39;;
+import Button from &#39;./Button&#39;;
+
+const App = () =&gt; {
+  return (
+    &lt;Button label=&quot;Click Me&quot; /&gt;
+  );
+};
+
+export default App;</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>The introduction of client-side JavaScript modules has greatly enriched the development ecosystem. Modules bring structure, reusability, and efficiency to your code, making them an indispensable feature in modern web development. If you haven’t already started using modules in your projects, it’s high time you did!</p>
+
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../assets/js/adminlte.min.js"></script>
+<script src="../assets/js/share.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

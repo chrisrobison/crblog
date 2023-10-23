@@ -1,5 +1,14 @@
 [
     {
+        "title": "The Evolution and Benefits of Client-Side JavaScript Modules",
+        "subtitle": null,
+        "fulltitle": "The Evolution and Benefits of Client-Side JavaScript Modules",
+        "link": "blog/modules.html",
+        "name": "theevolutionandbenefitsofclientsidejavascriptmodules",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
         "title": "Haunted History",
         "subtitle": "San Francisco ",
         "fulltitle": "Haunted History: San Francisco ",
