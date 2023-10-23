@@ -80,22 +80,6 @@
     }
   ],
   "topmenu": [
-    {
-      "title": "Home",
-      "link": "/"
-    },
-    {
-      "title": "Contact",
-      "link": "contact.html"
-    },
-    {
-      "title": "About",
-      "link": "about.html"
-    },
-    {
-      "title": "Blog",
-      "link": "blog/"
-    }
   ]
 }
 
