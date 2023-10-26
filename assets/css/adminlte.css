@@ -10,7 +10,8 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+3:wght@200;300;400;700&family=Source+Sans+Pro:wght@200;300;400;700&display=swap');
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -52424,7 +52425,7 @@ a.text-muted:hover {
 }
 section.content {
   display: flex;
-  font-family: "Lora", serif;
+  font-family: "Lexend", "Source Sans Pro", sans-serif;
   font-size: 18px;
   align-items: center;
 }
@@ -52444,14 +52445,68 @@ section.content.serif, serif {
 }
 @media (min-width: 768px) {
     .blog {
-        width: 40rem;
+        width: 50rem;
+        line-height: 200%;
     }
-.banner-pic {
-    width: 100%;
-}
+  .banner-pic {
+      width: 100%;
+  }
 }
 
 .dark-mode a {
   color: #cc0;
+}
+a {
+  transition: all 150ms linear !important;
+  transform: scale(1.0); 
+}
+a:hover {
+  transform: scale(1.05); 
+}
+
+.shareicon { height: 3.5rem; width: 3.5rem; }
+.shareicon.linkedin { background-image: url("/crblog/assets/share-icons/linkedin.svg"); }
+.shareicon.facebook { background-image: url("/crblog/assets/share-icons/facebook.svg"); }
+.shareicon.hackernews { background-image: url("/crblog/assets/share-icons/hackernews.svg"); }
+.shareicon.reddit { background-image: url("/crblog/assets/share-icons/reddit.svg"); }
+.shareicon.twitter { background-image: url("/crblog/assets/share-icons/twitter.svg"); }
+.shareicon.email { background-image: url("/crblog/assets/share-icons/email.svg"); }
+.shareicon.whatsapp { background-image: url("/crblog/assets/share-icons/whatsapp.svg"); }
+.sharelink { color: #222; text-decoration: none; }
+a.sharelink:hover { color: #00a; text-decoration: underline; }
+
+.sharehtml {
+  background-color: #222;
+  color: #eee;
+  width: 27rem;
+  height: 14rem;
+  display: flex;
+  border: 1rem solid #222;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-shadow: 0.25rem 0.5rem 0.5rem #0006;
+  position: absolute;
+  left: 30%;
+  border-radius: 1rem;
+
+}
+.shareurl {
+  background-color:#fff;
+  color:#000;
+  font-size: 24px;
+  width: 23rem;
+  height: 3rem;
+}
+
+@media screen and (max-width: 640px) {
+ div.wrapper  div#sharehtml {
+  left: 0px;
+  width: 100%;
+ }
+ .shareicon { height: 3.5rem; width: 3.5rem; }
+ .shareurl {
+  width: 21rem;
+ }
 }
 /*# sourceMappingURL=adminlte.css.map */
