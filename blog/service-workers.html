@@ -40,14 +40,15 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-          <h1 style="font-weight:900;">Caching Assets</h1>
-          <h3>Using Service Workers in JavaScript</h3>
-          <p><em>By Christopher Robison</em></p>
-          <p>October 15, 2023</p>
-          <hr>
           <img width="640" src="../assets/img/serviceworkers.jpg" class="banner-pic"> 
           <hr>
-          <p>We've all been there. You're on your computer, online taking care of business. You're just wrapping up the final part of a 6-part online job application form and you're feeling good about this one.  You click submit. The page shows a spinner as you stare blankly at the screen, waiting patiently until...BAM! You are presented with the dreaded <q>Network not available</q> screen and all your hard work has now been lost to the ether. Sure, browsers have gotten better at recovering from these types of scenarios but if we expect users to use and actually rely on our web-based applications, it is imperative that we write software that will work no matter what, offline or online.</p>
+          <h1 style="font-weight:900;">Caching Assets</h1>
+          <h3>Using Service Workers in JavaScript</h3>
+          <p style="float:right;"><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p>By Christopher Robison<br>
+          October 15, 2023</p>
+          <hr>
+          <img src="../assets/img/nointernet.jpg" style="float:right;"><p>We've all been there. You're on your computer, online taking care of business. You're just wrapping up the final part of a 6-part online job application form and you're feeling good about this one.  You click submit. The page shows a spinner as you stare blankly at the screen, waiting patiently until...BAM! You are presented with the dreaded <q>Network not available</q> screen and all your hard work has now been lost to the ether. Sure, browsers have gotten better at recovering from these types of scenarios but if we expect users to use and actually rely on our web-based applications, it is imperative that we write software that will work no matter what, offline or online.</p>
           <p>Until recently, there was little that could be done within the browser to address the loss of connectivity. There was no way to intercept network requests nor any client-side mechanism exposed for offline asset caching. But that has all changed. Now we have Service Workers. They're perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. But don't confuse <code>Service Workers</code> with <code>Web Workers</code>; They are very similar but have one key diff erence: <code>Service Workers</code> are persistent while <code>Web Workers</code> are not. That means anything done in a Service Worker will continue to execute, even af ter the page has unloaded while anything done within a Web Worker is removed when the page is closed.</p> 
 <p>tl;dr: A service worker functions like a proxy server, allowing you to modify requests and responses replacing them with items from its own cache. In this post, I’ll walk through setting up a service worker for caching assets and explore using a couple of different caching strategies.</p>
 <h2 id="setup-registering-a-service-worker">Setup: Registering a Service Worker</h2>
@@ -280,11 +281,12 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../assets/jquery/jquery.min.js"></script>
+<script src="/crblog/assets/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/crblog/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../assets/js/adminlte.min.js"></script>
+<script src="/crblog/assets/js/adminlte.min.js"></script>
+<script src="/crblog/share.js"></script>
 <script>hljs.highlightAll();</script>
 </body>
 </html>

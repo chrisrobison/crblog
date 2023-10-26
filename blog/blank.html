@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Christopher Robison: Blog Entry</title>
+  <title>%%fulltitle%% - Christopher Robison's Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -42,8 +42,11 @@
         <div class="blog">
           <h1 style="font-weight:900;">%%title%%</h1>
           <h3>%%subtitle%%</h3>
-          <p style="float:right;">%%date%%</p>
-          <p><em>By Christopher Robison</em></p>
+          <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p>
+            By Christopher Robison<br>
+            %%date%%
+          </p>
           <hr>
           <img width="640" src="%%hero%%" class="banner-pic"> 
           <hr>
@@ -69,11 +72,12 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../assets/jquery/jquery.min.js"></script>
+<script src="/crblog/assets/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/crblog/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../assets/js/adminlte.min.js"></script>
+<script src="/crblog/assets/js/adminlte.min.js"></script>
+<script src="/crblog/share.js"></script>
 <script>hljs.highlightAll();</script>
 </body>
 </html>
