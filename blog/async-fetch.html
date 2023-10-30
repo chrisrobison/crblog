@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Async/Await and Fetch - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/async-fetch.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -47,7 +48,7 @@ pre { padding: 0; }
         <div class="blog">
           <h1 style="font-weight:900;">Mastering Async/Await and Fetch in JavaScript</h1>
           <h3>A Guide for Real-World Application</h3>
-          <p style="float:right;"><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p style="float:right;"><a href="#" class="sharelink" onclick="return share.showlist(event)"><br><i class="fas fa-share"></i> Share</a></p>
           <p>By Christopher Robison<br>
           January 10, 2021</p>
           <hr>
@@ -108,16 +109,20 @@ try {
 }
 </code></pre>
           <h2>Conclusion</h2><p>The advent of <code>async/await</code> has significantly improved code readability and maintainability. Paired with the <code>fetch</code> API, it offers a clean and modern approach to writing asynchronous code for real-world applications.</p><p>So, go ahead and refactor your callbacks and promises to this sleek, new standard. Your future self will thank you.</p>
+        <div class="content-footer">
+          <hr style="background:#fff;"><a href="/crblog/blog/eventloop.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/eventloop.html', 'JS Event Loop', 'service-workers', true, event)" title="JS Event Loop" style="float:right;font-weight:400;">(JS Event Loop) Next &gt; </a>
+          <a href="/crblog/blog/rockart.html" class="next-entry" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/rockart.html', 'Ancient Petroglyphs', 'rockart', true, event)" style="font-weight:400;"> &lt; Previous (Ancient Petroglyphs)</a>
+        </div>
         </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
+  <footer class="main">
+    <div class="float-right d-none d-sm-block" style="padding: 1rem;">
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a></strong> 
   </footer>
 
   <!-- Control Sidebar -->

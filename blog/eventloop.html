@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Understanding the JavaScript Event Loop - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/eventloop.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -40,12 +41,12 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-          <img height="241" width="640" src="../assets/img/async-fetch2.jpg" class="banner-pic"> 
-          <hr>
           <h1 style="font-weight:900;">Understanding the JavaScript Event Loop</h1>
           <h3>A Brief Introduction</h3>
           <p>By Christopher Robison<br>
           August 22, 2021</p>
+          <hr>
+          <img height="241" width="640" src="../assets/img/async-fetch2.jpg" class="banner-pic"> 
           <hr>
 <p>JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we’ll dissect the Event Loop to help you understand its inner workings.</p>
 <h2>Concepts</h2>
@@ -86,15 +87,20 @@ const baz = bar(7); // assigns 42 to baz
 <p>Let’s say you’ve got a button on your webpage that, when clicked, fetches data from an API. When the button is clicked, a ‘click’ event is registered, and its callback function is sent to the Event Queue. The Event Loop waits for the Call Stack to empty before moving the ‘click’ event’s callback function for execution. Once executed, the API data appears on your webpage—smooth and efficient.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The JavaScript Event Loop is an elegant solution to the challenges of asynchronous programming in a single-threaded environment. It ensures that JavaScript can handle multiple tasks simultaneously, without missing a beat. So, the next time your code performs like a well-oiled machine, tip your hat to the Event Loop—the unsung hero of JavaScript.</p>
+        
+<div class="content-footer">
+          <hr style="background:#000;"><a href="/crblog/blog/mobile-frameworks.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/mobile-frameworks.html', 'Cross-Platform Mobile', 'mobile-frameworks', true, event)" title="Cross-Platform Mobile Frameworks" style="font-weight:400;float:right;">(Cross-Platform Mobile Frameworks) Next &gt; </a>
+          <a href="/crblog/blog/async-fetch.html" class="next-entry" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/asyn-fetch.html', 'Async/Await and Fetch', 'mobile', true, event)" style="font-weight:400;"> &lt; Previous (Async/Await and Fetch)</a>
+        </div>
         </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+  <footer class="main">
+    <div class="float-right d-none d-sm-block" style="padding:1rem;">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a></strong>
     </div>
   </footer>
 

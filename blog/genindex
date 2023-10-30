@@ -1,0 +1,36 @@
+#!/usr/local/bin/php
+<?php
+$tpl = <<<EOT
+<li>
+    <a class="heroWrap" target="_blank" href="%%link%%" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);"><img src="%%hero%%" class="tinyhero"></a>
+    <div class="blogdate">%%date%%</div>
+    <div class="preview">
+        <a href="%%link%%" target="_blank" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);">
+            <h2>%%title%%</h2>
+            <h3>%%subtitle%%</h3>
+        </a><hr>
+        <p class="blurb">%%blurb%%</p>
+    </div>
+    <a class="readmore" target="_blank" href="%%link%%" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);">Read more...</a>
+</li>
+EOT;
+
+$posts = json_decode(file_get_contents("posts.json"));
+$out = "";
+
+foreach ($posts as $post) {
+    $html = preg_replace_callback("/\%\%(\w+)\%\%/", function($match) {
+        global $post;
+        if (property_exists($post, $match[1])) {
+            return $post->{$match[1]};
+        } else {
+            return "";
+        }
+    }, $tpl);
+    $out .= $html;
+}
+
+$page = file_get_contents("index.template.html");
+$page = preg_replace("/\%\%content\%\%/", $out, $page);
+print $page;
+?>

@@ -25,6 +25,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            Caching Assets: Using Service Workers in JavaScript
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -40,15 +41,15 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-          <img width="640" src="../assets/img/serviceworkers.jpg" class="banner-pic"> 
-          <hr>
           <h1 style="font-weight:900;">Caching Assets</h1>
           <h3>Using Service Workers in JavaScript</h3>
-          <p style="float:right;"><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p style="float:right;"><a href="#" class="sharelink" onclick="return share.showlist(event)"><br><i class="fas fa-share"></i> Share</a></p>
           <p>By Christopher Robison<br>
           October 15, 2023</p>
           <hr>
-          <img src="../assets/img/nointernet.jpg" style="float:right;"><p>We've all been there. You're on your computer, online taking care of business. You're just wrapping up the final part of a 6-part online job application form and you're feeling good about this one.  You click submit. The page shows a spinner as you stare blankly at the screen, waiting patiently until...BAM! You are presented with the dreaded <q>Network not available</q> screen and all your hard work has now been lost to the ether. Sure, browsers have gotten better at recovering from these types of scenarios but if we expect users to use and actually rely on our web-based applications, it is imperative that we write software that will work no matter what, offline or online.</p>
+          <img width="640" src="../assets/img/serviceworkers.jpg" class="banner-pic"> 
+          <hr>
+          <img src="../assets/img/nointernet.jpg" style="width:200px;float:right;"><p>We've all been there. You're on your computer, online taking care of business. You're just wrapping up the final part of a 6-part online job application form and you're feeling good about this one.  You click submit. The page shows a spinner as you stare blankly at the screen, waiting patiently until...BAM! You are presented with the dreaded <q>Network not available</q> screen and all your hard work has now been lost to the ether. Sure, browsers have gotten better at recovering from these types of scenarios but if we expect users to use and actually rely on our web-based applications, it is imperative that we write software that will work no matter what, offline or online.</p>
           <p>Until recently, there was little that could be done within the browser to address the loss of connectivity. There was no way to intercept network requests nor any client-side mechanism exposed for offline asset caching. But that has all changed. Now we have Service Workers. They're perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. But don't confuse <code>Service Workers</code> with <code>Web Workers</code>; They are very similar but have one key diff erence: <code>Service Workers</code> are persistent while <code>Web Workers</code> are not. That means anything done in a Service Worker will continue to execute, even af ter the page has unloaded while anything done within a Web Worker is removed when the page is closed.</p> 
 <p>tl;dr: A service worker functions like a proxy server, allowing you to modify requests and responses replacing them with items from its own cache. In this post, I’ll walk through setting up a service worker for caching assets and explore using a couple of different caching strategies.</p>
 <h2 id="setup-registering-a-service-worker">Setup: Registering a Service Worker</h2>
@@ -259,6 +260,11 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
   event.waitUntil(deleteOldCaches());
 });
 </code></pre>
+        <div class="content-footer">
+          <hr style='background:#000;'>
+          <a href="/crblog/blog/renegade-rbls.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/renegade-rbls.html', 'RBLs', 'rbls', true, event)" title="Realtime Black Lists" style="font-weight:400;float:right;">(RBLs: Panacea or Scam?) Next &gt; </a>
+          <a href="/crblog/blog/fun.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/fun.html', 'Fun', 'fun', true, event)" title="Balancing Fun and Functionality" style="font-weight:400;">&lt; Previous (Fun &amp; Functional)</a>
+        </div>
 
         </div>
     </section>
@@ -266,9 +272,9 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+  <footer class="main">
+    <div class="float-right d-none d-sm-block" style="padding:1rem;">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a></strong>
     </div>
   </footer>
 

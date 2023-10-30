@@ -10,95 +10,104 @@ print "Backing up current posts.json\n";
 $exe = `cp posts.json backup/posts.$now.json`;
 $tpl = file_get_contents("blank.html");
 $force = 0;
+$conf = new stdClass();
+
 while ($file = array_shift($argv)) {
-    if (preg_match("/^\-f/", $file)) {
-        $force = 1;
-        next;
-    }
-    $fparts = preg_split("/\./", $file);
+    if (preg_match("/^\-\-([\w\-]+)/", $file, $match)) {
+        $conf->{$match[1]} = 1;
+        continue;
+    } else if (file_exists($file)) {
+        $fparts = preg_split("/\./", $file);
 
-    print "Reading markdown from $file...";
-    $txt = file_get_contents($file);
-    print "Done.\n";
-    $para = preg_split("/\n\n/", $txt);
-    $lines = preg_split("/\n/", $txt);
-    print "Read ".count($lines)." lines in ".strlen($txt)." bytes.\n";
-    print "Extracting title...";
-    $title = preg_replace("/^#\s*/", "", array_shift($lines));
-    $parts = preg_split("/\:\s*/", $title, 2);
+        print "Reading markdown from $file...";
+        $txt = file_get_contents($file);
+        print "Done.\n";
 
-    
-    print "Done.\nBlog title: \"{$parts[0]}\"\nBlog subtitle: \"{$parts[0]}\"\n\n";
-    $exists = 0;
-    foreach ($posts as $post) {
-        if ($post->fulltitle == $title) {
-            $exists = 1;
+        $para = preg_split("/\n\n/", $txt);     // need for blurb
+        $lines = preg_split("/\n/", $txt);      
+
+        print "Read ".count($lines)." lines in ".strlen($txt)." bytes.\n";
+        print "Extracting title...";
+        $title = preg_replace("/^#\s*/", "", array_shift($lines));
+        $parts = preg_split("/\:\s*/", $title, 2);
+
+        
+        print "Done.\nBlog title: \"{$parts[0]}\"\nBlog subtitle: \"{$parts[1]}\"\n\n";
+        print "Creating new blog object...";
+        $out = new stdClass();
+        $out->fulltitle = $title;
+        $out->title = $parts[0];
+        $out->subtitle = $parts[1];
+        $out->link = "blog/".$fparts[0].".html";
+        $out->name = strtolower(preg_replace("/\W/", '', $out->title));
+        $out->date = date("Y-m-d");
+        $out->tags = "";
+        $out->target = "iframe";
+        $out->hero = "../assets/img/".$fparts[0].".jpg";
+        $out->icon = "fas fa-code";
+        $out->blurb = $para[1];
+
+        print "Done.\n";
+
+        print "\nWriting cleaned up markdown to tmp.md...";
+        file_put_contents("tmp.md", join("\n", $lines));
+        print "Done.\nConverting markdown to html...";
+        $out->blogpost = `pandoc --no-highlight -f markdown -t html5 tmp.md`;
+        print "Done.\nRemoving tmp.md file...";
+        //$exe = `rm tmp.md`;
+        print "Done.\n\n";
+
+        print "Generating Site HTML...";
+        $html = preg_replace_callback("/%%([^%]*)%%/", function($match) {
+            global $out;
+            return isset($out->{$match[1]}) ? $out->{$match[1]} : "";
+        }, $tpl);
+        print "Done.\nGenerated ".strlen($html)." bytes of HTML.\n";
+        print "\nSaving generated html as {$fparts[0]}.html...";
+        file_put_contents($fparts[0].".html", $html);
+        print "Done.\n";
+            
+        unset($out->blogpost);
+
+        if (property_exists($conf, "nav")) {
+            $exists = 0;
+            foreach ($posts as $post) {
+                if ($post->fulltitle == $title) {
+                    $exists = 1;
+                }
+            }
+
+            if (!property_exists($conf, "force") && $exists) {
+                print "*** Error: Blog entry named \"$title\" already exists. Aborting...\n";
+                exit;
+            }
+            array_unshift($posts, $out);
+            print "Added post to top of main blog list.\n";
+            print "Saving new blog list...";
+            file_put_contents("posts.json", json_encode($posts, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+            print "Wrote ".strlen($html)." bytes to {$fparts[0]}.html\n";
+            print "\nUpdating main site nav/blog.json...";
+            
+            $out2 = new stdClass();
+            $out2->title = $out->title;
+            $out2->subtitle = $out->subtitle;
+            $out2->fulltitle = $out->fulltitle;
+            $out2->link = $out->link;
+            $out2->name = strtolower(preg_replace("/\W/", '', $out->title));
+            $out2->target = "iframe";
+            $out2->icon = "fas fa-code";
+            
+            print "Adding new blog post to top of blog.json...";
+            array_unshift($nav, $out2);
+            print "Done.\nBacking up current blog.json...";
+            $exe = `cp ../nav/blog.json backup/blog.$now.json`;
+            print "Done.\nblog.json saved to backup/blog.$now.json.\nWriting updated blog.json...";
+            file_put_contents("../nav/blog.json", json_encode($nav, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+            print "Done.\n\n";
+
+            print "Blog entry added. You should review the following files:\n\tposts.json\n\t../nav/blog.json\n\t$fparts[0].html\n\t../assets/img/$fparts[0].jpg\n\nBe sure to create or change the image $fparts[0].jpg\n";
         }
-    }
-
-    if (!$force && $exists) {
-        print "*** Error: Blog entry named \"$title\" already exists. Aborting...\n";
-        exit;
-    }
-    print "Creating new blog object...";
-    $out = new stdClass();
-    $out->fulltitle = $title;
-    $out->title = $parts[0];
-    $out->subtitle = $parts[1];
-    $out->link = "blog/".$fparts[0].".html";
-    $out->name = strtolower(preg_replace("/\W/", '', $out->title));
-    $out->date = date("Y-m-d");
-    $out->tags = "";
-    $out->target = "iframe";
-    $out->hero = "../assets/img/".$fparts[0].".jpg";
-    $out->icon = "fas fa-code";
-    $out->blurb = $para[1];
-
-    print "Done.\n";
-
-    print "\nWriting cleaned up markdown to tmp.md...";
-    file_put_contents("tmp.md", join("\n", $lines));
-    print "Done.\nConverting markdown to html...";
-    $out->blogpost = `pandoc --no-highlight -f markdown -t html5 tmp.md`;
-    print "Done.\nRemoving tmp.md file...";
-    $exe = `rm tmp.md`;
-    print "Done.\n\n";
-
-    print "Generating HTML...";
-    $html = preg_replace_callback("/%%([^%]*)%%/", function($match) {
-        global $out;
-        return isset($out->{$match[1]}) ? $out->{$match[1]} : "";
-    }, $tpl);
-    print "Done.\nGenerated ".strlen($html)." bytes of HTML.\n";
-    unset($out->blogpost);
-    array_unshift($posts, $out);
-    print "Added post to top of main blog list.\n";
-    print "Saving new blog list...";
-    file_put_contents("posts.json", json_encode($posts, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-    print "Done.\nSaving generated html as {$fparts[0]}.html...";
-    file_put_contents($fparts[0].".html", $html);
-    print "Done.\n";
-    print "Wrote ".strlen($html)." bytes to {$fparts[0]}.html\n";
-    print "\nUpdating main site nav/blog.json...";
     
-    $out2 = new stdClass();
-    $out2->title = $out->title;
-    $out2->subtitle = $out->subtitle;
-    $out2->fulltitle = $out->fulltitle;
-    $out2->link = $out->link;
-    $out2->name = strtolower(preg_replace("/\W/", '', $out->title));
-    $out2->target = "iframe";
-    $out2->icon = "fas fa-code";
-    
-    print "Adding new blog post to top of blog.json...";
-    array_unshift($nav, $out2);
-    print "Done.\nBacking up current blog.json...";
-    $exe = `cp ../nav/blog.json backup/blog.$now.json`;
-    print "Done.\nblog.json saved to backup/blog.$now.json.\nWriting updated blog.json...";
-    file_put_contents("../nav/blog.json", json_encode($nav, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-    print "Done.\n\n";
-
-    print "Blog entry added. You should review the following files:\n\tposts.json\n\t../nav/blog.json\n\t$fparts[0].html\n\t../assets/img/$fparts[0].jpg\n\nBe sure to create or change the image $fparts[0].jpg\n";
+    }
 }
-
 ?>
