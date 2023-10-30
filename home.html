@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Welcome To My Site</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/home.html" />
+  <title>Welcome To Christopher Robison's Site</title>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
 
@@ -72,7 +73,62 @@ h2 {
     font-size: 1.5rem;
   }
 }
+.ripple {
+  min-height: 380px;
+  max-width: 850px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  filter: url('#turbulence');
+  position: relative;
+  z-index: 6;
+  padding-top: 20px;
+  animation: float 15s linear infinite;
+  display:inline-block;
+  position:absolute;
+  transition: all 5s linear;
+}
+@keyframes float {
+  0% {
+    transform: translate(0px, 2000px);
+  }
+  50% {
+   transform: translate(calc(100*cos(180deg)), 1000px);
+
+  }
+  100% {
+    transform:translate(100px,-500px);
+  }
+}
+div.ghost svg {
+      position: absolute;
+}
+.ghost {
+  position:fixed;
+  width:200px;
+  height:300px;
+  left:0;
+  top:50%;
+ }
+.ghost.start {
+  animation:
+    x 20s linear infinite alternate,
+    y 4s infinite cubic-bezier(.5,600,.5,-600);
+}
+@keyframes x {
+   to {
+     left:calc(100% - 40px);
+   }
+}
+@keyframes y {
+   to {
+     top:49.9%;
+   }
+}
+
 </style>
+<script src="/crblog/assets/js/confetti.js"></script>
 </head>
 <body>
   <div class="container">
@@ -80,8 +136,19 @@ h2 {
       <span class="txt-type" data-wait="3000" data-words='["Technology.","Software.","Internet.","Development.","Management.","Business."]'></span>
     </h1>
     <h2>Welcome To My Website</h2>
+    <p style="padding-left:1rem;">(Press 'R' to reset the ghost)</p>
   </div>
-  
+  <div class="ghost start">
+    <svg height="210" width="200">
+    <path fill="#fff6" d="M 29 130 Q 44 126 52 105 Q 61 78.5 70 52 Q 76 16 91 13 Q 111 13 114 35 Q 121 67 136 76 Q 148 101 165 118 Q 156 134 164 152 Q 157 159 150 147 Q 149.5 154.5 149 162 Q 135 151 144 168 Q 136 179 120 184 Q 107 160 90 188 Q 79 172 55 191 Q 49.5 179.5 44 168 Q 33 169 28 161 Q 32 152 41 149 C 46 140 39 134 34 134 Z M 79 31 A 1 1 0 0 0 90 31 Z Z M 97 31 A 1 1 0 0 0 108 31 L 97 31 Z" />
+    </svg>
+  </div>
+    <svg xlmns="http://www.w3.org/2000/svg" version="1.1">
+      <filter id="turbulence" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+        <feTurbulence id="feturbulence" type="fractalNoise" numOctaves="1" seed="2" baseFrequency="0.01968375 0.1468375"></feTurbulence>
+        <feDisplacementMap xChannelSelector="G" yChannelSelector="B" scale="10" in="SourceGraphic"></feDisplacementMap>
+      </filter>
+    </svg>  
     <script>
         // const TypeWriter = function(txtElement, words, wait = 3000) {
 //   this.txtElement = txtElement;
@@ -203,6 +270,21 @@ function init() {
   const wait = txtElement.getAttribute('data-wait');
   // Init TypeWriter
   new TypeWriter(txtElement, words, wait);
+  let doGhost = localStorage.getItem("ghost");
+  if (doGhost == "no") {
+    document.querySelector(".ghost").style.display = "none";
+  }
+  document.querySelector(".ghost").addEventListener("click", function(e) {
+    localStorage.setItem("ghost", "no");
+    document.querySelector(".ghost").style.display = "none";
+    addDivConfetti(e, 30);
+  });
+  document.addEventListener("keypress", function(e) {
+    if (e.key = "r") {
+      localStorage.setItem("ghost", "yes");
+      document.querySelector(".ghost").style.display = "block";
+    }
+  });
 }
     </script>
 </body>

@@ -146,12 +146,7 @@ body {
         width: 1.2rem;
         height: 1.2rem;
     }
-.glitter {
-position: absolute;
-height: 10px;
-width: 10px;
-background-color: red;
-}
+
         </style>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed dark-mode" data-panel-auto-height-mode="height">
@@ -270,244 +265,193 @@ background-color: red;
                     </div>
                     <!-- Sidebar Menu -->
                     <nav id='sidemenu' class="mt-2">
-                        <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget='treeview'
-role='menu' data-accordian='false'>
-    <li class='nav-item'>
-        <a href="https://cdr2.com/crblog/home.html"><i class='fas fa-home'></i> Home</a>
+                        <ul>
+    <li>
+        <a href="https://cdr2.com/crblog/home.html">Home</a>
     </li>
-    <li class='nav-item'>
-        <a href="https://cdr2.com/crblog/about.html"><i class='fas fa-circle-info'></i> About</a>
+    <li>
+        <a href="https://cdr2.com/crblog/about.html">About</a>
     </li>
-    <li class='nav-item'>
-        <a href="https://cdr2.com/crblog/contact.html"><i class='fas fa-envelope'></i> Contact</a>
+    <li>
+        <a href="https://cdr2.com/crblog/contact.html">Contact</a>
     </li>
-    <li class='nav-item'>Links<i class="right fas fa-angle-left" onclick=
-    "console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-        <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget=
-        'treeview' role='menu' data-accordian='false'>
-            <li class='nav-item'>
+    <li>Links
+        <ul>
+            <li>
                 <a href="https://linkedin.com/in/crobison" target='_blank'>LinkedIn</a>
             </li>
-            <li class='nav-item'>
+            <li>
                 <a href="https://github.com/chrisrobison" target='_blank'>Github</a>
             </li>
-            <li class='nav-item'>
+            <li>
                 <a href="https://codepen.io/ChristopherRobison" target='_blank'>CodePen</a>
             </li>
         </ul>
     </li>
-    <li class='nav-item'>
-        <a href="https://cdr2.com/cv/generated/list2.php"><i class='fa-regular fa-file'></i> Resume</a><i class=
-        "right fas fa-angle-left" onclick="console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-        <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget=
-        'treeview' role='menu' data-accordian='false'>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/cv/generated/list.php"><i class='fas fa-rectangle-list'></i> Styled Resumes</a>
+    <li>
+        <a href="https://cdr2.com/cv/generated/list2.php">Resume</a>
+        <ul>
+            <li>
+                <a href="https://cdr2.com/cv/generated/list.php">Styled Resumes</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/cv/generated/spartan.html"><i class='fas fa-envelope-open-text'></i> Plain Resume</a>
+            <li>
+                <a href="https://cdr2.com/cv/generated/spartan.html">Plain Resume</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/jobhunt/questions.html"><i class='fas fa-file-lines'></i> Questions to ask</a>
+            <li>
+                <a href="https://cdr2.com/jobhunt/questions.html">Questions to ask</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/jobhunt/coverletter/"><i class='fas fa-clipboard-question'></i> Coverletter Tool</a>
-            </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/work.html"><i class='fas fa-code'></i> Work Sample</a><i class=
-                "right fas fa-angle-left" onclick=
-                "console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-                <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child'
-                data-widget='treeview' role='menu' data-accordian='false'>
-                    <li class='nav-item'>
-                        <a href="https://bouncingbutton.com" target='_blank'>Button Game</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a href="https://bouncingbutton.com/doc/" target='_blank'>Button Docs</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a href="https://github.com/chrisrobison/buttongame/" target='_blank'>Button Code</a>
-                    </li>
-                </ul>
+            <li>
+                <a href="https://cdr2.com/jobhunt/coverletter/">Coverletter Tool</a>
             </li>
         </ul>
     </li>
-    <li class='nav-item'>
-        <a href="https://cdr2.com/crblog/blog/"><i class='fa-regular fa-message'></i> Blog Posts</a><i class=
-        "right fas fa-angle-left" onclick="console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-        <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget=
-        'treeview' role='menu' data-accordian='false'>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/haunted-sf.html"><i class='fas fa-code'></i> Haunted History</a>
+    <li>
+        <a href="https://cdr2.com/crblog/blog/">Blog Posts</a>
+        <ul>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/modules.html">Client-Side JavaScript Modules</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/modules.html"><i class='fas fa-code'></i> Client-Side JavaScript
-                Modules</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/haunted-sf.html">Haunted History</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/renegade-rbls.html"><i class='fas fa-code'></i> Realtime Black Lists
-                (RBLs)</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/service-workers.html">Caching Assets</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/service-workers.html"><i class='fas fa-code'></i> Caching Assets</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/fun.html">Balancing Fun and Functionality</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/fun.html"><i class='fas fa-code'></i> Balancing Fun and Functionality</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/mobile-frameworks.html">Cross-Platform Mobile Frameworks</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/mobile-frameworks.html"><i class='fas fa-code'></i> Cross-Platform Mobile
-                Frameworks</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/eventloop.html">The JS Event Loop</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/eventloop.html"><i class='fas fa-code'></i> The JS Event Loop</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/async-fetch.html">Async/Await and Fetch</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/async-fetch.html"><i class='fas fa-code'></i> Async/Await and Fetch</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/rockart.html">Ancient Petroglyphs</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/rockart.html"><i class='fas fa-palette'></i> Ancient Petroglyphs</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/ai-ads.html">AI for Ads</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/ai-ads.html"><i class='fas fa-rectangle-ad'></i> AI for Ads</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/scaling-up.html">Scaling Up</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/scaling-up.html"><i class='fa-solid fa-arrow-up-right-dots'></i> Scaling
-                Up</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/stellar-dev.html">From 0 to 100</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/stellar-dev.html"><i class='fas fa-hand-holding-dollar'></i> From 0 to
-                100</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/agile-howto.html">Adapting to Agile</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/honeypot.html"><i class='fas fa-code'></i> Unmasking Data Sellers</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/digital-divide.html">Crossing the Divide</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/agile-howto.html"><i class='fas fa-diagram-project'></i> Adapting to
-                Agile</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/codereview.html">Code Review Culture</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/digital-divide.html"><i class='fas fa-gears'></i> Crossing the Divide</a>
-            </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/codereview.html"><i class='fas fa-code'></i> Code Review Culture</a>
-            </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/blog/rtb-thoughts.html"><i class='fas fa-rectangle-ad'></i> Real-Time
-                Bidding</a>
+            <li>
+                <a href="https://cdr2.com/crblog/blog/rtb-thoughts.html">Real-Time Bidding</a>
             </li>
         </ul>
     </li>
-    <li class='nav-item'>Fun<i class="right fas fa-angle-left" onclick=
-    "console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-        <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget=
-        'treeview' role='menu' data-accordian='false'>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/fun.html?type=games"><i class='fas fa-dice'></i> Games</a><i class=
-                "right fas fa-angle-left" onclick=
-                "console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-                <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child'
-                data-widget='treeview' role='menu' data-accordian='false'>
-                    <li class='nav-item'>
+    <li>Fun
+        <ul>
+            <li>
+                <a href="https://cdr2.com/crblog/fun.html?type=games">Games</a>
+                <ul>
+                    <li>
                         <a href="https://quickconquest.com/" target='_blank'>Quick Conquest</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://cdr2.com/jobfun/" target='_blank'>Job Hunt Simulator</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://bouncingbutton.com/" target='_blank'>Bouncing Button</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://cdr2.com/bees/" target='_blank'>The Bees</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://gridlockpanic.com/" target='_blank'>Gridlock Panic</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://atcpanic.com/" target='_blank'>ATC Panic</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://cdr2.com/wordoku/" target='_blank'>Wordoku</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://cdr2.com/grapple/grapple.html" target='_blank'>Grapple</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href="https://cdr2.com/balloon-pop/"><img alt='Balloon Pop' class='nav-icon' src=
-                        'assets/img/balloon.svg'> Balloon Pop</a>
+                    <li>
+                        <a href="https://cdr2.com/balloon-pop/">Balloon Pop</a>
                     </li>
                 </ul>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/doodles.html?type=doodle"><i class='fas fa-palette'></i> Doodles</a><i class=
-                "right fas fa-angle-left" onclick=
-                "console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-                <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child'
-                data-widget='treeview' role='menu' data-accordian='false'>
-                    <li class='nav-item'>
+            <li>
+                <a href="https://cdr2.com/crblog/doodles.html?type=doodle">Doodles</a>
+                <ul>
+                    <li>
                         <a href="https://cdr2.com/parallax/parallax.html" target='_blank'>Parallax</a>
                     </li>
-                    <li class='nav-item'>
+                    <li>
                         <a href="https://cdr2.com/carlton-css/" target='_blank'>Carlton Dance</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href="https://cdr2.com/waterfall/"><i class='fas fa-image'></i> Waterfall</a>
+                    <li>
+                        <a href="https://cdr2.com/waterfall/">Waterfall</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href="https://cdr2.com/chladni/"><i class='fas fa-image'></i> Chladni Patterns</a>
+                    <li>
+                        <a href="https://cdr2.com/chladni/">Chladni Patterns</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href="https://cdr2.com/phantomzone.html"><i class='fas fa-image'></i> Phantom Zone</a>
+                    <li>
+                        <a href="https://cdr2.com/phantomzone.html">Phantom Zone</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href="https://cdr2.com/butterchurn/examples/demo.html"><i class='fas fa-image'></i> Butterchurn</a>
+                    <li>
+                        <a href="https://cdr2.com/butterchurn/examples/demo.html">Butterchurn</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href="https://cdr2.com/arrows.html"><i class='fas fa-image'></i> Arrows Illusion</a>
+                    <li>
+                        <a href="https://cdr2.com/arrows.html">Arrows Illusion</a>
                     </li>
                 </ul>
             </li>
         </ul>
     </li>
-    <li class='nav-item'>
-        <a href="https://cdr2.com/crblog/tools.html"><i class='fas fa-gear'></i> Tools</a><i class="right fas fa-angle-left"
-        onclick="console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-        <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget=
-        'treeview' role='menu' data-accordian='false'>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/invoice/"><i class='fas fa-file-invoice-dollar'></i> Invoice Generator</a>
+    <li>
+        <a href="https://cdr2.com/crblog/tools.html">Tools</a>
+        <ul>
+            <li>
+                <a href="https://cdr2.com/invoice/">Invoice Generator</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/autonomic/carousel/"><i class='fas fa-music'></i> Album Explorer</a>
+            <li>
+                <a href="https://cdr2.com/autonomic/carousel/">Album Explorer</a>
             </li>
-            <li class='nav-item'>
+            <li>
                 <a href="https://boozecluez.com" target='_blank'>Booze Cluez</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/sfhistory/"><i class='fas fa-map-location-dot'></i> SF Street History</a>
+            <li>
+                <a href="https://cdr2.com/sfhistory/">SF Street History</a>
             </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/thesaurus.html"><i class='fas fa-book'></i> Thesaurus</a>
-            </li>
-        </ul>
-    </li>
-    <li class='nav-item'>Miscellaneous<i class="right fas fa-angle-left" onclick=
-    "console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>
-        <ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget=
-        'treeview' role='menu' data-accordian='false'>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/policies/privacy.html"><i class='fas fa-book'></i> Privacy Policy</a>
-            </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/policies/cookie-policy.html"><i class='fas fa-passport'></i> Cookie Policy</a>
-            </li>
-            <li class='nav-item'>
-                <a href="https://cdr2.com/crblog/policies/tos.html"><i class='fa-solid fa-bell-concierge'></i> Terms of
-                Service</a>
+            <li>
+                <a href="https://cdr2.com/thesaurus.html">Thesaurus</a>
             </li>
         </ul>
     </li>
-    <li class='nav-item'>
-        <a href="https://cdr2.com/crblog/help.html"><i class='fa-solid fa-circle-question'></i> Help</a>
+    <li>Miscellaneous
+        <ul>
+            <li>
+                <a href="https://cdr2.com/crblog/policies/privacy.html">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="https://cdr2.com/crblog/policies/cookie-policy.html">Cookie Policy</a>
+            </li>
+            <li>
+                <a href="https://cdr2.com/crblog/policies/tos.html">Terms of Service</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="https://cdr2.com/crblog/help.html">Help</a>
     </li>
 </ul>
 
