@@ -1,0 +1,17 @@
+https://cdr2.com/crblog/blog/haunted-sf.html
+https://cdr2.com/crblog/blog/modules.html
+https://cdr2.com/crblog/blog/service-workers.html
+https://cdr2.com/crblog/blog/fun.html
+https://cdr2.com/crblog/blog/mobile-frameworks.html
+https://cdr2.com/crblog/blog/eventloop.html
+https://cdr2.com/crblog/blog/async-fetch.html
+https://cdr2.com/crblog/blog/honeypot.html
+https://cdr2.com/crblog/blog/rockart.html
+https://cdr2.com/crblog/blog/ai-ads.html
+https://cdr2.com/crblog/blog/scaling-up.html
+https://cdr2.com/crblog/blog/stellar-dev.html
+https://cdr2.com/crblog/blog/renegade-rbls.html
+https://cdr2.com/crblog/blog/agile-howto.html
+https://cdr2.com/crblog/blog/digital-divide.html
+https://cdr2.com/crblog/blog/codereview.html
+https://cdr2.com/crblog/blog/rtb-thoughts.html
