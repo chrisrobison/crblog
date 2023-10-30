@@ -1,0 +1,33 @@
+#!/usr/local/bin/php
+<?php
+$nav = getSitemap("posts.json");
+
+$out = buildSitemap($nav);
+print join("\n", $out)."\n";
+
+function buildSitemap($json) {
+    $out = array();
+    foreach ($json as $idx=>$item) {
+        if (property_exists($item, "_include")) {
+             $item->_children = getSitemap($item->_include);
+        }
+        if (property_exists($item, "link")) {
+            if (!preg_match("/^http/", $item->link)) {
+                if (!preg_match("/^[\/\.]/", $item->link)) {
+                    $item->link = "/crblog/" . $item->link;
+                }
+                $out[] = "https://cdr2.com{$item->link}";
+            }
+        }
+        if (property_exists($item, "_children")) {
+            $tmp = buildSitemap($item->_children);
+            $out = array_merge($out, $tmp);
+        }
+    }
+    return $out;
+}
+function getSitemap($file) {
+    return json_decode(file_get_contents($file));
+}
+
+?>
