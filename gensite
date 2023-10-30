@@ -1,0 +1,80 @@
+#!/usr/local/bin/php
+<?php
+$nav = getSitemap("nav/nav.json");
+
+$html = buildSitemap($nav->sidemenu);
+$html = tidy($html);
+$out = new stdClass();
+$out->nav = $html;
+
+$index = file_get_contents("index.template.html");
+$index = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
+    global $out;
+
+    if (property_exists($out, $match[1])) {
+        return $out->{$match[1]};
+    } else {
+        return "";
+    }
+}, $index);
+print  $index."\n";
+
+function buildSitemap($json, $lvl=0) {
+    $out = str_repeat("\t", $lvl);
+
+    $arrow = '<i class="right fas fa-angle-left" onclick="console.log(this.closest(\'li\'));this.closest(\'li\').classList.add(\'menu-open\');"></i>';
+    $out .= "<ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget='treeview' role='menu' data-accordian='false'>";
+    foreach ($json as $idx=>$item) {
+        if (property_exists($item, "_include")) {
+             $item->_children = getSitemap($item->_include);
+        }
+        $hide = "";
+        $out .= str_repeat("\t\t", $lvl);
+        if (property_exists($item, "hidden") && $item->hidden) {
+            $hide = " style='display:none;' ";
+        }
+        $out .= "<li class='nav-item'$hide>";
+        $ico = "";
+        if ($item->icon) {
+            if (preg_match("/(gif|jpg|jpeg|svg|png|bmp|ico)$/", $item->icon)) {
+                $ico = "<img alt='{$item->title}' class='nav-icon' src='{$item->icon}'> ";
+            } else {
+                $ico = "<i class='{$item->icon}'></i> ";
+            }
+        }
+        if (property_exists($item, "link")) {
+            if (!preg_match("/^http/", $item->link)) {
+                if (!preg_match("/^[\/\.]/", $item->link)) {
+                    $item->link = "/crblog/" . $item->link;
+                }
+                $out .= "<a href=\"https://cdr2.com{$item->link}\">".$ico.$item->title."</a>";
+            } else {
+                $out .= "<a href=\"{$item->link}\" onclick=\"return app.doClick(this, event)\" class='nav-link' target='_blank'>".$item->title."</a>";
+            }
+        } else {
+            $out .= $item->title;
+        }
+        if (property_exists($item, "_children")) {
+            $out .= $arrow;
+            $tmp = buildSitemap($item->_children, $lvl+1);
+            $out .= "\n\t\t\t"  . $tmp ."\n";
+        }
+        $out .= "</li>\n";
+    }
+    $out .= "\n".str_repeat("\t", $lvl);
+    $out .= "</ul>";
+    return $out;
+}
+
+function getSitemap($file) {
+    return json_decode(file_get_contents($file));
+}
+
+function tidy($html) {
+    $tmpfile = "/tmp/tidy_".uniqid().".html";
+    file_put_contents($tmpfile, $html);
+    $newhtml = `cat $tmpfile | tidy -q --show-body-only yes`;
+    unlink($tmpfile);
+    return $newhtml;
+}
+?>
