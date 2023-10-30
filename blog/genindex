@@ -8,8 +8,8 @@ $tpl = <<<EOT
         <a href="%%link%%" target="_blank" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);">
             <h2>%%title%%</h2>
             <h3>%%subtitle%%</h3>
-        </a><hr>
-        <p class="blurb">%%blurb%%</p>
+        </a><hr style="margin-top:0.25rem;margin-bottom:0.5rem;">
+        <p class="blurb" style="line-height:175%">%%blurb%%</p>
     </div>
     <a class="readmore" target="_blank" href="%%link%%" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);">Read more...</a>
 </li>
@@ -19,6 +19,8 @@ $posts = json_decode(file_get_contents("posts.json"));
 $out = "";
 
 foreach ($posts as $post) {
+    $post->date = date("M j, Y", strtotime($post->date));
+
     $html = preg_replace_callback("/\%\%(\w+)\%\%/", function($match) {
         global $post;
         if (property_exists($post, $match[1])) {
