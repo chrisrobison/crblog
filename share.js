@@ -8,7 +8,7 @@
         },
         socialsites: [
             { "title": "LinkedIn", "link": "https://www.linkedin.com/sharing/share-offsite/?url={url}", "icon": "/crblog/assets/share-icons/linkedin.svg" },
-            { "title": "HackerNews", "link": "https://news.ycombinator.com/submitlink?u={url}&t={title}", "icon": "/crblog/assets/share-icons/hacker.news.svg" },
+            { "title": "HackerNews", "link": "https://news.ycombinator.com/submitlink?u={url}&t={title}", "icon": "/crblog/assets/share-icons/hackernews.svg" },
             { "title": "Reddit", "link": "https://reddit.com/submit?url={url}&title={title}", "icon": "/crblog/assets/share-icons/reddit.svg" },
             { "title": "Twitter", "link": "https://twitter.com/intent/tweet?url={url}&text={title}&via=@thechrisrobison&hashtags={hash_tags}", "icon": "/crblog/assets/share-icons/twitter.svg" },
             { "title": "Facebook", "link": "https://www.facebook.com/sharer.php?u={url}", "icon": "/crblog/assets/share-icons/facebook.svg" },
@@ -16,28 +16,16 @@
         ],
         init() {
         },
-        showlist() {
+        showlist(evt) {
+            if (evt) evt.preventDefault();
             let el = share.buildlist(share.socialsites);
             let sharehtml = share.createElement("div", "sharehtml", "sharehtml", 
                 `<h2 style="width:100%;border-bottom:2px solid #fff;">Share<a title="Close Share Dialog" style="cursor:pointer;float:right;position:relative;top:-8px;" onclick="return share.closeshare()"><i class="fa-solid fa-circle-xmark"></i></a></h2>`, 
                 {
-                    backgroundColor: "#222",
-                    color: "#eee",
-                    width: "27rem",
-                    height: "14rem",
-                    display: "flex",
-                    border: "1rem solid #222",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    justifyContent: "space-between",
-                    position: "absolute",
-                    top: "40%",
-                    left: "30%",
-                    borderRadius: "1rem"
+                   top: (window.scrollY + (window.innerHeight * 0.25)) + 'px',
                 }); 
             sharehtml.appendChild(el);
-            
-            let shareurl = share.createElement("input", "shareurl", "", "", { backgroundColor:"#fff",color:"#000",fontSize: "24px", width: "23rem", height: "3rem" }, "text", location.href)
+            let shareurl = share.createElement("input", "shareurl", "shareurl", "", { }, "text", location.href)
             shareurl.disabled = true;
             let copy = share.createElement("i", "", "fas fa-paste", "", { fontSize: "24px", textAlign: "right", width: "2rem" });
             copy.className = "fas fa-paste";
@@ -53,6 +41,7 @@
             document.querySelector(".content-wrapper").appendChild(sharehtml);
             document.addEventListener("keydown", share.dokey);
             console.log("Loaded.");
+            return false;
         },
         dokey(evt) {
             console.dir(evt);
@@ -111,7 +100,8 @@
                         return encodeURIComponent(linkout[p1]);
                     }
                 });
-                out.innerHTML += `<a class="social-wrap" href="${link}" title="Share on ${site.title}" onclick="return share.share('${site.title}')"><img src="${site.icon}" class="social-icon"></a>`;
+                let shortname = site.title.toLowerCase();
+                out.innerHTML += `<a class="social-wrap shareicon ${shortname}" href="${link}" title="Share on ${site.title}" onclick="return share.share('${site.title}')"></a>`;
             }
 
             return out;
