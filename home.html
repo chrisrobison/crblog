@@ -110,6 +110,7 @@ div.ghost svg {
   height:300px;
   left:0;
   top:50%;
+  opacity: 0.5;
  }
 .ghost.start {
   animation:
@@ -118,7 +119,7 @@ div.ghost svg {
 }
 @keyframes x {
    to {
-     left:calc(100% - 40px);
+     left:calc(100% - 150px);
    }
 }
 @keyframes y {
@@ -275,15 +276,23 @@ function init() {
     document.querySelector(".ghost").style.display = "none";
   }
   document.querySelector(".ghost").addEventListener("click", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
     localStorage.setItem("ghost", "no");
     document.querySelector(".ghost").style.display = "none";
     addDivConfetti(e, 30);
+    return false;
   });
   document.addEventListener("keypress", function(e) {
     if (e.key = "r") {
       localStorage.setItem("ghost", "yes");
       document.querySelector(".ghost").style.display = "block";
     }
+  });
+  document.addEventListener("click", function(e) {
+    
+    localStorage.setItem("ghost", "yes");
+    document.querySelector(".ghost").style.display = "block";
   });
 }
     </script>

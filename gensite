@@ -23,7 +23,7 @@ function buildSitemap($json, $lvl=0) {
     $out = str_repeat("\t", $lvl);
 
     $arrow = '<i class="right fas fa-angle-left" onclick="console.log(this.closest(\'li\'));this.closest(\'li\').classList.add(\'menu-open\');"></i>';
-    $out .= "<ul class='nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child' data-widget='treeview' role='menu' data-accordian='false'>";
+    $out .= "<ul class=\"nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child\" data-widget=\"treeview\" role=\"menu\" data-accordion=\"false\">";
     foreach ($json as $idx=>$item) {
         if (property_exists($item, "_include")) {
              $item->_children = getSitemap($item->_include);
@@ -33,13 +33,13 @@ function buildSitemap($json, $lvl=0) {
         if (property_exists($item, "hidden") && $item->hidden) {
             $hide = " style='display:none;' ";
         }
-        $out .= "<li class='nav-item'$hide>";
+        $out .= "<li class=\"nav-item\"$hide>";
         $ico = "";
         if ($item->icon) {
             if (preg_match("/(gif|jpg|jpeg|svg|png|bmp|ico)$/", $item->icon)) {
-                $ico = "<img alt='{$item->title}' class='nav-icon' src='{$item->icon}'> ";
+                $ico = "<img alt=\"{$item->title}\" class=\"nav-icon\" src=\"{$item->icon}\"> ";
             } else {
-                $ico = "<i class='{$item->icon}'></i> ";
+                $ico = "<i class=\"{$item->icon}\"></i> ";
             }
         }
         if (property_exists($item, "link")) {
@@ -47,9 +47,9 @@ function buildSitemap($json, $lvl=0) {
                 if (!preg_match("/^[\/\.]/", $item->link)) {
                     $item->link = "/crblog/" . $item->link;
                 }
-                $out .= "<a href=\"https://cdr2.com{$item->link}\">".$ico.$item->title."</a>";
+                $out .= "<a href=\"{$item->link}\">".$ico.$item->title."</a>";
             } else {
-                $out .= "<a href=\"{$item->link}\" onclick=\"return app.doClick(this, event)\" class='nav-link' target='_blank'>".$item->title."</a>";
+                $out .= "<a href=\"{$item->link}\" title=\"{$item->title}\" onclick=\"return app.doClick(this, event)\" class='nav-link' target='_blank'>".$item->title."</a>";
             }
         } else {
             $out .= $item->title;
