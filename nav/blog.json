@@ -1,7 +1,16 @@
 [
     {
-        "title": "The Evolution and Benefits of Client-Side JavaScript Modules",
-        "subtitle": null,
+        "title": "Haunted History",
+        "subtitle": "San Francisco ",
+        "fulltitle": "Haunted History: San Francisco ",
+        "link": "blog/haunted-sf.html",
+        "name": "hauntedhistory",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Client-Side JavaScript Modules",
+        "subtitle": "It's About Time!",
         "fulltitle": "The Evolution and Benefits of Client-Side JavaScript Modules",
         "link": "blog/modules.html",
         "name": "theevolutionandbenefitsofclientsidejavascriptmodules",
@@ -9,11 +18,11 @@
         "icon": "fas fa-code"
     },
     {
-        "title": "Haunted History",
-        "subtitle": "San Francisco ",
-        "fulltitle": "Haunted History: San Francisco ",
-        "link": "blog/haunted-sf.html",
-        "name": "hauntedhistory",
+        "title": "Realtime Black Lists (RBLs)",
+        "subtitle": "The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
+        "fulltitle": "Realtime Black Lists (RBLs): The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
+        "link": "blog/renegade-rbls.html",
+        "name": "realtimeblacklistsrbls",
         "target": "iframe",
         "icon": "fas fa-code"
     },
@@ -89,6 +98,15 @@
         "icon": "fas fa-hand-holding-dollar"
     },
     {
+        "title": "Unmasking Data Sellers",
+        "subtitle": "How to Use Honeypot Email Addresses",
+        "fulltitle": "Unmasking Data Sellers: How to Use Honeypot Email Addresses",
+        "link": "blog/honeypot.html",
+        "name": "unmaskingdatasellers",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+     {
         "title": "Adapting to Agile",
         "fulltitle": "Adapting to Agile: How to Successfully Implement Agile Methodologies in Your Team",
         "link": "blog/agile-howto.html",
