@@ -1,0 +1,36 @@
+<aside class="tags">
+    <ul id="taglist">
+    </ul>
+</aside>
+
+<script>
+let alltags = [];
+(function() {
+
+    fetch("posts.json").then(r=>r.json()).then(data=>{
+        for (const post of data) {
+            if (post.tags) {
+                let tags = post.tags.split(/\,\s*/);
+                console.dir(tags);
+                for (let i=0; i < tags.length; i++) {
+                    let mytag = tags[i];
+                    if (!alltags[mytag]) alltags[mytag] = 0;
+                    alltags[mytag]++
+                    console.log(`Added ${mytag} [${alltags[mytag]}]`);
+                }
+            }
+        }
+        let sortedTags = Object.keys(alltags).sort();
+        console.dir(sortedTags);
+
+        let out = "";
+        const thelist = document.querySelector("#taglist");
+        sortedTags.forEach(item => {
+            let el = document.createElement("li");
+            el.innerHTML = `<a href='/crblog/blog/category.html?category=${item}'>${item} [${alltags[item]}]</a>`;
+            thelist.appendChild(el);
+        });
+
+    });
+})();
+</script>
