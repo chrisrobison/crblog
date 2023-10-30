@@ -30,6 +30,13 @@
       "_include": "nav/resume.json"
     },
     {
+		"title": "Work Sample",
+		"link": "/crblog/work.html",
+		"icon": "fas fa-code",
+		"_childicons": true,
+		"_include": "nav/work.json"
+	},
+    {
       "title": "Blog Posts",
       "link": "blog/",
       "icon": "fa-regular fa-message",

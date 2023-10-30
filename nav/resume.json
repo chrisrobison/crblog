@@ -18,6 +18,13 @@
 		"title": "Coverletter Tool",
 		"link": "/jobhunt/coverletter/",
 		"icon": "fas fa-clipboard-question"
+	},
+	{
+		"title": "Work Sample",
+		"link": "/crblog/work.html",
+		"icon": "fas fa-code",
+		"_childicons": true,
+		"_include": "nav/work.json"
 	}
 ]
 

@@ -1,0 +1,18 @@
+[
+            {
+              "title": "Button Game",
+              "link": "https://bouncingbutton.com",
+              "icon": "fas fa-puzzle-piece"
+            },
+            {
+              "title": "Button Docs",
+              "link": "https://bouncingbutton.com/doc/",
+              "icon": "fas fa-book"
+            },
+            {
+              "title": "Button Code",
+              "link": "https://github.com/chrisrobison/buttongame/",
+              "icon": "fas fa-code",
+              "target": "_blank"
+            }
+ ]
