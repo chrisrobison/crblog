@@ -115,7 +115,8 @@
         makeList: function(arr, noul=false, noicons=false) {
             let icos = noicons ? "icons-no" : "icons-yes";
             let out = (noul) ? "" : `<ul class="nav nav-treeview ${icos}">`;
-            let target, haschild, hasinclude, toggle = '', arrow = `<i class="right fas fa-angle-left" onclick="parentElement.parentElement.parentElement.classList.toggle('menu-open');"></i>`;
+            let target, haschild, hasinclude, toggle = '', 
+            arrow = `<i class="right fas fa-angle-left" onclick="console.log(this.closest('li'));this.closest('li').classList.add('menu-open');"></i>`;
             let mopen = 0;
             
             for (let i=0; i<arr.length; i++) {
@@ -133,7 +134,8 @@
                     if (noicons) {
                         navicon = " <i class='far fa-circle'></i> ";
                     }
-                    out += `<li class="nav-item${menuopen}"><a href="${item.link}" ${target} title="${item.title} ${item.subtitle}" onclick="return app.doClick(this, event)" class="nav-link">${navicon}<p>${item.title}${toggle}</p></a>`;
+                    let st = (item.subtitle) ? item.subtitle : "";
+                    out += `<li class="nav-item${menuopen}"><a href="${item.link}" ${target} title="${item.title} ${st}" onclick="return app.doClick(this, event)" class="nav-link">${navicon}<p>${item.title}${toggle}</p></a>`;
                     
                     if (haschild) {
                         out += app.makeList(item["_children"], false, !item["_childicons"]);
@@ -199,6 +201,8 @@
 
                 app.state.tabs[name] = {id: `tab-${name}`, title: `${tabtitle}` };
                 jQuery(".content-wrapper").IFrame('createTab', tabtitle, url, name, autoshow);
+                app.state.newtab = `tab-${name}`;
+                setTimeout(function() { jQuery(`#${app.state.newtab}`).click(); }, 1000);
             }
 
             return false;
