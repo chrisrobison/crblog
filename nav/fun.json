@@ -12,5 +12,11 @@
           "link": "doodles.html?type=doodle",
           "_childIcons": true,
           "_include": "nav/doodles.json"
+    },
+    {
+          "title": "Photography",
+          "icon": "fas fa-camera-retro",
+          "link": "/crblog/pics/carousel.html"
     }
+
 ]
