@@ -10,6 +10,11 @@
               "icon": "fas fa-book"
             },
             {
+              "title": "Code Flowchart",
+              "link": "/crblog/assets/img/buttongame-flowchart.svg",
+              "icon": "fas fa-arrows-split-up-and-left"
+            },
+            {
               "title": "Button Code",
               "link": "https://github.com/chrisrobison/buttongame/",
               "icon": "fas fa-code",

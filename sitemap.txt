@@ -4,7 +4,7 @@ https://cdr2.com/balloon-pop/
 https://cdr2.com/butterchurn/examples/demo.html
 https://cdr2.com/chladni/
 https://cdr2.com/crblog/about.html
-https://cdr2.com/crblog/blog/
+https://cdr2.com/crblog/blog/index.html
 https://cdr2.com/crblog/blog/agile-howto.html
 https://cdr2.com/crblog/blog/ai-ads.html
 https://cdr2.com/crblog/blog/async-fetch.html
