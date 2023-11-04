@@ -1,5 +1,18 @@
 [
     {
+        "fulltitle": "Unpacking Modern JavaScript: Optional Chaining and Nullish Coalescing",
+        "title": "Unpacking Modern JavaScript",
+        "subtitle": "Optional Chaining and Nullish Coalescing",
+        "link": "blog/modern-js.html",
+        "name": "unpackingmodernjavascript",
+        "date": "2023-11-04",
+        "tags": "",
+        "target": "iframe",
+        "hero": "../assets/img/modern-js.jpg",
+        "icon": "fas fa-code",
+        "blurb": "JavaScript has come a long way since its inception, continuously evolving to meet the demands of modern web development. Two of the most exciting additions to the language are the Optional Chaining Operator (`?.`) and the Nullish Coalescing Operator (`??`). These operators simplify the way we write code and handle data that might be `undefined` or `null`. Let's dive in and explore these operators with some practical examples."
+    },
+    {
         "fulltitle": "Haunted History: San Francisco ",
         "title": "Haunted History",
         "subtitle": "San Francisco ",
