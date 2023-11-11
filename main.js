@@ -135,7 +135,7 @@
                         navicon = " <i class='far fa-circle'></i> ";
                     }
                     let st = (item.subtitle) ? item.subtitle : "";
-                    out += `<li class="nav-item${menuopen}"><a href="${item.link}" ${target} title="${item.title} ${st}" onclick="return app.doClick(this, event)" class="nav-link">${navicon}<p>${item.title}${toggle}</p></a>`;
+                    out += `<li class="nav-item${menuopen}"><a href="${item.link}" ${target} title="${item.title} ${st}" onclick="return app.doClick(this, event)" class="nav-link">${navicon} <p>${item.title}${toggle}</p></a>`;
                     
                     if (haschild) {
                         out += app.makeList(item["_children"], false, !item["_childicons"]);

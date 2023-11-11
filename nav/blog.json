@@ -1,5 +1,50 @@
 [
     {
+        "title": "AI and the Art of Logistics",
+        "subtitle": "Predictive Analytics for Small Transportation",
+        "fulltitle": "AI and the Art of Logistics: Predictive Analytics for Small Transportation",
+        "link": "blog/ai-logistics.html",
+        "name": "aiandtheartoflogistics",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Cybersecurity for the Road",
+        "subtitle": "Protecting Your Transportation Business from Digital Threats",
+        "fulltitle": "Cybersecurity for the Road: Protecting Your Transportation Business from Digital Threats",
+        "link": "blog/fleet-security.html",
+        "name": "cybersecurityfortheroad",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Leveraging IoT",
+        "subtitle": "How Small Fleets Can Get Big Data Insights",
+        "fulltitle": "Leveraging IoT: How Small Fleets Can Get Big Data Insights",
+        "link": "blog/fleet-iot.html",
+        "name": "leveragingiot",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Tech Talk",
+        "subtitle": "Communicating with Your Fleet Anywhere, Anytime",
+        "fulltitle": "Tech Talk: Communicating with Your Fleet Anywhere, Anytime",
+        "link": "blog/fleet-communication.html",
+        "name": "techtalk",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Tech-Enabled Compliance",
+        "subtitle": "Staying Ahead of Regulations in Transportation",
+        "fulltitle": "Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation",
+        "link": "blog/compliance.html",
+        "name": "techenabledcompliance",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
         "title": "Unpacking Modern JavaScript",
         "subtitle": "Optional Chaining and Nullish Coalescing",
         "fulltitle": "Unpacking Modern JavaScript: Optional Chaining and Nullish Coalescing",

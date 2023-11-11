@@ -37,9 +37,9 @@ function buildSitemap($json, $lvl=0) {
         $ico = "";
         if ($item->icon) {
             if (preg_match("/(gif|jpg|jpeg|svg|png|bmp|ico)$/", $item->icon)) {
-                $ico = "<img alt=\"{$item->title}\" class=\"nav-icon\" src=\"{$item->icon}\"> ";
+                $ico = "<img alt=\"{$item->title}\" class=\"nav-icon\" src=\"{$item->icon}\">";
             } else {
-                $ico = "<i class=\"{$item->icon}\"></i> ";
+                $ico = "<i class=\"nav-icon {$item->icon}\"></i>";
             }
         }
         if (property_exists($item, "link")) {
@@ -47,17 +47,19 @@ function buildSitemap($json, $lvl=0) {
                 if (!preg_match("/^[\/\.]/", $item->link)) {
                     $item->link = "/crblog/" . $item->link;
                 }
-                $out .= "<a href=\"{$item->link}\">".$ico.$item->title."</a>";
+                $out .= "<a href=\"{$item->link}\" title=\"{$item->title}\" onclick=\"return app.doClick(this, event)\" class=\"nav-link\">".$ico."<p>".$item->title;
             } else {
-                $out .= "<a href=\"{$item->link}\" title=\"{$item->title}\" onclick=\"return app.doClick(this, event)\" class='nav-link' target='_blank'>".$item->title."</a>";
+                $out .= "<a href=\"{$item->link}\" title=\"{$item->title}\" onclick=\"return app.doClick(this, event)\" class='nav-link' target='_blank'><p>".$item->title;
             }
         } else {
-            $out .= $item->title;
+            $out .= "<a href=\"#\" title=\"{$item->title}\" class=\"nav-link\">$ico<p>".$item->title;
         }
         if (property_exists($item, "_children")) {
-            $out .= $arrow;
+            $out .= $arrow. "</p></a>";
             $tmp = buildSitemap($item->_children, $lvl+1);
             $out .= "\n\t\t\t"  . $tmp ."\n";
+        } else {
+            $out .= "</p></a>";
         }
         $out .= "</li>\n";
     }
