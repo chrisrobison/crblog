@@ -91,6 +91,7 @@
   }
 
 </style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="hold-transition iframe-mode">
 <!-- Site wrapper -->
@@ -134,10 +135,11 @@
               <label for="inputMessage">Message<span class="required">*</span></label>
               <textarea id="inputMessage" name="message" class="form-control" rows="4" required></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:flex;">
+              <div class="g-recaptcha" style="float:left;" data-sitekey="6LeBZAspAAAAAPqCTJt-DG4nGpyM0nFKwUwfIRR1"></div>
               <input type="submit" class="btn btn-primary" value="Send message">
-              <div style="display:inline-block; float:right;"><span class="required">*</span> Required field</div>
             </div>
+            <div style="position:absolute;top:1rem; right:1rem;font-size:0.9rem;display:inline-block; float:right;"><span class="required">*</span> Required field</div>
           </div>
         </div>
       </div>
