@@ -1,0 +1,33 @@
+#!/usr/local/bin/php
+<?php
+$imgs = json_decode(file_get_contents("captions.json"));
+
+$lis = "";
+$css = "";
+$list2 = "";
+$first = 0;
+foreach ($imgs as $idx=>$img) {
+    $file = sprintf("photo_%03d.jpg", $idx);
+    if (!$first) {
+        $css .= ".carousel .carousel-item:first-of-type { background-image: url(\"/crblog/pics/{$file}\"); }\n";
+        $list2 .= "<div id='target' class=\"carousel-item active\"><div class=\"caption\">{$img->caption}</div></div>\n";
+    } else {
+        $list2 .= "<div class=\"carousel-item\"><div class=\"caption\">{$img->caption}</div></div>\n";
+        $css .= ".carousel .carousel-item:nth-of-type({$idx}) { background-image: url(\"/crblog/pics/{$file}\"); }\n";
+    }
+    $lis .= "<li data-target=\"#carouselExampleIndicators\" data-slide-to=\"{$idx}\"></li>\n";
+    $first = 1;
+}
+
+$out = new stdClass();
+$out->list = $lis;
+$out->list2 = $list2;
+$out->css = $css;
+
+$html = file_get_contents("carousel.template.html");
+$html = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
+    global $out;
+    return $out->{$match[1]};
+}, $html);
+print $html;
+?>
