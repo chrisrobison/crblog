@@ -38,12 +38,12 @@ while ($file = array_shift($argv)) {
         $out->fulltitle = $title;
         $out->title = $parts[0];
         $out->subtitle = $parts[1];
-        $out->link = "blog/".$fparts[0].".html";
+        $out->link = "/crblog/blog/".$fparts[0].".html";
         $out->name = strtolower(preg_replace("/\W/", '', $out->title));
         $out->date = date("Y-m-d");
         $out->tags = "";
         $out->target = "iframe";
-        $out->hero = "../assets/img/".$fparts[0].".jpg";
+        $out->hero = "/crblog/assets/img/".$fparts[0].".jpg";
         $out->icon = "fas fa-code";
         $out->blurb = $para[1];
 

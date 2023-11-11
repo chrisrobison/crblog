@@ -1,9 +1,22 @@
 [
     {
+        "fulltitle": "AI and the Art of Logistics: Predictive Analytics for Small Transportation",
+        "title": "AI and the Art of Logistics",
+        "subtitle": "Predictive Analytics for Small Transportation",
+        "link": "/crblog/blog/ai-logistics.html",
+        "name": "aiandtheartoflogistics",
+        "date": "2023-11-06",
+        "tags": "ai,logistics,predictive,transportation",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/ai-logistics.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In the intricate dance of logistics, timing and foresight are everything. For small transportation businesses, artificial intelligence (AI) and machine learning (ML) are not just buzzwords; they are transformative technologies that can predict future scenarios and optimize operations. Let's delve into how AI can elevate the art of logistics through predictive analytics in demand forecasting, maintenance, and customer service."
+    },
+    {
         "fulltitle": "Unpacking Modern JavaScript: Optional Chaining and Nullish Coalescing",
         "title": "Unpacking Modern JavaScript",
         "subtitle": "Optional Chaining and Nullish Coalescing",
-        "link": "blog/modern-js.html",
+        "link": "/crblog/blog/modern-js.html",
         "name": "unpackingmodernjavascript",
         "date": "2023-11-04",
         "tags": "",
@@ -26,6 +39,19 @@
         "blurb": "San Francisco has earned a reputation as a world-class haunted city. With it's beginnings as a gold rush town through today's technology boom, The City's tumultuous past has lured many tortured souls to remain. This is my personal list of haunted or spooky places in San Francisco that you don't usually see in other lists. This list is by no means exhaustive, just some places and stories I have found to be spooky and interesting."
     },
     {
+        "fulltitle": "Leveraging IoT: How Small Fleets Can Get Big Data Insights",
+        "title": "Leveraging IoT",
+        "subtitle": "How Small Fleets Can Get Big Data Insights",
+        "link": "/crblog/blog/fleet-iot.html",
+        "name": "leveragingiot",
+        "date": "2023-09-06",
+        "tags": "",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/fleet-iot.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In the transportation sector, the Internet of Things (IoT) is not just a buzzword\u2014it's a fundamental shift in how data is collected, analyzed, and utilized to drive decisions. For small fleet operators, IoT presents an opportunity to harness big data insights that were once the exclusive domain of larger companies with deeper pockets. Let's explore how small fleets can leverage IoT to enhance their operations."
+    },
+    {
         "fulltitle": "Client-Side JS Modules: It's About D*#% Time!",
         "title": "Client-Side JS Modules",
         "subtitle": "It's About Time!",
@@ -39,6 +65,19 @@
         "blurb": "JavaScript has come a long way since its inception in 1995. One of the most significant leaps in JavaScript's journey has been the introduction and widespread adoption of client-side modules. Modules have revolutionized how developers structure their code, making it more manageable, reusable, and efficient. Let's delve into the history, uses, and benefits of client-side JavaScript modules, complete with some code examples."
     },
     {
+        "fulltitle": "Tech Talk: Communicating with Your Fleet Anywhere, Anytime",
+        "title": "Tech Talk: Fleet Communication",
+        "subtitle": "Communicating with Your Fleet Anywhere, Anytime",
+        "link": "/crblog/blog/fleet-communication.html",
+        "name": "techtalk",
+        "date": "2023-07-06",
+        "tags": "",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/fleet-communication.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In the transportation industry, where the workforce is inherently mobile, maintaining clear lines of communication is not just important\u2014it's essential for safety, efficiency, and operational success. With drivers scattered across different routes and locations, traditional means of communication can fall short. Enter the modern era of communication technologies like Voice over Internet Protocol (VoIP) and various messaging apps, which have become game-changers for managing a mobile workforce."
+    },
+    {
         "fulltitle": "Caching Assets with Service Workers in JavaScript",
         "title": "Caching Assets",
         "subtitle": "Service Workers in JavaScript",
@@ -50,6 +89,32 @@
         "icon": "fas fa-code",
         "tags": "JavaScript, Web, UI, Programming",
         "blurb": "We've all been there. You're on your computer, online taking care of business.  You're just wrapping up the final part of a 6-part online job application form and you click submit. The page just spins and after a few seconds, you get the dreaded <q>Network not available</q> screen and all your work is now gone. Sure, browsers have gotten better at recovering from these types of scenarios but we need to be able to write software that will work, offline or online, if we expect users to rely on our web application. Until recently, there was little you could do to address the loss of connectivity as there was no client-side control mechanism for offline asset caching or hooking into network requests. But now there are Service Workers. They're perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. Don't confuse <code>Service Workers</code> with <code>Web Workers</code>; They are very similar but the main difference between the two is that <code>Service Workers</code> are persistent while <code>Web Workers</code> are not. In this post, I'll walk through setting up a service worker for caching assets and explore a couple of different caching strategies."
+    },
+    {
+        "fulltitle": "Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation",
+        "title": "Tech-Enabled Compliance",
+        "subtitle": "Staying Ahead of Regulations in Transportation",
+        "link": "/crblog/blog/compliance.html",
+        "name": "techenabledcompliance",
+        "date": "2023-05-06",
+        "tags": "compliance,transportation,DOT",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/compliance.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In the fast-paced world of transportation, staying compliant with the latest regulations is not just a matter of legal necessity but also a competitive advantage. For small transportation businesses, where resources are often limited, keeping up with these changes can be particularly challenging. However, technology offers a beacon of hope, providing tools that can simplify, streamline, and automate the process of regulatory compliance."
+    },
+    {
+        "fulltitle": "Cybersecurity for the Road: Protecting Your Transportation Business from Digital Threats",
+        "title": "Cybersecurity for the Road",
+        "subtitle": "Protecting Your Transportation Business from Digital Threats",
+        "link": "/crblog/blog/fleet-security.html",
+        "name": "cybersecurityfortheroad",
+        "date": "2023-04-15",
+        "tags": "security,hackers,transportation",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/fleet-security.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In an age where data breaches and cyber-attacks are becoming more frequent and sophisticated, cybersecurity is no longer a concern exclusive to the realms of IT departments. For the transportation industry, which increasingly relies on digital technologies for operations, the threat is very real and potentially devastating. Small transportation businesses, in particular, must recognize the importance of securing fleet data and take proactive steps to protect themselves from digital threats."
     },
     {
         "fulltitle": "Balancing Fun and Functionality: The Key to a Fulfilling Life ",
@@ -107,7 +172,7 @@
         "fulltitle": "Unmasking Data Sellers: How to Use Honeypot Email Addresses",
         "title": "Unmasking Data Sellers",
         "subtitle": "How to Use Honeypot Email Addresses",
-        "link": "blog/honeypot.html",
+        "link": "/crblog/blog/honeypot.html",
         "name": "unmaskingdatasellers",
         "date": "2021-10-02",
         "tags": "Whitehat,Security,Privacy",
@@ -173,7 +238,7 @@
         "fulltitle": "Realtime Black Lists (RBLs): The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
         "title": "Realtime Black Lists (RBLs)",
         "subtitle": "The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
-        "link": "blog/renegade-rbls.html",
+        "link": "/crblog/blog/renegade-rbls.html",
         "name": "realtimeblacklistsrbls",
         "date": "2020-06-06",
         "tags": "",

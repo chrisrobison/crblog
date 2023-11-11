@@ -1,6 +1,12 @@
+https://cdr2.com/crblog/blog/ai-logistics.html
+https://cdr2.com/crblog/blog/modern-js.html
 https://cdr2.com/crblog/blog/haunted-sf.html
+https://cdr2.com/crblog/blog/fleet-iot.html
 https://cdr2.com/crblog/blog/modules.html
+https://cdr2.com/crblog/blog/fleet-communication.html
 https://cdr2.com/crblog/blog/service-workers.html
+https://cdr2.com/crblog/blog/compliance.html
+https://cdr2.com/crblog/blog/fleet-security.html
 https://cdr2.com/crblog/blog/fun.html
 https://cdr2.com/crblog/blog/mobile-frameworks.html
 https://cdr2.com/crblog/blog/eventloop.html
