@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/crblog/assets/img/(.*)\.jpg$ 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /crblog/pics/
