@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>%%fulltitle%% - Christopher Robison's Blog</title>
-  <link rel="canonical" href="https://cdr2.com/crblog/blog/%%name%%.html">
+  <title>Broke Down: The Mystery of the Melting Coil Packs - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/brokedown.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -98,7 +98,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
-              <li class="breadcrumb-item active">%%title%%</li>
+              <li class="breadcrumb-item active">Broke Down</li>
             </ol>
           </div>
         </div>
@@ -108,28 +108,40 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-          <h1 style="font-weight:900;">%%title%%</h1>
-          <h3>%%subtitle%%</h3>
+          <h1 style="font-weight:900;">Broke Down</h1>
+          <h3>The Mystery of the Melting Coil Packs</h3>
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            %%date%%
+            2023-11-12
           </p>
           <hr>
-          <img width="640" src="%%hero%%" class="banner-pic"> 
+          <img width="640" src="/crblog/assets/img/mini-mosfet.jpg" class="banner-pic"> 
           <hr>
-          %%blogpost%%
+          <p>As an experienced software engineer with a knack for hands-on tech repairs, I recently faced a challenging yet intriguing issue with my 2015 Mini Cooper S Convertible. The car’s #2 coil pack had not just failed once, but twice, and did so quite spectacularly, melting in a way that was both baffling and concerning. Determined to get to the bottom of this, I embarked on a journey of automotive troubleshooting that tested both my patience and my technical skills.</p>
+<h4 id="initial-diagnosis-a-deep-dive-into-the-electricals"><strong>Initial Diagnosis: A Deep Dive into the Electricals</strong></h4>
+<p>My first step was to utilize a multimeter to trace the wiring for the problematic ignition coil. With the ECM (Engine Control Module) plugged in, I tested the power on the harness for coil #2. The voltage was present, but there was no fire signal, indicating a possible grounding issue somewhere between the coil and the ECM. After removing the wire harness from the ECM and checking end-to-end, I confirmed that none of the three wires in the harness were grounded unexpectedly. So far, so good.</p>
+<h4 id="the-real-culprit-a-faulty-mosfet"><strong>The Real Culprit: A Faulty MOSFET</strong></h4>
+<p>With my background in diagnosing and repairing electronics, I decided to take a closer look at the ECM itself. I removed the ECM and traced the leads back to the motherboard, focusing on the section responsible for cylinder #2. To my surprise, I discovered that all four ignition wires for each cylinder ran to a set of MOSFETs (Part #N171AD). Tracing cylinder #2’s MOSFET, I removed it from the motherboard and, upon testing, found that the coil pack no longer melted when the ignition was on. This was a significant breakthrough!</p>
+<h4 id="the-search-for-a-replacement-a-stroke-of-ebay-luck"><strong>The Search for a Replacement: A Stroke of eBay Luck</strong></h4>
+<p>Now came the challenging part: finding a replacement component. Fortuitously, I found a “parts” ECM on eBay that seemed promising. The MOSFET in this parts ECM, while a different part number (N634AB), had specifications close enough to the original. After comparing the specs, I decided to take the plunge and replace the old MOSFET with this new one.</p>
+<h4 id="success-against-the-odds"><strong>Success Against the Odds</strong></h4>
+<p>The moment of truth was both thrilling and nerve-wracking. I powered up the Mini, and to my relief and satisfaction, it worked flawlessly! The coil did not melt, the idle was smooth, and the acceleration was back to its optimal state. It was a testament to the power of persistence, technical acumen, and a little bit of luck.</p>
+<h4 id="final-thoughts"><strong>Final Thoughts</strong></h4>
+<p>This experience was a reminder of the joys and challenges of DIY repairs. It’s not just about saving money or avoiding a trip to the mechanic; it’s about the satisfaction of solving a complex problem and learning something new along the way. For anyone facing similar issues, remember: with the right tools, a bit of knowledge, and a willingness to dive deep, you can fix almost anything.</p>
+<p>Happy motoring, and keep those engines running smoothly!</p>
+
           <hr>
           <div class="content-footer">
-            <a href="%%next_link%%" onclick="if (parent.app.loadTab) return parent.app.loadTab('%%next_link%%', '%%next_title%%', '%%next_name%%', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">(%%next_title%%) Next &gt; </a>
-            <a href="%%prev_link%%" onclick="if (parent.app.loadTab) return parent.app.loadTab('%%prev_link%%', '%%prev_shorttitle%%', '%%prev_name%%', true, event)" title="%%prev_fulltitle%%" style="font-weight:400;">&lt; Previous (%%prev_title%%)</a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
         </div>
       </div>
     </section>
     <section class="comments">
       <header>Discussion</header>
       <div class="comment-comments">
-        %%comments%%
+        
       </div>
       <hr>
       <div id="comment-form" class="comment-container">
