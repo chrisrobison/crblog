@@ -1,5 +1,32 @@
 [
     {
+        "title": "Let's Encrypt",
+        "subtitle": "Switching Your Website to HTTPS on a Shoestring Budget",
+        "fulltitle": "Let's Encrypt: Switching Your Website to HTTPS on a Shoestring Budget",
+        "link": "/crblog/blog/cheap-https.html",
+        "name": "letsencrypt",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Machine Learning for Fleet Maintenance",
+        "subtitle": "Keeping Our Fleet Road-Ready",
+        "fulltitle": "Machine Learning for Fleet Maintenance: Keeping Our Fleet Road-Ready",
+        "link": "/crblog/blog/ml-maintenance.html",
+        "name": "machinelearningforfleetmaintenance",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Broke Down",
+        "subtitle": "Fixing a Stubborn Ignition Coil Issue on My 2015 Mini Cooper S Convertible",
+        "fulltitle": "Broke Down: Fixing a Stubborn Ignition Coil Issue on My 2015 Mini Cooper S Convertible",
+        "link": "/crblog/blog/mini-mosfet.html",
+        "name": "brokedown",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
         "title": "AI and the Art of Logistics",
         "subtitle": "Predictive Analytics for Small Transportation",
         "fulltitle": "AI and the Art of Logistics: Predictive Analytics for Small Transportation",
@@ -36,78 +63,6 @@
         "icon": "fas fa-code"
     },
     {
-        "title": "Tech-Enabled Compliance",
-        "subtitle": "Staying Ahead of Regulations in Transportation",
-        "fulltitle": "Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation",
-        "link": "blog/compliance.html",
-        "name": "techenabledcompliance",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
-        "title": "Unpacking Modern JavaScript",
-        "subtitle": "Optional Chaining and Nullish Coalescing",
-        "fulltitle": "Unpacking Modern JavaScript: Optional Chaining and Nullish Coalescing",
-        "link": "blog/modern-js.html",
-        "name": "unpackingmodernjavascript",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
-        "title": "Haunted History",
-        "subtitle": "San Francisco ",
-        "fulltitle": "Haunted History: San Francisco ",
-        "link": "blog/haunted-sf.html",
-        "name": "hauntedhistory",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
-        "title": "Client-Side JavaScript Modules",
-        "subtitle": "It's About Time!",
-        "fulltitle": "The Evolution and Benefits of Client-Side JavaScript Modules",
-        "link": "blog/modules.html",
-        "name": "theevolutionandbenefitsofclientsidejavascriptmodules",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
-        "title": "Realtime Black Lists (RBLs)",
-        "subtitle": "The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
-        "fulltitle": "Realtime Black Lists (RBLs): The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
-        "link": "blog/renegade-rbls.html",
-        "name": "realtimeblacklistsrbls",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
-        "title": "Caching Assets",
-        "subtitle": "Using Service Workers in Javascript",
-        "fulltitle": "Caching Assets Using Service Workers in JavaScript",
-        "link": "blog/service-workers.html",
-        "name": "cachingassetswithserviceworkersinjavascript",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
-        "title": "Balancing Fun and Functionality",
-        "subtitle": "The Key to a Fulfilling Life ",
-        "fulltitle": "Balancing Fun and Functionality: The Key to a Fulfilling Life ",
-        "link": "blog/fun.html",
-        "name": "balancingfunandfunctionality",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
-        "title": "Cross-Platform Mobile Frameworks",
-        "subtitle": "Devil's Toolkits or Developer Nirvana",
-        "fulltitle": "Cross-Platform Mobile App Development Frameworks: Devil's Toolkits or Developer Nirvana",
-        "link": "blog/mobile-frameworks.html",
-        "name": "mobileframeworks",
-        "target": "iframe",
-        "icon": "fas fa-code"
-    },
-    {
         "title": "Older Posts...",
         "icon": "fas fa-box-archive",
         "fulltitle": "Older Posts...",
@@ -115,6 +70,78 @@
         "name": "olderposts",
         "target": "iframe",
         "_children": [
+            {
+                "title": "Tech-Enabled Compliance",
+                "subtitle": "Staying Ahead of Regulations in Transportation",
+                "fulltitle": "Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation",
+                "link": "blog/compliance.html",
+                "name": "techenabledcompliance",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
+            {
+                "title": "Unpacking Modern JavaScript",
+                "subtitle": "Optional Chaining and Nullish Coalescing",
+                "fulltitle": "Unpacking Modern JavaScript: Optional Chaining and Nullish Coalescing",
+                "link": "blog/modern-js.html",
+                "name": "unpackingmodernjavascript",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
+            {
+                "title": "Haunted History",
+                "subtitle": "San Francisco ",
+                "fulltitle": "Haunted History: San Francisco ",
+                "link": "blog/haunted-sf.html",
+                "name": "hauntedhistory",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
+            {
+                "title": "Client-Side JavaScript Modules",
+                "subtitle": "It's About Time!",
+                "fulltitle": "The Evolution and Benefits of Client-Side JavaScript Modules",
+                "link": "blog/modules.html",
+                "name": "theevolutionandbenefitsofclientsidejavascriptmodules",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
+            {
+                "title": "Realtime Black Lists (RBLs)",
+                "subtitle": "The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
+                "fulltitle": "Realtime Black Lists (RBLs): The Double-Edged Sword of Using RBLs for Spam Filtering- The UCEPROTECT Scam",
+                "link": "blog/renegade-rbls.html",
+                "name": "realtimeblacklistsrbls",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
+            {
+                "title": "Caching Assets",
+                "subtitle": "Using Service Workers in Javascript",
+                "fulltitle": "Caching Assets Using Service Workers in JavaScript",
+                "link": "blog/service-workers.html",
+                "name": "cachingassetswithserviceworkersinjavascript",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
+            {
+                "title": "Balancing Fun and Functionality",
+                "subtitle": "The Key to a Fulfilling Life ",
+                "fulltitle": "Balancing Fun and Functionality: The Key to a Fulfilling Life ",
+                "link": "blog/fun.html",
+                "name": "balancingfunandfunctionality",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
+            {
+                "title": "Cross-Platform Mobile Frameworks",
+                "subtitle": "Devil's Toolkits or Developer Nirvana",
+                "fulltitle": "Cross-Platform Mobile App Development Frameworks: Devil's Toolkits or Developer Nirvana",
+                "link": "blog/mobile-frameworks.html",
+                "name": "mobileframeworks",
+                "target": "iframe",
+                "icon": "fas fa-code"
+            },
             {
                 "title": "The JS Event Loop",
                 "subtitle": "A Brief Introduction",

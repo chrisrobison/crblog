@@ -135,7 +135,7 @@
                         navicon = " <i class='far fa-circle'></i> ";
                     }
                     let st = (item.subtitle) ? item.subtitle : "";
-                    out += `<li class="nav-item${menuopen}"><a href="${item.link}" ${target} title="${item.title} ${st}" onclick="return app.doClick(this, event)" class="nav-link">${navicon} <p>${item.title}${toggle}</p></a>`;
+                    out += `<li class="nav-item${menuopen}"><a href="${item.link}" ${target} title="${item.title} ${st}" onclick="app.doClick(this, event)" class="nav-link">${navicon} <p>${item.title}${toggle}</p></a>`;
                     
                     if (haschild) {
                         out += app.makeList(item["_children"], false, !item["_childicons"]);
@@ -148,6 +148,7 @@
             return out;
         },
         doClick: function(who, evt) {
+          console.log(`doClick`);
             if (evt) {
                 evt.preventDefault();
                 evt.stopPropagation();
@@ -156,12 +157,15 @@
             document.querySelectorAll(".fa-circle-dot")?.forEach(el=>{el.classList.remove("fa-circle-dot"); el.classList.add("fa-circle")});
 
             if (who) {
+              console.log("doClick who:");
+              console.dir(who);
                 if (who.closest(".icons-no")) {
                     who.querySelector("i").classList.remove("fa-circle");
                     who.querySelector("i").classList.add("fa-circle-dot");
                 }
                 let tgt = who.getAttribute("target");
-                who.parentElement.classList.add("active");
+              console.log("tgt"); console.dir(tgt);
+                who.closest(".nav-item").classList.add("active");
                 if (tgt == "_blank") {
                     window.open(who.getAttribute("href"), tgt);
                 } else {
