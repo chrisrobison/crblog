@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Machine Learning for Maintenance: Keeping Our Fleet Road-Ready - Christopher Robison's Blog</title>
-  <link rel="canonical" href="https://cdr2.com/crblog/blog/machinelearningformaintenance.html">
+  <title>Machine Learning for Fleet Maintenance: Keeping Our Fleet Road-Ready - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/machinelearningforfleetmaintenance.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -15,6 +15,73 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+  <style>
+    span.required::after {
+      display: inline-block;
+      position: relative;
+      content: "*";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 2rem;
+      width: 2rem;
+    }
+    section.comments  header {
+      font-size:2rem;
+      background:#333;
+      color: #eee;
+      font-weight: bold;
+    }
+    section.comments {
+      width: 50rem;
+      margin: 0px auto;
+    }
+    section.comments .comment-container {
+      padding: 1rem;
+    }
+    .comment-input {
+      width: 30rem;
+      font-size: 18px;
+      height: 2rem;
+    }
+    .comment-comment {
+      width: 40rem;
+      height: 6rem;
+    }
+    .comment-comments {
+      padding: 1rem;
+    }
+    .comment-date {
+      font-size: 0.8rem;
+      float: right;
+    }
+    #comment label span {
+      display: block;
+      width: 7rem;
+    }
+    @media screen and (max-width: 640px) {
+      section.comments {
+        width: 100vw;
+      }
+      .comment-comment { width: 90vw; }
+      .comment-input { width: 90vw; }
+
+    }
+    p.comment { margin-bottom: 0px; }
+    .comment-item {
+      list-style-type: none;
+      border-top: 0.5rem solid #ccc;
+    }
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comments-list { padding: 0; }
+    .commenter { color: #000; font-weight: bold; }
+    .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
+    .comment-reply { padding: 0 0 0 1rem; }
+  </style>
 </head>
 <body class="hold-transition iframe-mode">
 <!-- Site wrapper -->
@@ -46,7 +113,7 @@
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            2023-11-12
+            2023-11-13
           </p>
           <hr>
           <img width="640" src="/crblog/assets/img/ml-maintenance.jpg" class="banner-pic"> 
@@ -54,13 +121,14 @@
           <p>In the world of transportation, particularly for those of us managing a fleet of buses, the adage “an ounce of prevention is worth a pound of cure” couldn’t be more apt. With the advent of machine learning and predictive analytics, we’re not just preventing problems; we’re anticipating them, ensuring our fleet remains road-ready and reliable.</p>
 <h2 id="the-magic-of-predictive-analytics">The Magic of Predictive Analytics</h2>
 <p>Predictive analytics in fleet maintenance is like having a crystal ball that actually works. It involves using data, statistical algorithms, and machine learning techniques to identify the likelihood of future outcomes based on historical data. In simpler terms, it’s about foreseeing problems before they happen.</p>
-<h3 id="scenario-the-early-bird-catches-the-fault">Scenario: The Early Bird Catches the Fault</h3>
-<p>Imagine it’s a typical Monday morning. One of our buses, let’s call her “Big Blue,” is scheduled for a routine school run. Thanks to predictive analytics, we receive an alert over the weekend: Big Blue’s engine is showing early signs of wear in a critical component. The system had analyzed patterns from similar buses and identified an anomaly in Big Blue’s engine behavior.</p>
-<p>Without this technology, Big Blue might have broken down mid-route, causing delays and safety concerns. Instead, we proactively serviced the bus on Sunday. Monday’s school run goes off without a hitch, and the kids arrive safely and on time.</p>
-<h3 id="the-data-driven-approach">The Data-Driven Approach</h3>
-<p>Our approach to maintenance has shifted from reactive to proactive and now to predictive. By analyzing vast amounts of data — from engine temperatures to brake pad wear — we can predict which parts of a bus might fail and when. This isn’t just guesswork; it’s data-driven decision-making.</p>
+<h3 id="the-early-bird-catches-the-fault">The Early Bird Catches the Fault</h3>
+<p>Imagine it’s a typical Monday morning. One of our buses, #4402, is scheduled for a routine school sports run. Thanks to predictive analytics, we received an alert over the weekend: #4402’s engine is showing early signs of wear in a critical component. The system had analyzed patterns from similar buses and identified an anomaly in #4402’s engine behavior. In this case it was a bad O2 sensor but it could have been any problem with anything the system monitors from low air in the tires, to a cylinder misfiring or even a driver braking too hard or turning too quickly.</p>
+<p>Without this technology, #4402 might have broken down mid-route, causing delays and safety concerns. Instead, we proactively serviced the bus on Sunday. Monday’s school run went off without a hitch, and the kids arrive safely and on time.</p>
+<p>Astute readers are probably thinking, “where’s the Machine Learning (ML)? Monitoring sensor values and taking action when they cross thresholds is more process automation than AI.”. This is true only if we ignore all this data we are generating, which we are not. By feeding realtime information from our vehicles into a AI model that has been fine-tuned for transportation we can start doing some amazing things.</p>
 <h3 id="predicting-the-unpredictable">Predicting the Unpredictable</h3>
-<p>Consider another scenario: It’s the peak tourist season, and our buses are running full swing to Yosemite. Our predictive system flags that several buses are likely to have tire issues due to the increased summer heat and prolonged usage. We rotate these buses out for tire checks and replacements, avoiding what could have been a series of inconvenient and potentially dangerous blowouts.</p>
+<p>Consider another scenario: It’s the middle of summer, peak tourist season, and our buses are running full swing to Yosemite during one of the worst heatwaves we’ve had in decades. Our predictive system flags that several buses are likely to have tire issues due to the increased summer heat and prolonged usage. We rotate these buses out for tire checks and replacements, avoiding what could have been a series of inconvenient and potentially dangerous blowouts.</p>
+<h3 id="the-data-driven-approach">The Data-Driven Approach</h3>
+<p>Our approach to fleet maintenance over the past two years has shifted from reactive to -proactive- and now to <em>predictive</em>. By analyzing vast amounts of data — from engine temperatures to brake pad wear to the current weather conditions — we can predict which parts of a bus might fail and when. This isn’t just guesswork; it’s data-driven decision-making.</p>
 <h2 id="efficiency-in-scheduling">Efficiency in Scheduling</h2>
 <p>Predictive maintenance also revolutionizes how we schedule services. Instead of servicing based on fixed intervals (say, every 10,000 miles), we do it based on need, identified through data. This approach not only saves time and resources but also ensures each bus is attended to precisely when it needs care, not before or after.</p>
 <h3 id="story-the-case-of-the-overworked-bus">Story: The Case of the Overworked Bus</h3>
@@ -69,12 +137,42 @@
 <p>The future of fleet maintenance is here, and it’s powered by machine learning. By embracing this technology, we’re not just fixing buses; we’re ensuring reliability, safety, and efficiency. We’re keeping our promises to our customers, whether they’re students heading to school or tourists exploring the wonders of nature.</p>
 <p>In conclusion, machine learning in maintenance isn’t just a tool; it’s our roadmap to a more reliable, efficient, and safe transportation future. As we continue to harness the power of predictive analytics, the journey ahead looks smoother and more secure for everyone on board.</p>
 
+          <hr>
+    <div class="content-footer">
+      <hr><a href="/crblog/blog/cheap-https.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/cheap-https.html', 'Let's Encrypt', 'letsencrypt', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Let's Encrypt) Next &gt; </a>
+      <a href="/crblog/blog/mini-mosfet.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/mini-mosfet.html', 'Broke Down', 'brokedown', true, event)" title="Broke Down: The Mysterious Melting Ignition Coil" style="font-weight:400;">&lt; Previous (Broke Down)</a>
+  </div>
+      </div>
+    </section>
+    <section class="comments">
+      <header>Discussion</header>
+      <div class="comment-comments">
         
-            <div class="content-footer">
-              <hr><a href="/crblog/blog/ml-maintenance.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/ml-maintenance.html', 'Machine Learning for Maintenance', 'machinelearningformaintenance', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
-              <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+      </div>
+      <hr>
+      <div id="comment-form" class="comment-container">
+        <h3>Leave a Reply</h3>
+        <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
+        <hr>
+        <form id="comment" onsubmit="app.comment(event);return false" class="form">
+          <label for="comment-comment"><span class="required">Comment</span>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
+          </label>
+          <label for="comment-name"><span class="required">Name</span> 
+            <input type="text" id="comment-name" name="comment-name" class="comment-input">
+          </label>
+          <label for="comment-email"><span class="required">Email</span>
+            <input type="text" id="comment-email" name="comment-email" class="comment-input">
+          </label>
+          <label for="comment-website"><span>Website</span>
+            <input type="text" id="comment-website" name="comment-website" class="comment-input">
+          </label>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.postComment(this, event);return false;">Post Comment</button>
           </div>
-        </div>
+        </form>
+      </div>
     </section>
     <!-- /.content -->
   </div>
@@ -102,5 +200,159 @@
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
 <script>hljs.highlightAll();</script>
+<script>
+(function() {
+  const $ = str => document.querySelector(str);
+  const $$ = str => document.querySelectorAll(str);
+
+  const app = {
+    data: {},
+    state: {
+      loaded: false
+    },
+    init() {
+      let name = location.href.replace(/^.+\//, '').replace(/\.html$/, '');
+      console.log(`page name: ${name}`);;
+      
+      try {
+        fetch(`/crblog/blog/comments/${name}.json`).then(r=>r.json()).then(data=>{
+          app.comments = data;
+          console.log(`Retrieved ${name}.json`);
+          console.dir(data);
+        });
+      } catch(e) {
+        console.log(`No comments file found for ${name}`);
+        console.dir(e);
+      }
+      app.state.loaded = true;
+    },
+    fetch(url, callback) {
+      fetch(url).then(response=>response.json()).then(data=>{
+          app.data = data;
+          app.state.loaded = true;
+          if (callback && typeof(callback) === "function") {
+              callback(data);
+          }
+      });
+    },
+    postComment(who, evt) {
+      if (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+      }
+      let tgt;
+      if (who) {
+        tgt = who.closest("#commentFormWrap");
+      }
+      let pid = tgt.dataset._parent;
+      let post = {
+        email: tgt.querySelector("#comment-email")?.value,
+        name: tgt.querySelector("#comment-name")?.value,
+        site: tgt.querySelector("#comment-site")?.value,
+        comment: tgt.querySelector("#comment-comment")?.value,
+        date: app.getDate()
+      };
+      
+      let pids = pid.split(/\./);
+      if (pids.length === 1) {
+        let idx = parseInt(pids[0]) - 1;
+        ;
+        if (!app.comments[idx].replies) {
+          app.comments[idx].replies = [ ];
+        }
+        post._id = pid + "." + (app.comments[idx].replies.length + 1);
+        post._parent = pid;
+        app.comments[idx].replies.push(post);
+      } else if (pids.length === 2) {
+        let idx1 = parseInt(pids[0]) - 1,
+            idx2 = parseInt(pids[1]) - 1;
+
+        if (!app.comments[idx1].replies[idx2].replies) {
+          app.comments[idx1].replies[idx2].replies = [];
+        }
+
+        post._id = pid + "." + (app.comments[idx1].replies[idx2].replies.length + 1);
+        post._parent = pid;
+        app.comments[idx1].replies[idx2].replies.push(post);
+      }
+
+      console.dir(app.comments);
+      console.log(`New comment:`);
+      console.dir(post);
+    },
+    findParent(id, tree) {
+      for (let k in tree) {
+        if (tree[k]._id === id) {
+          
+        }
+      }
+    },
+    getDate() {
+      let now = new Date();
+      let hr = now.getHours();
+      let xm = "am";
+
+      if (hr > 12) {
+        xm = "pm";
+        hr -= 12;
+      }
+
+      return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' + hr + ':' + now.getMinutes() + xm;
+    },
+    reply(who, evt, pid='0') {
+      if (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+      }
+      let cwrap = $("#commentFormWrap");
+      if (cwrap) {
+        cwrap.parentNode.removeChild(cwrap);
+      }
+      app.data.commentForm = $("#comment").outerHTML;
+      let wrap = document.createElement("div");
+      wrap.id = "commentFormWrap";
+      wrap.dataset._parent = pid;
+      wrap.innerHTML = app.data.commentForm;
+      wrap.querySelector("#comment").id = "reply";
+      
+      who.parentNode.append(wrap);
+
+      return false;
+    },
+    display(data, tgt) {
+      let out = "<table><thead><tr>";
+      const keys = Object.keys(data[0]);
+      if (keys) {
+          keys.forEach(key => {
+              out += `<th>${key}</th>`;
+          });
+      }
+      out += "</tr></thead><tbody>";
+      data.forEach(item=>{
+          out += `<tr>`;
+          keys.forEach(key => {
+              out += `<td>${item[i]}</td>`;
+          });
+          out += `</tr>`;
+      });
+      out += "</tbody></table>";
+
+      if (tgt) {
+        tgt.innerHTML = out;
+      }
+      return out;
+    },
+    cancelComment(who, evt) {
+      let el = who.closest(".commentFormWrap");
+      if (el) {
+        el.parentNode.removeChild(el);
+      }
+    }
+  }
+  window.app = app;
+  app.init();
+})();
+</script>
 </body>
 </html>
+

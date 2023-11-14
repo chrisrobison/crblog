@@ -1,6 +1,7 @@
 #!/usr/local/bin/php
 <?php
 $posts = json_decode(file_get_contents("posts.json"));
+usort($posts, function($a, $b) { return strtotime($b->date) - strtotime($a->date); });
 
 $tpl = <<<EOT
     <div class="content-footer">
@@ -9,22 +10,23 @@ $tpl = <<<EOT
   </div>
 EOT;
 
-for ($idx=1; $idx<count($posts); $idx++) {
+for ($idx=1; $idx<count($posts)-1; $idx++) {
     $post = $posts[$idx];
     $next = $posts[$idx - 1];
     $prev = $posts[$idx + 1];
-    $out = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
+    print "Post #$idx: {$post->title}\n\tPrev: {$prev->title}\n\tNext: {$next->title}\n";
+    $newhtml = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
+        global $posts;
+        global $post;
         global $prev;
         global $next;
-        global $post;
         if (preg_match("/prev_(.*)/", $match[1], $m)) {
             return $prev->{$m[1]};
         } else if (preg_match("/next_(.*)/", $match[1], $m)) {
             return $next->{$m[1]};
         }
     }, $tpl);
-    
-    replace($post->link, $out);
+    replace($post->link, $newhtml);
 }
 
 function replace($file, $new) {

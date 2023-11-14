@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Broke Down: The Mystery of the Melting Coil Packs - Christopher Robison's Blog</title>
-  <link rel="canonical" href="https://cdr2.com/crblog/blog/brokedown.html">
+  <title>Let's Encrypt: Switching Your Website to HTTPS on a Shoestring Budget - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/letsencrypt.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -98,7 +98,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
-              <li class="breadcrumb-item active">Broke Down</li>
+              <li class="breadcrumb-item active">Let's Encrypt</li>
             </ol>
           </div>
         </div>
@@ -108,34 +108,52 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-          <h1 style="font-weight:900;">Broke Down</h1>
-          <h3>The Mystery of the Melting Coil Packs</h3>
+          <h1 style="font-weight:900;">Let's Encrypt</h1>
+          <h3>Switching Your Website to HTTPS on a Shoestring Budget</h3>
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            2023-11-12
+            2023-11-14
           </p>
           <hr>
-          <img width="640" src="/crblog/assets/img/mini-mosfet.jpg" class="banner-pic"> 
+          <img width="640" src="/crblog/assets/img/cheap-https.jpg" class="banner-pic"> 
           <hr>
-          <p>As an experienced software engineer with a knack for hands-on tech repairs, I recently faced a challenging yet intriguing issue with my 2015 Mini Cooper S Convertible. The car’s #2 coil pack had not just failed once, but twice, and did so quite spectacularly, melting in a way that was both baffling and concerning. Determined to get to the bottom of this, I embarked on a journey of automotive troubleshooting that tested both my patience and my technical skills.</p>
-<h4 id="initial-diagnosis-a-deep-dive-into-the-electricals"><strong>Initial Diagnosis: A Deep Dive into the Electricals</strong></h4>
-<p>My first step was to utilize a multimeter to trace the wiring for the problematic ignition coil. With the ECM (Engine Control Module) plugged in, I tested the power on the harness for coil #2. The voltage was present, but there was no fire signal, indicating a possible grounding issue somewhere between the coil and the ECM. After removing the wire harness from the ECM and checking end-to-end, I confirmed that none of the three wires in the harness were grounded unexpectedly. So far, so good.</p>
-<h4 id="the-real-culprit-a-faulty-mosfet"><strong>The Real Culprit: A Faulty MOSFET</strong></h4>
-<p>With my background in diagnosing and repairing electronics, I decided to take a closer look at the ECM itself. I removed the ECM and traced the leads back to the motherboard, focusing on the section responsible for cylinder #2. To my surprise, I discovered that all four ignition wires for each cylinder ran to a set of MOSFETs (Part #N171AD). Tracing cylinder #2’s MOSFET, I removed it from the motherboard and, upon testing, found that the coil pack no longer melted when the ignition was on. This was a significant breakthrough!</p>
-<h4 id="the-search-for-a-replacement-a-stroke-of-ebay-luck"><strong>The Search for a Replacement: A Stroke of eBay Luck</strong></h4>
-<p>Now came the challenging part: finding a replacement component. Fortuitously, I found a “parts” ECM on eBay that seemed promising. The MOSFET in this parts ECM, while a different part number (N634AB), had specifications close enough to the original. After comparing the specs, I decided to take the plunge and replace the old MOSFET with this new one.</p>
-<h4 id="success-against-the-odds"><strong>Success Against the Odds</strong></h4>
-<p>The moment of truth was both thrilling and nerve-wracking. I powered up the Mini, and to my relief and satisfaction, it worked flawlessly! The coil did not melt, the idle was smooth, and the acceleration was back to its optimal state. It was a testament to the power of persistence, technical acumen, and a little bit of luck.</p>
-<h4 id="final-thoughts"><strong>Final Thoughts</strong></h4>
-<p>This experience was a reminder of the joys and challenges of DIY repairs. It’s not just about saving money or avoiding a trip to the mechanic; it’s about the satisfaction of solving a complex problem and learning something new along the way. For anyone facing similar issues, remember: with the right tools, a bit of knowledge, and a willingness to dive deep, you can fix almost anything.</p>
-<p>Happy motoring, and keep those engines running smoothly!</p>
+          <p>In the ever-evolving landscape of the internet, security is not just a luxury; it’s a necessity. For website owners, one of the fundamental steps to secure your site and gain your visitors’ trust is by switching from HTTP to HTTPS. But what if you’re on a tight budget? That’s where Let’s Encrypt comes into play.</p>
+<h2 id="what-is-lets-encrypt">What is Let’s Encrypt?</h2>
+<p><a href="https://letsencrypt.org" target="_blank">Let’s Encrypt</a> is a free, automated, and open Certificate Authority (CA) launched in April 2016. It’s a project of the <a href="https://www.abetterinternet.org/" target="_blank">Internet Security Research Group (ISRG)</a>, backed by major companies like <a href="https://mozilla.org/" target="_blank">Mozilla</a>, <a href="https://cisco.com/" target="_blank">Cisco</a>, <a href="https://akamai.com" target="_blank">Akamai</a>, <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, and <a href="https://facebook.com/" target="_blank">Facebook</a>. The primary goal of Let’s Encrypt is to make encrypted connections on the web ubiquitous and easy to set up.</p>
+<h3 id="the-backers-and-goals">The Backers and Goals</h3>
+<p>The backing by industry giants provides Let’s Encrypt with the necessary resources and credibility. These companies have a shared interest in making the web more secure and privacy-respecting. The goal of Let’s Encrypt is simple yet ambitious: to encrypt the entire web, making HTTPS the default web protocol.</p>
+<h2 id="why-https">Why HTTPS?</h2>
+<p>Switching to HTTPS not only secures the data between your website and its users but also boosts your SEO rankings, as search engines like Google favor secure sites. It also gives your visitors confidence, knowing their data is protected.</p>
+<h2 id="upgrading-to-https-with-certbot">Upgrading to HTTPS with Certbot</h2>
+<p>Certbot is a free, open-source software tool for automatically using Let’s Encrypt certificates on manually-administered websites to enable HTTPS. It’s developed by the Electronic Frontier Foundation (EFF) and is designed to simplify the process of setting up and maintaining an HTTPS server.</p>
+<p>Certbot can automatically upgrade/update most server configurations and supports a variety of web servers such as Apache and nginx. Site verification can be handled automatically by certbot or you can verify manually using DNS or by placing a file in your servers document tree.</p>
+<p>Now that we’ve got the what, who, and why out of the way, let’s see how it works by setting up HTTPS for a basic Apache installation.</p>
+<h3 id="step-by-step-guide">Step-by-Step Guide</h3>
+<p>Here’s a basic guide to get you started with Certbot. Note that you’ll need shell access to your web server and appropriate permissions to execute commands.</p>
+<ol type="1">
+<li><p><strong>Install Certbot</strong>: The first step is to install Certbot. The installation method varies depending on your server’s operating system but certbot is included in most package managers. For a Linux server running Debian, you would use:</p>
+<pre class="bash"><code>sudo apt-get update
+sudo apt-get install certbot</code></pre></li>
+<li><p><strong>Choose Your Web Server and Operating System</strong>: Go to the <a href="https://certbot.eff.org/">Certbot website</a> and select your web server and operating system for tailored instructions.</p></li>
+<li><p><strong>Get and Install Your Certificates</strong>: To setup and configure Apache, run Certbot with the following command, replacing <code>your_domain</code> with your actual domain name:</p>
+<pre class="bash"><code>sudo certbot --apache -d your_domain.com -d www.your_domain.com</code></pre>
+<p>This command will run Certbot with the <code>--apache</code> plugin, using <code>-d</code> to specify the domains. Change the plugin[s] being used based on your server and configuration. You can get a list of available plugins by running:</p>
+<pre class="bash"><code>sudo certbot plugins</code></pre></li>
+<li><p><strong>Test Automatic Renewal</strong>: Let’s Encrypt certificates are valid for 90 days. Test the automatic renewal process with:</p>
+<pre class="bash"><code>sudo certbot renew --dry-run</code></pre></li>
+<li><p><strong>Set Up Auto-Renewal</strong>: You can set up a cron job or a systemd timer for automatic renewal.</p></li>
+<li><p><strong>Verify HTTPS</strong>: Once installed, visit your website with <code>https://</code> to ensure everything is working correctly.</p></li>
+</ol>
+<h3 id="final-thoughts">Final Thoughts</h3>
+<p>Switching to HTTPS is no longer a matter of choice but a necessity in the modern web. With tools like Let’s Encrypt and Certbot, this transition becomes accessible to everyone, regardless of budget. It’s a small step for a single website but a giant leap towards a more secure and trustworthy internet.</p>
+<p>Remember, the web is a shared resource, and we all have a part in keeping it safe and accessible. Happy encrypting!</p>
 
           <hr>
-    <div class="content-footer">
-      <hr><a href="/crblog/blog/ml-maintenance.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/ml-maintenance.html', 'Machine Learning for Fleet Maintenance', 'machinelearningforfleetmaintenance', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Machine Learning for Fleet Maintenance) Next &gt; </a>
-      <a href="/crblog/blog/ai-logistics.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/ai-logistics.html', 'AI and the Art of Logistics', 'aiandtheartoflogistics', true, event)" title="AI and the Art of Logistics: Predictive Analytics for Small Transportation" style="font-weight:400;">&lt; Previous (AI and the Art of Logistics)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
@@ -150,7 +168,7 @@
         <hr>
         <form id="comment" onsubmit="app.comment(event);return false" class="form">
           <label for="comment-comment"><span class="required">Comment</span>
-            <textarea rows="5" cols="40" class="comment-comment" name="comment-comment"></textarea>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
           </label>
           <label for="comment-name"><span class="required">Name</span> 
             <input type="text" id="comment-name" name="comment-name" class="comment-input">
@@ -215,7 +233,8 @@
           console.dir(data);
         });
       } catch(e) {
-
+        console.log(`No comments file found for ${name}`);
+        console.dir(e);
       }
       app.state.loaded = true;
     },
@@ -228,7 +247,71 @@
           }
       });
     },
-    reply(who, evt) {
+    postComment(who, evt) {
+      if (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+      }
+      let tgt;
+      if (who) {
+        tgt = who.closest("#commentFormWrap");
+      }
+      let pid = tgt.dataset._parent;
+      let post = {
+        email: tgt.querySelector("#comment-email")?.value,
+        name: tgt.querySelector("#comment-name")?.value,
+        site: tgt.querySelector("#comment-site")?.value,
+        comment: tgt.querySelector("#comment-comment")?.value,
+        date: app.getDate()
+      };
+      
+      let pids = pid.split(/\./);
+      if (pids.length === 1) {
+        let idx = parseInt(pids[0]) - 1;
+        ;
+        if (!app.comments[idx].replies) {
+          app.comments[idx].replies = [ ];
+        }
+        post._id = pid + "." + (app.comments[idx].replies.length + 1);
+        post._parent = pid;
+        app.comments[idx].replies.push(post);
+      } else if (pids.length === 2) {
+        let idx1 = parseInt(pids[0]) - 1,
+            idx2 = parseInt(pids[1]) - 1;
+
+        if (!app.comments[idx1].replies[idx2].replies) {
+          app.comments[idx1].replies[idx2].replies = [];
+        }
+
+        post._id = pid + "." + (app.comments[idx1].replies[idx2].replies.length + 1);
+        post._parent = pid;
+        app.comments[idx1].replies[idx2].replies.push(post);
+      }
+
+      console.dir(app.comments);
+      console.log(`New comment:`);
+      console.dir(post);
+    },
+    findParent(id, tree) {
+      for (let k in tree) {
+        if (tree[k]._id === id) {
+          
+        }
+      }
+    },
+    getDate() {
+      let now = new Date();
+      let hr = now.getHours();
+      let xm = "am";
+
+      if (hr > 12) {
+        xm = "pm";
+        hr -= 12;
+      }
+
+      return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' + hr + ':' + now.getMinutes() + xm;
+    },
+    reply(who, evt, pid='0') {
       if (evt) {
         evt.stopPropagation();
         evt.preventDefault();
@@ -240,7 +323,7 @@
       app.data.commentForm = $("#comment").outerHTML;
       let wrap = document.createElement("div");
       wrap.id = "commentFormWrap";
-
+      wrap.dataset._parent = pid;
       wrap.innerHTML = app.data.commentForm;
       wrap.querySelector("#comment").id = "reply";
       
@@ -272,7 +355,10 @@
       return out;
     },
     cancelComment(who, evt) {
-
+      let el = who.closest(".commentFormWrap");
+      if (el) {
+        el.parentNode.removeChild(el);
+      }
     }
   }
   window.app = app;
@@ -281,4 +367,3 @@
 </script>
 </body>
 </html>
-

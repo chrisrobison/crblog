@@ -1,5 +1,46 @@
 [
     {
+        "fulltitle": "Let's Encrypt: Switching Your Website to HTTPS on a Shoestring Budget",
+        "title": "Let's Encrypt",
+        "subtitle": "Switching Your Website to HTTPS on a Shoestring Budget",
+        "link": "/crblog/blog/cheap-https.html",
+        "name": "letsencrypt",
+        "date": "2023-11-14",
+        "tags": "",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/cheap-https.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In the ever-evolving landscape of the internet, security is not just a luxury; it's a necessity. For website owners, one of the fundamental steps to secure your site and gain your visitors' trust is by switching from HTTP to HTTPS. But what if you're on a tight budget? That's where Let's Encrypt comes into play.",
+        "comments": null
+    },
+    {
+        "fulltitle": "Machine Learning for Fleet Maintenance: Keeping Our Fleet Road-Ready",
+        "title": "Machine Learning for Fleet Maintenance",
+        "subtitle": "Keeping Our Fleet Road-Ready",
+        "link": "/crblog/blog/ml-maintenance.html",
+        "name": "machinelearningforfleetmaintenance",
+        "date": "2023-11-13",
+        "tags": "",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/ml-maintenance.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In the world of transportation, particularly for those of us managing a fleet of buses, the adage \"an ounce of prevention is worth a pound of cure\" couldn't be more apt. With the advent of machine learning and predictive analytics, we're not just preventing problems; we're anticipating them, ensuring our fleet remains road-ready and reliable.",
+        "comments": null
+    },
+    {
+        "fulltitle": "Broke Down: The Mysterious Melting Ignition Coil",
+        "title": "Broke Down",
+        "subtitle": "The Mysterious Melting Ignition Coil",
+        "link": "/crblog/blog/mini-mosfet.html",
+        "name": "brokedown",
+        "date": "2023-11-11",
+        "tags": "diy,autorepair,transportation",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/mini-mosfet.jpg",
+        "icon": "fas fa-code",
+        "blurb": "As an experienced software engineer with a knack for hands-on tech repairs, I recently faced a challenging yet intriguing issue with my 2015 Mini Cooper S Convertible. The car's #2 coil pack had not just failed once, but twice, and did so quite spectacularly, melting in a way that was both baffling and concerning. Determined to get to the bottom of this, I embarked on a journey of automotive troubleshooting that tested both my patience and my technical skills."
+    },
+    {
         "fulltitle": "AI and the Art of Logistics: Predictive Analytics for Small Transportation",
         "title": "AI and the Art of Logistics",
         "subtitle": "Predictive Analytics for Small Transportation",
@@ -19,9 +60,9 @@
         "link": "/crblog/blog/modern-js.html",
         "name": "unpackingmodernjavascript",
         "date": "2023-11-04",
-        "tags": "",
+        "tags": "programming,javasscript,es6",
         "target": "iframe",
-        "hero": "../assets/img/modern-js.jpg",
+        "hero": "/crblog/assets/img/modern-js.jpg",
         "icon": "fas fa-code",
         "blurb": "JavaScript has come a long way since its inception, continuously evolving to meet the demands of modern web development. Two of the most exciting additions to the language are the Optional Chaining Operator (`?.`) and the Nullish Coalescing Operator (`??`). These operators simplify the way we write code and handle data that might be `undefined` or `null`. Let's dive in and explore these operators with some practical examples."
     },
@@ -35,7 +76,7 @@
         "target": "iframe",
         "hero": "/crblog/assets/img/haunted-sf.jpg",
         "icon": "fas fa-ghost",
-        "tags": "San Francisco, Ghosts, Stories, Tours",
+        "tags": "sanfrancisco,ghosts,stories,tours",
         "blurb": "San Francisco has earned a reputation as a world-class haunted city. With it's beginnings as a gold rush town through today's technology boom, The City's tumultuous past has lured many tortured souls to remain. This is my personal list of haunted or spooky places in San Francisco that you don't usually see in other lists. This list is by no means exhaustive, just some places and stories I have found to be spooky and interesting."
     },
     {
@@ -45,7 +86,7 @@
         "link": "/crblog/blog/fleet-iot.html",
         "name": "leveragingiot",
         "date": "2023-09-06",
-        "tags": "",
+        "tags": "transportation,iot,bigdata",
         "target": "iframe",
         "hero": "/crblog/assets/img/fleet-iot.jpg",
         "icon": "fas fa-code",
@@ -58,7 +99,7 @@
         "link": "/crblog/blog/modules.html",
         "name": "modules",
         "date": "2023-09-01",
-        "tags": "Javascipt, Modules, Programming",
+        "tags": "javascipt,modules,programming,es6",
         "target": "iframe",
         "hero": "/crblog/assets/img/modules.jpg",
         "icon": "fas fa-code",
@@ -71,7 +112,7 @@
         "link": "/crblog/blog/fleet-communication.html",
         "name": "techtalk",
         "date": "2023-07-06",
-        "tags": "",
+        "tags": "transportation,iot,fleetmanagement",
         "target": "iframe",
         "hero": "/crblog/assets/img/fleet-communication.jpg",
         "icon": "fas fa-code",
@@ -87,7 +128,7 @@
         "target": "iframe",
         "hero": "/crblog/assets/img/service-workers.jpg",
         "icon": "fas fa-code",
-        "tags": "JavaScript, Web, UI, Programming",
+        "tags": "javascript,js,web,ui,programming",
         "blurb": "We've all been there. You're on your computer, online taking care of business.  You're just wrapping up the final part of a 6-part online job application form and you click submit. The page just spins and after a few seconds, you get the dreaded <q>Network not available</q> screen and all your work is now gone. Sure, browsers have gotten better at recovering from these types of scenarios but we need to be able to write software that will work, offline or online, if we expect users to rely on our web application. Until recently, there was little you could do to address the loss of connectivity as there was no client-side control mechanism for offline asset caching or hooking into network requests. But now there are Service Workers. They're perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. Don't confuse <code>Service Workers</code> with <code>Web Workers</code>; They are very similar but the main difference between the two is that <code>Service Workers</code> are persistent while <code>Web Workers</code> are not. In this post, I'll walk through setting up a service worker for caching assets and explore a couple of different caching strategies."
     },
     {

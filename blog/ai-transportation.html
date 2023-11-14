@@ -113,7 +113,7 @@
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            2023-11-12
+            2023-11-13
           </p>
           <hr>
           <img width="640" src="/crblog/assets/img/ai-transportation.jpg" class="banner-pic"> 
@@ -153,26 +153,34 @@
     <section class="comments">
       <header>Discussion</header>
       <div class="comment-comments">
-        <ul class='comments-list'><li class='comment-item'>
+        <ul class='comments-list'><li class='comment-item' data-key='1' data-parentid='0'>
+    <div class='comment-head'>
+        <div class='commenter'>First Commenter</div><div class='comment-date'>Nov 6</div>
+    </div>
+    <p class='comment'>First!</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "1");return false'>Reply →</a></div></li><li class='comment-item' data-key='2' data-parentid='0'>
     <div class='comment-head'>
         <div class='commenter'>Test User</div><div class='comment-date'>Nov 3</div>
     </div>
-    <p class='comment'>Insightful article and great writing style.  Keep up the great work!</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event);return false'>Reply →</a></div>
-<ul class='comment-reply'></ul></li><li class='comment-item'>
-    <div class='comment-head'>
-        <div class='commenter'>Lance Manion</div><div class='comment-date'>Nov 3</div>
-    </div>
-    <p class='comment'>Woefully short on actual content. Did you have ChatGPT write this for you?! I feel like reading this just gave me cancer.</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event);return false'>Reply →</a></div>
-<ul class='comment-reply'><li class='comment-item'>
-    <div class='comment-head'>
-        <div class='commenter'>Chris Robison</div><div class='comment-date'>Nov 3</div>
-    </div>
-    <p class='comment'>No one is forcing to read my posts. You seem to comment a lot on a website you seem to hate. Must be a terrible existance.</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event);return false'>Reply →</a></div>
-<ul class='comment-reply'><li class='comment-item'>
+    <p class='comment'>Insightful article and great writing style.  Keep up the great work!</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "2");return false'>Reply →</a></div>
+<ul class='comment-reply'><li class='comment-item' data-key='2.1' data-parentid='2'>
     <div class='comment-head'>
         <div class='commenter'>Lance Manion</div><div class='comment-date'>Nov 4</div>
     </div>
-    <p class='comment'>Why don't you go get a better personality; this one is pretty lame.</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event);return false'>Reply →</a></div></li></ul></li></ul></li></ul>
+    <p class='comment'>Why don't you go get a better personality; this one is pretty lame.</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "2.1");return false'>Reply →</a></div></li></ul></li><li class='comment-item' data-key='3' data-parentid='0'>
+    <div class='comment-head'>
+        <div class='commenter'>Lance Manion</div><div class='comment-date'>Nov 3</div>
+    </div>
+    <p class='comment'>Woefully short on actual content. Did you have ChatGPT write this for you?! I feel like reading this just gave me cancer.</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "3");return false'>Reply →</a></div>
+<ul class='comment-reply'><li class='comment-item' data-key='3.1' data-parentid='3'>
+    <div class='comment-head'>
+        <div class='commenter'>Chris Robison</div><div class='comment-date'>Nov 3</div>
+    </div>
+    <p class='comment'>No one is forcing you to read my posts. You seem to comment a lot on a website you seem to hate. Must be a terrible existance.</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "3.1");return false'>Reply →</a></div>
+<ul class='comment-reply'><li class='comment-item' data-key='3.1.1' data-parentid='3.1'>
+    <div class='comment-head'>
+        <div class='commenter'>Lance Manion</div><div class='comment-date'>Nov 4</div>
+    </div>
+    <p class='comment'>Why don't you go get a better personality; this one is pretty lame.</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "3.1.1");return false'>Reply →</a></div></li></ul></li></ul></li></ul>
       </div>
       <hr>
       <div id="comment-form" class="comment-container">
@@ -181,7 +189,7 @@
         <hr>
         <form id="comment" onsubmit="app.comment(event);return false" class="form">
           <label for="comment-comment"><span class="required">Comment</span>
-            <textarea rows="5" cols="40" class="comment-comment" name="comment-comment"></textarea>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
           </label>
           <label for="comment-name"><span class="required">Name</span> 
             <input type="text" id="comment-name" name="comment-name" class="comment-input">
@@ -246,7 +254,8 @@
           console.dir(data);
         });
       } catch(e) {
-
+        console.log(`No comments file found for ${name}`);
+        console.dir(e);
       }
       app.state.loaded = true;
     },
@@ -259,7 +268,70 @@
           }
       });
     },
-    reply(who, evt) {
+    postComment(who, evt) {
+      if (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+      }
+      let tgt;
+      if (who) {
+        tgt = who.closest("#commentFormWrap");
+      }
+      let pid = tgt.dataset._parent;
+      let post = {
+        email: tgt.querySelector("#comment-email")?.value,
+        name: tgt.querySelector("#comment-name")?.value,
+        site: tgt.querySelector("#comment-site")?.value,
+        comment: tgt.querySelector("#comment-comment")?.value,
+        date: app.getDate()
+      };
+      
+      let pids = pid.split(/\./);
+      if (pids.length === 1) {
+        let idx = parseInt(pids[0]) - 1;
+        ;
+        if (!app.comments[idx].replies) {
+          app.comments[idx].replies = [ ];
+        }
+        post._id = pid + "." + (app.comments[idx].replies.length + 1);
+        post._parent = pid;
+        app.comments[idx].replies.push(post);
+      } else if (pids.length === 2) {
+        let idx1 = parseInt(pids[0]) - 1,
+            idx2 = parseInt(pids[1]) - 1;
+
+        if (!app.comments[idx1].replies[idx2].replies) {
+          app.comments[idx1].replies[idx2].replies = [];
+        }
+
+        post._id = pid + "." + (app.comments[idx1].replies[idx2].replies.length + 1);
+        post._parent = pid;
+        app.comments[idx1].replies[idx2].replies.push(post);
+      }
+      console.dir(app.comments);
+      console.log(`New comment:`);
+      console.dir(post);
+    },
+    findParent(id, tree) {
+      for (let k in tree) {
+        if (tree[k]._id === id) {
+          
+        }
+      }
+    },
+    getDate() {
+      let now = new Date();
+      let hr = now.getHours();
+      let xm = "am";
+
+      if (hr > 12) {
+        xm = "pm";
+        hr -= 12;
+      }
+
+      return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' + hr + ':' + now.getMinutes() + xm;
+    },
+    reply(who, evt, pid='0') {
       if (evt) {
         evt.stopPropagation();
         evt.preventDefault();
@@ -271,7 +343,7 @@
       app.data.commentForm = $("#comment").outerHTML;
       let wrap = document.createElement("div");
       wrap.id = "commentFormWrap";
-
+      wrap.dataset._parent = pid;
       wrap.innerHTML = app.data.commentForm;
       wrap.querySelector("#comment").id = "reply";
       
@@ -303,7 +375,10 @@
       return out;
     },
     cancelComment(who, evt) {
-
+      let el = who.closest(".commentFormWrap");
+      if (el) {
+        el.parentNode.removeChild(el);
+      }
     }
   }
   window.app = app;

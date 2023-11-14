@@ -9,6 +9,7 @@ print "Backing up current posts.json\n";
 
 $exe = `cp posts.json backup/posts.$now.json`;
 $tpl = file_get_contents("blank.html");
+
 $force = 0;
 $conf = new stdClass();
 
@@ -33,7 +34,13 @@ while ($file = array_shift($argv)) {
 
         
         print "Done.\nBlog title: \"{$parts[0]}\"\nBlog subtitle: \"{$parts[1]}\"\n\n";
-        print "Creating new blog object...";
+
+        print "Grabbing comments...";
+        if (file_exists("comments/$fparts[0].json")) {
+            $comments = readComments("comments/$fparts[0].json");
+        }
+
+        print "Done. \n\nCreating new blog object...";
         $out = new stdClass();
         $out->fulltitle = $title;
         $out->title = $parts[0];
@@ -46,9 +53,44 @@ while ($file = array_shift($argv)) {
         $out->hero = "/crblog/assets/img/".$fparts[0].".jpg";
         $out->icon = "fas fa-code";
         $out->blurb = $para[1];
+        $out->comments = $comments;
 
-        print "Done.\n";
+        print "Done.\n\n";
+        $done = (property_exists($conf, "notty")) ? 1 : 0;
+        
+        while (!$done) {
+            $keys = array();
+            $vals = array();
+            print "Review:\n===========================\nNew blog object:\n";
+            $i = 0;
+            foreach ($out as $key=>$val) {
+                $keys[] = $key;
+                $vals[] = $val;
+                ++$i;
+                if (strlen($val)> 50) {
+                    $val = substr($val, 0, 50)."...";
+                }
+                print "\t{$i}) $key:\t$val\n";
+            }
+            print "\nPlease review new blog entry for correctness.\nType a number or property to change its value.\nPress Enter when satified.\n";
 
+            print "Enter or 'ok' to continue / # to edit: ";
+            $input = getInput();
+
+            if (preg_match("/\d/", $input)) {
+                print "\n\nEditing value for {$keys[(int)$input-1]}\nOld value: {$vals[(int)$input-1]}\nNew value (enter nothing to cancel)? ";
+                $newval = getInput();
+                if ($newval) {
+                    $out->{$vals[(int)$input-1]} = $newval;
+                }
+            } else if (($input == "")  || ($input=="ok"))  {
+                $done = 1;
+                continue;
+            } else {
+                print "Oops.  Input[{$input}]\n";
+            }
+
+        }
         print "\nWriting cleaned up markdown to tmp.md...";
         file_put_contents("tmp.md", join("\n", $lines));
         print "Done.\nConverting markdown to html...";
@@ -109,5 +151,57 @@ while ($file = array_shift($argv)) {
         }
     
     }
+}
+
+function readComments($file) {
+    $comments = json_decode(file_get_contents($file));
+    $out = "";
+    if (count($comments)) {
+        $out = "<ul class='comments-list'>";
+
+        foreach ($comments as $comment) {
+            $out .= makeComment($comment);
+        }
+
+        $out .= "</ul>";
+
+    }
+    return $out;
+}
+
+function makeComment($comment, $lvl = 0) {
+    if (property_exists($comment, "date")) {
+        $comment->date = date("M j", strtotime($comment->date));
+    }
+    $out = <<<EOT
+<li class='comment-item' data-key='{$comment->_id}' data-parentid='{$comment->_parent}'>
+    <div class='comment-head'>
+        <div class='commenter'>{$comment->name}</div><div class='comment-date'>{$comment->date}</div>
+    </div>
+    <p class='comment'>{$comment->comment}</p>
+EOT;
+    if ($lvl < 3) {
+        $out .= <<< EOT
+<div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "{$comment->_id}");return false'>Reply →</a></div>
+EOT;
+
+    }
+
+    if (property_exists($comment, "replies")) {
+        $out .= "\n<ul class='comment-reply'>";
+        foreach ($comment->replies as $reply) {
+            $out .= makeComment($reply, $lvl + 1);
+        }
+        $out .= "</ul>";
+    }
+    $out .= "</li>";
+    return $out;
+}
+function getInput() {
+    $handle = fopen ("php://stdin","r");
+    $line = fgets($handle);
+    $line = trim($line);
+    fclose($handle);
+    return $line;
 }
 ?>
