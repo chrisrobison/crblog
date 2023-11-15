@@ -14,7 +14,7 @@ body {
   height: 100vh;
   background: #333 url('https://cdr2.com/crblog/assets/img/sfnight2.jpg') no-repeat center center / cover;
   color: #ccc;
-  overflow:hidden;
+  overflow-y:scroll;
   background-position: right;
 }
 
@@ -105,21 +105,43 @@ div.ghost svg {
       position: absolute;
 }
 .ghost {
-  position:fixed;
+  position:absolute;
   width:200px;
   height:300px;
-  left:0;
-  top:50%;
-  opacity: 0.5;
+  left:-600px;
+  bottom:1rem;
+  opacity: 1;
+   transform: scaleX(1);
  }
 .ghost.start {
   animation:
-    x 20s linear infinite alternate,
-    y 4s infinite cubic-bezier(.5,600,.5,-600);
+    x 30s linear 1s infinite forwards;
 }
 @keyframes x {
-   to {
-     left:calc(100% - 150px);
+  0% {
+     left: -600px;
+     transform: scaleX(1);
+    bottom: 0rem;
+  }
+   60% {
+     left: -600px;
+     transform: scaleX(1);
+    bottom: 0rem;
+   }
+   80% {
+     left:calc(100% + 300px);
+     transform: scaleX(1);
+    bottom: 0rem;
+   }
+   81% {
+     transform: scaleX(-1);
+     left: calc(100% + 300px);
+    bottom: 7rem;
+   }
+   100% {
+     transform: scaleX(-1);
+     left:-600px;
+    bottom: 7rem;
    }
 }
 @keyframes y {
@@ -127,7 +149,9 @@ div.ghost svg {
      top:49.9%;
    }
 }
+  section {
 
+  }
 </style>
 <script src="/crblog/assets/js/confetti.js"></script>
 </head>
@@ -137,13 +161,15 @@ div.ghost svg {
       <span class="txt-type" data-wait="3000" data-words='["Technology.","Software.","Internet.","Development.","Management.","Business."]'></span>
     </h1>
     <h2>Welcome To My Website</h2>
+    <div style="height:80vh;"></div> 
+    <div style="font-size:48px; left: 30%;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="#ccc" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></div>
     
-    <div style="font-size:48px;position:absolute; bottom: 1rem; left: 30%;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="#ccc" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></div>
+    <section class="blog"><h1>Blog</h1><p id="blog-preview"></p></section>
+    <section class="contact"><h1>Contact</h1><p id="contact-preview"></p></section>
+
   </div>
   <div class="ghost start">
-    <svg height="210" width="200">
-    <path fill="#fff6" d="M 29 130 Q 44 126 52 105 Q 61 78.5 70 52 Q 76 16 91 13 Q 111 13 114 35 Q 121 67 136 76 Q 148 101 165 118 Q 156 134 164 152 Q 157 159 150 147 Q 149.5 154.5 149 162 Q 135 151 144 168 Q 136 179 120 184 Q 107 160 90 188 Q 79 172 55 191 Q 49.5 179.5 44 168 Q 33 169 28 161 Q 32 152 41 149 C 46 140 39 134 34 134 Z M 79 31 A 1 1 0 0 0 90 31 Z Z M 97 31 A 1 1 0 0 0 108 31 L 97 31 Z" />
-    </svg>
+    <img src="/crblog/assets/img/turkey3.gif">
   </div>
     <svg xlmns="http://www.w3.org/2000/svg" version="1.1">
       <filter id="turbulence" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
@@ -151,61 +177,7 @@ div.ghost svg {
         <feDisplacementMap xChannelSelector="G" yChannelSelector="B" scale="10" in="SourceGraphic"></feDisplacementMap>
       </filter>
     </svg>  
-    <script>
-        // const TypeWriter = function(txtElement, words, wait = 3000) {
-//   this.txtElement = txtElement;
-//   this.words = words;
-//   this.txt = '';
-//   this.wordIndex = 0;
-//   this.wait = parseInt(wait, 10);
-//   this.type();
-//   this.isDeleting = false;
-// }
-
-// // Type Method
-// TypeWriter.prototype.type = function() {
-//   // Current index of word
-//   const current = this.wordIndex % this.words.length;
-//   // Get full text of current word
-//   const fullTxt = this.words[current];
-
-//   // Check if deleting
-//   if(this.isDeleting) {
-//     // Remove char
-//     this.txt = fullTxt.substring(0, this.txt.length - 1);
-//   } else {
-//     // Add char
-//     this.txt = fullTxt.substring(0, this.txt.length + 1);
-//   }
-
-//   // Insert txt into element
-//   this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-//   // Initial Type Speed
-//   let typeSpeed = 300;
-
-//   if(this.isDeleting) {
-//     typeSpeed /= 2;
-//   }
-
-//   // If word is complete
-//   if(!this.isDeleting && this.txt === fullTxt) {
-//     // Make pause at end
-//     typeSpeed = this.wait;
-//     // Set delete to true
-//     this.isDeleting = true;
-//   } else if(this.isDeleting && this.txt === '') {
-//     this.isDeleting = false;
-//     // Move to next word
-//     this.wordIndex++;
-//     // Pause before start typing
-//     typeSpeed = 500;
-//   }
-
-//   setTimeout(() => this.type(), typeSpeed);
-// }
-
-
+<script>
 // ES6 Class
 class TypeWriter {
   constructor(txtElement, words, wait = 3000) {
@@ -224,39 +196,40 @@ class TypeWriter {
     // Get full text of current word
     const fullTxt = this.words[current];
 
-    // Check if deleting
-    if(this.isDeleting) {
-      // Remove char
-      this.txt = fullTxt.substring(0, this.txt.length - 1);
-    } else {
-      // Add char
-      this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
-
-    // Insert txt into element
-    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
     // Initial Type Speed
     let typeSpeed = 300;
 
-    if(this.isDeleting) {
-      typeSpeed /= 2;
-    }
+    if (!typingPaused) {
+      // Check if deleting
+      if(this.isDeleting) {
+        // Remove char
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        // Add char
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
 
-    // If word is complete
-    if(!this.isDeleting && this.txt === fullTxt) {
-      // Make pause at end
-      typeSpeed = this.wait;
-      // Set delete to true
-      this.isDeleting = true;
-    } else if(this.isDeleting && this.txt === '') {
-      this.isDeleting = false;
-      // Move to next word
-      this.wordIndex++;
-      // Pause before start typing
-      typeSpeed = 500;
-    }
+      // Insert txt into element
+      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
+      if (this.isDeleting) {
+        typeSpeed /= 2;
+      }
+
+      // If word is complete
+      if (!this.isDeleting && this.txt === fullTxt) {
+        // Make pause at end
+        typeSpeed = this.wait;
+        // Set delete to true
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        // Move to next word
+        this.wordIndex++;
+        // Pause before start typing
+        typeSpeed = 500;
+      }
+    }
     setTimeout(() => this.type(), typeSpeed);
   }
 }
@@ -264,6 +237,7 @@ class TypeWriter {
 
 // Init On DOM Load
 document.addEventListener('DOMContentLoaded', init);
+let typingPaused = 0;
 
 // Init App
 function init() {
@@ -291,7 +265,14 @@ function init() {
     }
   });
   document.addEventListener("click", function(e) {
-    
+    if (e.target.classList.contains("txt")) {
+      document.querySelector(".txt-type").style.display = (!typingPaused) ? "none" : "inline-block";
+      typingPaused ^= 1;
+      setTimeout(function() { document.querySelector(".txt-type").style.display = "inline-block"; typingPaused = 0; }, 5000);;
+
+      return addDivConfetti(e, 30);
+
+    }
     localStorage.setItem("ghost", "yes");
     document.querySelector(".ghost").style.display = "block";
   });
