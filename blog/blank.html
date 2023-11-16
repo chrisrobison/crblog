@@ -132,7 +132,7 @@
         %%comments%%
       </div>
       <hr>
-      <div id="comment-form" class="comment-container">
+      <div id="comment-form" class="comment-container" data-_parent="1">
         <h3>Leave a Reply</h3>
         <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
         <hr>
@@ -197,7 +197,7 @@
       console.log(`page name: ${name}`);;
       
       try {
-        fetch(`/crblog/blog/comments/${name}.json`).then(r=>r.json()).then(data=>{
+        fetch(`/crblog/blog/comment.php?page=${name}`).then(r=>r.json()).then(data=>{
           app.comments = data;
           console.log(`Retrieved ${name}.json`);
           console.dir(data);
@@ -207,6 +207,15 @@
         console.dir(e);
       }
       app.state.loaded = true;
+    },
+    mkcomment(obj, key='1', pid='0') {
+      let item = `
+ <li class='comment-item' data-key='${key}' data-parentid='${pid}'>
+  <div class='comment-head'>
+      <div class='commenter'>${obj.name}</div><div class='comment-date'>${obj.date}</div>
+  </div>
+  <p class='comment'>${obj.comment}</p><div class='reply-wrap'><span class='comment-tools'></span> <a class='reply-link' href='#' onclick='app.reply(this, event, "${key}");return false'>Reply →</a></div>`;
+      return item; 
     },
     fetch(url, callback) {
       fetch(url).then(response=>response.json()).then(data=>{
@@ -226,11 +235,16 @@
       if (who) {
         tgt = who.closest("#commentFormWrap");
       }
+
+      if (!tgt) {
+        tgt = document.querySelector("#comment-form");
+      }
+
       let pid = tgt.dataset._parent;
       let post = {
         email: tgt.querySelector("#comment-email")?.value,
         name: tgt.querySelector("#comment-name")?.value,
-        site: tgt.querySelector("#comment-site")?.value,
+        site: tgt.querySelector("#comment-website")?.value,
         comment: tgt.querySelector("#comment-comment")?.value,
         date: app.getDate()
       };
@@ -239,6 +253,9 @@
       if (pids.length === 1) {
         let idx = parseInt(pids[0]) - 1;
         ;
+        if (!app.comments[idx]) {
+          app.comments[idx] = post;
+        }
         if (!app.comments[idx].replies) {
           app.comments[idx].replies = [ ];
         }
@@ -257,10 +274,36 @@
         post._parent = pid;
         app.comments[idx1].replies[idx2].replies.push(post);
       }
-
+      let page = location.href.replace(/^.*\//, '').replace(/.html/, '');
+        fetch("comment.php?page="+page, {
+          method: 'POST',
+          body: JSON.stringify(post),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        }).then(resp=>resp.json()).then(data=>{
+          app.buildComments(data);
+        });
       console.dir(app.comments);
       console.log(`New comment:`);
       console.dir(post);
+    },
+    buildComments(arr, ul) {
+      if (!ul) ul = document.querySelector("ul.comments-list");
+      if (!ul) {
+        ul = document.createElement("ul");
+        ul.className = "comments-list";
+        document.querySelector("#comment-comments").append(ul);
+      }    
+      let out = "";
+      for (let i=0; i<arr.length; i++) {
+        out += app.mkcomment(arr[i], arr[i]._id, arr[i]._parent);
+        if (arr[i].replies) {
+          app.buildComment(arr[i].replies); 
+        }
+        out += `</li>`;
+      }
+      ul.innerHTML = out;
     },
     findParent(id, tree) {
       for (let k in tree) {

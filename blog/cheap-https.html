@@ -113,7 +113,7 @@
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            2023-11-14
+            2023-11-15
           </p>
           <hr>
           <img width="640" src="/crblog/assets/img/cheap-https.jpg" class="banner-pic"> 
@@ -162,7 +162,7 @@ sudo apt-get install certbot</code></pre></li>
         
       </div>
       <hr>
-      <div id="comment-form" class="comment-container">
+      <div id="comment-form" class="comment-container" data-_parent="1">
         <h3>Leave a Reply</h3>
         <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
         <hr>
@@ -227,7 +227,7 @@ sudo apt-get install certbot</code></pre></li>
       console.log(`page name: ${name}`);;
       
       try {
-        fetch(`/crblog/blog/comments/${name}.json`).then(r=>r.json()).then(data=>{
+        fetch(`/crblog/blog/comment.php?page=${name}`).then(r=>r.json()).then(data=>{
           app.comments = data;
           console.log(`Retrieved ${name}.json`);
           console.dir(data);
@@ -256,6 +256,11 @@ sudo apt-get install certbot</code></pre></li>
       if (who) {
         tgt = who.closest("#commentFormWrap");
       }
+
+      if (!tgt) {
+        tgt = document.querySelector("#comment-form");
+      }
+
       let pid = tgt.dataset._parent;
       let post = {
         email: tgt.querySelector("#comment-email")?.value,
@@ -269,6 +274,9 @@ sudo apt-get install certbot</code></pre></li>
       if (pids.length === 1) {
         let idx = parseInt(pids[0]) - 1;
         ;
+        if (!app.comments[idx]) {
+          app.comments[idx] = post;
+        }
         if (!app.comments[idx].replies) {
           app.comments[idx].replies = [ ];
         }
