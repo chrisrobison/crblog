@@ -1,7 +1,13 @@
 <?php
     $in = $_REQUEST;
     
-if (array_key_exists("name", $in) && array_key_exists("email", $in)) {
+if (array_key_exists("name", $in) && array_key_exists("email", $in) && array_key_exists("token", $in)) {
+    $expected_token = base64_encode(date("Ymdh"));
+    
+    if (!array_key_exists("g-recaptcha-response", $in)) {
+        print "<h1>No Bots Allowed</h1>";
+        exit;
+    }
     $now = date("Ymdhis");
     $in['date'] = date("Y-m-d h:i:s");
     $json = file_get_contents("incoming.txt");

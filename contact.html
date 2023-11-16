@@ -101,6 +101,7 @@
     <!-- Main content -->
     <section class="content">
     <form action="contact.php" method="POST" style="width:100%">
+      <input type="hidden" name="token" id="token" value="">
       <!-- Default box -->
       <div class="card">
         <div id="card-body" class="card-body">
@@ -172,5 +173,20 @@
 <!-- AdminLTE App -->
 <script src="assets/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
+  <script>
+(function() {
+  let app = {
+    init() {
+      fetch("token.php").then(r=>r.json()).then(data=>{
+        console.log("Got token");
+        console.dir(data);
+        document.querySelector("#token").value = data.token;
+      });
+    }
+  };
+  window.app = app;
+  app.init();
+})();
+  </script>
 </body>
 </html>

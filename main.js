@@ -19,7 +19,7 @@
             let navjson = await app.getNav("nav/nav.json");
             app.addData(navjson);
             app.buildTopNav(navjson.topmenu);
-            setInterval(function() { fixIframeHeight(); }, 5000);
+            setInterval(function() { fixIframeHeight(); }, 2000);
             document.addEventListener("click", function() {
               setTimeout(function() { fixIframeHeight(); }, 2000);
             });

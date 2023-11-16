@@ -78,7 +78,7 @@ function Conf() {
 
     let html = "<div class='glitter-inner'><div class='glitter-front'></div><div class='glitter-back'></div></div>";
 
-    this.element.style.backgroundColor = "#fff6";
+    this.element.style.backgroundColor = "#800";
     this.element.style.top = this.position.y + "px";
     this.element.style.position = "absolute";
     this.element.style.height = 15 + "px";
@@ -100,7 +100,7 @@ document.querySelector("body").append(this.element);
         this.rotate += (this.rotateSpeed * this.randomModifier);
         
         this.scale.y = Math.cos((this.position.y + this.randomModifier) * this.flipSpeed);
-        this.color = this.scale.y > 0 ? "#fff6" : "#aaa6";
+        this.color = this.scale.y > 0 ? "#880" : "#800";
     }
 }
 

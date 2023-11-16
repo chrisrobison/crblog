@@ -12,7 +12,7 @@
 body {
   font-family: 'Raleway', sans-serif;
   height: 100vh;
-  background: #333 url('https://cdr2.com/crblog/assets/img/sfnight2.jpg') no-repeat center center / cover;
+  background: #000 url('https://cdr2.com/crblog/assets/img/sfnight2.jpg') no-repeat center center / cover;
   color: #ccc;
   overflow-y:scroll;
   background-position: right;
@@ -20,7 +20,6 @@ body {
 
 .container {
   display: block;
-  position: absolute;
   right: 3rem;
   top: 3rem;
   flex-direction: column;
@@ -29,7 +28,7 @@ body {
   padding: 0 3rem;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-weight: 200;
   margin: 0.4rem;
 }
@@ -104,16 +103,23 @@ h2 {
 div.ghost svg {
       position: absolute;
 }
-.ghost {
-  position:absolute;
-  width:200px;
-  height:300px;
+#ghost {
+  width:300px;
+  height:200px;
   left:-600px;
+  position:absolute;
+
+}
+.ghost {
+  position: absolute;
+  width: 98vw;
+  height: 100%;
+  overflow-x: hidden;
   bottom:1rem;
-  opacity: 1;
-   transform: scaleX(1);
- }
-.ghost.start {
+  transform: scaleX(1);
+}
+
+.ghost.start #ghost {
   animation:
     x 30s linear 1s infinite forwards;
 }
@@ -144,32 +150,101 @@ div.ghost svg {
     bottom: 7rem;
    }
 }
-@keyframes y {
-   to {
-     top:49.9%;
-   }
-}
+          .animated { 
+            background-repeat: no-repeat;
+            background-position: left top; 
+            padding-top:95px;
+            margin-bottom:60px;
+            animation-duration: 5s; 
+            animation-fill-mode: both;
+            animation-iteration-count:infinite;
+         }
+         
+         @keyframes bounce { 
+            0%, 30%, 50%, 70%, 100% {transform: translateY(0);} 
+            40% {transform: translateY(-15px);} 
+            60% {transform: translateY(-10px);} 
+         }
+         
+         .indicator { 
+            animation-name: bounce;  
+            position:absolute;
+            font-size:48px; 
+            bottom: -1rem; 
+            left: 30%;
+              background-repeat: no-repeat;
+            background-position: left top; 
+            padding-top:95px;
+            margin-bottom:60px;
+            animation-duration: 5s; 
+            animation-fill-mode: both;
+            animation-iteration-count:infinite;
+       }
   section {
 
   }
+  section p {
+    height: 15rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    background-color:#666;
+  }
+  #blog-preview {
+
+  }
+  #contact-preview {
+
+  }
+  .container-wrap {
+    position: absolute;
+    right:3rem;
+    display:inline-block;
+      height:100%;
+
+  }
+  ul.horiz-scroll {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+}
+
+li {
+  background: #fff;
+  color: #111;
+  list-style: none;
+  width: 15rem;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
 </style>
 <script src="/crblog/assets/js/confetti.js"></script>
 </head>
 <body>
-  <div class="container" style="height: 90vh;">
-    <h1>Chris Robison Knows<br>
-      <span class="txt-type" data-wait="3000" data-words='["Technology.","Software.","Internet.","Development.","Management.","Business."]'></span>
-    </h1>
-    <h2>Welcome To My Website</h2>
-    <div style="height:80vh;"></div> 
-    <div style="font-size:48px; left: 30%;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="#ccc" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></div>
-    
+  <div class="container">
+    <div class="container-wrap">
+      <h1>Chris Robison Knows<br>
+        <span class="txt-type" data-wait="3000" data-words='["Technology.","Software.","Internet.","Development.","Management.","Business."]'></span>
+      </h1>
+      <h2>Welcome To My Website</h2>
+      <div style="height:80%;"></div> 
+      <div class="indicator" style="display: none" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="#ccc" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></div>
+    </div>
+  </div>
+  <div style="display: none" class="wrapper">   
     <section class="blog"><h1>Blog</h1><p id="blog-preview"></p></section>
     <section class="contact"><h1>Contact</h1><p id="contact-preview"></p></section>
-
   </div>
   <div class="ghost start">
-    <img src="/crblog/assets/img/turkey3.gif">
+    <img id='ghost' src="/crblog/assets/img/turkey3.gif">
   </div>
     <svg xlmns="http://www.w3.org/2000/svg" version="1.1">
       <filter id="turbulence" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
@@ -241,6 +316,7 @@ let typingPaused = 0;
 
 // Init App
 function init() {
+  getBlogs();
   const txtElement = document.querySelector('.txt-type');
   const words = JSON.parse(txtElement.getAttribute('data-words'));
   const wait = txtElement.getAttribute('data-wait');
@@ -250,7 +326,7 @@ function init() {
   if (doGhost == "no") {
     document.querySelector(".ghost").style.display = "none";
   }
-  document.querySelector(".ghost").addEventListener("click", function(e) {
+  document.querySelector("#ghost").addEventListener("click", function(e) {
     e.stopPropagation();
     e.preventDefault();
     localStorage.setItem("ghost", "no");
@@ -275,6 +351,18 @@ function init() {
     }
     localStorage.setItem("ghost", "yes");
     document.querySelector(".ghost").style.display = "block";
+  });
+}
+function getBlogs() {
+  fetch("/crblog/blog/posts.json").then(r=>r.json()).then(data=>{
+    window.blogentries = data;
+    let out = "<ul class='horiz-scroll'>";
+
+    data.forEach((item, idx) => {
+      out += `<li><img src="${item.hero}" height="150"><div class='blogitem'><h3>${item.title}</h3>${item.subtitle}</div></li>`;
+    });
+    out += "</ul>";
+    document.querySelector("#blog-preview").innerHTML = out;
   });
 }
     </script>
