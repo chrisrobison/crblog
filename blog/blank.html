@@ -16,15 +16,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
   <style>
-    span.required::after {
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+     span.required::after {
       display: inline-block;
       position: relative;
       content: "*";
       color: #c00;
       font-size: 1.1rem;
       font-weight: bold;
-      height: 2rem;
-      width: 2rem;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
     }
     section.comments  header {
       font-size:2rem;
@@ -81,6 +94,14 @@
     .commenter { color: #000; font-weight: bold; }
     .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
     .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
   </style>
 </head>
 <body class="hold-transition iframe-mode">
@@ -132,11 +153,11 @@
         %%comments%%
       </div>
       <hr>
-      <div id="comment-form" class="comment-container" data-_parent="1">
+      <div id="comment-form" class="comment-container" data-_parent="0">
         <h3>Leave a Reply</h3>
         <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
         <hr>
-        <form id="comment" onsubmit="app.comment(event);return false" class="form">
+        <form id="comment" onsubmit="return false;" class="form">
           <label for="comment-comment"><span class="required">Comment</span>
             <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
           </label>
@@ -250,7 +271,11 @@
       };
       
       let pids = pid.split(/\./);
-      if (pids.length === 1) {
+      if ((pid == 0) || (!pid)) {
+        post._id = app.comments.length.toString();
+        post._parent = "0";
+        app.comments.push(post); 
+      } else if (pids.length === 1) {
         let idx = parseInt(pids[0]) - 1;
         ;
         if (!app.comments[idx]) {
@@ -259,8 +284,8 @@
         if (!app.comments[idx].replies) {
           app.comments[idx].replies = [ ];
         }
-        post._id = pid + "." + (app.comments[idx].replies.length + 1);
-        post._parent = pid;
+        post._id = (pid + 1) + "." + (app.comments[idx].replies.length + 1);
+        post._parent = pid + 1;
         app.comments[idx].replies.push(post);
       } else if (pids.length === 2) {
         let idx1 = parseInt(pids[0]) - 1,
@@ -273,11 +298,37 @@
         post._id = pid + "." + (app.comments[idx1].replies[idx2].replies.length + 1);
         post._parent = pid;
         app.comments[idx1].replies[idx2].replies.push(post);
+      } else if (pids.length === 3) {
+        let idx1 = parseInt(pids[0]) - 1,
+            idx2 = parseInt(pids[1]) - 1,
+            idx3 = parseInt(pids[2]) - 1;
+
+        if (!app.comments[idx1].replies[idx2].replies[idx3].replies) {
+          app.comments[idx1].replies[idx2].replies[idx3].replies = [];
+        }
+
+        post._id = pid + "." + (app.comments[idx1].replies[idx2].replies[idx3].length + 1);
+        post._parent = pid;
+        app.comments[idx1].replies[idx2].replies[idx3].replies.push(post);
+      } else if (pids.length === 4) {
+        let idx1 = parseInt(pids[0]) - 1,
+            idx2 = parseInt(pids[1]) - 1,
+            idx3 = parseInt(pids[1]) - 1,
+            idx4 = parseInt(pids[2]) - 1;
+
+        if (!app.comments[idx1].replies[idx2].replies[idx3].replies[idx4].replies) {
+          app.comments[idx1].replies[idx2].replies[idx3].replies[idx4].replies = [];
+        }
+
+        post._id = pid + "." + (app.comments[idx1].replies[idx2].replies[idx3].replies[idx4].length + 1);
+        post._parent = pid;
+        app.comments[idx1].replies[idx2].replies[idx3].replies[idx4].replies.push(post);
       }
+
       let page = location.href.replace(/^.*\//, '').replace(/.html/, '');
-        fetch("comment.php?page="+page, {
+        fetch("comment.php?x=save&page="+page, {
           method: 'POST',
-          body: JSON.stringify(post),
+          body: JSON.stringify(app.comments),
           headers: {
             "Content-type": "application/json; charset=UTF-8"
           }
@@ -287,23 +338,33 @@
       console.dir(app.comments);
       console.log(`New comment:`);
       console.dir(post);
+      let replywrap = tgt.closest("#commentFormWrap");
+      if (replywrap) {
+        replywrap.parentNode.removeChild(replywrap);
+      } else {
+        tgt.querySelector("#comment-email").value = "";
+        tgt.querySelector("#comment-name").value = "";
+        tgt.querySelector("#comment-website").value = "";
+        tgt.querySelector("#comment-comment").value = "";
+      }
     },
     buildComments(arr, ul) {
-      if (!ul) ul = document.querySelector("ul.comments-list");
+      if (!ul) ul = document.querySelector("ul.comment-reply");
       if (!ul) {
         ul = document.createElement("ul");
-        ul.className = "comments-list";
+        ul.className = "comment-reply";
         document.querySelector("#comment-comments").append(ul);
       }    
       let out = "";
       for (let i=0; i<arr.length; i++) {
         out += app.mkcomment(arr[i], arr[i]._id, arr[i]._parent);
         if (arr[i].replies) {
-          app.buildComment(arr[i].replies); 
+          out += app.buildComments(arr[i].replies); 
         }
         out += `</li>`;
       }
       ul.innerHTML = out;
+      return ul.outerHTML;
     },
     findParent(id, tree) {
       for (let k in tree) {
