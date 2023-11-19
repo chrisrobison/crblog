@@ -3,68 +3,130 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Haunted San Francisco - Christopher Robison's Blog</title>
-  <link rel="canonical" href="https://cdr2.com/crblog/blog/haunted-sf.html">
+  <title>Haunted History: San Francisco  - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/hauntedhistory.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css">
   <link rel="stylesheet" href="/crblog/assets/css/adminlte.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
-<style>
-body { background: #000; }
-.dark-mode .content-wrapper {
-  background: #000;
-}
-.blog p.desc {
-}
-a:hover {
-    text-decoration: underline;
-}
-.blog { font-weight: 200; }
-@media screen and (max-size: 640px) {
-  .blog ol { padding:0px; margin: 0;}
-  .blog ol li {
-    margin-left: 1rem;
+  <style>
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
     }
-  .blog {
-    border-right-width: 1rem;
-    border-left-width: 1rem;
-    font-weight: 200;
-  }
-}
-.ghost {
-  position:fixed;
-    z-index:99999;
-  width:200px;
-  height:300px;
-  left:0;
-  top:50%;
-  filter: blur(2px);
-}
-.ghost.start {
-  animation:
-    x 20s linear infinite alternate,
-    y 4s infinite cubic-bezier(.5,600,.5,-600);
-}
-@keyframes x {
-   to {
-     left:calc(100% - 40px);
-   }
-}
-@keyframes y {
-   to {
-     top:49.9%;
-   }
-}
-body { background:#000; }
-</style>
+     span.required::after {
+      display: inline-block;
+      position: relative;
+      content: "*";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+    section.comments  header {
+      font-size:2rem;
+      background:#333;
+      color: #eee;
+      font-weight: bold;
+    }
+    section.comments {
+      width: 50rem;
+      margin: 0px auto;
+    }
+    section.comments .comment-container {
+      padding: 1rem;
+    }
+    .comment-input {
+      width: 30rem;
+      font-size: 18px;
+      height: 2rem;
+    }
+    .comment-comment {
+      width: 40rem;
+      height: 6rem;
+    }
+    .comment-comments {
+      padding: 1rem;
+    }
+    .comment-date {
+      font-size: 0.8rem;
+      float: right;
+    }
+    #comment label span {
+      display: block;
+      width: 7rem;
+    }
+    @media screen and (max-width: 640px) {
+      section.comments {
+        width: 100vw;
+      }
+      .comment-comment { width: 90vw; }
+      .comment-input { width: 90vw; }
+
+    }
+    p.comment { margin-bottom: 0px; }
+    .comment-item {
+      list-style-type: none;
+      border-top: 0.5rem solid #ccc;
+    }
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comments-list { padding: 0; }
+    .commenter { color: #000; font-weight: bold; }
+    .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
+    .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
+    table {
+      border-collapse: collapse;
+      border: 2px solid #0005;
+      width: 100%;
+    }
+    table td {
+      border-right: 1px solid #0003;
+      background:#eee;
+      color: #000;
+      padding: 4px;
+    }
+    table .header th {
+      background: #000;
+      color: #eee;
+    }
+    .odd td {
+      background-color: #ccc;
+    }
+    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
+      text-align: center;
+      color: #c00;
+    }
+  </style>
 </head>
-<body class="hold-transition iframe-mode dark-mode">
+<body class="hold-transition iframe-mode">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Content Wrapper. Contains page content -->
@@ -79,7 +141,7 @@ body { background:#000; }
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
-              <li class="breadcrumb-item active">Haunted SF</li>
+              <li class="breadcrumb-item active">Haunted History</li>
             </ol>
           </div>
         </div>
@@ -88,100 +150,121 @@ body { background:#000; }
 
     <!-- Main content -->
     <section class="content">
-        <div class="blog" style="background-color:#000;border:1rem solid #000;border-right:2rem solid #000;border-left:2rem solid #000;overflow:hidden;">
-          <h1 style="font-weight:900;">Haunted San Francisco</h1>
-          <h3>History and locations of SF's finest ghouls</h3>
-          <p style="float:right;"><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
-          <p>By Christopher Robison<br>
-          October 26, 2023</p>
+        <div class="blog">
+          <h1 style="font-weight:900;">Haunted History</h1>
+          <h3>San Francisco </h3>
+          <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p>
+            By Christopher Robison<br>
+            2023-10-26
+          </p>
           <hr>
-          <img src="/crblog/assets/img/haunted-sf.jpg" class="banner-pic" style="100%"> 
+          <img width="640" src="/crblog/assets/img/haunted-sf.jpg" class="banner-pic"> 
           <hr>
           <p>San Francisco has earned a reputation as a world-class haunted city. With it’s beginnings as a gold rush town through today’s technology boom, The City’s tumultuous past has lured many tortured souls to remain. This is my personal list of haunted or spooky places in San Francisco that you don’t usually see in other lists. This list is by no means exhaustive, just some places and stories I have found to be spooky and interesting.</p>
-<ol>
-<li><p><strong><a href="https://www.nps.gov/goga/learn/historyculture/sutro-baths.htm">Sutro Baths</a></strong></p>
-  <img src="../assets/img/sutro-tunnel-300.jpg" width="300" style="float:right;margin:1rem;"><p class="desc">The tunnel/cave carved into the rockface at the former location of the Sutro Baths at Lands End is rumored to have any number of ghosts, demons or sea creatures that leave large claw marks scratched into the rock. There is also an urban legend that if you take a lit candle to the northern end of the tunnel, an unseen force will take the candle and launch it into the surf below.</p>
+<ul>
+<li><p><strong><a href="https://www.nps.gov/goga/learn/historyculture/sutro-baths.htm">Sutro Baths</a></strong>:</p>
+<p>The tunnel/cave carved into the rockface at the former location of the Sutro Baths at Lands End is rumored to have any number of ghosts, demons or sea creatures that leave large claw marks scratched into the rock. There is also an urban legend that if you take a lit candle to the northern end of the tunnel, an unseen force will take the candle and launch it into the surf below.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1501%20Octavia%20St,San%20Francisco%20CA" target="_blank">11004 Point Lobos Ave</a>
+<p>Address: 1004 Point Lobos Ave</p>
 </address></li>
-<li><p><strong><a href="https://www.outsidelands.org/sutro-ghosts.php">Sutro Park/Forest</a></strong></p>
-<p class="desc">Between 1899 and 1908 a large number of bodies that were apparent suicides were discovered in Sutro Forest. It is said that many of these tortured souls can be seen wandering the grounds wearing Victorian dress on foggy, moonlit nights.</p>
+<li><p><strong><a href="https://www.outsidelands.org/sutro-ghosts.php">Sutro Park/Forest</a></strong>:</p>
+<p>Between 1899 and 1908 a large number of bodies that were apparent suicides were discovered in Sutro Forest. It is said that many of these tortured souls can be seen wandering the grounds wearing Victorian dress on foggy, moonlit nights.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1501%20Octavia%20St,San%20Francisco%20CA" target="_blank">1155 Johnstone Dr</a>
+<p>Address: 155 Johnstone Dr</p>
 </address></li>
-<li><p><strong><a href="https://en.wikipedia.org/wiki/Broderick%E2%80%93Terry_duel">Broderick/Terry Dual, Lake Merced</a></strong></p>
-<div style="float:left;width:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/broderick.jpg" title="Photo of David C. Broderick" style="width:200px; padding-right:1rem;padding-top:1rem;"><div style="font-size:12px;color:#999">Photo of David C. Broderick</div></div>
-<p class="desc">Senator David C. Broderick was an ambitious political climber and an outspoken abolitionist in the Democratic Party. His buddy, California Chief Justice David S. Terry (who was known for getting into fights and shanking people), on the other hand, was a staunch supporter of slavery and advocated for its extension into California. When Terry lost re-election in 1859, he blamed Broderick for engineering the loss and challenged him to a duel on the edge of Lake Merced with the idea that whoever was left standing would win the argument of whether or not California should have slavery.</p>
-<div style="float:right;width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/duel.jpg" title="Sketch of the Broderick-Terry Duel" style="width:300px"><div style="font-size:12px;color:#999">Sketch of the Broderick-Terry Duel</div></div>
-<p class="desc">Both pistols had hair triggers, but it was Broderick’s that accidentally discharged prior to the final count. You only get one shot in a duel so Broderick just had to stand there while Terry took careful aim at him and fired, hitting him in his lung. Broderick was alive but his wound was fatel. He was taken back to the home of his friend Leonidas Haskell, where he languished, struggling to breath, coughing up blood, in pain for three days until he finally died from a fit of coughing on his own blood.</p>
-<p class="desc">This event became known as the “Last Duel in California,” or the “Last Notable American Dual”. Broderick would become a martyr for the anti-slavery movement. Both the location of the dual near Lake Merced and the Haskell House are said to be haunted by shadowy figures flashing lights and tipping plants over.</p>
+<li><p><strong><a href="https://en.wikipedia.org/wiki/Broderick%E2%80%93Terry_duel">Broderick/Terry Dual, Lake Merced</a></strong>:</p>
+<p>Senator David C. Broderick was an ambitious political climber and an outspoken abolitionist in the Democratic Party. His buddy, California Chief Justice David S. Terry (who was known for getting into fights and shanking people), on the other hand, was a staunch supporter of slavery and advocated for its extension into California. When Terry lost re-election in 1859, he blamed Broderick for engineering the loss and challenged him to a duel on the edge of Lake Merced with the idea that whoever was left standing would win the argument of whether or not California should have slavery.</p>
+<p>Both pistols had hair triggers, but it was Broderick’s that discharged prior to the final count. He just had to stand there while Terry took an easy aim at him and fired, hitting his lung. Broderick was taken back to the home of his friend Leonidas Haskell, where he languished in pain for three days until he died.</p>
+<p>This event became known as the “Last Duel in California,” or the “Last Notable American Dual”. Broderick would become a martyr for the anti-slavery movement. Both the location of the dual near Lake Merced and the Haskell House are said to be haunted by shadowy figures flashing lights and tipping plants over.</p>
 <address>
-Address: <a href="https://maps.google.com/?q=11100%20Lake%20Merced%20Blvd,Daly%20City%20CA" target="_blank">11100 Lake Merced Blvd</a>
+<p>Address: 1100 Lake Merced Blvd</p>
 </address></li>
-<li><p><strong><a href="https://en.wikipedia.org/wiki/Mary_Ellen_Pleasant">Mary Ellen Pleasant</a></strong></p>
-<div style="float:left;width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/maryellen.png" title="Photo of Mary Ellen Pleasent" style="width:280px;padding:1rem;"><div style="font-size:12px;color:#999">Photo of Mary Ellen Pleasen</div></div>
-<p class="desc">Mary Ellen Pleasant was a former slave and indentured servant who came to San Francisco in 1899. She eventually opened up a restaurant and was notorious for clandestinely picking up stock tips from the wealthy businessmen who ate there. She was so savvy that she used these tips to make herself rich, eventually designing and building a gorgeous mansion on Octavia Street. She lived there with her "business partner" and his wife. Things got a little scandalous when Pleasant was accused of pushing her business partner down the stairs and killing him. Eventually she was pressured to move out of San Francisco, lost all her savings, and died broke years later. It is said that her spirit haunts her commemorative park on Octavia and Bush St, the former location of her lost mansion. If you stand on her plaque and make a polite request, it will be granted if you show her respect and are a good person. Beware, though, rumor has it that she throws rocks on the heads of people who are without honor and do not show her the proper respect.</p>
+<li><p><strong><a href="https://en.wikipedia.org/wiki/Mary_Ellen_Pleasant">Mary Ellen Pleasant</a></strong>:</p>
+<p>Mary Ellen Pleasant was a former slave and indentured servant who came to San Francisco in 1899. She eventually opened up a restaurant and was notorious for clandestinely picking up stock tips from the wealthy businessmen who ate there. She was so savvy that she used these tips to make herself rich, eventually designing and building a bitchin’ mansion on Octavia Street. She lived there with her business partner and his wife. Things got a little scandalous when Pleasant was accused of pushing her business partner down the stairs and killing him. Eventually she was pressured to move out of San Francisco, lost all her savings, and died years later. It is said that her spirit haunts the commemorative park on Octavia and Bush St. If you stand on the plaque and make a polite request it will be granted. Beware, though, rumor has it that she throws rocks on the heads of people who do not show her the proper respect.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1501%20Octavia%20St,San%20Francisco%20CA" target="_blank">1501 Octavia St</a>
+<p>1501 Octavia St</p>
 </address></li>
-<li><p><strong><a href="https://en.wikipedia.org/wiki/Westin_St._Francis">St. Francis Hotel</a></strong></p>
-<div style="float:right;width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/stfrancis.jpg" title="1904 Photo of St. Francis Hotel" style="width:280px;padding:1rem;"><div style="font-size:12px;color:#999">1904 Photo of St. Francis Hotel</div></div>
-<p class="desc">It is widely believed that the famous celebrities of Hollywood have been haunting Union Square’s St. Francis Hotel for years. The hotel was the place where the yesteryear actor John Barrymore died in an earthquake that struck San Francisco in the year 1906, as the actor was sleeping in one of the hotel rooms. Another story is about a party that was held in suites 1219 and 1221 by Fatty Arbuckle, a silent-movie comedian. This grand party apparently got out of control, which led to the rape and murder of Virginia Rappe, an American model and silent film actress. Al Jolson, an American singer, comedian, stage and film actor also died in the same suite during a poker game in the year 1950. The hotel staff and hotel guests have reported that they have sensed and felt Barrymore’s, Arbuckle’s and Jolson’s spirits in the hallways of the hotel.</p>
+<li><p><strong><a href="https://en.wikipedia.org/wiki/Westin_St._Francis">St. Francis Hotel</a></strong>:</p>
+<p>It is widely believed that the famous celebrities of Hollywood have been haunting Union Square’s St. Francis Hotel for years. The hotel was the place where the yesteryear actor John Barrymore died in an earthquake that struck San Francisco in the year 1906, as the actor was sleeping in one of the hotel rooms. Another story is about a party that was held in suites 1219 and 1221 by Fatty Arbuckle, a silent-movie comedian. This grand party apparently got out of control, which led to the rape and murder of Virginia Rappe, an American model and silent film actress. Al Jolson, an American singer, comedian, stage and film actor also died in the same suite during a poker game in the year 1950. The hotel staff and hotel guests have reported that they have sensed and felt Barrymore’s, Arbuckle’s and Jolson’s spirits in the hallways of the hotel.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=St.%20Francis%20Hotel,San%20Francisco%20CA" target="_blank">Powell St at Union Square</a>
+<p>Powell St, Union Square</p>
 </address></li>
-<li><p><strong><a href="https://en.wikipedia.org/wiki/Pinecrest_Diner">The Pinecrest Diner Murder</a></strong></p>
-<p class="desc">The Pinecrest Diner sits on the corner of Mason and Geary. The sign above the door boasts “Best breakfast in San Francisco” and it’s a good little greasy spoon. However, patrons will notice that the breakfast menu has an odd addendum on it: no poached eggs. This seemingly innocuous detail hints at a murder that took place at the diner back in the late 90’s. In 1997, Hashem Zayed, a cook at the Pinecrest, shot and killed a waitress. Rumor has it that earlier that week the waitress, Helen Menicou, had scolded Zayed for making off-menu poached eggs for a customer. According to the story, Zayed was so upset and embarrassed he stayed up all night and returned to work the next morning bedraggled and armed. Zayed never admitted explicitly that the eggs were the cause of his crime, but the restaurant refuses to serve them to this day.</p>
+<li><p><strong><a href="https://en.wikipedia.org/wiki/Pinecrest_Diner">The Pinecrest Diner Murder</a></strong>:</p>
+<p>The Pinecrest Diner sits on the corner of Mason and Geary. The sign above the door boasts “Best breakfast in San Francisco” and it’s a good little greasy spoon. However, patrons will notice that the breakfast menu has an odd addendum on it: no poached eggs. This seemingly innocuous detail hints at a murder that took place at the diner back in the late 90’s. In 1997, Hashem Zayed, a cook at the Pinecrest, shot and killed a waitress. Rumor has it that earlier that week the waitress, Helen Menicou, had scolded Zayed for making off-menu poached eggs for a customer. According to the story, Zayed was so upset and embarrassed he stayed up all night and returned to work the next morning bedraggled and armed. Zayed never admitted explicitly that the eggs were the cause of his crime, but the restaurant refuses to serve them to this day.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1401%20Geary%20St,San%20Francisco%20CA" target="_blank">1401 Geary St</a>
+<p>401 Geary St</p>
 </address></li>
-<li><p><strong><a href="https://goldengatepark.com/stow-lake-ghost.html">The Lady of Stow Lake</a></strong></p>
-<div style="float:left;width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/stowlake.jpg" title="1905 Photo of Stow Lake, Golden Gate Park" style="width:280px;padding:1rem 1rem 0rem 1rem;"><div style="font-size:12px;color:#999">1905 Photo of Stow Lake, Golden Gate Park</div></div>
-<p class="desc">There are several origin stories concerning the apparition known as the <a href="https://goldengatepark.com/stow-lake-ghost.html">Stow Lake Ghost</a>. Some say she was an absentminded mother wandering Golden Gate Park’s Stow Lake with a baby in a stroller. She became so enthralled in a conversation that the stroller rolled into the lake, at which point the woman panicked and jumped in after her baby, swimming and searching until both mother and child drowned. Another story says she was an unwed teen who jumped into the lake and drowned herself to hide her illicit pregnancy. Either way the legends claim that a white figure of the woman can be seen wandering the lake shore at night. A related myth claims that the nearby Pioneer Woman and Children statue will move its stone face to a different position when the ghost is nearby.</p>
+<li><p><strong><a href="https://goldengatepark.com/stow-lake-ghost.html">The Lady of Stow Lake</a></strong>:</p>
+<p>There are several origin stories concerning the apparition known as the <a href="https://goldengatepark.com/stow-lake-ghost.html">Stow Lake Ghost</a>. Some say she was an absentminded mother wandering Golden Gate Park’s Stow Lake with a baby in a stroller. She became so enthralled in a conversation that the stroller rolled into the lake, at which point the woman panicked and jumped in after her baby, swimming and searching until both mother and child drowned. Another story says she was an unwed teen who jumped into the lake and drowned herself to hide her illicit pregnancy. Either way the legends claim that a white figure of the woman can be seen wandering the lake shore at night. A related myth claims that the nearby Pioneer Woman and Children statue will move its stone face to a different position when the ghost is nearby.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=Stow%20Lake,Golden%20Gate%20Park,San%20Francisco%20CA" target="_blank">Stow Lake, Golden Gate Park</a>
+<p>Stow Lake, Golden Gate Park</p>
 </address></li>
-<li><p><strong>Former President of the USA Warren G. Harding’s Place of Death and Possible Ghost</strong></p>
-<div style="float:right;width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/harding.jpg" title="Warren G. Harding" style="width:280px;padding:1rem 1rem 0rem 1rem;"><div style="font-size:12px;color:#999">Warren G. Harding</div></div>
-<p class="desc">Officially, President Warren G. Harding died at the Palace Hotel of a heart attack but legend has it that he actually died at a bar located across the street from the Palace Hotel and was transported back to the hotel via an underground tunnel linking the tavern with the hotel. The reason for the cover-up was that Harding was President right smack dab in the middle of prohibition, even though it was well known that the President liked to imbibe now and again. The bar still exists and is called the “House of Shields” and they have a large portrait of the former President hanging on their walls. Guests staying at the Palace Hotel have reported seeing Harding’s ghost roaming the halls of the hotel.</p>
+<li><p><strong>Former President of the USA Warren G. Harding’s Place of Death and Possible Ghost</strong>:</p>
+<p>Officially, President Warren G. Harding died at the Palace Hotel of a heart attack but legend has it that he actually died at a bar located across the street from the Palace Hotel and was transported back to the hotel via an underground tunnel linking the tavern with the hotel. The reason for the cover-up was that Harding was President right smack dab in the middle of prohibition, even though it was well known that the President liked to imbibe now and again. The bar still exists and is called the “House of Shields” and they have a large portrait of the former President hanging on their walls. Guests staying at the Palace Hotel have reported seeing Harding’s ghost roaming the halls of the hotel.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=12%20New%20Montgomery%20St,San%20Francisco%20CA" target="_blank">12 New Montgomery St</a>
+<p>2 New Montgomery St</p>
 </address></li>
-<li><p><strong><a href="https://www.nps.gov/places/000/presidio-pet-cemetery.htm">Presidio Pet Cemetery</a></strong></p>
-<div style="float:left;width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/petcemetery.jpg" title="Presidio Pet Cemetery" style="width:280px;padding:1rem 1rem 0rem 0rem;"><div style="font-size:12px;color:#999">Presidio Pet Cemetery</div></div>
-<p class="desc">The final resting place for hundreds of animals owned by families that were stationed at the Presidio, the pet cemetery dates back to the 1950s. According to the National Park Service, there are no official records for the site, meaning it probably began with the families themselves, with authorization from one of the commanding officers.</p>
+<li><p><strong><a href="https://www.nps.gov/places/000/presidio-pet-cemetery.htm">Presidio Pet Cemetery</a></strong>:</p>
+<p>The final resting place for hundreds of animals owned by families that were stationed at the Presidio, the pet cemetery dates back to the 1950s. According to the National Park Service, there are no official records for the site, meaning it probably began with the families themselves, with authorization from one of the commanding officers.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1667%20McDowell%20Ave,Presidio,San%20Francisco%20CA" target="_blank">1667 McDowell Ave, Presidio</a>
+<p>667 McDowell Ave, Presidio</p>
 </address></li>
-<li><p><strong><a href="https://en.wikipedia.org/wiki/Wave_Organ">The Wave Organ</a></strong></p>
-<div style="float:right;width:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><img src="/crblog/assets/img/waveorgan.jpg" title="Wave Organ" style="width:280px;padding:1rem 1rem 0rem 0rem;"><div style="font-size:12px;color:#999">Wave Organ</div></div>
-<p class="desc">On a small jetty that extends from behind the Golden Gate Yacht Club at the end of Marina Green, is a “<a href="https://en.wikipedia.org/wiki/Wave_Organ">wave organ</a>” that was constructed from stone salvaged from the demolition of Laurel Hill Cemetery in San Francisco. This “instrument” has cement tubes that extend into the water and as the wave push water in and out of these tubes, they create haunting sounds. The structure is dedicated to Frank Oppenheimer (yes, his brother was <em>that</em> <a href="https://en.wikipedia.org/wiki/J._Robert_Oppenheimer" target="_blank">Oppenheimer</a>, he also contributed to this project as well as the Exploratorium) as this was his final project before he died. I've been here many times and each time is different but if you go when the tides are coming up you will be graced with the spookiest howling you've ever heard. Almost like the poor tortured souls who's headstones this place is made of are screaming out in confused agony; forever seeking to escape this plane of existence yet trapped on this jetty where the atomic bomb guy built an organ out of their graves. Yep, this place is definitely haunted.</p>
+<li><p><strong><a href="https://en.wikipedia.org/wiki/Wave_Organ">The Wave Organ</a></strong>:</p>
+<p>On a small jetty that extends from behind the Golden Gate Yacht Club at the end of Marina Green, is a “<a href="https://en.wikipedia.org/wiki/Wave_Organ">wave organ</a>” that was constructed from stone salvaged from the demolition of Laurel Hill Cemetery in San Francisco. This “instrument” has cement tubes that extend into the water and as the wave push water in and out of these tubes, they create haunting sounds. The structure is dedicated to Frank Oppenheimer as this was his final project before he died. This place is definitely haunted.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=11%20Yacht%20Rd,San%20Francisco%20CA" target="_blank">11 Yacht Rd (walk to end of jetty)</a>
+<p>1 Yacht Rd (walk to end of jetty)</p>
 </address></li>
-<li><p><strong><a href="https://noehill.com/sf/landmarks/sf075.asp">Whittier Mansion</a></strong></p>
-  <img src="/crblog/assets/img/whittier-mansion.png" style="width:200px;float:left;padding-right:1rem;padding-top:1em;">
-<p class="desc">William Franklin Whittier, a railroad magnate, built this 30-room mansion in 1894 as a gift to his wife. Unfortunately, she was never able to live in it as she died in a carriage accident before it was completed. He died in the home years later of natural causes, and his son Billy, known for being a slacker and very into partying, sold it in the 1930s to the German Reich. It operated as the German Consulate from 1938 to 1941, when it is alleged that it housed German spies. It was seized by the U.S. Alien Property Custodian in 1941 due to WWII, used by the California Historical Society as their headquarters for a short time, and is now a private residence once again. And though one doesn’t necessarily need to begrudge anyone who wants to live in a home with over 30 rooms, just in case one does, they can take satisfaction in knowing that the home has been said to be haunted by all sorts of ghosts. Some say it’s the German spies. Some say it is Billy who haunts the wine cellar, hoping to get his hands on just one more bottle of wine, and perhaps saddest of all, some say they have seen a shadowy figure who is thought to be the ghost of William Whittier, still waiting for his wife to join him in the house she was never able to call home.</p>
+<li><p><strong><a href="https://noehill.com/sf/landmarks/sf075.asp">Whittier Mansion</a></strong>:</p>
+<p>William Franklin Whittier, a railroad magnate, built this 30-room mansion in 1894 as a gift to his wife. Unfortunately, she was never able to live in it as she died in a carriage accident before it was completed. He died in the home years later of natural causes, and his son Billy, known for being a slacker and very into partying, sold it in the 1930s to the German Reich. It operated as the German Consulate from 1938 to 1941, when it is alleged that it housed German spies. It was seized by the U.S. Alien Property Custodian in 1941 due to WWII, used by the California Historical Society as their headquarters for a short time, and is now a private residence once again. And though one doesn’t necessarily need to begrudge anyone who wants to live in a home with over 30 rooms, just in case one does, they can take satisfaction in knowing that the home has been said to be haunted by all sorts of ghosts. Some say it’s the German spies. Some say it is Billy who haunts the wine cellar, hoping to get his hands on just one more bottle of wine, and perhaps saddest of all, some say they have seen a shadowy figure who is thought to be the ghost of William Whittier, still waiting for his wife to join him in the house she was never able to call home.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1900%20California%20St,San%20Francisco%20CA" target="_blank">1900 California St</a>
+<p>1990 California St</p>
 </address></li>
-<li><p><strong><a href="https://mossbeachdistillery.com/history-ghost/">Moss Creek Distillery, Moss Creek</a></strong></p>
-<p class="desc">Moss Creek is located on the coast a few miles south of San Francisco. According to the ghostly legend of “The Blue Lady” in 1912 a beautiful, young woman met by chance a handsome, dangerous man and fell in love with him. This dapper ladies’ man was reportedly a piano player in the bar. The young woman, who would always dress in blue, was already married to another but her unsuspecting husband never knew of the illicit affair. She made many trips to the restaurant to be with her lover. The beautiful lady in blue was killed while walking on the beach below the restaurant with her lover. The couple were assaulted on the beach where they both sustained serious injuries. The Lady in Blue succumbed to her injuries before help could arrive but her lover ended up surviving. Visitors have reported seeing many telltale signs of the Lady in Blue, from ghostly blue apparitions to swinging lamps and stacked glasses. Some say she is still trying to recapture the romance and excitement of her love affair to this day. The distillery has had many strange occurrences and has even been featured on <em>Unsolved Mysteries</em> and <em>Ghost Hunters</em>.</p>
+<li><p><strong><a href="https://mossbeachdistillery.com/history-ghost/">Moss Creek Distillery, Moss Creek</a></strong>:</p>
+<p>Moss Creek is located on the coast a few miles south of San Francisco. According to the ghostly legend of “The Blue Lady” in 1912 a beautiful, young woman met by chance a handsome, dangerous man and fell in love with him. This dapper ladies’ man was reportedly a piano player in the bar. The young woman, who would always dress in blue, was already married to another but her unsuspecting husband never knew of the illicit affair. She made many trips to the restaurant to be with her lover. The beautiful lady in blue was killed while walking on the beach below the restaurant with her lover. The couple were assaulted on the beach where they both sustained serious injuries. The Lady in Blue succumbed to her injuries before help could arrive but her lover ended up surviving. Visitors have reported seeing many telltale signs of the Lady in Blue, from ghostly blue apparitions to swinging lamps and stacked glasses. Some say she is still trying to recapture the romance and excitement of her love affair to this day. The distillery has had many strange occurrences and has even been featured on <em>Unsolved Mysteries</em> and <em>Ghost Hunters</em>.</p>
 <address>
-Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1140%20Beach%20Way,Moss%20Beach%20CA" target="_blank">1140 Beach Way, Moss Beach, CA</a>
+<p>140 Beach Way, Moss Beach, CA 94038</p>
 </address></li>
-</ol>
-    <div class="content-footer">
-      <hr><a href="/crblog/blog/modern-js.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/modern-js.html', 'Unpacking Modern JavaScript', 'unpackingmodernjavascript', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Unpacking Modern JavaScript) Next &gt; </a>
-      <a href="/crblog/blog/fleet-iot.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/fleet-iot.html', 'Leveraging IoT', 'leveragingiot', true, event)" title="Leveraging IoT: How Small Fleets Can Get Big Data Insights" style="font-weight:400;">&lt; Previous (Leveraging IoT)</a>
-  </div>
+</ul>
 
+          <hr>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
         </div>
-   </section>
-   <section>
- 
-   </section>
-   <!-- /.content -->
+      </div>
+    </section>
+    <section class="comments">
+      <header>Discussion</header>
+      <div id="comment-comments">
+        
+      </div>
+      <hr>
+      <div id="comment-form" class="comment-container" data-_parent="0">
+        <h3>Leave a Reply</h3>
+        <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
+        <hr>
+        <form id="comment" onsubmit="return false;" class="form">
+          <label for="comment-comment"><span class="required">Comment</span>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
+          </label>
+          <label for="comment-name"><span class="required">Name</span> 
+            <input type="text" id="comment-name" name="comment-name" class="comment-input">
+          </label>
+          <label for="comment-email"><span class="required">Email</span>
+            <input type="text" id="comment-email" name="comment-email" class="comment-input">
+          </label>
+          <label for="comment-website"><span>Website</span>
+            <input type="text" id="comment-website" name="comment-website" class="comment-input">
+          </label>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.postComment(this, event);return false;">Post Comment</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
@@ -198,66 +281,15 @@ Address: <a title="View in Google Maps" href="https://maps.google.com/?q=1140%20
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-   <div class="ghost start">
-    <svg height="210" width="200">
-    <path fill="#fff6" d="M 29 130 Q 44 126 52 105 Q 61 78.5 70 52 Q 76 16 91 13 Q 111 13 114 35 Q 121 67 136 76 Q 148 101 165 118 Q 156 134 164 152 Q 157 159 150 147 Q 149.5 154.5 149 162 Q 135 151 144 168 Q 136 179 120 184 Q 107 160 90 188 Q 79 172 55 191 Q 49.5 179.5 44 168 Q 33 169 28 161 Q 32 152 41 149 C 46 140 39 134 34 134 Z M 79 31 A 1 1 0 0 0 90 31 Z Z M 97 31 A 1 1 0 0 0 108 31 L 97 31 Z" />
-    </svg>
-  </div>
-    <svg style="display: none;" xlmns="http://www.w3.org/2000/svg" version="1.1">
-      <filter id="turbulence" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
-        <feTurbulence id="feturbulence" type="fractalNoise" numOctaves="1" seed="2" baseFrequency="0.01968375 0.1468375"></feTurbulence>
-        <feDisplacementMap xChannelSelector="G" yChannelSelector="B" scale="10" in="SourceGraphic"></feDisplacementMap>
-      </filter>
-    </svg>  
 
 <!-- jQuery -->
 <script src="/crblog/assets/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+<script src="/crblog/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
-<script>
-  hljs.highlightAll();
-let lastKnownScrollPosition = 0;
-let ticking = false;
-
-function moveGhost(scrollPos) {
-   document.querySelector(".ghost").style.top = scrollPos + 400 + 'px';
-}
-
-document.addEventListener("scroll", (event) => {
-  lastKnownScrollPosition = window.scrollY;
-
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-//      moveGhost(lastKnownScrollPosition);
-      ticking = false;
-    });
-
-    ticking = true;
-  }
-});
-</script>
+<script>hljs.highlightAll();</script>
+<script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

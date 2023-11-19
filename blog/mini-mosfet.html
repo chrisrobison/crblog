@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Broke Down: The Mystery of the Melting Coil Packs - Christopher Robison's Blog</title>
+  <title>Broke Down: Fixing a Stubborn Ignition Coil Issue on My 2015 Mini Cooper S Convertible - Christopher Robison's Blog</title>
   <link rel="canonical" href="https://cdr2.com/crblog/blog/brokedown.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,15 +16,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
   <style>
-    span.required::after {
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+     span.required::after {
       display: inline-block;
       position: relative;
       content: "*";
       color: #c00;
       font-size: 1.1rem;
       font-weight: bold;
-      height: 2rem;
-      width: 2rem;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
     }
     section.comments  header {
       font-size:2rem;
@@ -81,6 +94,36 @@
     .commenter { color: #000; font-weight: bold; }
     .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
     .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
+    table {
+      border-collapse: collapse;
+      border: 2px solid #0005;
+      width: 100%;
+    }
+    table td {
+      border-right: 1px solid #0003;
+      background:#eee;
+      color: #000;
+      padding: 4px;
+    }
+    table .header th {
+      background: #000;
+      color: #eee;
+    }
+    .odd td {
+      background-color: #ccc;
+    }
+    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
+      text-align: center;
+      color: #c00;
+    }
   </style>
 </head>
 <body class="hold-transition iframe-mode">
@@ -109,16 +152,17 @@
     <section class="content">
         <div class="blog">
           <h1 style="font-weight:900;">Broke Down</h1>
-          <h3>The Mystery of the Melting Coil Packs</h3>
+          <h3>The Mysterious Melting Ignition Coil</h3>
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            2023-11-12
+            2023-11-11
           </p>
           <hr>
           <img width="640" src="/crblog/assets/img/mini-mosfet.jpg" class="banner-pic"> 
           <hr>
-          <p>As an experienced software engineer with a knack for hands-on tech repairs, I recently faced a challenging yet intriguing issue with my 2015 Mini Cooper S Convertible. The car’s #2 coil pack had not just failed once, but twice, and did so quite spectacularly, melting in a way that was both baffling and concerning. Determined to get to the bottom of this, I embarked on a journey of automotive troubleshooting that tested both my patience and my technical skills.</p>
+          <h2 id="the-mystery-of-the-melting-coil-packs">The Mystery of the Melting Coil Packs</h2>
+<p>As an experienced software engineer with a knack for hands-on tech repairs, I recently faced a challenging yet intriguing issue with my 2015 Mini Cooper S Convertible. The car’s #2 coil pack had not just failed once, but twice, melting in a way that was both baffling and concerning. Determined to get to the bottom of this, I embarked on a journey of automotive troubleshooting that tested both my patience and my technical skills.</p>
 <h4 id="initial-diagnosis-a-deep-dive-into-the-electricals"><strong>Initial Diagnosis: A Deep Dive into the Electricals</strong></h4>
 <p>My first step was to utilize a multimeter to trace the wiring for the problematic ignition coil. With the ECM (Engine Control Module) plugged in, I tested the power on the harness for coil #2. The voltage was present, but there was no fire signal, indicating a possible grounding issue somewhere between the coil and the ECM. After removing the wire harness from the ECM and checking end-to-end, I confirmed that none of the three wires in the harness were grounded unexpectedly. So far, so good.</p>
 <h4 id="the-real-culprit-a-faulty-mosfet"><strong>The Real Culprit: A Faulty MOSFET</strong></h4>
@@ -132,25 +176,25 @@
 <p>Happy motoring, and keep those engines running smoothly!</p>
 
           <hr>
-    <div class="content-footer">
-      <hr><a href="/crblog/blog/ml-maintenance.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/ml-maintenance.html', 'Machine Learning for Fleet Maintenance', 'machinelearningforfleetmaintenance', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Machine Learning for Fleet Maintenance) Next &gt; </a>
-      <a href="/crblog/blog/ai-logistics.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/ai-logistics.html', 'AI and the Art of Logistics', 'aiandtheartoflogistics', true, event)" title="AI and the Art of Logistics: Predictive Analytics for Small Transportation" style="font-weight:400;">&lt; Previous (AI and the Art of Logistics)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
       <header>Discussion</header>
-      <div class="comment-comments">
+      <div id="comment-comments">
         
       </div>
       <hr>
-      <div id="comment-form" class="comment-container">
+      <div id="comment-form" class="comment-container" data-_parent="0">
         <h3>Leave a Reply</h3>
         <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
         <hr>
-        <form id="comment" onsubmit="app.comment(event);return false" class="form">
+        <form id="comment" onsubmit="return false;" class="form">
           <label for="comment-comment"><span class="required">Comment</span>
-            <textarea rows="5" cols="40" class="comment-comment" name="comment-comment"></textarea>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
           </label>
           <label for="comment-name"><span class="required">Name</span> 
             <input type="text" id="comment-name" name="comment-name" class="comment-input">
@@ -162,8 +206,8 @@
             <input type="text" id="comment-website" name="comment-website" class="comment-input">
           </label>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.cancelComment(this, event);return false;">Cancel</button>
-            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.postComment(this, event);return false;">Post Comment</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.postComment(this, event);return false;">Post Comment</button>
           </div>
         </form>
       </div>
@@ -194,92 +238,6 @@
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
 <script>hljs.highlightAll();</script>
-<script>
-(function() {
-  const $ = str => document.querySelector(str);
-  const $$ = str => document.querySelectorAll(str);
-
-  const app = {
-    data: {},
-    state: {
-      loaded: false
-    },
-    init() {
-      let name = location.href.replace(/^.+\//, '').replace(/\.html$/, '');
-      console.log(`page name: ${name}`);;
-      
-      try {
-        fetch(`/crblog/blog/comments/${name}.json`).then(r=>r.json()).then(data=>{
-          app.comments = data;
-          console.log(`Retrieved ${name}.json`);
-          console.dir(data);
-        });
-      } catch(e) {
-
-      }
-      app.state.loaded = true;
-    },
-    fetch(url, callback) {
-      fetch(url).then(response=>response.json()).then(data=>{
-          app.data = data;
-          app.state.loaded = true;
-          if (callback && typeof(callback) === "function") {
-              callback(data);
-          }
-      });
-    },
-    reply(who, evt) {
-      if (evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-      }
-      let cwrap = $("#commentFormWrap");
-      if (cwrap) {
-        cwrap.parentNode.removeChild(cwrap);
-      }
-      app.data.commentForm = $("#comment").outerHTML;
-      let wrap = document.createElement("div");
-      wrap.id = "commentFormWrap";
-
-      wrap.innerHTML = app.data.commentForm;
-      wrap.querySelector("#comment").id = "reply";
-      
-      who.parentNode.append(wrap);
-
-      return false;
-    },
-    display(data, tgt) {
-      let out = "<table><thead><tr>";
-      const keys = Object.keys(data[0]);
-      if (keys) {
-          keys.forEach(key => {
-              out += `<th>${key}</th>`;
-          });
-      }
-      out += "</tr></thead><tbody>";
-      data.forEach(item=>{
-          out += `<tr>`;
-          keys.forEach(key => {
-              out += `<td>${item[i]}</td>`;
-          });
-          out += `</tr>`;
-      });
-      out += "</tbody></table>";
-
-      if (tgt) {
-        tgt.innerHTML = out;
-      }
-      return out;
-    },
-    cancelComment(who, evt) {
-
-    }
-  }
-  window.app = app;
-  app.init();
-})();
-</script>
+<script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-

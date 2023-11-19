@@ -3,18 +3,128 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Understanding the JavaScript Event Loop - Christopher Robison's Blog</title>
-  <link rel="canonical" href="https://cdr2.com/crblog/blog/eventloop.html">
+  <title>Understanding the JavaScript Event Loop: A Deep Dive  - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/thejseventloop.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/fontawesome-free-6.4.0-web/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/adminlte.css">
+  <link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="/crblog/assets/css/adminlte.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+  <style>
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+     span.required::after {
+      display: inline-block;
+      position: relative;
+      content: "*";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+    section.comments  header {
+      font-size:2rem;
+      background:#333;
+      color: #eee;
+      font-weight: bold;
+    }
+    section.comments {
+      width: 50rem;
+      margin: 0px auto;
+    }
+    section.comments .comment-container {
+      padding: 1rem;
+    }
+    .comment-input {
+      width: 30rem;
+      font-size: 18px;
+      height: 2rem;
+    }
+    .comment-comment {
+      width: 40rem;
+      height: 6rem;
+    }
+    .comment-comments {
+      padding: 1rem;
+    }
+    .comment-date {
+      font-size: 0.8rem;
+      float: right;
+    }
+    #comment label span {
+      display: block;
+      width: 7rem;
+    }
+    @media screen and (max-width: 640px) {
+      section.comments {
+        width: 100vw;
+      }
+      .comment-comment { width: 90vw; }
+      .comment-input { width: 90vw; }
+
+    }
+    p.comment { margin-bottom: 0px; }
+    .comment-item {
+      list-style-type: none;
+      border-top: 0.5rem solid #ccc;
+    }
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comments-list { padding: 0; }
+    .commenter { color: #000; font-weight: bold; }
+    .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
+    .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
+    table {
+      border-collapse: collapse;
+      border: 2px solid #0005;
+      width: 100%;
+    }
+    table td {
+      border-right: 1px solid #0003;
+      background:#eee;
+      color: #000;
+      padding: 4px;
+    }
+    table .header th {
+      background: #000;
+      color: #eee;
+    }
+    .odd td {
+      background-color: #ccc;
+    }
+    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
+      text-align: center;
+      color: #c00;
+    }
+  </style>
 </head>
 <body class="hold-transition iframe-mode">
 <!-- Site wrapper -->
@@ -31,7 +141,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
-              <li class="breadcrumb-item active">JS Event Loop</li>
+              <li class="breadcrumb-item active">The JS Event Loop</li>
             </ol>
           </div>
         </div>
@@ -41,43 +151,22 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-          <h1 style="font-weight:900;">Understanding the JavaScript Event Loop</h1>
-          <h3>A Brief Introduction</h3>
-          <p>By Christopher Robison<br>
-          August 22, 2021</p>
+          <h1 style="font-weight:900;">The JS Event Loop</h1>
+          <h3>Core Concepts</h3>
+          <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p>
+            By Christopher Robison<br>
+            2022-03-22
+          </p>
           <hr>
-          <img height="241" width="640" src="../assets/img/async-fetch2.jpg" class="banner-pic"> 
+          <img width="640" src="/crblog/assets/img/eventloop.jpg" class="banner-pic"> 
           <hr>
-<p>JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we’ll dissect the Event Loop to help you understand its inner workings.</p>
-<h2>Concepts</h2>
-<h3 id="the-call-stack-where-it-all-begins" class=''>The Call Stack: Where It All Begins</h3>
-<p>Before we dive into the Event Loop, it’s crucial to understand the <code>Call Stack</code>. Think of it as a stack of plates; the last plate you place on the stack will be the first one you take off. In JavaScript, when a function is invoked, it’s added to the <code>Call Stack</code>. The function is executed and removed from the stack once it’s finished.</p>
-<p>Function calls form a stack of <em>frames</em>. The following example comes directly from the <a href="https://developer.mozilla.org/" target="_blank">MDN</a> website:</p>
-<pre><code>
-function foo(b) {
-  const a = 10;
-  return a + b + 11;
-}
-
-function bar(x) {
-  const y = 3;
-  return foo(x * y);
-}
-
-const baz = bar(7); // assigns 42 to baz
-
-</pre></code>
-<p>Order of operations: </p>
-  <ol>
-    <li>When calling <code>bar</code>, a first frame is created containing references to <code>bar</code>'s arguments and local variables.</li>
-    <li>When <code>bar</code> calls <code>foo</code>, a second frame is created and pushed on top of the first one, containing references to <code>foo</code>'s arguments and local variables.</li>
-    <li>When <code>foo</code> returns, the top frame element is popped out of the stack (leaving only <code>bar</code>'s call frame).</li>
-    <li>When bar returns, the stack is empty.</li>
-  </ol>
-  <blockquote>Note: Arguments and local variables are stored outside of the stack and will continue to exist for references in nested functions, even if their outer function has returned.</blockquote> 
-<h3 id="heap-object-storage" class=''>Heap: Object Storage</h3>
+          <p>JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we’ll dissect the Event Loop to help you understand its inner workings.</p>
+<h2 id="the-call-stack-where-it-all-begins">The Call Stack: Where It All Begins</h2>
+<p>Before we dive into the Event Loop, it’s crucial to understand the Call Stack. Think of it as a stack of plates; the last plate you place on the stack will be the first one you take off. In JavaScript, when a function is invoked, it’s added to the Call Stack. The function is executed and removed from the stack once it’s finished.</p>
+<h2 id="heap-object-storage">Heap: Object Storage</h2>
 <p>The Heap is where objects are stored. Unlike the stack, which follows a last-in, first-out model, the Heap is unstructured, making it ideal for data storage.</p>
-<h3 id="the-event-queue-a-waiting-room">The Event Queue: A Waiting Room</h3>
+<h2 id="the-event-queue-a-waiting-room">The Event Queue: A Waiting Room</h2>
 <p>JavaScript uses an Event Queue to keep track of all the events that occur. When an event happens—like a mouse click or data received from an API—the event’s callback function is placed into the Event Queue.</p>
 <h2 id="the-event-loop-the-grand-orchestrator">The Event Loop: The Grand Orchestrator</h2>
 <p>The Event Loop continuously checks the Call Stack to see if it’s empty. If it is, the Event Loop takes the first event from the Event Queue and moves it to the Call Stack for execution. This is how JavaScript manages to be non-blocking despite being single-threaded.</p>
@@ -87,20 +176,51 @@ const baz = bar(7); // assigns 42 to baz
 <p>Let’s say you’ve got a button on your webpage that, when clicked, fetches data from an API. When the button is clicked, a ‘click’ event is registered, and its callback function is sent to the Event Queue. The Event Loop waits for the Call Stack to empty before moving the ‘click’ event’s callback function for execution. Once executed, the API data appears on your webpage—smooth and efficient.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The JavaScript Event Loop is an elegant solution to the challenges of asynchronous programming in a single-threaded environment. It ensures that JavaScript can handle multiple tasks simultaneously, without missing a beat. So, the next time your code performs like a well-oiled machine, tip your hat to the Event Loop—the unsung hero of JavaScript.</p>
-        
-    <div class="content-footer">
-      <hr><a href="/crblog/blog/mobile-frameworks.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/mobile-frameworks.html', 'Cross-Platform Mobile Frameworks', 'mobileframeworks', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Cross-Platform Mobile Frameworks) Next &gt; </a>
-      <a href="/crblog/blog/async-fetch.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/async-fetch.html', 'Async/Await and Fetch', 'async-fetch', true, event)" title="Mastering Async/Await and Fetch in JavaScript: A Guide for Real-World Application" style="font-weight:400;">&lt; Previous (Async/Await and Fetch)</a>
-  </div>
+
+          <hr>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
         </div>
+      </div>
+    </section>
+    <section class="comments">
+      <header>Discussion</header>
+      <div id="comment-comments">
+        
+      </div>
+      <hr>
+      <div id="comment-form" class="comment-container" data-_parent="0">
+        <h3>Leave a Reply</h3>
+        <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
+        <hr>
+        <form id="comment" onsubmit="return false;" class="form">
+          <label for="comment-comment"><span class="required">Comment</span>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
+          </label>
+          <label for="comment-name"><span class="required">Name</span> 
+            <input type="text" id="comment-name" name="comment-name" class="comment-input">
+          </label>
+          <label for="comment-email"><span class="required">Email</span>
+            <input type="text" id="comment-email" name="comment-email" class="comment-input">
+          </label>
+          <label for="comment-website"><span>Website</span>
+            <input type="text" id="comment-website" name="comment-website" class="comment-input">
+          </label>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.postComment(this, event);return false;">Post Comment</button>
+          </div>
+        </form>
+      </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main">
-    <div class="float-right d-none d-sm-block" style="padding:1rem;">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a></strong>
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
     </div>
   </footer>
 
@@ -113,31 +233,13 @@ const baz = bar(7); // assigns 42 to baz
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../assets/jquery/jquery.min.js"></script>
+<script src="/crblog/assets/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/crblog/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../assets/js/adminlte.min.js"></script>
+<script src="/crblog/assets/js/adminlte.min.js"></script>
+<script src="/crblog/share.js"></script>
 <script>hljs.highlightAll();</script>
+<script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

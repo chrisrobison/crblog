@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/fontfundamentals.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="/crblog/assets/css/adminlte.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+  <style>
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+     span.required::after {
+      display: inline-block;
+      position: relative;
+      content: "*";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+    section.comments  header {
+      font-size:2rem;
+      background:#333;
+      color: #eee;
+      font-weight: bold;
+    }
+    section.comments {
+      width: 50rem;
+      margin: 0px auto;
+    }
+    section.comments .comment-container {
+      padding: 1rem;
+    }
+    .comment-input {
+      width: 30rem;
+      font-size: 18px;
+      height: 2rem;
+    }
+    .comment-comment {
+      width: 40rem;
+      height: 6rem;
+    }
+    .comment-comments {
+      padding: 1rem;
+    }
+    .comment-date {
+      font-size: 0.8rem;
+      float: right;
+    }
+    #comment label span {
+      display: block;
+      width: 7rem;
+    }
+    @media screen and (max-width: 640px) {
+      section.comments {
+        width: 100vw;
+      }
+      .comment-comment { width: 90vw; }
+      .comment-input { width: 90vw; }
+
+    }
+    p.comment { margin-bottom: 0px; }
+    .comment-item {
+      list-style-type: none;
+      border-top: 0.5rem solid #ccc;
+    }
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comments-list { padding: 0; }
+    .commenter { color: #000; font-weight: bold; }
+    .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
+    .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
+    table {
+      border-collapse: collapse;
+      border: 2px solid #0005;
+      width: 100%;
+    }
+    table td {
+      border-right: 1px solid #0003;
+      background:#eee;
+      color: #000;
+      padding: 4px;
+    }
+    table .header th {
+      background: #000;
+      color: #eee;
+    }
+    .odd td {
+      background-color: #ccc;
+    }
+    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
+      text-align: center;
+      color: #c00;
+    }
+  </style>
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
+              <li class="breadcrumb-item active">Font Fundamentals</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="blog">
+          <h1 style="font-weight:900;">Font Fundamentals</h1>
+          <h3>The Vital Role of Font Choice in Web and Mobile Design</h3>
+          <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p>
+            By Christopher Robison<br>
+            2023-11-19
+          </p>
+          <hr>
+          <img width="640" src="/crblog/assets/img/font-design.jpg" class="banner-pic"> 
+          <hr>
+          <p>As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. The concept of optical sizing, a design practice where typefaces are tailored for different display sizes, is especially crucial in this context. Let’s delve into why font choice matters and how you can implement it effectively in your designs.</p>
+<p>Before diving into the specifics of font choice in digital design, let’s establish a foundation by understanding some font fundamentals. Typography is not just about choosing a pretty typeface; it’s about communication, readability, and enhancing the user experience.</p>
+<h2 id="font-vocabulary">Font Vocabulary</h2>
+<p>The print design ecosystem has a vocabulary all their own. Western society has been pressing out books since 1454 (see what I did there?) and the list of words we use to describe how the print looks on paper has grown to be quite large. Seemingly similar concepts have subtle differences (see Legibility vs Readability, Typeface vs Font).</p>
+<p>Yet, we use many of these terms everyday; Did you know we get the words “UPPERCASE” and “lowercase” from the original Movable Type Printing Press? The UPPERCASE letters were held in the, well in the upper case of the press. I’ll leave it as an exercise to the reader to discover where the lowercase letters were stored or just a tall tale.</p>
+<p>Here’s a list of some basic terminology in the world of fonts and print design:</p>
+<ol type="1">
+<li><p><strong>Typeface vs. Font</strong>: A typeface is the design of the lettering (e.g., Times New Roman), while a font is a specific style and size of that typeface (e.g., Times New Roman, 12pt, Bold).</p></li>
+<li><p><strong>Serif vs. Sans Serif</strong>: Serif typefaces, like Times New Roman, have small lines at the end of their strokes, while sans-serif typefaces, like Arial, do not. Serifs are traditionally seen as more formal, while sans-serifs are viewed as modern and clean.</p></li>
+<li><p><strong>Legibility vs. Readability</strong>: Legibility refers to how easily individual characters can be distinguished, while readability is about how easy it is to read and understand blocks of text.</p></li>
+<li><p><strong>Hierarchy and Emphasis</strong>: Different fonts and styles (like bold or italic) are used to create a hierarchy or to emphasize certain parts of the content.</p></li>
+<li><p><strong>Consistency</strong>: Consistency in using fonts is crucial for creating a cohesive and harmonious design. Too many different font styles can be distracting or even worse, disorientating.</p></li>
+</ol>
+<h2 id="key-considerations">Key Considerations</h2>
+<p>When we need a font, most of us will just scroll through the ‘Font’ menu until we see a font we like. But for any choice you need to make, you need to do your due diligence by defining the parameters and constraints your final choice will need to stay within. The choice of font you use will be driven by a number of things:</p>
+<ol type="1">
+<li><p><strong>Target Audience</strong>: The choice of font should resonate with the target audience. For example, a children’s app might use a more playful font compared to a corporate website.</p></li>
+<li><p><strong>Platform</strong>: The platform (web, mobile, app) dictates font choices due to varying screen sizes and resolutions.</p></li>
+<li><p><strong>Brand Identity</strong>: Fonts should align with the brand’s personality – whether it’s formal, friendly, or avant-garde.</p></li>
+<li><p><strong>Accessibility</strong>: Consider users with visual impairments. Fonts should be legible and sizable to accommodate all users.</p></li>
+<li><p><strong>Performance</strong>: Heavier font files can slow down site speed, impacting user experience and SEO.</p></li>
+</ol>
+<p>Now that we’ve covered the basics, let’s explore the importance of font choice in web and mobile design, including the innovative world of variable and color fonts.</p>
+<h2 id="understanding-optical-sizing">Understanding Optical Sizing</h2>
+<figure style="float:right; width:400px;border-left:2px solid #0004;">
+<img src="/crblog/assets/img/optical-font.svg" style="width:400px;float:right;">
+<figcaption style="text-align:center; font-size:0.7em;">
+<em>Example of Font with optical sizing</em>
+</figcaption>
+</figure>
+<p>Optical sizing refers to the customization of typefaces for specific sizes. This practice, deeply rooted in the history of typography, ensures that text remains legible and aesthetically pleasing across different mediums and sizes. For instance, fonts designed for body text are optimized for readability at smaller sizes, with features like larger x-heights and wider characters, while display fonts are crafted for impact at larger sizes.</p>
+<h2 id="why-font-choice-matters-in-digital-design">Why Font Choice Matters in Digital Design</h2>
+<p>Font choices in print and web design are crucial for several reasons. Since I love to make lists, how about another list:</p>
+<ol type="1">
+<li><p><strong>User Engagement</strong>: The right font can improve user engagement. A well-chosen font can make text more appealing and inviting, encouraging visitors to stay longer on a website or read more of a printed piece.</p></li>
+<li><p><strong>Enhanced Readability</strong>: On smaller screens, fonts with larger x-heights and open spacing prevent straining the eyes, making content more accessible.</p></li>
+<li><p><strong>Tone and Mood Setting</strong>: Fonts can convey different moods and tones. For instance, a serif font like Times New Roman might convey formality and tradition, suitable for a law firm’s website, while a sans-serif font like Arial might feel more modern and informal, fitting for a tech startup.</p></li>
+<li><p><strong>Brand Identity</strong>: Fonts can be a powerful tool in conveying your brand’s personality and values.</p></li>
+<li><p><strong>Professionalism and Credibility</strong>: A well-chosen font can enhance the professional appearance of a design, lending credibility to the content. Poor font choices can have the opposite effect, making a design look amateurish.</p></li>
+<li><p><strong>Compatibility and Performance</strong>: On the web, font choice can affect loading times and compatibility across different devices and browsers. Some fonts are optimized for web use and ensure consistent rendering across various platforms.</p></li>
+<li><p><strong>Adaptability Across Devices</strong>: With an increasing variety of screen sizes, from desktops to smartwatches, fonts must be versatile and legible across all platforms.</p></li>
+</ol>
+<p>As you can see, fonts are a very important and integral part of how you communicate with your audience. I must admit, I thought this would be a quick short blog entry on using color fonts but the more I researched and wrote, the more I realized how deeply influencial font choices can be and how underappreciated print design is. Well now that we’ve got the fundamentals out of the way, let’s get to the good stuff.</p>
+<h2 id="implementing-fonts-in-web-and-mobile-design">Implementing Fonts in Web and Mobile Design</h2>
+<p>We are going to take a look at how to implement this in practice using <a href="https://fonts.google.com/">Google Fonts</a>, a popular and versatile repository of fonts provided by Google that are free to use. They provide a variety of styles including some very convicing handwriting fonts.</p>
+<h3 id="htmlcss-example-with-google-fonts">HTML/CSS Example with Google Fonts</h3>
+<p>First, choose a font from <a href="https://fonts.google.com/">Google Fonts</a>. For this example, we’ll use ‘Roboto’, a highly legible sans serif font for web and mobile interfaces, ‘Noto Serif’, a very legible serif font and pair those with ‘Shadows Into Light’ as a companion font. Feel free to look through Google’s font collection and pick your own.</p>
+<p>Let’s take a look at that markup:</p>
+<h4 id="html">HTML</h4>
+<pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&amp;family=Roboto:wght@300;400;700&amp;family=Shadows+Into+Light&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;title&gt;Font Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Heading Styled with Roboto&lt;/h1&gt;
+    &lt;p&gt;This paragraph is styled with Roboto, optimized for readability.&lt;/p&gt;
+    &lt;p class=&#39;serif&#39;&gt;Good font combinations &lt;span class=&#39;cursive&#39;&gt;Emphasize&lt;/span&gt; the right words..&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4 id="css">CSS</h4>
+<pre class="css"><code>body {
+    font-family: &#39;Roboto&#39;, sans-serif;
+}
+
+h1 {
+    font-family: &#39;Roboto&#39;, sans-serif;
+    font-size: 2em; /* Larger size for headings */
+    font-weight: 700; /* Bolder weight for impact */
+}
+
+p {
+    font-size: 1em; /* Standard size for body text */
+    font-weight: 400; /* Regular weight for readability */
+}
+
+.serif {
+    font-family: &#39;Noto Serif&#39;, serif;
+    font-size: 1rem;
+    width: 80rem;
+    border-radius: 1rem;
+    height: 4rem;
+    background-color: #ccc;
+}
+
+.cursive {
+    font-family: &#39;Shadows Into Light&#39;, cursive;
+    font-size: 1.2rem;
+}
+</code></pre>
+<h4 id="result">Result</h4>
+<p><img src='/crblog/assets/img/font-example1.png' width="100%"></p>
+<h2 id="the-future-with-variable-and-color-fonts">The Future with Variable and Color Fonts</h2>
+<h3 id="variable-fonts">Variable Fonts</h3>
+<p>Variable fonts represent a significant advancement in digital typography. They allow a single font file to behave like multiple fonts, offering a range of styles, weights, and widths. This is particularly beneficial in web and mobile design for several reasons:</p>
+<ol type="1">
+<li><p><strong>Efficiency</strong>: A single variable font file can replace multiple font files, reducing load times and improving website performance.</p></li>
+<li><p><strong>Flexibility</strong>: Designers can fine-tune the style, weight, or width of the font dynamically, offering greater creative control over typography.</p></li>
+<li><p><strong>Improved User Experience</strong>: They allow for real-time adjustment of fonts according to user preferences or device characteristics, enhancing accessibility.</p></li>
+</ol>
+<figure style="float:right;">
+<img src="/crblog/assets/img/variable.svg" width="100%">
+<figcaption style="font-size:0.7rem;text-align:center;">
+<em>Variations can be combined. The first example has a light weight and body-like optical size; the second has a heavy weight and display-like optical size (note the higher contrast); the third also has a similarly heavy weight, but with a body-like optical size.</em>
+</figcaption>
+</figure>
+<p>Using a variable font is as easy as using a normal, non-variable font. The only difference is the size of the variable font file can be quite a bit larger as they must store more information for each character. Something to keep in mind if you are targeting mobile users or users with slow connections. Here’s how you can implement a variable font using Google Fonts:</p>
+<h4 id="html-1">HTML</h4>
+<pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Roboto+Flex&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;title&gt;Font Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Heading Styled with Roboto&lt;/h1&gt;
+    &lt;p&gt;This paragraph is also styled with Roboto, optimized for readability.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4 id="css-1">CSS</h4>
+<pre class="css"><code>body {
+    font-family: &#39;Roboto Flex&#39;, sans-serif;
+    font-variation-settings: &#39;wght&#39; 400, &#39;wdth&#39; 100;
+}
+
+h1 {
+    font-size: 2em; /* Larger size for headings */
+    font-weight: 700; /* Bolder weight for impact */
+}
+
+p {
+    font-size: 1em; /* Standard size for body text */
+    font-weight: 400; /* Regular weight for readability */
+}</code></pre>
+<p><img src="/crblog/assets/img/roboto-flex.png" style="width:100%"></p>
+<p>As you can see, implementing a variable font is identical to using a normal font, we just update the font to download and change the CSS to reflex the new font name. If anything it’s even easier as we do not need to specify each weight and varient we want to use as they are all included in the variable font. So in this example, you can adjust the <code>wght</code> and <code>wdth</code> associated with ‘Roboto Flex’ to change how the weight and width axes are rendered. You can adjust these values throughout your CSS to suit your design needs.</p>
+<h2 id="color-fonts">Color Fonts</h2>
+<h3 id="uses-and-abuses">Uses and Abuses</h3>
+<p>I love color fonts. There are some purists out there that feel text should only be a single color, black. They cite readability concerns and start mumbling something about <a href="https://www.edwardtufte.com/">Edward Tufte</a> and <span style="font-family:&quot;Comic Sans MS&quot;">ComicSans</span>. But color fonts, also known as chromatic fonts, are the latest innovation in typography and they bring the richness of color and texture into text. While this opens up new possibilities for branding and design, allowing fonts to include multiple colors, gradients, and even textures it also provides opportunity for creating designs that are busy and difficult to read. In web design, color fonts can be used to:</p>
+<ol type="1">
+<li><p><strong>Enhance Branding</strong>: Color fonts can include brand colors and textures, making text an integral part of the brand identity.</p></li>
+<li><p><strong>Improve Visual Interest</strong>: They add a new dimension to typography, making it more visually appealing.</p></li>
+<li><p><strong>Create Consistent Aesthetics</strong>: Using color fonts can ensure consistent color schemes across different platforms.</p></li>
+<li><p><strong>Provide icons for UI or social networks</strong>: Including icons in a font in nothing new (see <a href="https://fontawesome.com/">FontAwesome</a>), color fonts allow us to go a step further and create our own bespoke fonts containing all the social service and user interface icons we need for our site or application.</p></li>
+</ol>
+<figure>
+<img src="/crblog/assets/img/color-fonts.jpg" width="90%">
+<figcaption style="font-size:0.8em;text-align:center;">
+<em>Some OpenType Color Fonts</em>
+</figcaption>
+</figure>
+<p><br></p>
+<h3 id="how-they-work">How They Work</h3>
+<p>A color font file is actually just a regular font file that embeds additional data to display more graphic properties than the contour shapes of a character.</p>
+<p>Color fonts are now generally stored as SVG data inside OpenType font files. This SVG (Scalable Vector Graphics) format can hold vector shapes with color or gradients, and may also include bitmap images - thus leading to bitmap fonts.</p>
+<p>On top of all this, While doing research for this article I discovered that color fonts are now officially referred as <b>OpenType-SVG fonts</b>.</p>
+<p>You’re probably thinking how simple, straightfoward and level-headed this all sounds. Nothing but sunshine and rainbow fonts. Right?</p>
+<p>Well, the reality is a bit more complex…</p>
+<h3 id="time-for-some-history">Time For Some History</h3>
+<p>The OpenType-SVG font format was initially designed by Mozilla &amp; Adobe and became an industry standard in early 2016, when other big players including Microsoft &amp; Google agreed on a single format to support color fonts.</p>
+<p><img src="data:image/png;base64,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" width="200" style="float:right"> All of them (including Apple) have previously developed and implemented their own proprietary color formats to display emojis on their operating systems, while many other companies built other custom color font technologies for the gaming, video or print industries.</p>
+<p>There are now four major color font formats that fit into regular font files: SBIX, COLR, CBDT and SVG, each having it own specificities. Read the full story <a href="https://pixelambacht.nl/2014/multicolor-fonts/">here</a> or check out my simplified recap:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Vector</th>
+<th>Bitmap</th>
+<th>Native support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>W3C [SVG]</td>
+<td>✔</td>
+<td>✔</td>
+<td>macOS 10.14+, iOS 12+, Windows 10+</td>
+</tr>
+<tr class="even">
+<td>Apple [SBIX]</td>
+<td></td>
+<td>✔</td>
+<td>macOS and iOS</td>
+</tr>
+<tr class="odd">
+<td>Google [CBDT]</td>
+<td></td>
+<td>✔</td>
+<td>Android</td>
+</tr>
+<tr class="even">
+<td>Microsoft [COLR]</td>
+<td>✔</td>
+<td></td>
+<td>Windows 8.1+</td>
+</tr>
+</tbody>
+</table>
+<p>Due to the differences and incompatibilities of these formats, the design industry is going through a transition period during which several color font formats may be needed to ensure cross-platform compatibility across several operating systems, browsers and apps.</p>
+<p>But OpenType-SVG seems in great position to become a golden standard now that <b>three operating systems support OpenType-SVG fonts</b>: Windows 10, macOS Mojave, and iOS 12.</p>
+<p>A solution to mitigate this issue on legacy software? Color fonts can also include some alternate <b>vector shape data as a fallback solution</b> for software that do not (yet) support any of the embedded color formats.</p>
+<h2 id="whats-the-catch">What’s the Catch?</h2>
+<h3 id="file-size">File size</h3>
+<p>So as you’ve probably guessed by now, there are drawbacks to color fonts. The biggest one is filesize (see what I did there?). A color font file is generally larger than a regular font file, and a lot more so when the font embeds high-resolution bitmap characters.</p>
+<p>Whereas fonts usually weigh 10-100 kilobytes, color vector fonts can reach 100KB to 2MB+ depending on their visual complexity.</p>
+<p>Color bitmap fonts may range from a few megabytes to tens of megabytes, and sizes increase when multiple color font formats are embedded in a single file.</p>
+<h3 id="implementation">Implementation</h3>
+<p>Implementing color fonts can be as simple as using them in your CSS, similar to regular fonts. However, it’s important to ensure compatibility, as support for color fonts can vary across different browsers and devices. Color fonts hijack a feature for rendering of diacritic marks, such as umlauts (¨), over vowels in order to render multiple layers of charaters over each other in order to achieve the effect. Just be sure to test thoroughly in all your potential environments to ensure proper rendering when using color fonts.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>The world of web and mobile typography is becoming more vibrant and alive with the advent of these latest font capabilities. These innovations offer designers unprecedented flexibility and creative possibilities, making it an exciting time to be in web and mobile design. As always, the key is to balance creativity with functionality, ensuring that your design choices enhance the user experience. The right font choice is key to creating an engaging and accessible digital experience. By considering optical sizing and using tools like Google Fonts, designers can craft visually appealing and functional web and mobile interfaces. Remember, typography is not just about making words readable; it’s about bringing content to life.</p>
+
+          <hr>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" class="next-entry latest" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
+      </div>
+    </section>
+    <section class="comments">
+      <header>Discussion</header>
+      <div id="comment-comments">
+        
+      </div>
+      <hr>
+      <div id="comment-form" class="comment-container" data-_parent="0">
+        <h3>Leave a Reply</h3>
+        <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
+        <hr>
+        <form id="comment" onsubmit="return false;" class="form">
+          <label for="comment-comment"><span class="required">Comment</span>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
+          </label>
+          <label for="comment-name"><span class="required">Name</span> 
+            <input type="text" id="comment-name" name="comment-name" class="comment-input">
+          </label>
+          <label for="comment-email"><span class="required">Email</span>
+            <input type="text" id="comment-email" name="comment-email" class="comment-input">
+          </label>
+          <label for="comment-website"><span>Website</span>
+            <input type="text" id="comment-website" name="comment-website" class="comment-input">
+          </label>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.postComment(this, event);return false;">Post Comment</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/crblog/assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/crblog/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/crblog/assets/js/adminlte.min.js"></script>
+<script src="/crblog/share.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="/crblog/assets/js/comments.js"></script>
+</body>
+</html>
