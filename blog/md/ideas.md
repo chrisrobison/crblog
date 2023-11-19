@@ -1,4 +1,8 @@
-# Blog Post Ideas
+# Blog Post Ideas: The List
+## Background
+
+The creative process can be a funny thing. There are times when the creativity just flows from me and at other times, not so much. The only problem is, I often need to be creative on a schedule but if the creative process if fickle and unpredictable what is one to do? You capture that creativity when it strikes and make lists that can be referred to later when your muse is off doing other things. So this is my list of blog article ideas broken down into 3 categories 
+
 ## Transportation and Technology
 
 1. **"The Road to Efficiency: How Automation Can Streamline Your Transportation Business"**

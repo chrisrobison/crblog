@@ -1,4 +1,4 @@
-# Caching Assets with Service Workers in JavaScript
+# Caching Assets: Service Workers in JavaScript
 
 We've all been there. You're on your computer, online taking care of business. You're just wrapping up the final part of a 6-part online job application form and you click submit. The page just spins and after a few seconds, you get the dreaded <q>Network not available</q> screen and all your work is now gone. Sure, browser    s have gotten better at recovering from these types of scenarios but we need to be able to write software that will work, offline or online, if we expect users to rely on our web-based applications.
 

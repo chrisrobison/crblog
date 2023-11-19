@@ -1,4 +1,17 @@
 [
+        {
+        "fulltitle": "Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design",
+        "title": "Font Fundamentals",
+        "subtitle": "The Vital Role of Font Choice in Web and Mobile Design",
+        "link": "/crblog/blog/font-design.html",
+        "name": "fontfundamentals",
+        "date": "2023-11-17",
+        "tags": "design,web",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/font-design.jpg",
+        "icon": "fas fa-code",
+        "blurb": "The fonts you use can have a profound impact on how people will remember your website and by extension, your business. Do you use ComicSans on your invoices? I'm sure someone out there has done just that but most of us know better. But which fonts to use? The options seem almost endless. For me, serif fonts convey a air of professionalism but at the same time I find them a litte busy to the eye. They are supposed to be easier to read (have I been conditioned by newspapers?) but most online publications seem to use sanserif fonts. What's the deal? As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. The concept of optical sizing, a design practice where typefaces are tailored for different display sizes, is especially crucial in this context. Let's delve into why font choice matters and how you can implement it effectively in your designs."
+    },
     {
         "fulltitle": "Let's Encrypt: Switching Your Website to HTTPS on a Shoestring Budget",
         "title": "Let's Encrypt",
@@ -6,12 +19,11 @@
         "link": "/crblog/blog/cheap-https.html",
         "name": "letsencrypt",
         "date": "2023-11-14",
-        "tags": "",
+        "tags": "web,security,bestpractices",
         "target": "iframe",
         "hero": "/crblog/assets/img/cheap-https.jpg",
         "icon": "fas fa-code",
-        "blurb": "In the ever-evolving landscape of the internet, security is not just a luxury; it's a necessity. For website owners, one of the fundamental steps to secure your site and gain your visitors' trust is by switching from HTTP to HTTPS. But what if you're on a tight budget? That's where Let's Encrypt comes into play.",
-        "comments": null
+        "blurb": "In the ever-evolving world of the internet, security is not just a luxury; it's a necessity. For website owners, one of the fundamental steps to secure your site and gain your visitors' trust is by switching from HTTP to HTTPS. But what if you're on a tight budget? That's where Let's Encrypt comes into play."
     },
     {
         "fulltitle": "Machine Learning for Fleet Maintenance: Keeping Our Fleet Road-Ready",
@@ -20,7 +32,7 @@
         "link": "/crblog/blog/ml-maintenance.html",
         "name": "machinelearningforfleetmaintenance",
         "date": "2023-11-13",
-        "tags": "",
+        "tags": "ai,machinelearning,transportation",
         "target": "iframe",
         "hero": "/crblog/assets/img/ml-maintenance.jpg",
         "icon": "fas fa-code",
@@ -104,6 +116,19 @@
         "hero": "/crblog/assets/img/modules.jpg",
         "icon": "fas fa-code",
         "blurb": "JavaScript has come a long way since its inception in 1995. One of the most significant leaps in JavaScript's journey has been the introduction and widespread adoption of client-side modules. Modules have revolutionized how developers structure their code, making it more manageable, reusable, and efficient. Let's delve into the history, uses, and benefits of client-side JavaScript modules, complete with some code examples."
+    },
+    {
+        "fulltitle": "DOT Compliance: Navigating Legal and Regulatory Aspects of Tech Adoption in Transportation",
+        "title": "DOT Compliance",
+        "subtitle": "Navigating Legal and Regulatory Aspects of Tech Adoption in Transportation",
+        "link": "/crblog/blog/eld.html",
+        "name": "dotcompliance",
+        "date": "2023-08-18",
+        "tags": "compliance,transportation,iot",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/eld.jpg",
+        "icon": "fas fa-code",
+        "blurb": "In the dynamic landscape of transportation, small businesses face a myriad of challenges, especially when adopting new technologies in their fleet operations. While technology offers immense benefits, such as increased efficiency and safety, it also brings with it a need to navigate complex legal and regulatory frameworks. This is particularly relevant in light of the recent federal Department of Transportation (DOT) regulations regarding electronic logging."
     },
     {
         "fulltitle": "Tech Talk: Communicating with Your Fleet Anywhere, Anytime",
