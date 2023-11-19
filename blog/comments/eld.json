@@ -1,0 +1,22 @@
+[
+  {
+    "email": "steveanthony@devopsguy.com",
+    "name": "Steve Anthony",
+    "site": "https://devopsguy.com/",
+    "comment": "How did you get your drivers to follow the new rules? Our drivers are stuck in paper books and hate the new systems we've put in place.  Are we doing something wrong?",
+    "date": "2023-11-18 4:30am",
+    "_id": "1",
+    "_parent": "0",
+    "replies": [
+      {
+        "email": "cdr@cdr2.com",
+        "name": "Christopher Robison",
+        "site": "https://cdr2.com/",
+        "comment": "To be honest, we had a hard time with that as well. We held paid training classes and incentivized the training by associating their raise and bonus to passing a very simple test based on the training. We still had grumblings but they knew how to use the new system.",
+        "date": "2023-11-18 4:34am",
+        "_id": "1.1",
+        "_parent": "1"
+      }
+    ]
+  }
+]

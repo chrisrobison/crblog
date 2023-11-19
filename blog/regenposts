@@ -1,0 +1,15 @@
+#!/usr/local/bin/php
+<?php
+$posts = json_decode(file_get_contents("posts.json"));
+
+foreach ($posts as $post) {
+    $name = basename($post->link, '.html');
+    if (file_exists("md/{$name}.md")) {
+
+        $result = `./mkblogentry -q --notty --date={$post->date} --tags={$post->tags} --title="{$post->title}" --subtitle="{$post->subtitle}" md/$name.md`;
+        print $result."\n\n";
+        print "Regenerated $name ({$post->fulltitle})\n";
+    }
+}
+
+?>
