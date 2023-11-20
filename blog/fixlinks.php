@@ -5,7 +5,7 @@ usort($posts, function($a, $b) { return strtotime($b->date) - strtotime($a->date
 
 $tpl = <<<EOT
     <div class="content-footer">
-      <hr><a href="%%next_link%%" onclick="if (parent.app.loadTab) return parent.app.loadTab('%%next_link%%', '%%next_title%%', '%%next_name%%', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(%%next_title%%) Next &gt; </a>
+      <a href="%%next_link%%" onclick="if (parent.app.loadTab) return parent.app.loadTab('%%next_link%%', '%%next_title%%', '%%next_name%%', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(%%next_title%%) Next &gt; </a>
       <a href="%%prev_link%%" onclick="if (parent.app.loadTab) return parent.app.loadTab('%%prev_link%%', '%%prev_title%%', '%%prev_name%%', true, event)" title="%%prev_fulltitle%%" style="font-weight:400;">&lt; Previous (%%prev_title%%)</a>
   </div>
 EOT;

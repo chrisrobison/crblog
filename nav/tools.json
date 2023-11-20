@@ -1,5 +1,21 @@
 [
         {
+          "title": "SF Street History",
+          "link": "/sfhistory/",
+          "icon": "fas fa-map-location-dot",
+          "desc": "Explore the rich history of San Francisco street names and landmarks with maps, locations and history.",
+          "screenshot": "assets/img/sfhistory.png"
+
+        },
+        {
+          "title": "Image Encoder",
+          "link": "/img-encode/",
+          "icon": "fas fa-image",
+          "desc": "Simple base64 image encoder. Give it a URL and get back the image in base64 goodness.",
+          "screenshot": "/crblog/assets/img/img-encoder.gif"
+
+        },
+        {
           "title": "Invoice Generator",
           "link": "/invoice/",
           "icon": "fas fa-file-invoice-dollar",
@@ -19,14 +35,6 @@
           "icon": "fas fa-beer-mug-empty",
           "desc": "App to track an attempt to have one drink at every bar in San Francisco.",
           "screenshot": "assets/img/beerman.png"
-
-        },
-        {
-          "title": "SF Street History",
-          "link": "/sfhistory/",
-          "icon": "fas fa-map-location-dot",
-          "desc": "Explore the rich history of San Francisco street names and landmarks with maps, locations and history.",
-          "screenshot": "assets/img/sfhistory.png"
 
         },
         {

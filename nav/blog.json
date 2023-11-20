@@ -1,8 +1,17 @@
 [
     {
-        "title": "Let's Encrypt",
-        "subtitle": "Switching Your Website to HTTPS on a Shoestring Budget",
-        "fulltitle": "Let's Encrypt: Switching Your Website to HTTPS on a Shoestring Budget",
+        "title": "Font Fundamentals",
+        "subtitle": "The Vital Role of Font Choice in Web and Mobile Design",
+        "fulltitle": "Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design",
+        "link": "/crblog/blog/font-design.html",
+        "name": "fontfundamentals",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Encrypt Everything!",
+        "subtitle": "Let's Encrypt and the Long Journey to No-Cost SSL",
+        "fulltitle": "Encrypt Everything: Let's Encrypt and the Long Journey to No-Cose SSL",
         "link": "/crblog/blog/cheap-https.html",
         "name": "letsencrypt",
         "target": "iframe",
@@ -50,6 +59,15 @@
         "fulltitle": "Leveraging IoT: How Small Fleets Can Get Big Data Insights",
         "link": "blog/fleet-iot.html",
         "name": "leveragingiot",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "DOT Compliance",
+        "subtitle": "Navigating Legal and Regulatory Aspects of Tech Adoption in Transportation",
+        "fulltitle": "DOT Compliance: Navigating Legal and Regulatory Aspects of Tech Adoption in Transportation",
+        "link": "/crblog/blog/eld.html",
+        "name": "dotcompliance",
         "target": "iframe",
         "icon": "fas fa-code"
     },

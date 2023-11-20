@@ -18,9 +18,9 @@
       try {
         fetch(`/crblog/blog/comment.php?page=${name}`).then(r=>r.json()).then(data=>{
           app.comments.comments = data;
+          console.dir(data);
           app.comments.buildComments(data);
           console.log(`Retrieved ${name}.json`);
-          console.dir(data);
         });
       } catch(e) {
         console.log(`No comments file found for ${name}`);
@@ -29,6 +29,7 @@
       app.comments.state.loaded = true;
     },
     mkcomment(obj, key='1', pid='0') {
+      console.log(`in mkcomment ${obj} ${key} ${pid}`);
       let item = `
  <li class='comment-item' data-key='${key}' data-parentid='${pid}'>
   <div class='comment-head'>
@@ -60,7 +61,7 @@
         tgt = document.querySelector("#comment-form");
       }
 
-      let pid = tgt.dataset._parent;
+      let pid = tgt.dataset._parent || 0;
       let post = {
         email: tgt.querySelector("#comment-email")?.value,
         name: tgt.querySelector("#comment-name")?.value,
@@ -147,6 +148,8 @@
         post._parent = pid;
         app.comments.comments[idx1].replies[idx2].replies[idx3].replies[idx4].replies.push(post);
       }
+      console.log(`going to send:`);
+      console.dir(app.comments.comments);
 
       let page = location.href.replace(/^.*\//, '').replace(/.html/, '');
         fetch("comment.php?x=save&page="+page, {
@@ -178,6 +181,7 @@
         ul.className = "comment-reply";
         document.querySelector("#comment-comments").append(ul);
       }    
+      console.log(`in buildComments`);
       let out = "";
       for (let i=0; i<arr.length; i++) {
         out += app.comments.mkcomment(arr[i], arr[i]._id, arr[i]._parent);

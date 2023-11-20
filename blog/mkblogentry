@@ -5,7 +5,6 @@ $now = date("Ymdhi");
 
 $posts = json_decode(file_get_contents("posts.json"));
 $nav = json_decode(file_get_contents("../nav/blog.json"));
-print "Backing up current posts.json\n";
 
 $exe = `cp posts.json backup/posts.$now.json`;
 $tpl = file_get_contents("blank.html");
@@ -14,54 +13,62 @@ $force = 0;
 $conf = new stdClass();
 
 while ($file = array_shift($argv)) {
-    if (preg_match("/^\-\-([\w\-]+)/", $file, $match)) {
+    if (preg_match("/^\-\-([\w\-]+)=(.*)/", $file, $match)) {
+        $conf->{$match[1]} = $match[2];
+    } else if (preg_match("/^\-\-([\w\-]+)/", $file, $match)) {
         $conf->{$match[1]} = 1;
+        $conf->{$match[1][0]} = 1;
         continue;
+    } else if (preg_match("/^-(\w)/", $file, $match)) {
+        $conf->{$match[1]} = 1;
     } else if (file_exists($file)) {
         $fparts = preg_split("/\./", $file);
+        $basename = basename($file, ".md");
 
-        print "Reading markdown from $file...";
+        logit("Reading markdown from $file...");
         $txt = file_get_contents($file);
-        print "Done.\n";
+        logit("Done.\n");
 
         $para = preg_split("/\n\n/", $txt);     // need for blurb
         $lines = preg_split("/\n/", $txt);      
 
-        print "Read ".count($lines)." lines in ".strlen($txt)." bytes.\n";
-        print "Extracting title...";
+        logit("Read ".count($lines)." lines in ".strlen($txt)." bytes.\n");
+        logit("Extracting title...");
         $title = preg_replace("/^#\s*/", "", array_shift($lines));
         $parts = preg_split("/\:\s*/", $title, 2);
 
         
-        print "Done.\nBlog title: \"{$parts[0]}\"\nBlog subtitle: \"{$parts[1]}\"\n\n";
+        logit("Done.\nBlog title: \"{$parts[0]}\"\nBlog subtitle: \"{$parts[1]}\"\n\n");
 
-        print "Grabbing comments...";
-        if (file_exists("comments/$fparts[0].json")) {
-            $comments = readComments("comments/$fparts[0].json");
-        }
-
-        print "Done. \n\nCreating new blog object...";
+        /*
+         * Handled in client now; Seems more appropriate as we don't care if comments are crawled
+         * Left here for posterity and out of fear I forgot something
+         *  
+         * print "Grabbing comments...";
+         * if (file_exists("comments/$basename.json")) {
+         *    $comments = readComments("comments/$basename.json");
+         * }
+         **/
+        logit("Done. \n\nCreating new blog object...");
         $out = new stdClass();
         $out->fulltitle = $title;
-        $out->title = $parts[0];
-        $out->subtitle = $parts[1];
-        $out->link = "/crblog/blog/".$fparts[0].".html";
+        $out->title = isset($conf->title) ? $conf->title : $parts[0];
+        $out->subtitle = isset($conf->subtitle) ? $conf->subtitle : $parts[1];
+        $out->link = "/crblog/blog/".$basename.".html";
         $out->name = strtolower(preg_replace("/\W/", '', $out->title));
-        $out->date = date("Y-m-d");
-        $out->tags = "";
+        $out->date = isset($conf->date) ? $conf->date : date("Y-m-d");
+        $out->tags = isset($conf->tags) ? $conf->tags : "";
         $out->target = "iframe";
-        $out->hero = "/crblog/assets/img/".$fparts[0].".jpg";
+        $out->hero = "/crblog/assets/img/".$basename.".jpg";
         $out->icon = "fas fa-code";
         $out->blurb = $para[1];
-        $out->comments = $comments;
+        // $out->comments = $comments;
 
-        print "Done.\n\n";
+        logit("Done.\n\n");
         $done = (property_exists($conf, "notty")) ? 1 : 0;
-        
-        while (!$done) {
-            $keys = array();
-            $vals = array();
-            print "Review:\n===========================\nNew blog object:\n";
+
+        if ($conf->notty) {
+            print "Blog object for '$basename':\n";
             $i = 0;
             foreach ($out as $key=>$val) {
                 $keys[] = $key;
@@ -72,42 +79,71 @@ while ($file = array_shift($argv)) {
                 }
                 print "\t{$i}) $key:\t$val\n";
             }
-            print "\nPlease review new blog entry for correctness.\nType a number or property to change its value.\nPress Enter when satified.\n";
+        } 
 
-            print "Enter or 'ok' to continue / # to edit: ";
+        while (!$done) {
+            $keys = array();
+            $vals = array();
+            logit("Blog object:\n");
+            $i = 0;
+            foreach ($out as $key=>$val) {
+                $keys[] = $key;
+                $vals[] = $val;
+                ++$i;
+                if (strlen($val)> 50) {
+                    $val = substr($val, 0, 50)."...";
+                }
+                logit("\t{$i}) $key:\t$val\n");
+            }
+            logit("\nPlease review new blog entry for correctness.\nType a number or property to change its value.\nPress Enter when satified.\n");
+
+            logit("Enter or 'ok' to continue / # to edit: ");
             $input = getInput();
 
             if (preg_match("/\d/", $input)) {
-                print "\n\nEditing value for {$keys[(int)$input-1]}\nOld value: {$vals[(int)$input-1]}\nNew value (enter nothing to cancel)? ";
+                logit("\n\nEditing value for {$keys[(int)$input-1]}\nOld value: {$vals[(int)$input-1]}\nNew value (enter nothing to cancel)? ");
                 $newval = getInput();
                 if ($newval) {
-                    $out->{$vals[(int)$input-1]} = $newval;
+                    $out->{$keys[(int)$input-1]} = $newval;
                 }
             } else if (($input == "")  || ($input=="ok"))  {
                 $done = 1;
                 continue;
             } else {
-                print "Oops.  Input[{$input}]\n";
+                logit("Oops.  Input[{$input}]\n");
             }
 
         }
-        print "\nWriting cleaned up markdown to tmp.md...";
+        logit("\nWriting cleaned up markdown to tmp.md...");
         file_put_contents("tmp.md", join("\n", $lines));
-        print "Done.\nConverting markdown to html...";
+        logit("Done.\nConverting markdown to html...");
         $out->blogpost = `pandoc --no-highlight -f markdown -t html5 tmp.md`;
-        print "Done.\nRemoving tmp.md file...";
+        logit("Done.\nRemoving tmp.md file...");
         //$exe = `rm tmp.md`;
-        print "Done.\n\n";
+        logit("Done.\n\n");
 
-        print "Generating Site HTML...";
+        logit("Generating Site HTML...");
+        $nav = new stdClass();
+        $nav->prev_link = $posts[0]->link;
+        $nav->prev_title = $posts[0]->title;
+        $nav->prev_name = $posts[0]->name;
+        $nav->prev_subtitle = $posts[0]->subtitle;
+        $nav->prev_fulltitle = $posts[0]->fulltitle;
+
         $html = preg_replace_callback("/%%([^%]*)%%/", function($match) {
             global $out;
-            return isset($out->{$match[1]}) ? $out->{$match[1]} : "";
+            if (isset($out->{$match[1]})) {
+                return $out->{$match[1]};
+            } else if (isset($nav->{$match[1]})) {
+                return $nav->{$match[1]};
+            } else {
+                return "";
+            }
         }, $tpl);
-        print "Done.\nGenerated ".strlen($html)." bytes of HTML.\n";
-        print "\nSaving generated html as {$fparts[0]}.html...";
-        file_put_contents($fparts[0].".html", $html);
-        print "Done.\n";
+        logit("Done.\nGenerated ".strlen($html)." bytes of HTML.\n");
+        logit("\nSaving generated html as {$basename}.html...");
+        file_put_contents($basename.".html", $html);
+        logit("Done.\n");
             
         unset($out->blogpost);
 
@@ -120,15 +156,15 @@ while ($file = array_shift($argv)) {
             }
 
             if (!property_exists($conf, "force") && $exists) {
-                print "*** Error: Blog entry named \"$title\" already exists. Aborting...\n";
+                logit("*** Error: Blog entry named \"$title\" already exists. Aborting...\n");
                 exit;
             }
             array_unshift($posts, $out);
-            print "Added post to top of main blog list.\n";
-            print "Saving new blog list...";
+            logit("Added post to top of main blog list.\n");
+            logit("Saving new blog list...");
             file_put_contents("posts.json", json_encode($posts, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-            print "Wrote ".strlen($html)." bytes to {$fparts[0]}.html\n";
-            print "\nUpdating main site nav/blog.json...";
+            logit("Wrote ".strlen($html)." bytes to {$basename}.html\n");
+            logit("\nUpdating main site nav/blog.json...");
             
             $out2 = new stdClass();
             $out2->title = $out->title;
@@ -139,15 +175,15 @@ while ($file = array_shift($argv)) {
             $out2->target = "iframe";
             $out2->icon = "fas fa-code";
             
-            print "Adding new blog post to top of blog.json...";
+            logit("Adding new blog post to top of blog.json...");
             array_unshift($nav, $out2);
-            print "Done.\nBacking up current blog.json...";
+            logit("Done.\nBacking up current blog.json...");
             $exe = `cp ../nav/blog.json backup/blog.$now.json`;
-            print "Done.\nblog.json saved to backup/blog.$now.json.\nWriting updated blog.json...";
+            logit("Done.\nblog.json saved to backup/blog.$now.json.\nWriting updated blog.json...");
             file_put_contents("../nav/blog.json", json_encode($nav, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-            print "Done.\n\n";
+            logit("Done.\n\n");
 
-            print "Blog entry added. You should review the following files:\n\tposts.json\n\t../nav/blog.json\n\t$fparts[0].html\n\t../assets/img/$fparts[0].jpg\n\nBe sure to create or change the image $fparts[0].jpg\n";
+            logit("Blog entry added. You should review the following files:\n\tposts.json\n\t../nav/blog.json\n\t$basename.html\n\t../assets/img/$basename.jpg\n\nBe sure to create or change the image $basename.jpg\n");
         }
     
     }
@@ -203,5 +239,12 @@ function getInput() {
     $line = trim($line);
     fclose($handle);
     return $line;
+}
+function logit($txt) {
+    global $conf;
+   
+    if (!isset($conf->q) && (!isset($conf->quiet))) {
+        print $txt;
+    }
 }
 ?>

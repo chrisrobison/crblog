@@ -1,17 +1,20 @@
 #!/usr/local/bin/php
 <?php
+$cwd = getcwd();
+chdir("/home/cdr/crblog/blog");
+
 $tpl = <<<EOT
 <li>
-    <a class="heroWrap" target="_blank" href="%%link%%" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);"><img src="%%hero%%" class="tinyhero"></a>
+    <a class="heroWrap" target="_blank" href="%%link%%" onclick="return app.loadTab('%%link%%', '%%cleantitle%%', '%%name%%', true, event);"><img src="%%hero%%" class="tinyhero"></a>
     <div class="blogdate">%%date%%</div>
     <div class="preview">
-        <a href="%%link%%" target="_blank" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);">
+        <a href="%%link%%" target="_blank" onclick="return app.loadTab('%%link%%', '%%cleantitle%%', '%%name%%', true, event);">
             <h2>%%title%%</h2>
             <h3>%%subtitle%%</h3>
         </a><hr style="margin-top:0.25rem;margin-bottom:0.5rem;">
         <p class="blurb" style="line-height:175%">%%blurb%%</p>
     </div>
-    <a class="readmore" target="_blank" href="%%link%%" onclick="return app.loadTab('%%link%%', '%%title%%', '%%name%%', true, event);">Read more...</a>
+    <a class="readmore" target="_blank" href="%%link%%" onclick="return app.loadTab('%%link%%', '%%cleantitle%%', '%%name%%', true, event);">Read more...</a>
 </li>
 EOT;
 
@@ -20,6 +23,7 @@ $out = "";
 
 foreach ($posts as $post) {
     $post->date = date("M j, Y", strtotime($post->date));
+    $post->cleantitle = preg_replace("/\'/", "\\'", $post->title);
 
     $html = preg_replace_callback("/\%\%(\w+)\%\%/", function($match) {
         global $post;
@@ -35,4 +39,7 @@ foreach ($posts as $post) {
 $page = file_get_contents("index.template.html");
 $page = preg_replace("/\%\%content\%\%/", $out, $page);
 print $page;
+
+chdir($cwd);
+
 ?>
