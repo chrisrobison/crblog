@@ -2,9 +2,14 @@
     $in = $_REQUEST;
     
 if (array_key_exists("name", $in) && array_key_exists("email", $in) && array_key_exists("token", $in)) {
-    $expected_token = base64_encode(date("Ymdh"));
+    if (!file_exists(".tokens/{$in['token']}")) {
+        print "<h1>No Bots Allowed</h1>";
+        exit;
+    } else {
+        unlink(".tokens/{$in['token']}");
+    }
     
-    if (!array_key_exists("g-recaptcha-response", $in)) {
+    if ((!array_key_exists("g-recaptcha-response", $in)) || (array_key_exists("g-recaptcha-response", $in) && $in['g-recaptcha-response'] == "")) {
         print "<h1>No Bots Allowed</h1>";
         exit;
     }

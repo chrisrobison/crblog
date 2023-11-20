@@ -144,6 +144,9 @@ body {
         margin-right: 1rem;
         margin-left: 0.6rem;
     }
+    .sidebar-collapse .brand-text {
+        display: none;
+    }
     .cdr.pacjob {
         /* background-color: #FFFFFF; */
         background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8" standalone="no"%3F><!-- Created with Inkscape (http://www.inkscape.org/) --><svg width="210mm" height="297mm" viewBox="0 0 210 297" version="1.1" id="svg528" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs525" /><g id="layer1" transform="matrix(0.5392214,0,0,0.5392214,18.892735,27.612465)"><circle style="fill:%23000000;stroke-width:0.264583" id="path645" cx="105.13274" cy="124.05664" r="64.130974" /><path style="fill:%23ffffff;stroke-width:0.264583" d="m 105.12924,125.11847 54.35445,-35.731119 c 0,0 10.73844,15.840259 10.6492,34.208769 -0.0892,18.36851 -10.46774,34.50255 -10.46774,34.50255 l -54.53241,-31.41372 z" id="path707" /><circle style="fill:%23ffffff;stroke-width:0.264583" id="path761" cx="115.30214" cy="83.544724" r="10.779311" /><circle style="fill:%23000000;stroke-width:0.264583" id="path765" cx="121.54603" cy="84.004288" r="2.973603" /></g></svg>');
@@ -267,6 +270,7 @@ body {
                                 <a href="https://linkedin.com/in/crobison" target="_blank"><i class="fa-brands fa-linkedin"></i></a> 
                                 <a href="https://github.com/chrisrobison" target="_blank"><i class="fa-brands fa-github"></i></a> 
                                 <a href="https://codepen.io/ChristopherRobison" target="_blank"><i class="fa-brands fa-codepen"></i></a> 
+                                <a href="https://cdr2.com/crblog/blog/rss" target="_blank"><i class="fas fa-square-rss"></i></a> 
                             </span>
                         </div>
                     </div>
@@ -464,10 +468,17 @@ role="menu" data-accordion="false">
         <ul class="nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child" data-widget=
         "treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="/crblog/blog/cheap-https.html" title="Let's Encrypt" onclick="return app.doClick(this, event)" class=
-                "nav-link"><i class="nav-icon fas fa-code"></i>
+                <a href="/crblog/blog/font-design.html" title="Font Fundamentals" onclick="return app.doClick(this, event)"
+                class="nav-link"><i class="nav-icon fas fa-code"></i>
                 <p>
-                    Let's Encrypt
+                    Font Fundamentals
+                </p></a>
+            </li>
+            <li class="nav-item">
+                <a href="/crblog/blog/cheap-https.html" title="Encrypt Everything!" onclick="return app.doClick(this, event)"
+                class="nav-link"><i class="nav-icon fas fa-code"></i>
+                <p>
+                    Encrypt Everything!
                 </p></a>
             </li>
             <li class="nav-item">
@@ -503,6 +514,13 @@ role="menu" data-accordion="false">
                 "nav-link"><i class="nav-icon fas fa-code"></i>
                 <p>
                     Leveraging IoT
+                </p></a>
+            </li>
+            <li class="nav-item">
+                <a href="/crblog/blog/eld.html" title="DOT Compliance" onclick="return app.doClick(this, event)" class=
+                "nav-link"><i class="nav-icon fas fa-code"></i>
+                <p>
+                    DOT Compliance
                 </p></a>
             </li>
             <li class="nav-item">
@@ -819,6 +837,20 @@ role="menu" data-accordion="false">
         <ul class="nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child" data-widget=
         "treeview" role="menu" data-accordion="false">
             <li class="nav-item">
+                <a href="/sfhistory/" title="SF Street History" onclick="return app.doClick(this, event)" class=
+                "nav-link"><i class="nav-icon fas fa-map-location-dot"></i>
+                <p>
+                    SF Street History
+                </p></a>
+            </li>
+            <li class="nav-item">
+                <a href="/img-encode/" title="Image Encoder" onclick="return app.doClick(this, event)" class="nav-link"><i class=
+                "nav-icon fas fa-image"></i>
+                <p>
+                    Image Encoder
+                </p></a>
+            </li>
+            <li class="nav-item">
                 <a href="/invoice/" title="Invoice Generator" onclick="return app.doClick(this, event)" class=
                 "nav-link"><i class="nav-icon fas fa-file-invoice-dollar"></i>
                 <p>
@@ -837,13 +869,6 @@ role="menu" data-accordion="false">
                 target='_blank'>
                 <p>
                     Booze Cluez
-                </p></a>
-            </li>
-            <li class="nav-item">
-                <a href="/sfhistory/" title="SF Street History" onclick="return app.doClick(this, event)" class=
-                "nav-link"><i class="nav-icon fas fa-map-location-dot"></i>
-                <p>
-                    SF Street History
                 </p></a>
             </li>
             <li class="nav-item">
