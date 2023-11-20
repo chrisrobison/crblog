@@ -13,9 +13,9 @@
         "blurb": "The fonts you use can have a profound impact on how people will remember your website and by extension, your business. Do you use ComicSans on your invoices? I'm sure someone out there has done just that but most of us know better. But which fonts to use? The options seem almost endless. For me, serif fonts convey a air of professionalism but at the same time I find them a litte busy to the eye. They are supposed to be easier to read (have I been conditioned by newspapers?) but most online publications seem to use sanserif fonts. What's the deal? As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. The concept of optical sizing, a design practice where typefaces are tailored for different display sizes, is especially crucial in this context. Let's delve into why font choice matters and how you can implement it effectively in your designs."
     },
     {
-        "fulltitle": "Let's Encrypt: Switching Your Website to HTTPS on a Shoestring Budget",
-        "title": "Let's Encrypt",
-        "subtitle": "Switching Your Website to HTTPS on a Shoestring Budget",
+        "fulltitle": "Encrypt Everything: Let's Encrypt and the Long Journey to No-Cost SSL",
+        "title": "Encrypt Everything",
+        "subtitle": "Let's Encrypt and the Long Journey to No-Cost SSL",
         "link": "/crblog/blog/cheap-https.html",
         "name": "letsencrypt",
         "date": "2023-11-14",
@@ -23,7 +23,7 @@
         "target": "iframe",
         "hero": "/crblog/assets/img/cheap-https.jpg",
         "icon": "fas fa-code",
-        "blurb": "In the ever-evolving world of the internet, security is not just a luxury; it's a necessity. For website owners, one of the fundamental steps to secure your site and gain your visitors' trust is by switching from HTTP to HTTPS. But what if you're on a tight budget? That's where Let's Encrypt comes into play."
+        "blurb": "If you've been around the web for as long as I have, you may remember when a SSL or <q>secure cert</q> could cost a company $1000's <em>each year</em> just to maintain a valid certificate. Things have changed quite a bit since those days. Security is no longer a <q>nice to have</q>, it is a necessity. But the good news is that it is now free! That's right, $0. Zip. Ziltch. Nada. Out of the goodness of their corporate hearts and for the greater good of humanity, some of the biggest players in Silicon Valley got together and formed something called [Let's Encrypt](https://letsencrypt.org) that wants to encrypt the entire web."
     },
     {
         "fulltitle": "Machine Learning for Fleet Maintenance: Keeping Our Fleet Road-Ready",

@@ -1,8 +1,10 @@
 # Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design
 
-As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. The concept of optical sizing, a design practice where typefaces are tailored for different display sizes, is especially crucial in this context. Let's delve into why font choice matters and how you can implement it effectively in your designs.
+I hate starting out a new post (or letter or email, you get the picture). I never know how to break the ice, get the ball rolling. I get in my head and start overthinking things: "How technical should I go?", "Will they be reading this on their phones or desktop?" or "Should I start with a joke? But in the end, I usually churn out something I would turn in to my 11th grade English teachers;, a passable attempt but we both know I could do better. Well, look at that. I'm a paragraph in and very off topic. Let me start over....
 
-Before diving into the specifics of font choice in digital design, let's establish a foundation by understanding some font fundamentals. Typography is not just about choosing a pretty typeface; it's about communication, readability, and enhancing the user experience.
+As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. We now live in a world where we are constantly bombarded with information. How can you stand out among all the other billboards, ads, and images? By choosing the right typeface, font and design to respresent *your* information.  In this article I'll give a short history of print and delve into why your font choice can make or break your project.
+
+I must admit, when I started to write this article I thought it was going to be a quick and easy how-to on the use of some of the more modern font technologies such as variable fonts and color fonts. But as I started writing it just kept expanding, I should probably break this up into multiple posts. We all need to remember how important the right font choice can be to getting our message across. Typography is not just about choosing a pretty typeface; it's about communication, readability, and enhancing the user experience.
 
 ## Font Vocabulary
 
