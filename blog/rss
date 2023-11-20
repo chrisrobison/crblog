@@ -1,0 +1,61 @@
+<?php
+
+$posts = json_decode(file_get_contents("posts.json"));
+
+/*
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>W3Schools Home Page</title>
+  <link>https://www.w3schools.com</link>
+  <description>Free web building tutorials</description>
+  <item>
+    <title>RSS Tutorial</title>
+    <link>https://www.w3schools.com/xml/xml_rss.asp</link>
+    <description>New RSS tutorial on W3Schools</description>
+  </item>
+  <item>
+    <title>XML Tutorial</title>
+    <link>https://www.w3schools.com/xml</link>
+    <description>New XML tutorial on W3Schools</description>
+  </item>
+</channel>
+
+</rss>
+ */
+ $json = new stdClass();
+ $json->title = "The Incredible Blog of Christopher Robison";
+ $json->description = "From code to business to random, wandering thoughts, you'll find it here.";
+ $json->image = "https://cdr2.com/crblog/assets/img/robot-reading.jpg";
+ $json->posts = array();
+ 
+$out = '<?xml version="1.0" encoding="UTF-8" ?><rss version="2.0"><channel><title>Christopher Robison\'s Incredible Blog</title><category>Programming</category><link>https://cdr2.com</link><description>Getting the job done from Apache to z-index.</description><image><url>https://cdr2.com/crblog/assets/img/robot-reading.jpg</url><title>Christopher Robison\'s Incredible Blog</title><link>https://cdr2.com</link></image>';
+
+$cnt = 0;
+foreach ($posts as $post) {
+    ++$cnt;
+    $post->blurb = preg_replace("/<[^>]+>/", "", $post->blurb);
+    $post->link = "https://cdr2.com{$post->link}";
+    $post->image = "https://cdr2.com{$post->hero}";
+    unset($post->hero);
+    $json->posts[] = $post;
+    $date = date("r", strtotime($post->date));
+    $out .= "<item><title>{$post->fulltitle}</title><link>{$post->link}</link><description><![CDATA[<img src=\"{$post->image}\" align=\"left\" hspace=\"5\">{$post->blurb}]]></description><guid isPermaLink=\"true\">{$post->link}</guid><pubDate>{$date}</pubDate></item>";
+
+    if ($cnt > 10) {
+       break;
+    }
+}
+$out .= "</channel></rss>";
+
+if (array_key_exists("json", $_REQUEST)) {
+    header("Content-Type: application/json");
+    print json_encode($json, JSON_UNESCAPED_SLASHES);
+    exit;
+} 
+
+header("Content-Type: application/rss+xml");
+print $out;
+
+?>
