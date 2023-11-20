@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Let's Encrypt: Switching Your Website to HTTPS on a Shoestring Budget - Christopher Robison's Blog</title>
-  <link rel="canonical" href="https://cdr2.com/crblog/blog/letsencrypt.html">
+  <title>Encrypt Everything: Let's Encrypt and the Long Journey to No-Cost SSL - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/encrypteverything.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -16,15 +16,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
   <style>
-    span.required::after {
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+     span.required::after {
       display: inline-block;
       position: relative;
       content: "*";
       color: #c00;
       font-size: 1.1rem;
       font-weight: bold;
-      height: 2rem;
-      width: 2rem;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
     }
     section.comments  header {
       font-size:2rem;
@@ -81,6 +94,36 @@
     .commenter { color: #000; font-weight: bold; }
     .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
     .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
+    table {
+      border-collapse: collapse;
+      border: 2px solid #0005;
+      width: 100%;
+    }
+    table td {
+      border-right: 1px solid #0003;
+      background:#eee;
+      color: #000;
+      padding: 4px;
+    }
+    table .header th {
+      background: #000;
+      color: #eee;
+    }
+    .odd td {
+      background-color: #ccc;
+    }
+    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
+      text-align: center;
+      color: #c00;
+    }
   </style>
 </head>
 <body class="hold-transition iframe-mode">
@@ -98,7 +141,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
-              <li class="breadcrumb-item active">Let's Encrypt</li>
+              <li class="breadcrumb-item active">Encrypt Everything</li>
             </ol>
           </div>
         </div>
@@ -108,29 +151,29 @@
     <!-- Main content -->
     <section class="content">
         <div class="blog">
-          <h1 style="font-weight:900;">Let's Encrypt</h1>
-          <h3>Switching Your Website to HTTPS on a Shoestring Budget</h3>
+          <h1 style="font-weight:900;">Encrypt Everything</h1>
+          <h3>Let's Encrypt and the Long Journey to No-Cost SSL</h3>
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            2023-11-15
+            2023-11-20
           </p>
           <hr>
           <img width="640" src="/crblog/assets/img/cheap-https.jpg" class="banner-pic"> 
           <hr>
-          <p>In the ever-evolving landscape of the internet, security is not just a luxury; it’s a necessity. For website owners, one of the fundamental steps to secure your site and gain your visitors’ trust is by switching from HTTP to HTTPS. But what if you’re on a tight budget? That’s where Let’s Encrypt comes into play.</p>
+          <p>If you’ve been around the web for as long as I have, you may remember when a SSL or “secure cert” could cost a company thousands of dollars <em>each year</em> just to maintain a valid certificate. Things have changed quite a bit since those days. Security is no longer a “nice to have”, it is a necessity. But the good news is that it is now free! That’s right, $0. Zip. Ziltch. Out of the goodness of their hearts and for the greater good, some of the biggest players in Silicon Valley got together and formed something called <a href="https://letsencrypt.org">Let’s Encrypt</a>.</p>
 <h2 id="what-is-lets-encrypt">What is Let’s Encrypt?</h2>
-<p><a href="https://letsencrypt.org" target="_blank">Let’s Encrypt</a> is a free, automated, and open Certificate Authority (CA) launched in April 2016. It’s a project of the <a href="https://www.abetterinternet.org/" target="_blank">Internet Security Research Group (ISRG)</a>, backed by major companies like <a href="https://mozilla.org/" target="_blank">Mozilla</a>, <a href="https://cisco.com/" target="_blank">Cisco</a>, <a href="https://akamai.com" target="_blank">Akamai</a>, <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, and <a href="https://facebook.com/" target="_blank">Facebook</a>. The primary goal of Let’s Encrypt is to make encrypted connections on the web ubiquitous and easy to set up.</p>
+<p><a href="https://letsencrypt.org">Let’s Encrypt</a> is a free, automated, and open Certificate Authority (CA) launched in April 2016. It’s a project of the <a href="https://www.abetterinternet.org/">Internet Security Research Group (ISRG)</a>, backed by major companies like <a href="https://mozilla.org/">Mozilla</a>, <a href="https://cisco.com/">Cisco</a>, <a href="https://akamai.com">Akamai</a>, <a href="https://www.google.com/chrome/">Google Chrome</a>, and <a href="https://facebook.com/">Facebook</a>. The primary goal of Let’s Encrypt is to make encrypted connections on the web ubiquitous and easy to set up.</p>
 <h3 id="the-backers-and-goals">The Backers and Goals</h3>
 <p>The backing by industry giants provides Let’s Encrypt with the necessary resources and credibility. These companies have a shared interest in making the web more secure and privacy-respecting. The goal of Let’s Encrypt is simple yet ambitious: to encrypt the entire web, making HTTPS the default web protocol.</p>
-<h2 id="why-https">Why HTTPS?</h2>
-<p>Switching to HTTPS not only secures the data between your website and its users but also boosts your SEO rankings, as search engines like Google favor secure sites. It also gives your visitors confidence, knowing their data is protected.</p>
-<h2 id="upgrading-to-https-with-certbot">Upgrading to HTTPS with Certbot</h2>
-<p>Certbot is a free, open-source software tool for automatically using Let’s Encrypt certificates on manually-administered websites to enable HTTPS. It’s developed by the Electronic Frontier Foundation (EFF) and is designed to simplify the process of setting up and maintaining an HTTPS server.</p>
-<p>Certbot can automatically upgrade/update most server configurations and supports a variety of web servers such as Apache and nginx. Site verification can be handled automatically by certbot or you can verify manually using DNS or by placing a file in your servers document tree.</p>
-<p>Now that we’ve got the what, who, and why out of the way, let’s see how it works by setting up HTTPS for a basic Apache installation.</p>
+<h3 id="why-https">Why HTTPS?</h3>
+<p>Switching to HTTPS not only secures the data between your website and its users but also boosts your SEO rankings, as search engines like Google favor secure sites. It also gives your visitors confidence, knowing their data is protected. And best of all, it’s free and they have made it dead simple to setup in almost any environment.</p>
+<h3 id="upgrading-to-https-with-certbot">Upgrading to HTTPS with Certbot</h3>
+<p>Certbot is a free, open-source software tool for automatically using Let’s Encrypt certificates on manually-administered websites to enable HTTPS. It’s developed by the Electronic Frontier Foundation (EFF) and is designed to simplify the process of setting up and maintaining an HTTPS server. Certbot isn’t the only tool for working with Let’s Encrypt’s ACMEv2 protocol, they provide a great <a href="https://letsencrypt.org/docs/client-options/">list of ACMEv2 clients</a> for a variety of languages and environments.</p>
+<p>We’re going to stick with certbot since it does everything we need. Certbot can automatically upgrade/update most server configurations and supports a variety of web servers such as Apache and nginx. Site verification can be handled automatically by certbot or you can verify manually using DNS or by placing a file in your servers document tree.</p>
+<p>Now that we’ve got the what, who, and why out of the way, let’s actually set up HTTPS for a basic Apache installation.</p>
 <h3 id="step-by-step-guide">Step-by-Step Guide</h3>
-<p>Here’s a basic guide to get you started with Certbot. Note that you’ll need shell access to your web server and appropriate permissions to execute commands.</p>
+<p>This ia a basic guide to get you started with Certbot. They make this either very simple or very difficult depending on your setup. The more standard your setup, the more likely it will work out of the box. Note that you’ll need shell access to your web server and appropriate permissions to execute commands.</p>
 <ol type="1">
 <li><p><strong>Install Certbot</strong>: The first step is to install Certbot. The installation method varies depending on your server’s operating system but certbot is included in most package managers. For a Linux server running Debian, you would use:</p>
 <pre class="bash"><code>sudo apt-get update
@@ -158,15 +201,15 @@ sudo apt-get install certbot</code></pre></li>
     </section>
     <section class="comments">
       <header>Discussion</header>
-      <div class="comment-comments">
+      <div id="comment-comments">
         
       </div>
       <hr>
-      <div id="comment-form" class="comment-container" data-_parent="1">
+      <div id="comment-form" class="comment-container" data-_parent="0">
         <h3>Leave a Reply</h3>
         <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
         <hr>
-        <form id="comment" onsubmit="app.comment(event);return false" class="form">
+        <form id="comment" onsubmit="return false;" class="form">
           <label for="comment-comment"><span class="required">Comment</span>
             <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
           </label>
@@ -180,8 +223,8 @@ sudo apt-get install certbot</code></pre></li>
             <input type="text" id="comment-website" name="comment-website" class="comment-input">
           </label>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.cancelComment(this, event);return false;">Cancel</button>
-            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.postComment(this, event);return false;">Post Comment</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.postComment(this, event);return false;">Post Comment</button>
           </div>
         </form>
       </div>
@@ -212,166 +255,6 @@ sudo apt-get install certbot</code></pre></li>
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
 <script>hljs.highlightAll();</script>
-<script>
-(function() {
-  const $ = str => document.querySelector(str);
-  const $$ = str => document.querySelectorAll(str);
-
-  const app = {
-    data: {},
-    state: {
-      loaded: false
-    },
-    init() {
-      let name = location.href.replace(/^.+\//, '').replace(/\.html$/, '');
-      console.log(`page name: ${name}`);;
-      
-      try {
-        fetch(`/crblog/blog/comment.php?page=${name}`).then(r=>r.json()).then(data=>{
-          app.comments = data;
-          console.log(`Retrieved ${name}.json`);
-          console.dir(data);
-        });
-      } catch(e) {
-        console.log(`No comments file found for ${name}`);
-        console.dir(e);
-      }
-      app.state.loaded = true;
-    },
-    fetch(url, callback) {
-      fetch(url).then(response=>response.json()).then(data=>{
-          app.data = data;
-          app.state.loaded = true;
-          if (callback && typeof(callback) === "function") {
-              callback(data);
-          }
-      });
-    },
-    postComment(who, evt) {
-      if (evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-      }
-      let tgt;
-      if (who) {
-        tgt = who.closest("#commentFormWrap");
-      }
-
-      if (!tgt) {
-        tgt = document.querySelector("#comment-form");
-      }
-
-      let pid = tgt.dataset._parent;
-      let post = {
-        email: tgt.querySelector("#comment-email")?.value,
-        name: tgt.querySelector("#comment-name")?.value,
-        site: tgt.querySelector("#comment-site")?.value,
-        comment: tgt.querySelector("#comment-comment")?.value,
-        date: app.getDate()
-      };
-      
-      let pids = pid.split(/\./);
-      if (pids.length === 1) {
-        let idx = parseInt(pids[0]) - 1;
-        ;
-        if (!app.comments[idx]) {
-          app.comments[idx] = post;
-        }
-        if (!app.comments[idx].replies) {
-          app.comments[idx].replies = [ ];
-        }
-        post._id = pid + "." + (app.comments[idx].replies.length + 1);
-        post._parent = pid;
-        app.comments[idx].replies.push(post);
-      } else if (pids.length === 2) {
-        let idx1 = parseInt(pids[0]) - 1,
-            idx2 = parseInt(pids[1]) - 1;
-
-        if (!app.comments[idx1].replies[idx2].replies) {
-          app.comments[idx1].replies[idx2].replies = [];
-        }
-
-        post._id = pid + "." + (app.comments[idx1].replies[idx2].replies.length + 1);
-        post._parent = pid;
-        app.comments[idx1].replies[idx2].replies.push(post);
-      }
-
-      console.dir(app.comments);
-      console.log(`New comment:`);
-      console.dir(post);
-    },
-    findParent(id, tree) {
-      for (let k in tree) {
-        if (tree[k]._id === id) {
-          
-        }
-      }
-    },
-    getDate() {
-      let now = new Date();
-      let hr = now.getHours();
-      let xm = "am";
-
-      if (hr > 12) {
-        xm = "pm";
-        hr -= 12;
-      }
-
-      return now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' + hr + ':' + now.getMinutes() + xm;
-    },
-    reply(who, evt, pid='0') {
-      if (evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-      }
-      let cwrap = $("#commentFormWrap");
-      if (cwrap) {
-        cwrap.parentNode.removeChild(cwrap);
-      }
-      app.data.commentForm = $("#comment").outerHTML;
-      let wrap = document.createElement("div");
-      wrap.id = "commentFormWrap";
-      wrap.dataset._parent = pid;
-      wrap.innerHTML = app.data.commentForm;
-      wrap.querySelector("#comment").id = "reply";
-      
-      who.parentNode.append(wrap);
-
-      return false;
-    },
-    display(data, tgt) {
-      let out = "<table><thead><tr>";
-      const keys = Object.keys(data[0]);
-      if (keys) {
-          keys.forEach(key => {
-              out += `<th>${key}</th>`;
-          });
-      }
-      out += "</tr></thead><tbody>";
-      data.forEach(item=>{
-          out += `<tr>`;
-          keys.forEach(key => {
-              out += `<td>${item[i]}</td>`;
-          });
-          out += `</tr>`;
-      });
-      out += "</tbody></table>";
-
-      if (tgt) {
-        tgt.innerHTML = out;
-      }
-      return out;
-    },
-    cancelComment(who, evt) {
-      let el = who.closest(".commentFormWrap");
-      if (el) {
-        el.parentNode.removeChild(el);
-      }
-    }
-  }
-  window.app = app;
-  app.init();
-})();
-</script>
+<script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
