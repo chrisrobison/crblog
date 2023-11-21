@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 300 300">
+	<defs>
+    <linearGradient id="Gradient1">
+      <stop class="stop1" offset="0%" />
+      <stop class="stop2" offset="30%" />
+      <stop class="stop3" offset="100%" />
+  </linearGradient>
+     <linearGradient id="Gradient2">
+      <stop class="stop3" offset="0%" />
+      <stop class="stop1" offset="100%" />
+  </linearGradient>
+  </defs>
+   <style>
+    #pic {
+      fill: black;
+    }
+    .stop1 {
+    stop-color: white;
+    stop-opacity: 1;
+    }
+    .stop2 {
+    stop-color: black;
+    stop-opacity: .5;
+    }
+    .stop3 {
+      stop-color: black;
+      stop-opacity: 1;
+	  }
+	text {
+    fill: black;
+    font-size: 32px;
+      font-family: monospace;
+      font-weight: 700;
+	}
+  </style>
+   <mask id="myMask">
+    <!-- Everything under a white pixel will be visible -->
+    <rect x="0" y="0" width="600" height="600" fill="white" />
+
+  <g fill="black">
+    <text x="1" y="10">data:image/jpg;base64,R0lGODl</text>
+    <text x="1" y="30">base64,R0lMnCBwYJSgkPD05GODl</text>
+    <text x="1" y="50">tBJEm1PEnhXE3pfToxC0w9E1dADm</text>
+	<text x="1" y="75">APfvAMnCBwYJSgkPD05AAAABMNDj</text>
+    <text x="1" y="100">MnCBwMnCBwYJSgkPD05YJSgkPD05</text>
+    <text x="1" y="125">OEExC0w9BJEm1PEnhXE3pfE1dADm</text>
+    <text x="1" y="150">BJEm1PEnhBJEm1PEnhXE3pfXE3pf</text>
+    <text x="1" y="175">FnRgBJEm1PEnhXE3pfKzQuTDw4Xj</text>
+    <text x="1" y="200">BJEm1PEnBJEm1PEnhXE3pfhXE3pf</text>
+  </g>
+</mask>
+  <path id="pic" d="M0 0H273V200H0V176H30L67 142 104 177 169 86 189 124 198 112 229 163 245 146H253V22H21V176H0Z" fill="#000" mask="url(#myMask)" />
+</svg>

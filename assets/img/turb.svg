@@ -1,0 +1,26 @@
+<svg
+  width="500"
+  height="500"
+  viewBox="0 0 1000 1000"
+  xmlns="http://www.w3.org/2000/svg">
+  <filter id="displacementFilter">
+    <feTurbulence
+      type="turbulence"
+      baseFrequency="0.05"
+      numOctaves="2"
+      result="turbulence" />
+    <feDisplacementMap
+      in2="turbulence"
+      in="SourceGraphic"
+      scale="5"
+      xChannelSelector="R"
+      yChannelSelector="G" />
+  </filter>
+  <style>
+    text {
+      font-size: 64px;
+    }
+  </style>
+  <text x="100" y="100" style="filter: url(#displacementFilter)">This is my text</text>
+</svg>
+

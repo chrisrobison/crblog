@@ -1,18 +1,20 @@
 # Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design
 
-I hate starting out a new post (or letter or email, you get the picture). I never know how to break the ice, get the ball rolling. I get in my head and start overthinking things: "How technical should I go?", "Will they be reading this on their phones or desktop?" or "Should I start with a joke? But in the end, I usually churn out something I would turn in to my 11th grade English teachers;, a passable attempt but we both know I could do better. Well, look at that. I'm a paragraph in and very off topic. Let me start over....
+I hate starting out a new article. I never know how to break the ice; to get the ball rolling. Once I get started I'm fine. But getting started can be tough. I get in my head and start overthinking things: "How technical should I go?", "Will they be reading this on their phones or desktop?", "Will anybody actually read this besides me and my Mom?" or "Should I start with a joke? But in the end, I usually churn out something I would turn in to my 11th grade English teacher that I wrote the night before; a passable attempt but we both know I could do better. Well, this time I -will- do better, for you dear reader (Hi Mom!). Now would you look at that. I'm a paragraph in, rambling and very off topic. Let's talk fonts. Let's me start again...
 
-As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. We now live in a world where we are constantly bombarded with information. How can you stand out among all the other billboards, ads, and images? By choosing the right typeface, font and design to respresent *your* information.  In this article I'll give a short history of print and delve into why your font choice can make or break your project.
+As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. We now live in a world where we are constantly bombarded with information. How can you stand out among all the other billboards, ads, and images? By choosing the right typeface, font and design to convey *your* message and -engage- your audience.  In this article I'll give a short history of print and delve into why your font choice can make all the difference when it comes to getting your message across.
 
-I must admit, when I started to write this article I thought it was going to be a quick and easy how-to on the use of some of the more modern font technologies such as variable fonts and color fonts. But as I started writing it just kept expanding, I should probably break this up into multiple posts. We all need to remember how important the right font choice can be to getting our message across. Typography is not just about choosing a pretty typeface; it's about communication, readability, and enhancing the user experience.
+<figure style="float:right;width:;display:inline-block;padding:1rem;"><img src="/crblog/assets/img/printpress.jpg" width="320"><figcaption style="text-align:center;font-weight:300;font-size:12px;">An engraving of an early printing press</figcaption></figure> I must admit, when I started to write this post I thought it was going to be a quick and easy how-to on the use of some of the more modern font technologies such as variable and color fonts. How wrong I was. As I was researching and writing the history of the printed word I was astounded at how deeply influencial the written word has been on the development of humanity. From the early wide-spread use of pressing reeds into clay to form cuneiform tablets to the scrolls of ancient Greece and Egypt; to Gutenberg's printing press and Martin Luther's protest nailed to the door of the Wittenberg Church; to yellow journalism newspapers fanning the flames of war and the fake news of today, the printed word, by hand or machine, has had a profound impact on the development of our society. 
+
+Well that intro got a lot longer than I was planning but I apparently have a new passion and respect for fonts and print design. I should probably break this up into multiple posts. Anyway, we should all remember the long and arduous journey humanity has taken over the past 3,000 years to get us to where we are today. With a nearly unlimited array of designs choices to convey our messages and a historically unprecedented freedom to communicate with nearly anyone else on the planet at an instant, we need to take seriously how influencial a font choice can be to getting our message across. I know it sounds a little silly, but it's the little things like this that can make all the differnece. Typography is not just about choosing a pretty typeface; it's about communication, readability, and getting the user engaged with your message.
 
 ## Font Vocabulary
 
-The print design ecosystem has a vocabulary all their own. Western society has been pressing out books since 1454 (see what I did there?) and the list of words we use to describe how the print looks on paper has grown to be quite large. Seemingly similar concepts have subtle differences (see Legibility vs Readability, Typeface vs Font). 
+The print & design industry have a vocabulary all their own. Western society has been pressing out books since 1454 (see what I did there?) and the list of words we use to describe how the print looks on paper has grown to be quite large. Seemingly similar concepts have subtle differences (see Legibility vs Readability, Typeface vs Font). 
 
-Yet, we use many of these terms everyday; Did you know we get the words "UPPERCASE" and "lowercase" from the original Movable Type Printing Press? The UPPERCASE letters were held in the, well in the upper case of the press. I'll leave it as an exercise to the reader to discover where the lowercase letters were stored or just a tall tale.
+Yet, we use many of these terms everyday; Did you know we get the words "UPPERCASE" and "lowercase" from the original Movable Type Printing Press? The UPPERCASE letters were held in the, well in the upper case of the press. I'll leave it as an exercise to the reader to guess where the lowercase letters were stored or is this just an apocryphal story?
 
-Here's a list of some basic terminology in the world of fonts and print design:
+I should warn you that I love to make lists. Love. Them. They help me keep my writing more concise. I don't know if you've noticed, but I can get off topic and ramble on pretty easily but I've learned to be more succinct by using lists! So don't be surprised if you come across a few lists in my posts. Speaking of lists, here's a list of some basic terminology in the world of fonts and print design that I found to be interesting, confusing, ambiguous or just felt I needed to make note of:
 
 1. **Typeface vs. Font**: A typeface is the design of the lettering (e.g., Times New Roman), while a font is a specific style and size of that typeface (e.g., Times New Roman, 12pt, Bold).
 
@@ -22,7 +24,7 @@ Here's a list of some basic terminology in the world of fonts and print design:
 
 4. **Hierarchy and Emphasis**: Different fonts and styles (like bold or italic) are used to create a hierarchy or to emphasize certain parts of the content.
 
-5. **Consistency**: Consistency in using fonts is crucial for creating a cohesive and harmonious design. Too many different font styles can be distracting or even worse, disorientating.
+5. **Sizing & Units**: This starts to get a little out of scope here but...I just want to remind everyone that with a little up-front planning using responsive design, @media-queries and the right relative units, the same markup can be used for any screen size or print resolution. I am still surprised at the number of companies I still see maintaining multiple codebases for desktop and mobile websites. With variable fonts and color icon fonts you can make the same markup look good from 72dpi to 1200dpi. Down with bitmaps! Long live vector graphics!
 
 ## Key Considerations
 
@@ -40,18 +42,9 @@ When we need a font, most of us will just scroll through the 'Font' menu until w
 
 Now that we've covered the basics, let’s explore the importance of font choice in web and mobile design, including the innovative world of variable and color fonts.
 
-## Understanding Optical Sizing
-
-<figure style="float:right; width:400px;border-left:2px solid #0004;">
-<img src="/crblog/assets/img/optical-font.svg" style="width:400px;float:right;">
-<figcaption style="text-align:center; font-size:0.7em;"><em>Example of Font with optical sizing</em></figcaption>
-</figure>
-
-Optical sizing refers to the customization of typefaces for specific sizes. This practice, deeply rooted in the history of typography, ensures that text remains legible and aesthetically pleasing across different mediums and sizes. For instance, fonts designed for body text are optimized for readability at smaller sizes, with features like larger x-heights and wider characters, while display fonts are crafted for impact at larger sizes.
-
 ## Why Font Choice Matters in Digital Design
 
-Font choices in print and web design are crucial for several reasons. Since I love to make lists, how about another list:
+Font choices in print and web design are crucial for several reasons. I warned you about the lists:
 
 1. **User Engagement**: The right font can improve user engagement. A well-chosen font can make text more appealing and inviting, encouraging visitors to stay longer on a website or read more of a printed piece.
 
@@ -189,12 +182,12 @@ p {
 
 <img src="/crblog/assets/img/roboto-flex.png" style="width:100%">
 
-As you can see, implementing a variable font is identical to using a normal font, we just update the font to download and change the CSS to reflex the new font name. If anything it's even easier as we do not need to specify each weight and varient we want to use as they are all included in the variable font. So in this example, you can adjust the `wght` and `wdth` associated with 'Roboto Flex' to change how the weight and width axes are rendered. You can adjust these values throughout your CSS to suit your design needs.
+As you can see, implementing a variable font is identical to using a normal font, we just update the font to download and change the CSS to reflect the new font name. If anything, it's even easier as we do not need to specify each weight and varient we want to use when we include our external font. They are all included in the variable font. So in this example, you can adjust the `wght` and `wdth` associated with 'Roboto Flex' to change how the weight and width axes are rendered. You can adjust these values throughout your CSS to suit your design needs.
 
 ## Color Fonts
 ### Uses and Abuses
 
-I love color fonts. There are some purists out there that feel text should only be a single color, black. They cite readability concerns and start mumbling something about [Edward Tufte](https://www.edwardtufte.com/) and <span style='font-family:"Comic Sans MS"'>ComicSans</span>. But color fonts, also known as chromatic fonts, are the latest innovation in typography and they bring the richness of color and texture into text. While this opens up new possibilities for branding and design, allowing fonts to include multiple colors, gradients, and even textures it also provides opportunity for creating designs that are busy and difficult to read. In web design, color fonts can be used to:
+I love color fonts. There are some purists out there that feel text should only be a single color, black. They cite readability concerns and start mumbling something about [Edward Tufte](https://www.edwardtufte.com/) and <span style='font-size:1.1rem;font-weight:bold;font-family:"Comic Sans MS"'>ComicSans</span>. But color fonts, also known as chromatic fonts, are the latest innovation in typography and they bring the richness of color and texture into text. While this opens up new possibilities for branding and design, allowing fonts to include multiple colors, gradients, and even textures it also provides opportunity for creating designs that are busy and difficult to read. In web design, color fonts can be used to:
 
 1. **Enhance Branding**: Color fonts can include brand colors and textures, making text an integral part of the brand identity.
 

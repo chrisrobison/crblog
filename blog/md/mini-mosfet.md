@@ -1,6 +1,6 @@
-# Broke Down: Fixing a Stubborn Ignition Coil Issue on My 2015 Mini Cooper S Convertible
+# Broke Down: The Mystery of the Melting Coil Pack
 
-## The Mystery of the Melting Coil Packs
+## The Mystery Melting
 
 As an experienced software engineer with a knack for hands-on tech repairs, I recently faced a challenging yet intriguing issue with my 2015 Mini Cooper S Convertible. The car's #2 coil pack had not just failed once, but twice, melting in a way that was both baffling and concerning. Determined to get to the bottom of this, I embarked on a journey of automotive troubleshooting that tested both my patience and my technical skills.
 
