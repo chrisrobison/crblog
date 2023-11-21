@@ -67,7 +67,7 @@ while ($file = array_shift($argv)) {
         logit("Done.\n\n");
         $done = (property_exists($conf, "notty")) ? 1 : 0;
 
-        if ($conf->notty) {
+        if (isset($conf->notty)) {
             print "Blog object for '$basename':\n";
             $i = 0;
             foreach ($out as $key=>$val) {
@@ -122,13 +122,29 @@ while ($file = array_shift($argv)) {
         //$exe = `rm tmp.md`;
         logit("Done.\n\n");
 
+        // find existing nav item (if any) 
+        // for next and prev links
+        $found = 0;
+        for ($i=0; $i<count($posts); $i++) {
+            if ($out->link === $posts[$i]->link) {
+                $found = $i;
+            }
+        }
+        $nextPost = ($found > 0) ? $posts[$found - 1] : $posts[0];
+        $prevPost = ($found < count($posts) - 1) ? $posts[$found + 1] : $posts[0];
         logit("Generating Site HTML...");
         $nav = new stdClass();
-        $nav->prev_link = $posts[0]->link;
-        $nav->prev_title = $posts[0]->title;
-        $nav->prev_name = $posts[0]->name;
-        $nav->prev_subtitle = $posts[0]->subtitle;
-        $nav->prev_fulltitle = $posts[0]->fulltitle;
+        $nav->prev_link = $prevPost->link;
+        $nav->prev_title = $prevPost->title;
+        $nav->prev_name = $prevPost->name;
+        $nav->prev_subtitle = $prevPost->subtitle;
+        $nav->prev_fulltitle = $prevPost->fulltitle;
+        
+        $nav->next_link = $nextPost->link;
+        $nav->next_title = $nextPost->title;
+        $nav->next_name = $nextPost->name;
+        $nav->next_subtitle = $nextPost->subtitle;
+        $nav->next_fulltitle = $nextPost->fulltitle;
 
         $html = preg_replace_callback("/%%([^%]*)%%/", function($match) {
             global $out;
