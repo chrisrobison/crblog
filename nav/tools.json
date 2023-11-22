@@ -8,12 +8,11 @@
 
         },
         {
-          "title": "Image Encoder",
-          "link": "/img-encode/",
+          "title": "Base64 Image Encoder",
+          "link": "/encode-img/",
           "icon": "fas fa-image",
           "desc": "Simple base64 image encoder. Give it a URL and get back the image in base64 goodness.",
           "screenshot": "/crblog/assets/img/img-encoder.gif"
-
         },
         {
           "title": "Invoice Generator",
