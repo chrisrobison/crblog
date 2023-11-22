@@ -25,6 +25,9 @@ if (array_key_exists("name", $in) && array_key_exists("email", $in) && array_key
         file_put_contents("incoming.txt", $newjson);
         file_put_contents("incoming/$now.json", json_encode($in));
     }
+} else {
+    header("Location: https://cdr2.com/crblog/contact.html");
+    exit;
 }
 
 ?>
