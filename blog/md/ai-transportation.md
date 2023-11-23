@@ -20,7 +20,7 @@ Predictive maintenance, powered by AI, is a game-changer in ensuring the buses a
 
 ### A Real-World Scenario: D Harris Tours
 
-Recently at D Harris Tours we had a bus that's been running smoothly for months. Traditional maintenance schedules would have reported that the vehicle is in good shape, but luckily we recently upgraded all of the GPS devices in our fleet and these new devices have extended integration into the onboard vehicle computer. It can report vehicle mile, fuel & fluid levels and the best part: it relays OBD-II diagnostic errors to our backend. It is setup to report in with any triggered OBD-II codes or low fluid levels and in this instance, the bus reported that one of it's O2 sensors, a sensor that is essential for controlling emissions, was reading way outside its specfication; which mosy likely means that the sensor has gone bad. This message was then automatically forwareded to our team of mechanics who investigated, verified the diagnosis and performed a repair. 
+Recently at D Harris Tours we had a bus that's been running smoothly for months. Traditional maintenance schedules would have reported that the vehicle is in good shape, but luckily we recently upgraded all of the GPS devices in our fleet and these new devices have extended integration into the onboard vehicle computer. It can report vehicle mile, fuel & fluid levels and the best part: it relays OBD-II diagnostic errors to our backend. It is setup to report in with any triggered OBD-II codes or low fluid levels and in this instance, the bus reported that one of it's O2 sensors, a sensor that is essential for controlling emissions, was reading way outside its specfication; which mosy likely means that the sensor has gone bad. This message was then automatically relayed to our team of mechanics who investigated, verified the diagnosis, and performed a repair. 
 
 This process is already light-years ahead of our former reactionary style of mainentance. Instead of having to wait for a driver complaint about a mechanical issue with their bus, the bus is letting us know that it is going to have a problem BEFORE IT HAS BECOME A PROBLEM. This is huge. This gives us the ability to plan for bus repairs as opposed to being forced into one with a breakdown. I think we can do even better than this though. 
 
@@ -32,15 +32,11 @@ I am currently training a custom AI model on the data we receive from our fleet 
 
 ### The Concern of Every Parent and School
 
-One of the biggest concerns for parents and schools is knowing where the students are during their commute. In the past, this was a black box, with information available only when the bus arrived at its destination.
-
-### AI-Enabled Tracking
-
-Now, with AI-enhanced GPS and tracking systems, parents and schools can have real-time information about the bus's location. This system can also alert if the bus deviates from its designated route or makes unscheduled stops, adding an extra layer of security.
+One of the biggest concerns for parents and schools is knowing where the students are during their commute. In the past, this was a black box, with information available only when the bus arrived at its destination or if a phone call was made to the driver. Now with each bus reporting it's GPS position in real-time to the back office, we know where the bus is, how fast it's going and even which direction they are headed. Parents, schools and administrators can view real-time information about their trip from our customer portal. This system can also alert if the bus deviates from its designated route or makes unscheduled stops, adding an extra layer of security.
 
 ### An Added Benefit: Efficiency in Operations
 
-This real-time tracking isn't just about peace of mind; it's also about operational efficiency. Schools can better manage their schedules, and transport managers can respond more quickly to any issues that arise, be it traffic delays or emergencies.
+This real-time tracking isn't just about peace of mind; it's also about operational efficiency. Schools can better manage their schedules, and transport managers can respond more quickly to any issues that arise, be it traffic delays or emergencies. Case in point: the San Francisco Bay Bridge was recently shut down during the morning commute due to protesters. Our dispatchers noticed one of our buses was on the eastern span of the bridge, not moving. They found out what was happening and sent another driver and bus to the pickup via an alternate route while instructing the stuck driver to return to the yard as soon as they could get turned around. The children did eventually get picked up and arrived at there destination safely, albiet a little late but so was everyone else in the bay area that day.
 
 ## The Future is Here
 
