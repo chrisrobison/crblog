@@ -45,8 +45,21 @@ h2 {
 /* Cursor */
 .txt-type > .txt {
   border-right: 0.2rem solid #777;
+  animation: blink 1s linear 0s infinite forwards;
 }
-
+  @keyframes blink {
+    0% {
+      border-right: 0.2rem solid #777;
+    }
+    49% {
+      border-right: 0.2rem solid #777;
+    }
+50% { border-right: 0px; }
+99% { border-right: 0px; }
+    100% {
+      border-right: 0.2rem solid #777;
+    }
+  }
 @media(min-width: 1200px) {
   h1 {
     font-size: 5rem;
@@ -112,7 +125,7 @@ div.ghost svg {
 }
 .ghost {
   position: absolute;
-  width: 98vw;
+  width: 97vw;
   height: 100%;
   overflow-x: hidden;
   bottom:1rem;
@@ -129,17 +142,17 @@ div.ghost svg {
      transform: scaleX(1);
     bottom: 0rem;
   }
-   60% {
+   40% {
      left: -600px;
      transform: scaleX(1);
     bottom: 0rem;
    }
-   80% {
+   65% {
      left:calc(100% + 300px);
      transform: scaleX(1);
     bottom: 0rem;
    }
-   81% {
+   85% {
      transform: scaleX(-1);
      left: calc(100% + 300px);
     bottom: 7rem;

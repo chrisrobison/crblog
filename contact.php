@@ -2,8 +2,8 @@
     $in = $_REQUEST;
     
 if (array_key_exists("name", $in) && array_key_exists("email", $in) && array_key_exists("token", $in)) {
-    if (!file_exists(".tokens/{$in['token']}")) {
-        print "<h1>No Bots Allowed</h1>";
+    if ($in['token'] == "" || !file_exists(".tokens/{$in['token']}")) {
+        print "<div style='flex-direction:column;width:600px;height:97vh;width:100vw;display:flex;align-items:center;justify-content:center;'><img width='600' src='/crblog/assets/img/nobots.jpg'><br><h1 style='font-family:sans-serif;text-transform:uppercase;font-size:48px;font-weight:900;margin:0px;'>No Bots Allowed</h1></div>";
         exit;
     } else {
         unlink(".tokens/{$in['token']}");
@@ -26,7 +26,8 @@ if (array_key_exists("name", $in) && array_key_exists("email", $in) && array_key
         file_put_contents("incoming/$now.json", json_encode($in));
     }
 } else {
-    header("Location: https://cdr2.com/crblog/contact.html");
+    //header("Location: https://cdr2.com/crblog/contact.html");
+    print "<div style='flex-direction:column;width:600px;height:97vh;width:100vw;display:flex;align-items:center;justify-content:center;'><img width='600' src='/crblog/assets/img/nobots.jpg'><br><h1 style='font-family:sans-serif;text-transform:uppercase;font-size:48px;font-weight:900;margin:0px;'>No Bots Allowed</h1></div>";
     exit;
 }
 
@@ -63,7 +64,7 @@ if (array_key_exists("name", $in) && array_key_exists("email", $in) && array_key
         main {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: flex-start;
             font-size: 32px;
 position: absolute;
@@ -394,7 +395,7 @@ text-shadow: 2px 2px 1px #000;
 		</g>
 		</svg>
 <main>
-<h2>Thank you, your message has been received.</h2>
+<h2>Thank you.<br>Your message has been received.</h2>
 
 </main>
 <script>

@@ -47,6 +47,16 @@
               loadingScreen: 500,
               useNavbarItems: true
             });
+            if (location.search) {
+              if (matches = location.search.match(/\?tgt=(.*)/)) {
+                console.dir(matches);
+                let title = matches[1];
+                title = title.replace(/.+?\//, '').replace(/\.html/, '');
+
+                app.loadTab(matches[1], title, title.replace(/\W/g, ''), true);
+              }
+            }
+              
         },
         state: {
             loaded: false,
