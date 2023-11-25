@@ -1,5 +1,23 @@
 [
     {
+        "title": "Blog Post Ideas",
+        "subtitle": "The List",
+        "fulltitle": "Blog Post Ideas: The List",
+        "link": "/crblog/blog/ideas.html",
+        "name": "blogpostideas",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
+        "title": "Blog Post Ideas",
+        "subtitle": "The List",
+        "fulltitle": "Blog Post Ideas: The List",
+        "link": "/crblog/blog/ideas.html",
+        "name": "blogpostideas",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
         "title": "Font Fundamentals",
         "subtitle": "The Vital Role of Font Choice in Web and Mobile Design",
         "fulltitle": "Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design",

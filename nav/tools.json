@@ -38,8 +38,8 @@
         },
         {
           "title": "Thesaurus",
-          "link": "/thesaurus.html",
-          "desc": "World's simplest thesaurus without ads and nothing to sell.",
+          "link": "/crblog/thesaurus1.html",
+          "desc": "World's simplest thesaurus without ads and nothing to sell. Now with directed graph goodness!",
           "screenshot": "assets/img/thesaurus.jpg",
           "icon": "fas fa-book"
         }
