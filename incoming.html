@@ -93,7 +93,7 @@
       app.getIncoming();
     },
     getIncoming() {
-      fetch("incoming.txt").then(r=>r.json()).then(data=>{
+      fetch("incoming/").then(r=>r.json()).then(data=>{
         app.data = data;
         let out = "<ul>";
         for (let item of data) {
