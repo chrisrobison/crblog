@@ -4,7 +4,8 @@ I hate starting out a new article. I never know how to break the ice; to get the
 
 As digital experiences continue to evolve, the choice of fonts in web and mobile design plays a pivotal role in shaping user engagement and readability. We now live in a world where we are constantly bombarded with information. How can you stand out among all the other billboards, ads, and images? By choosing the right typeface, font and design to convey *your* message and -engage- your audience.  In this article I'll give a short history of print and delve into why your font choice can make all the difference when it comes to getting your message across.
 
-<figure style="float:right;width:;display:inline-block;padding:1rem;"><img src="/crblog/assets/img/printpress.jpg" width="320"><figcaption style="text-align:center;font-weight:300;font-size:12px;">An engraving of an early printing press</figcaption></figure> I must admit, when I started to write this post I thought it was going to be a quick and easy how-to on the use of some of the more modern font technologies such as variable and color fonts. How wrong I was. As I was researching and writing the history of the printed word I was astounded at how deeply influencial the written word has been on the development of humanity. From the early wide-spread use of pressing reeds into clay to form cuneiform tablets to the scrolls of ancient Greece and Egypt; to Gutenberg's printing press and Martin Luther's protest nailed to the door of the Wittenberg Church; to yellow journalism newspapers fanning the flames of war and the fake news of today, the printed word, by hand or machine, has had a profound impact on the development of our society. 
+<figure style="float:right;width:;display:inline-block;padding:1rem;"><img src="/crblog/assets/img/printpress.jpg" width="320"><figcaption style="text-align:center;font-weight:300;font-size:12px;">An engraving of an early printing press</figcaption></figure> 
+I must admit, when I started to write this post I thought it was going to be a quick and easy how-to on the use of some of the more modern font technologies such as variable and color fonts. How wrong I was. As I was researching and writing the history of the printed word I was astounded at how deeply influencial the written word has been on the development of humanity. From the early wide-spread use of pressing reeds into clay to form cuneiform tablets to the scrolls of ancient Greece and Egypt; to Gutenberg's printing press and Martin Luther's protest nailed to the door of the Wittenberg Church; to yellow journalism newspapers fanning the flames of war and the fake news of today, the printed word, by hand or machine, has had a profound impact on the development of our society. 
 
 Well that intro got a lot longer than I was planning but I apparently have a new passion and respect for fonts and print design. I should probably break this up into multiple posts. Anyway, we should all remember the long and arduous journey humanity has taken over the past 3,000 years to get us to where we are today. With a nearly unlimited array of designs choices to convey our messages and a historically unprecedented freedom to communicate with nearly anyone else on the planet at an instant, we need to take seriously how influencial a font choice can be to getting our message across. I know it sounds a little silly, but it's the little things like this that can make all the differnece. Typography is not just about choosing a pretty typeface; it's about communication, readability, and getting the user engaged with your message.
 
@@ -16,6 +17,7 @@ Yet, we use many of these terms everyday; Did you know we get the words "UPPERCA
 
 I should warn you that I love to make lists. Love. Them. They help me keep my writing more concise. I don't know if you've noticed, but I can get off topic and ramble on pretty easily but I've learned to be more succinct by using lists! So don't be surprised if you come across a few lists in my posts. Speaking of lists, here's a list of some basic terminology in the world of fonts and print design that I found to be interesting, confusing, ambiguous or just felt I needed to make note of:
 
+<figure style="float:right;width:320px;display:inline-block;padding:1rem;"><img src="/crblog/assets/img/font-signs/5.png" width="320"><figcaption style="text-align:center;font-weight:300;font-size:12px;">Moveable type from a printing press</figcaption></figure> 
 1. **Typeface vs. Font**: A typeface is the design of the lettering (e.g., Times New Roman), while a font is a specific style and size of that typeface (e.g., Times New Roman, 12pt, Bold).
 
 2. **Serif vs. Sans Serif**: Serif typefaces, like Times New Roman, have small lines at the end of their strokes, while sans-serif typefaces, like Arial, do not. Serifs are traditionally seen as more formal, while sans-serifs are viewed as modern and clean.
@@ -42,6 +44,7 @@ When we need a font, most of us will just scroll through the 'Font' menu until w
 
 Now that we've covered the basics, let’s explore the importance of font choice in web and mobile design, including the innovative world of variable and color fonts.
 
+<figure style="width:600px;display:inline-block;padding:1rem;"><img src="/crblog/assets/img/font-signs/1.png" width="600"><figcaption style="text-align:center;font-weight:300;font-size:12px;">A man looking at style choices</figcaption></figure> 
 ## Why Font Choice Matters in Digital Design
 
 Font choices in print and web design are crucial for several reasons. I warned you about the lists:
@@ -187,6 +190,7 @@ As you can see, implementing a variable font is identical to using a normal font
 ## Color Fonts
 ### Uses and Abuses
 
+<figure style="float:right;width:320px;display:inline-block;padding:1rem;"><img src="/crblog/assets/img/font-signs/8.png" width="320"><figcaption style="text-align:center;font-weight:300;font-size:12px;">Traffic signs exemplify font consistency</figcaption></figure> 
 I love color fonts. There are some purists out there that feel text should only be a single color, black. They cite readability concerns and start mumbling something about [Edward Tufte](https://www.edwardtufte.com/) and <span style='font-size:1.1rem;font-weight:bold;font-family:"Comic Sans MS"'>ComicSans</span>. But color fonts, also known as chromatic fonts, are the latest innovation in typography and they bring the richness of color and texture into text. While this opens up new possibilities for branding and design, allowing fonts to include multiple colors, gradients, and even textures it also provides opportunity for creating designs that are busy and difficult to read. In web design, color fonts can be used to:
 
 1. **Enhance Branding**: Color fonts can include brand colors and textures, making text an integral part of the brand identity.
@@ -239,6 +243,7 @@ A solution to mitigate this issue on legacy software? Color fonts can also inclu
 ## What's the Catch?
 ### File size
 
+<figure style="width:600px;display:inline-block;padding:1rem;"><img src="/crblog/assets/img/font-signs/5.png" width="600"><figcaption style="text-align:center;font-weight:300;font-size:12px;">Moveable type from an early printing press</figcaption></figure> 
 So as you've probably guessed by now, there are drawbacks to color fonts. The biggest one is filesize (see what I did there?). A color font file is generally larger than a regular font file, and a lot more so when the font embeds high-resolution bitmap characters.
 
 Whereas fonts usually weigh 10-100 kilobytes, color vector fonts can reach 100KB to 2MB+ depending on their visual complexity.

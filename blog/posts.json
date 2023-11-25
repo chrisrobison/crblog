@@ -1,5 +1,18 @@
 [
-        {
+    {
+        "fulltitle": "Blog Post Ideas: The List",
+        "title": "Blog Post Ideas",
+        "subtitle": "The List",
+        "link": "/crblog/blog/ideas.html",
+        "name": "blogpostideas",
+        "date": "2023-11-24",
+        "tags": "",
+        "target": "iframe",
+        "hero": "/crblog/assets/img/ideas.jpg",
+        "icon": "fas fa-code",
+        "blurb": "The creative process can be a funny thing. There are times when the creativity just flows from me and at other times, not so much. The only problem is, I often need to be creative on a schedule but if the creative process if fickle and unpredictable what is one to do? You capture that creativity when it strikes and make lists that can be referred to later when your muse is off doing other things. So here is my list of blog topics for future me to write:"
+    },
+    {
         "fulltitle": "Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design",
         "title": "Font Fundamentals",
         "subtitle": "The Vital Role of Font Choice in Web and Mobile Design",

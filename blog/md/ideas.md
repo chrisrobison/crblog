@@ -1,54 +1,140 @@
 # Blog Post Ideas: The List
 ## Background
 
-The creative process can be a funny thing. There are times when the creativity just flows from me and at other times, not so much. The only problem is, I often need to be creative on a schedule but if the creative process if fickle and unpredictable what is one to do? You capture that creativity when it strikes and make lists that can be referred to later when your muse is off doing other things. So this is my list of blog article ideas broken down into 3 categories 
+The creative process can be a funny thing. There are times when the creativity just flows from me and at other times, not so much. The only problem is, I often need to be creative on a schedule but if the creative process if fickle and unpredictable what is one to do? You capture that creativity when it strikes and make lists that can be referred to later when your muse is off doing other things. So here is my list of blog topics for future me to write:
 
-## Transportation and Technology
+### General Topics 
 
-1. **"The Road to Efficiency: How Automation Can Streamline Your Transportation Business"**
-   - Discuss the benefits of automating scheduling, routing, and dispatching to improve efficiency.
+Let's start off with the fun stuff. These are general interest topics related to things I enjoy or have an interest in. Mostly things about electronics, business, karaoke, golf and local history.
 
-2. **"Navigating the Digital Landscape: Tech Upgrades for Small Transportation Firms"**
-   - Offer insights into affordable tech upgrades that can have the biggest impact on a small transportation business.
+1. **"Tearing Down Tech: A Software Engineer's Guide to Understanding Gadgets"** -
+	- Share stories about how disassembling devices has given me insights into hardware and software integration and how quality>quantity (usually).
 
-3. **"On-Demand Transit: Integrating Apps into Your Transportation Service"**
-   - Explore how small businesses can develop or integrate with mobile apps to provide on-demand services.
+2. **"Bridging the Gap: Tech Tips for Business Managers"** -
+	- Offer advice on how managers can effectively integrate technology into their businesses, tell stories from my own management experience.
 
-4. **"The GPS Revolution: Optimizing Routes and Reducing Costs for Small Transporters"**
-   - Explain how GPS technology can be used for more than just navigation, such as real-time tracking and route optimization.
+3. **"Coding R(E)volution: Navigating Modern Software Development Trends"** -
+	- Discuss the latest trends in software development, and how to keep skills updated in this fast-changing field. Dive deep into AI and low/no-code trends.
 
-5. **"From Paper Logs to Cloud Computing: Data Management for the Modern Transporter"**
-   - Discuss the transition from traditional record-keeping to using cloud services for better data management and accessibility.
+4. **"History Through a Techie's Lens"** -
+	- Explore historical events and figures, connecting them to modern technology or your personal experiences in the tech industry.
 
-6. **"Fueling the Future: How Small Transportation Businesses Can Adopt Eco-friendly Practices with Tech"**
-   - Provide a guide on how technology can help in adopting more sustainable practices, like fuel tracking and electric vehicle integration.
+5. **"Trivia Time: Unusual Tech Facts and History Nuggets"** -
+	- Share fun and obscure trivia about technology and history, showcase my extensive knowledge. Include cool tools and utilities for linux, history of computers, internet, funny or interesting RFCs, inside jokes and acronyms (ruok, POTS, GNU)
 
-7. **"Safety First: Tech Innovations That Are Making Small Transport Safer"**
-   - Highlight technologies that improve safety, such as automated driver logs, maintenance alerts, and advanced driver-assistance systems (ADAS).
+6. **"The Engineer's Playlist: How Music Influences My Coding"** -
+	- Discuss how different music genres, especially punk rock, influence my coding and creativity.
 
-8. **"The Last Mile: How Small Transportation Businesses Can Compete with Big Players"**
-   - Offer strategies for small businesses to improve their last-mile delivery services through technology.
+7. **"Karaoke and Code: Finding Harmony in Music and Software"** -
+	- Relate my experience singing karaoke to software engineering, focusing on performance, practice, and audience engagement.
 
-9. **"Blockchain on the Move: Simplifying Logistics for Small Transporters"**
-   - Simplify the concept of blockchain and discuss its potential applications in logistics and supply chain management for small businesses.
+8. **"3D Printing and Beyond: Bridging Digital and Physical Worlds"** -
+	- Share my journey in building 3D printers and scanners, and how this hobby intersects with my professional skills.
 
-10. **"AI and the Art of Logistics: Predictive Analytics for Small Transportation"**
-    - Introduce the concept of AI and machine learning for predictive analytics in demand forecasting, maintenance, and customer service.
+9. **"Tech Leader's Diary: Insights from Managing Engineering Teams"** -
+	- Offer leadership advice and insights gained from managing large teams in various tech environments.
 
-11. **"Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation"**
-    - Discuss how technology can help small transportation businesses stay compliant with ever-changing regulations.
+10. **"San Francisco's Tech Scene: A Personal Journey"** -
+	- Reflect on how living in San Francisco has influenced my career and hobbies in technology.
 
-12. **"Cybersecurity for the Road: Protecting Your Transportation Business from Digital Threats"**
-    - Provide tips on how small businesses can protect themselves from cyber threats, emphasizing the importance of securing fleet data.
+11. **"Golf and Grit: Lessons from the Green to the Screen"** -
+	- Draw parallels between the patience and precision required in golf and software development.
 
-13. **"Integrating E-commerce: How Small Transporters Can Partner with Online Retailers"**
-    - Explore the role of small transportation businesses in the e-commerce boom and how they can integrate their services with online retailers.
+12. **"Historic San Francisco: A Tech Perspective"** -
+	- Explore local history, focusing on how San Francisco’s past has shaped its present as a tech hub.
 
-14. **"Tech Talk: Communicating with Your Fleet Anywhere, Anytime"**
-    - Discuss the importance of communication technologies, such as VoIP and messaging apps, for managing a mobile workforce.
+13. **"Home Labs: DIY Tech Projects for Enthusiasts"** -
+	- Share DIY tech projects that beginners and enthusiasts can try at home, inspired by my own creations.
 
-15. **"Leveraging IoT: How Small Fleets Can Get Big Data Insights"**
-    - Explain the Internet of Things (IoT) and how small transportation businesses can use IoT devices for data collection and insights.
+14. **"From Punk to Programming: The Unconventional Journey of a Software Engineer"** -
+	- Tell my personal story, from LA->Paradise->SF->NY->SF. 
+
+15. **"The Art of the Side Project: Balancing Passion and Profession"** -
+	- Offer advice on managing side projects alongside a demanding tech career.
+
+## San Francisco History
+
+I've lived in San Francisco for nearly 30 years and during my time here, I have become something of a San Francisco historian. I love taking people on tours and showing them things they never knew existed. Everyone who visits sees the Golden Gate Bridge, Alcatraz and Fisherman's Wharf. But did you know that there is a hidden Rainbow Waterfall in Golden Gate Park? Or a hidden cross on the cliff above it. Or that there was an observatory near that same location, on Strawberry Hill? Or that the Pony Express's final stop was in the Financial District? Or what about the Barbary Coast? Or the House of Shields, a bar a former president died in right in the middle of prohibition. My tales of San Francisco history are as wild and colorful as the old west from which they were born. Now I've got myself excited about these topics. I need to get started writing these!
+
+1. "Fort Point: The Unyielding Guardian of the Golden Gate": Explore the history of Fort Point, its strategic importance, and the efforts that led to its preservation during the construction of the Golden Gate Bridge.
+
+2. "The Davidson Cross: A Hidden Gem in the Presidio": Tell the story of the George Davidson Cross, its significance, and its relatively unknown place in San Francisco history.
+
+3. "Scandal and Reform: The 1906 Graft Trials and Abe Ruef": Dive into the corruption, trials, and key figures like Abe Ruef and Handsome Gene Schmitz that shaped the city's political landscape in the early 20th century.
+
+4. "Star-Gazing History: The Observatory Atop Strawberry Hill": Discuss the history and significance of the observatory on Strawberry Hill, exploring its role in San Francisco's scientific community.
+
+5. "Rainbow Falls: The Hidden Waterfall of Golden Gate Park": Share the story and beauty of Rainbow Falls in Golden Gate Park, and its significance to the park's landscape.
+
+6. "The Beach Chalet: More Than Just a Restaurant": Explore the history of the Beach Chalet, its murals, and the story of the Norwegian boat that once graced its front.
+
+7. "The Mid-Winter Exposition of 1894: San Francisco's Forgotten Fair": Delve into the Mid-Winter International Exposition, its impact on the city, and how it shaped Golden Gate Park.
+
+8. "Law and Disorder: The Vigilance Committees of San Francisco": Examine the role and impact of the Vigilance Committees in the law and order (or lack thereof) of early San Francisco.
+
+9. "The Ghosts of Alcatraz: Beyond the Prison": Explore the lesser-known history of Alcatraz Island, including its military history before it became a federal prison.
+
+10. "The Hidden Tunnels of Chinatown: Myths and Realities": Investigate the myths and stories surrounding the alleged network of tunnels beneath Chinatown.
+
+11. "The Sutro Baths: A Story of Grandeur and Ruin": Chronicle the rise and fall of the Sutro Baths, once the world's largest indoor swimming pool complex.
+
+12. "Adolph Sutro: More Than Just a Mayor": Explore the life and legacy of Adolph Sutro, focusing on his contributions to San Francisco beyond his term as mayor.
+
+13. "The Lost Cemeteries of San Francisco": Uncover the history of San Francisco's cemeteries, many of which were moved outside the city limits, and what remains of them today.
+
+14. "The Ferry Building: A Portal Through Time": Trace the evolution of the Ferry Building, from its heyday as a transportation hub to its current status as a culinary landmark.
+
+15. "The Great Quake and Fire of 1906: Untold Stories of Survival and Rebirth": Share personal stories and lesser-known facts about the 1906 earthquake and fire, focusing on the resilience and rebuilding of the city.
+
+## Technology in Small to Medium Businesses (SMB's)
+
+This list is of blog topics concerning technology use by small to medium businesses (SMBs). Technology, especially the internet and when implemented properly via discovery and training, levels the playing field by making your website just as accessible as the competition. With well placed ads and SEO, SMB's can compete against much bigger competitors in terms of company visibility and getting potential customers to find you via a Google search or ad.
+
+1. **"Scaling Tech for Growth: Strategies for SMBs"**
+	- Discuss how to effectively scale technology infrastructure as your business grows (AWS, microservices, containers, etc).
+
+2. **"Cost-Effective Tech Solutions for SMBs"**
+	-  Share insights on budget-friendly technology solutions that can have a big impact on smaller businesses.
+
+3. **"Navigating the Cloud: Best Practices for SMBs"**
+	- Offer advice on how SMBs can leverage cloud computing for efficiency and scalability.
+
+4. **"Cybersecurity Essentials for Small Businesses"**
+	-  Address common cybersecurity threats for SMBs and provide practical tips for enhancing security.
+
+5. **"Building the Team: Building a Tech-Savvy Team in a Small Business Environment"**
+	-  Discuss the importance of tech literacy within your team and how to cultivate it.
+
+6. **"Budget AI: Integrating Machine Learning on a Budget"**
+	-  Describe ways in which small businesses can utilize AI and machine learning without breaking the bank.
+
+7. **"Driving SMB Growth: The Role of Data Analytics"**
+	-  Explain how data analytics can be used to inform business strategies and drive growth.
+
+8. **"Implementing Agile Methodologies in Small Tech Teams"**
+	-  Share my experiences or strategies for applying agile practices in smaller, more flexible teams.
+
+9. **"The Future of Work: Remote Technologies for SMBs"**
+	- Discuss technology tools and strategies to support remote or hybrid work environments.
+
+10. **"IT Infrastructure: Building and Maintaining a Robust Infrastructure"**
+	-  Offer guidance on setting up and maintaining an IT infrastructure that supports business needs.
+
+11. **"Software Solutions: Choosing the Right Software for Your Business"**
+	-  Provide advice on how to select software solutions that align with business goals and processes.
+
+12. **"Customer Experience: Tech-Driven Strategies for SMBs"**
+	-  Explore how technology can enhance customer experience and engagement.
+
+13. **"Tech Trends: Staying Ahead of the Curve"**
+	-  Tech trends SMBs should watch: identify emerging tech trends that could impact small and medium businesses.
+
+14. **"Tech Decisions: Balancing Innovation with Practicality"**
+	-  Discuss how to make technology decisions that are innovative yet practical for your business size and resources.
+
+15. **"Sustainable Tech: Best Practices for Small Businesses"**
+	-  Talk about how to implement technology in a way that is environmentally friendly and sustainable.
+
 
 ## AI in Transportation
 1. **"Revolutionizing Student Transport: How AI Enhances Safety and Efficiency"**
@@ -127,4 +213,52 @@ Here's a list of blog post ideas that delve into modern JavaScript features, pat
 14. **"JavaScript and Web Accessibility: Best Practices"**
 	-Highlight the importance of web accessibility and how JavaScript can be used to create accessible web applications.
 
-These topics not only cover a wide range of modern JavaScript features and best practices but also position you as a knowledgeable and experienced voice in the field of software engineering.
+## Transportation and Technology
+
+I've been doing a lot of fleet integration lately so I have quite a bit to say concerning transportation and technology:
+
+1. **"The Road to Efficiency: How Automation Can Streamline Your Transportation Business"**
+   - Discuss the benefits of automating scheduling, routing, and dispatching to improve efficiency.
+
+2. **"Navigating the Digital Landscape: Tech Upgrades for Small Transportation Firms"**
+   - Offer insights into affordable tech upgrades that can have the biggest impact on a small transportation business.
+
+3. **"On-Demand Transit: Integrating Apps into Your Transportation Service"**
+   - Explore how small businesses can develop or integrate with mobile apps to provide on-demand services.
+
+4. **"The GPS Revolution: Optimizing Routes and Reducing Costs for Small Transporters"**
+   - Explain how GPS technology can be used for more than just navigation, such as real-time tracking and route optimization.
+
+5. **"From Paper Logs to Cloud Computing: Data Management for the Modern Transporter"**
+   - Discuss the transition from traditional record-keeping to using cloud services for better data management and accessibility.
+
+6. **"Fueling the Future: How Small Transportation Businesses Can Adopt Eco-friendly Practices with Tech"**
+   - Provide a guide on how technology can help in adopting more sustainable practices, like fuel tracking and electric vehicle integration.
+
+7. **"Safety First: Tech Innovations That Are Making Small Transport Safer"**
+   - Highlight technologies that improve safety, such as automated driver logs, maintenance alerts, and advanced driver-assistance systems (ADAS).
+
+8. **"The Last Mile: How Small Transportation Businesses Can Compete with Big Players"**
+   - Offer strategies for small businesses to improve their last-mile delivery services through technology.
+
+9. **"Blockchain on the Move: Simplifying Logistics for Small Transporters"**
+   - Simplify the concept of blockchain and discuss its potential applications in logistics and supply chain management for small businesses.
+
+10. **"AI and the Art of Logistics: Predictive Analytics for Small Transportation"**
+    - Introduce the concept of AI and machine learning for predictive analytics in demand forecasting, maintenance, and customer service.
+
+11. **"Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation"**
+    - Discuss how technology can help small transportation businesses stay compliant with ever-changing regulations.
+
+12. **"Cybersecurity for the Road: Protecting Your Transportation Business from Digital Threats"**
+    - Provide tips on how small businesses can protect themselves from cyber threats, emphasizing the importance of securing fleet data.
+
+13. **"Integrating E-commerce: How Small Transporters Can Partner with Online Retailers"**
+    - Explore the role of small transportation businesses in the e-commerce boom and how they can integrate their services with online retailers.
+
+14. **"Tech Talk: Communicating with Your Fleet Anywhere, Anytime"**
+    - Discuss the importance of communication technologies, such as VoIP and messaging apps, for managing a mobile workforce.
+
+15. **"Leveraging IoT: How Small Fleets Can Get Big Data Insights"**
+    - Explain the Internet of Things (IoT) and how small transportation businesses can use IoT devices for data collection and insights.
+

@@ -275,10 +275,13 @@ export default App;</code></pre>
 <!-- AdminLTE App -->
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
-<script>hljs.highlightAll();</script>
+<script>
+  hljs.highlightAll();
+  if (!parent.app) {
+    document.location.href = "https://cdr2.com/crblog/index.html?tgt="+location.pathname;
+  }
+</script>
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
 

@@ -156,7 +156,7 @@
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
-            2023-11-20
+            2023-11-14
           </p>
           <hr>
           <img width="640" src="/crblog/assets/img/cheap-https.jpg" class="banner-pic"> 
@@ -254,7 +254,12 @@ sudo apt-get install certbot</code></pre></li>
 <!-- AdminLTE App -->
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
-<script>hljs.highlightAll();</script>
+<script>
+  hljs.highlightAll();
+  if (!parent.app) {
+    document.location.href = "https://cdr2.com/crblog/index.html?tgt="+location.pathname;
+  }
+</script>
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>

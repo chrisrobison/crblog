@@ -12,7 +12,7 @@ if (array_key_exists("page", $in)) {
             $exe = `cp comments/{$in['page']}.json comments/.archive/{$in['page']}-$now.json`;
         }
         file_put_contents("comments/{$in['page']}.json", $json);
-        chmod("comments/{$in['page']}.json", 0755);
+        chmod("comments/{$in['page']}.json", 0664);
     }
     
     if (file_exists("comments/{$in['page']}.json")) {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Broke Down: Fixing a Stubborn Ignition Coil Issue on My 2015 Mini Cooper S Convertible - Christopher Robison's Blog</title>
+  <title>Broke Down: The Mystery of the Melting Coil Pack - Christopher Robison's Blog</title>
   <link rel="canonical" href="https://cdr2.com/crblog/blog/brokedown.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,7 +152,7 @@
     <section class="content">
         <div class="blog">
           <h1 style="font-weight:900;">Broke Down</h1>
-          <h3>The Mystery of the Melting Ignition Coil</h3>
+          <h3>The Mysterious Melting Ignition Coil</h3>
           <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
           <p>
             By Christopher Robison<br>
@@ -161,7 +161,7 @@
           <hr>
           <img width="640" src="/crblog/assets/img/mini-mosfet.jpg" class="banner-pic"> 
           <hr>
-          <h2 id="the-mystery-of-the-melting-coil-packs">The Mystery of the Melting Coil Packs</h2>
+          <h2 id="the-mystery-melting">The Mystery Melting</h2>
 <p>As an experienced software engineer with a knack for hands-on tech repairs, I recently faced a challenging yet intriguing issue with my 2015 Mini Cooper S Convertible. The car’s #2 coil pack had not just failed once, but twice, melting in a way that was both baffling and concerning. Determined to get to the bottom of this, I embarked on a journey of automotive troubleshooting that tested both my patience and my technical skills.</p>
 <h4 id="initial-diagnosis-a-deep-dive-into-the-electricals"><strong>Initial Diagnosis: A Deep Dive into the Electricals</strong></h4>
 <p>My first step was to utilize a multimeter to trace the wiring for the problematic ignition coil. With the ECM (Engine Control Module) plugged in, I tested the power on the harness for coil #2. The voltage was present, but there was no fire signal, indicating a possible grounding issue somewhere between the coil and the ECM. After removing the wire harness from the ECM and checking end-to-end, I confirmed that none of the three wires in the harness were grounded unexpectedly. So far, so good.</p>
@@ -237,10 +237,13 @@
 <!-- AdminLTE App -->
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
-<script>hljs.highlightAll();</script>
+<script>
+  hljs.highlightAll();
+  if (!parent.app) {
+    document.location.href = "https://cdr2.com/crblog/index.html?tgt="+location.pathname;
+  }
+</script>
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
 

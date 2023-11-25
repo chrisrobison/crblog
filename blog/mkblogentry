@@ -5,7 +5,7 @@ $now = date("Ymdhi");
 
 $posts = json_decode(file_get_contents("posts.json"));
 $nav = json_decode(file_get_contents("../nav/blog.json"));
-
+print_r($nav);
 $exe = `cp posts.json backup/posts.$now.json`;
 $tpl = file_get_contents("blank.html");
 
@@ -133,25 +133,25 @@ while ($file = array_shift($argv)) {
         $nextPost = ($found > 0) ? $posts[$found - 1] : $posts[0];
         $prevPost = ($found < count($posts) - 1) ? $posts[$found + 1] : $posts[0];
         logit("Generating Site HTML...");
-        $nav = new stdClass();
-        $nav->prev_link = $prevPost->link;
-        $nav->prev_title = $prevPost->title;
-        $nav->prev_name = $prevPost->name;
-        $nav->prev_subtitle = $prevPost->subtitle;
-        $nav->prev_fulltitle = $prevPost->fulltitle;
+        $navlink = new stdClass();
+        $navlink->prev_link = $prevPost->link;
+        $navlink->prev_title = $prevPost->title;
+        $navlink->prev_name = $prevPost->name;
+        $navlink->prev_subtitle = $prevPost->subtitle;
+        $navlink->prev_fulltitle = $prevPost->fulltitle;
         
-        $nav->next_link = $nextPost->link;
-        $nav->next_title = $nextPost->title;
-        $nav->next_name = $nextPost->name;
-        $nav->next_subtitle = $nextPost->subtitle;
-        $nav->next_fulltitle = $nextPost->fulltitle;
+        $navlink->next_link = $nextPost->link;
+        $navlink->next_title = $nextPost->title;
+        $navlink->next_name = $nextPost->name;
+        $navlink->next_subtitle = $nextPost->subtitle;
+        $navlink->next_fulltitle = $nextPost->fulltitle;
 
         $html = preg_replace_callback("/%%([^%]*)%%/", function($match) {
             global $out;
             if (isset($out->{$match[1]})) {
                 return $out->{$match[1]};
-            } else if (isset($nav->{$match[1]})) {
-                return $nav->{$match[1]};
+            } else if (isset($navlink->{$match[1]})) {
+                return $navlink->{$match[1]};
             } else {
                 return "";
             }
