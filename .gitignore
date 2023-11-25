@@ -4,3 +4,4 @@ blog/backup
 blog/tmp.md
 incoming/
 blog/comments/.archive
+.tokens/
