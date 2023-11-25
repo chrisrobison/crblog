@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet' type='text/css'>
+      <style>
+         body { margin:0;padding:0;font-size:16px;font-family:Lexend,"Helvetica Neue", Optima, Verdana, sans-serif; font-weight:300; background-color:#fff;}
+         h1, h2, h3, h4, h5, input, select, textarea, button { font-family: Lexend, "Helvetica Neue", Optima, Verdana, sans-serif; }
+         a { text-decoration:none;color:#00c; }
+         a:hover { text-decoration:underline; }
+         a:visited { color:#006; }
+         a:active { color:#e00;display:inline-block;top:2px; }
+         #main { margin:1em; }
+         .antonym { color: #c00; }
+         .synonym { color: #00c; }
+
+      </style>
+  </head>
+   <body>
+      <div id='main'>
+         <form>
+            Lookup Word: <input type='text' id='word' name='word'><button>Lookup</button>
+         </form>
+         <ul id='synonyms'></ul>
+      </div>
+   </body>
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+   <script type='text/javascript'>
+      $(document).ready(function() {
+         $("form").submit(function() {
+            lookup($("#word").val());
+            return false;
+         });
+
+         function lookup(word) {
+            var s = document.createElement("script"); 
+            s.src = "https://thesaurus.altervista.org/service.php?word=" + encodeURIComponent(word) + "&language=en_US&output=json&key=uPg9e4w3ikOcjkaruu5P&callback=process"; 
+            document.getElementsByTagName("head")[0].appendChild(s); 
+         }
+
+         conf = {};
+         if (window.location.search) {
+            var str = window.location.search.replace(/^\?/, '');
+            var pairs = str.split(/\&/), pc = pairs.length;
+
+            for (var i=0; i<pc; i++) {
+               args = pairs[i].split(/=/);
+               conf[args[0]] = args[1];
+            }
+
+            if (conf['word']) {
+               $("#word").val(conf['word']);
+               lookup(conf['word']);
+            }
+         }
+      });
+      var result;
+      function process(data) { 
+         result = data;
+         var output = "", items, list, key, words, i, antonym, css, arr=[], types, typ, disp; 
+         for (key in result.response) { 
+            list = result.response[key].list; 
+            items = list.synonyms.split(/\|/);
+            output += "<li>" + list.category + "<ul>";
+            words = [];
+            arr = [];
+            for (i in items) {
+               antonym = 0;
+               types = items[i].match(/\s*\((.+?)\)/);
+               if (types && types[1]) {
+                  typ = types[1].replace(/\s*term/, '');
+               }
+               disp = items[i].replace(/\s*\(.+?\)/, '');
+               
+               if (items[i].match(/\(antonym\)/)) {
+                  items[i] = '(' + items[i].replace(/\s*\(.*/, '') + ')';
+                  antonym = 1;
+               }
+
+               css = (antonym) ? 'antonym' : 'synonym';
+               title = (antonym) ? 'Antonym' : 'Synonym';
+               arr[arr.length] = "<li><a title='" + title + "' class='" + typ + ' ' + css + "' href='?word=" + disp.replace(/\s/, '+') + "'>" + disp + "</a></li>";
+            }
+            output += arr.join("") + "<\/ul><\/li>\n";
+         } 
+         
+         if (output) {
+            document.getElementById("synonyms").innerHTML = output; 
+         }
+      }
+   </script>
+</html>
