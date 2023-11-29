@@ -5,7 +5,7 @@ $now = date("Ymdhi");
 
 $posts = json_decode(file_get_contents("posts.json"));
 $nav = json_decode(file_get_contents("../nav/blog.json"));
-print_r($nav);
+
 $exe = `cp posts.json backup/posts.$now.json`;
 $tpl = file_get_contents("blank.html");
 
@@ -49,6 +49,9 @@ while ($file = array_shift($argv)) {
          *    $comments = readComments("comments/$basename.json");
          * }
          **/
+        if (!isset($conf->date)) {
+           $conf->date = date("Y-m-d");
+        } 
         logit("Done. \n\nCreating new blog object...");
         $out = new stdClass();
         $out->fulltitle = $title;
@@ -62,6 +65,9 @@ while ($file = array_shift($argv)) {
         $out->hero = "/crblog/assets/img/".$basename.".jpg";
         $out->icon = "fas fa-code";
         $out->blurb = $para[1];
+        $out->date_published = date("c", strtotime($conf->date));
+        $out->date_modified = date("c");
+        $out->image = $basename;
         // $out->comments = $comments;
 
         logit("Done.\n\n");
