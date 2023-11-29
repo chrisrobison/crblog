@@ -1,0 +1,28 @@
+.santa.start {
+    position: absolute;
+    top: 50vh;
+    left: 110vw;
+    height: 126px;
+    width: 333px;
+    background-image: url("/crblog/assets/img/santa.png");
+    background-position: 0px 0px;
+    background-repeat:no-repeat;
+    transform: scale(0);
+    animation: fly 60s linear infinite forwards, flyY 1s steps(8, end) infinite, flyX 8s steps(6, end) infinite;
+}
+
+@keyframes fly {
+    0% { left: 110vw;  transform: scale(0.2, 0.2); }
+    50% { left: -30vw; transform: scale(-1, 1); }
+    51% { left: -30vw; transform: scale(1, 1); }
+    100% { left: 110vw; transform: scale(0.2, 0.2); }
+}
+@keyframes flyX {
+    0% { background-position-x: 0px ; }
+    100% { background-position-x: -2000px; }
+}
+@keyframes flyY {
+    0% { background-position-y: 0px; }
+    100% { background-position-y: -1010px ; }
+}
+
