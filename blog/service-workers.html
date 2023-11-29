@@ -125,6 +125,27 @@
       color: #c00;
     }
   </style>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Caching Assets: Service Workers in JavaScript",
+      "name": "Caching Assets: Service Workers in JavaScript",
+      "description": "We've all been there. You're on your computer, online taking care of business. You're just wrapping up the final part of a 6-part online job application form and you click submit. The page just spins and after a few seconds, you get the dreaded <q>Network not available</q> screen and all your work is now gone. Sure, browser    s have gotten better at recovering from these types of scenarios but we need to be able to write software that will work, offline or online, if we expect users to rely on our web-based applications.",
+      "image": [
+        "https://cdr2.com/crblog/assets/img/service-workers_1x1.jpg",
+        "https://cdr2.com/crblog/assets/img/service-workers_4x3.jpg",
+        "https://cdr2.com/crblog/assets/img/service-workers_16x9.jpg"
+       ],
+      "datePublished": "2023-06-08T00:00:00-07:00",
+      "dateModified": "2023-11-29T05:03:46-08:00",
+      "author": [{
+          "@type": "Person",
+          "name": "Christopher Robison",
+          "url": "https://cdr2.com/crblog/"
+        }]
+    }
+    </script>
 </head>
 <body class="hold-transition iframe-mode">
 <!-- Site wrapper -->
@@ -375,10 +396,10 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
 </code></pre>
 
           <hr>
-    <div class="content-footer">
-      <a href="/crblog/blog/fleet-communication.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/fleet-communication.html', 'Tech Talk: Fleet Communication', 'techtalk', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Tech Talk: Fleet Communication) Next &gt; </a>
-      <a href="/crblog/blog/compliance.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/compliance.html', 'Tech-Enabled Compliance', 'techenabledcompliance', true, event)" title="Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation" style="font-weight:400;">&lt; Previous (Tech-Enabled Compliance)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
@@ -439,10 +460,9 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
 <script>
   hljs.highlightAll();
   if (!parent.app) {
-    document.location.href = "https://cdr2.com/crblog/index.html?tgt="+location.pathname;
+    document.location.href = "/crblog/index.html?tgt="+location.pathname;
   }
 </script>
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-

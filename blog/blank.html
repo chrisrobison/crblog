@@ -125,6 +125,27 @@
       color: #c00;
     }
   </style>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "%%fulltitle%%",
+      "name": "%%fulltitle%%",
+      "description": "%%blurb%%",
+      "image": [
+        "https://cdr2.com/crblog/assets/img/%%image%%_1x1.jpg",
+        "https://cdr2.com/crblog/assets/img/%%image%%_4x3.jpg",
+        "https://cdr2.com/crblog/assets/img/%%image%%_16x9.jpg"
+       ],
+      "datePublished": "%%date_published%%",
+      "dateModified": "%%date_modified%%",
+      "author": [{
+          "@type": "Person",
+          "name": "Christopher Robison",
+          "url": "https://cdr2.com/crblog/"
+        }]
+    }
+    </script>
 </head>
 <body class="hold-transition iframe-mode">
 <!-- Site wrapper -->
@@ -227,7 +248,7 @@
 <script>
   hljs.highlightAll();
   if (!parent.app) {
-    document.location.href = "https://cdr2.com/crblog/index.html?tgt="+location.pathname;
+    document.location.href = "/crblog/index.html?tgt="+location.pathname;
   }
 </script>
 <script src="/crblog/assets/js/comments.js"></script>
