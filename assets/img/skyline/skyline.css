@@ -1,0 +1,25 @@
+body { background-color: #cfd5e2;
+	 background-image: url("https://cdr2.com/crblog/assets/img/skyline/sf-bridge.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-lights-1.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-sky.png");
+	 background-repeat: no-repeat;
+	 background-size: cover;
+	 overflow: hidden;
+	 -webkit-animation: blink 4s linear 0s infinite forwards;
+	 animation: blink 4s linear 0s infinite forwards;
+}
+	
+@-webkit-keyframes blink { 0% { background-image: url("https://cdr2.com/crblog/assets/img/skyline/sf-bridge.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-lights-1.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-sky.png");
+	 }
+	 50% { background-image: url("https://cdr2.com/crblog/assets/img/skyline/sf-bridge.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-lights-0.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-sky.png");
+	 }
+	 100% { background-image: url("https://cdr2.com/crblog/assets/img/skyline/sf-bridge.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-lights-1.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-sky.png");
+	 }
+}
+	
+@keyframes blink { 0% { background-image: url("https://cdr2.com/crblog/assets/img/skyline/sf-bridge.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-lights-1.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-sky.png");
+	 }
+	 50% { background-image: url("https://cdr2.com/crblog/assets/img/skyline/sf-bridge.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-lights-0.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-sky.png");
+	 }
+	 100% { background-image: url("https://cdr2.com/crblog/assets/img/skyline/sf-bridge.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-lights-1.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png"), url("https://cdr2.com/crblog/assets/img/skyline/sf-sky.png");
+	 }
+}
+
