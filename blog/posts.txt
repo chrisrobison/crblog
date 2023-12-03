@@ -1,3 +1,5 @@
+https://cdr2.com/crblog/blog/vigilance-committees.html
+https://cdr2.com/crblog/blog/ideas.html
 https://cdr2.com/crblog/blog/font-design.html
 https://cdr2.com/crblog/blog/cheap-https.html
 https://cdr2.com/crblog/blog/ml-maintenance.html
@@ -7,6 +9,7 @@ https://cdr2.com/crblog/blog/modern-js.html
 https://cdr2.com/crblog/blog/haunted-sf.html
 https://cdr2.com/crblog/blog/fleet-iot.html
 https://cdr2.com/crblog/blog/modules.html
+https://cdr2.com/crblog/blog/eld.html
 https://cdr2.com/crblog/blog/fleet-communication.html
 https://cdr2.com/crblog/blog/service-workers.html
 https://cdr2.com/crblog/blog/compliance.html
