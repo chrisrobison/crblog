@@ -49,6 +49,16 @@
             flex-direction: row;
             white-space: nowrap;
         }
+        figure {
+            display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+            height: 33vh;
+            width: 18vw;
+            background-color: #fff;
+            box-shadow: 3px 3px 3px #0006;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
@@ -61,7 +71,28 @@ $out = "";
 
 foreach ($files as $file) {
     if (preg_match("/\.(jpg|png|gif|svg)$/", $file)) {
-        $out .= "<img title='$file' src='$file' width='150'>\n";
+        list($w, $h, $type, $attr) = getimagesize($file);
+        $sz = filesize($file);
+        $st = '';
+        if ($sz > 1024) {
+            $sz = $sz / 1024;
+            $st = "KB";
+        } 
+        if ($sz > 1024) {
+            $sz = $sz / 1024;
+            $st = "MB";
+        }
+        if ($sz > 1024) {
+            $sz = $sz / 1024;
+            $st = "GB";
+        }
+        $sz = number_format($sz);
+        $out .= <<<EOT
+<figure>
+<img title='$file' src='$file' width='150'>
+<caption><a href="$file" target="_blank">$file<br>$sz $st    &nbsp;  [{$w}x{$h}]</a></caption>
+</figure>
+EOT;
         $images[] = $file;
     }
 }
