@@ -1,12 +1,12 @@
 [
 	{
 		"title": "Styled Resumes",
-		"link": "/cv/generated/list.php",
+		"link": "/cv/resumes/list.php",
 		"icon": "fas fa-rectangle-list"
 	},
 	{
 		"title": "Plain Resume",
-		"link": "/cv/generated/spartan.html",
+		"link": "/cv/resumes/spartan.html",
 		"icon": "fas fa-envelope-open-text"
 	},
 	{

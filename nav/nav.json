@@ -1,4 +1,19 @@
-{
+{  
+  "topmenu": [
+    {
+      "title": "Home",
+      "link": "home.html",
+      "icon": "fas fa-home"
+    }, {
+      "title": "About",
+      "link": "about.html",
+      "icon": "fas fa-circle-info"
+    }, {
+      "title": "Contact",
+      "link": "contact.html",
+      "icon": "fas fa-envelope"
+    }
+  ],
   "sidemenu": [
     {
       "title": "Home",
@@ -24,7 +39,7 @@
     },
     {
       "title": "Resume",
-      "link": "/cv/generated/list2.php",
+      "link": "/cv/resumes/list2.php",
       "icon": "fa-regular fa-file",
       "_childicons": true,
       "_include": "nav/resume.json"
@@ -85,8 +100,6 @@
       "icon": "fa-solid fa-circle-question",
       "hidden": true
     }
-  ],
-  "topmenu": [
   ]
 }
 

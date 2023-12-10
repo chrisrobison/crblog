@@ -1,0 +1,43 @@
+# Game Concept: AR Alternate Reality Mobile Game
+
+### Game Name: Urban QuestAR
+
+#### Concept:
+**Urban QuestAR** is an augmented reality (AR) mobile game that encourages exploration, interaction, and engagement with the urban environment. It is designed with the commuting office worker in mind, it is similar to Pokémon Go, in that it integrates the digital and physical worlds, provides game challenges and quests but also with a focus on urban exploration and social interaction. The general idea is that once you install the game on your phone, you will be presented with challenges via the app, SMS messages, voicemails, etc. The challenges or quests will involve using your phone's camera to view an augmented reality overlay of game objects over the real world. As an example, you may receive a challenge to ride BART to Powell Street station and scan a QR code sticker another player put there as their quest. As you move around the city, you can scan your AR surroundings to find coins, gems, coupons, etc.
+
+#### Gameplay Mechanics:
+1. **Collecting Gems/Coins**: Players explore their city to find and collect digital gems or coins placed in various locations. These items are visible only through the AR interface of the game.
+
+2. **Dynamic Quests**: Players receive quests that require them to visit specific locations, like landmarks, parks, or lesser-known spots in the city. Quests can vary from simple check-ins to more complex tasks like solving riddles or puzzles based on the surroundings.
+
+3. **Photo Challenges**: Some quests involve taking specific photos, like a unique street art piece or a historic building, which then becomes a part of a larger collection or puzzle within the game.
+
+4. **Player-Generated Content**: Players can create their own quests by placing QR codes or digital markers in locations for others to find. Completing these player-generated quests yields higher rewards.
+
+5. **Social Interaction and Teams**: Players can join forces to complete more challenging quests. The game encourages forming teams for certain tasks, promoting social interaction both digitally and in person.
+
+6. **Transport-Based Quests**: Incorporating public transportation, quests might require players to ride a bus or train to reach a destination, encouraging exploration of new areas.
+
+7. **Event-Based Challenges**: Special events or challenges that occur during festivals, holidays, or specific days, adding variety and keeping the game fresh.
+
+8. **Leaderboards and Rewards**: Leaderboards for individual players and teams, along with a reward system for completing quests and challenges. Rewards could include virtual items, enhanced game abilities, or even real-world perks like discounts at local businesses.
+
+9. **Free-for-All**: Hold events where large quantities of coins and gems are placed in a general areas, such as 100 diamonds circling Union Square, one diamond per player. First come, first served.
+
+#### Real-World Integration:
+- **Local Business Partnerships**: Collaborate with local businesses to place quests or special items, driving foot traffic to their locations.
+- **City History and Culture Integration**: Quests that educate players about the city's history, culture, and landmarks.
+- **Community Events**: Organize real-world meetups or events, turning the game into a social platform.
+
+#### Technical Considerations:
+- **AR Technology**: Utilize advanced AR technology to seamlessly integrate digital objects into the real world.
+- **GPS and Geofencing**: Precise GPS tracking and geofencing to ensure accurate location-based gameplay.
+- **Privacy and Safety**: Strong focus on privacy and safety, ensuring player data is secure and gameplay doesn't lead players into unsafe situations.
+
+#### Monetization Strategy:
+- In-app purchases for cosmetic items or special abilities.
+- Partnerships with local businesses for advertising or featured quests.
+- Optional premium subscriptions offering enhanced gameplay features.
+
+#### Conclusion
+Urban QuestAR aims to combine the fun of a mobile game with the adventure of urban exploration, fostering community engagement and physical activity. Its focus on player-generated content and local culture makes it a constantly evolving experience, encouraging players to keep exploring and interacting with their city and fellow players.
