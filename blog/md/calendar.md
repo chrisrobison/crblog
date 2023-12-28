@@ -1,0 +1,106 @@
+Our Modern Calendar: Unraveling the History of Figuring Out What Day It Is
+
+In the intricate tapestry of time, the calendar stands as one of humanity's most vital creations. It defines and regulates our lives in such a fundamental way that we don't give a second thought as to how it came to be. Well, I'm here to tell that tale. As we embark on this whimsical journey through its history, we'll uncover the fascinating reasons behind the seemingly haphazard arrangement of months and why the celebrations of the New Year in various cultures happens in February. Let's set the stage for a captivating exploration into the fascinating world of calendars.
+
+**The Ancient Roots of the Calendar:**
+
+The purpose of a calendar is to reckon time in advance, to show how many days have to elapse until a certain event takes place in the future, such as the harvest or the release of Grand Theft Auto 6.  The earliest calendars, naturally, were crude and tended to be based upon the seasons or the lunar cycle. As it is today, so it was in our ancient past: we need to eat and growing food requires knowing when to plant and when to harvest. The early lunar-based calendars tracked the moon's phases, with months roughly corresponding to the moon's 29.5-day cycle. These lunar calendars laid the foundation for what would become the Gregorian calendar we use today. But the lunar cycle does not help when it comes to discerning when to plant your crops; the tilt of the earth combined with its position circling the sun is responsible for that. So from the start we had a conflict of competing methods of tracking the date. The moon cycle is much easier to observe and but it does not sync up with the solar year and, over time, the date when you should be planting your crops will drift to the point where you are no longer planting on the correct day. 
+
+**Marching into the Past:**
+
+The calendar of the Assyrians, for example, was based upon the phases of the moon.  They knew that a lunation (the time from one full moon to the next) was 29 1/2 days long, so their lunar year had a duration of 354 days.  This fell short of the solar year by about 11 days.  (The exact time for the solar year is approximately 365 days, 5 hours, 48 minutes, and 46 seconds.)  After 3 years, such a lunar calendar would be off by a whole month, so the Assyrians added an extra month from time to time to keep their calendar in synchronization with the seasons.
+ 
+The best approximation that was possible in antiquity was a 19-year period, with 7 of these 19 years having 13 months (leap months).  This scheme was adopted as the basis for the lunar calendar used by the Hebrews.  The Arabs also used this calendar until Mohammed forbade shifting from 12 months to 13 months; this causes the Muslim holy month of Ramadan to move backwards through the seasons, completing a cycle every 32 1/2 years.
+ 
+When Rome emerged as a world power, the difficulties of making a calendar were well known, but the Romans complicated their lives because of their superstition that even numbers were unlucky.  Hence their months were 29 or 31 days long, with the exception of February, which had 28 days.  Every second year, the Roman calendar included an extra month called Mercedonius of 22 or 23 days to keep up with the solar year.
+
+
+**The Julian Calendar:**
+
+Even this algorithm was very poor, so that in 45 BCE, Caesar, advised by the astronomer Sosigenes, ordered a sweeping reform.  By imperial decree, the year 46 BCE was made 445 days long to bring the calendar back in step with the seasons.  The new calendar, similar to the one we now use was called the Julian calendar (named after Julius Caesar).
+
+Months in the Julian calendar were 30 or 31 days in length and every fourth year was made a leap year (having 366 days) by adding a day to the end of the year.  This leap year rule was not consistantly applied until 8 CE.  The year-ending month of February, never a popular month, was presently shortened so that Julius Caesar and Emperor Augustus could each have long months named after them.
+
+Caesar also decreed that the year would start with the first of January, which since 153 BCE was the day that Roman consuls took office, and not the vernal equinox in late March.  Not everyone accepted that part of his reform, as we shall see.
+
+**The Gregorian Calendar Reform:**
+
+Caesar's year was 11 1/2 minutes short of the calculations recommended by Sosigenes and eventually the date of the vernal equinox began to drift.  Roger Bacon became alarmed and sent a note to Pope Clement IV, who apparently was not impressed.  Pope Sixtus IV later became convinced that another reform was needed and called the German astronomer, Regiomontanus, to Rome to advise him.  Unfortunately, Regiomontanus died of the plague shortly thereafter and the plans died as well.
+ 
+In 1545, the Council of Trent authorized Pope Gregory XIII to reform the calendar once more.  Most of the mathematical work was done by Father Christopher Clavius, S.J.  The immediate correction that was adopted was that Thursday, October 4, 1582 was to be the last day of the Julian calendar.  The next day was Friday, with the date of October 15.  For long range accuracy, a formula suggested by the Vatican librarian Aloysius Giglio was adopted.  It said that every fourth year is a leap year except for century years that are not divisible by 400.  Thus 1700, 1800 and 1900 would not be leap years, but 2000 would be a leap year since 2000 is divisible by 400.  This rule eliminates 3 leap years every 4 centuries, making the calendar sufficiently correct for most ordinary purposes.  This calendar is known as the Gregorian calendar and is the one that we now use today.
+
+It is interesting to note that in 1582, all the Protestant princes ignored the papal decree and so many countries continued to use the Julian calendar until either 1698 or 1752.  Britain and its American colonies went from Wednesday, September 2, 1752 to Thursday, September 14.  Prior to the changeover, the British used March 25 as the start of the new year.
+
+In Russia, it needed the revolution to introduce the Gregorian calendar in 1918.  Turkey didn't adopt it until 1927.
+
+**The Numbering of the Year:**
+
+The numbering of the year is generally done according to an "era", such as the year of a ruler's reign.
+
+In about 525, a monk named Dionysius Exiguus suggested that the calculated year of Jesus' birth be designated as year 1 in the Julian calendar.  This suggestion was adopted over the next 500 years and subsequently followed in the Gregorian calendar.
+
+For the benefit of those who seek religious significance to the calendar millenium, note that year 1 is too late by at least 4 years.  Herod the Great, named in the Christian Bible as having all children in Bethlehem put to death in an attempt to kill the infant Jesus, died in 4 BCE.
+
+Nothing particularly significant of an historic or religious nature happened in Gregorian year 1; however it has become a worldwide standard as the "common era."  In modern times, the terms "CE" (common era) and "BCE" (before common era) are preferred over the earlier (and, as we have seen, less accurate) "AD" (anno Domini, "the year of the Lord") and "BC" (before Christ).
+
+The Hebrew lunar calendar begins at 3760 BCE, the year of creation in Jewish tradition.  The Muslim lunar calendar begins on July 16, 622, when Mohammed fled from Mecca to Medina.
+
+The Japanese, Taiwanese, and North Koreans use the Gregorian calendar, but number the year by political era.  In Japan, an era begins when an emperor succeeds to the throne; year 1 of the Heisei era was 1989 when Emperor Akihito ascended to the throne (the first few days of 1989 was year 64 of the Shouwa era).  In Taiwan, year 1 is the first full year after the founding of the Republic of China in 1911.  In North Korea, year 1 is the year of the Juche (self-reliance) ideal, corresponding to the birth year of founder Kim Il-Sung (1912).  Thus, year 2020 is Reiwa 2 (Japan), 109th year of the Republic (Taiwan), and Juche 109 (North Korea).
+
+**Further Modifications to the Gregorian Calendar:**
+
+Despite the great accuracy of the Gregorian calendar, it still falls behind very slightly every few years.  The most serious problem is that the earth's rotation is slowing gradually.  If you are very concerned about this problem, you can tune in short wave radio station WWV or the Global Positioning System, which broadcasts official time signals for use in the United States.  About once every 3 years, they declare a leap second at which time you should be careful to adjust your system clock.  If you have trouble picking up their signals, you can simply purchase an atomic clock.
+
+There is still the problem that the Gregorian calendar represents a year of 365.2425 days and the actual time taken for the earth to rotate around the Sun is 365.2421991 days.  That means that the Gregorian calendar is actually 26 seconds slow each year, resulting in the calendar being one day behind every 3,300 or so years (a Y3.3K problem).
+
+Consequently, the Gregorian calendar has been modified with a further rule, which is that years evenly divisible by 4000 are not leap years.  Thus, the year 4000 will not be a leap year.  Or, at least we assume that's what will happen assuming that the calendar remains unchanged for the next 2000 years.
+
+The modified Gregorian calendar represents a year of 365.24225 days.  Thus, the modified Gregorian calendar is actually 4 seconds slow each year, resulting in the calendar being one day slow every 20,000 or so years.  So there will be a Y20K problem.
+
+There is some dispute whether the modified Gregorian calendar was officially adopted, or if it's just a proposal.  Other options (see below) exist; fortunately no decision needs to be made for several centuries yet.
+
+**Eastern Orthodox Modification of the Gregorian Calendar:**
+
+The Eastern Orthodox church in 1923 established its own rules to correct the Julian calendar.  In their calendar, century years modulo 900 must result in value of 200 or 600 to be considered a leap year.  Both the Orthodox and Gregorian calendar agree that the years 2000 and 2400 will be leap years, and the years 1900, 2100, 2200, 2300, 2500, 2600, 2700 are not.  However, the year 2800 will be a leap year in the Gregorian calendar but not in the Orthodox calendar; similarly, the year 2900 will be a leap year in the Orthodox calendar but not in the Gregorian calendar.  Both calendars will agree that 3000 and 3100 are leap years, but will disagree again in 3200 and 3300.
+
+The Orthodox calendar represents a year of 365.24222222... days.  Thus, the Orthodox calendar is actually 2 seconds slow each year, resulting in the calendar being one day slow every 40,000 or so years.  The Eastern Orthodox church has not yet made any statements on how the Y40K bug will be fixed.
+
+**The Quirky February New Year Celebrations:**
+
+Now, let's delve into the world of New Year celebrations in February. Many cultures, such the Chinese, Vietnamese, and Tibetan, celebrate their New Year based on lunar or lunisolar calendars. This results in New Year festivities that usually fall between January 21st and February 20th in our Gregorian calendar. These celebrations embrace the arrival of spring and the promise of new beginnings, aligning with the lunar cycles.
+
+**Meanings of Day Names:**
+
+The names of days of the week from a combination of Roman and Germanic names for celestial bodies:
+
+- Sunday:	Latin "dies solis" => "Sun's day"
+- Monday:	Latin "dies lunae" => "Moon's day"
+- Tuesday:	Germanic "Tiw's day" => "Mars' day"
+- Wednesday:	Germanic "Woden's day" => "Mercury's day"
+- Thursday:	Germanic "Thor's day" => "Jupiter's day"
+- Friday:	Germanic "Frigg's day" => "Venus' day"
+- Saturday:	Latin "dies Saturni" => "Saturn's day"
+
+**Meanings of Month Names:**
+
+The names of the months are from the Roman calendar:
+
+- January:	Janus, protector of doorways
+- February:	Februalia, a time for sacrifice to atone for sins
+- March:		Mars, god of war
+- April:		Latin "aperire" => "to open" buds
+- May:		Maia, goddess of plant growth
+- June:		Latin "juvenis" => "youth"
+- July:		Julius Caesar
+- August:	Augustus Caesar
+- September:	Latin "septem" => "seven"
+- October:	Latin "octo" => "eight"
+- November:	Latin "novem" => "nine"
+- December:	Latin "decem" => "ten"
+
+As you'll notice, the last four months are numbered 7 to 10, which is an artifact of the time when the new year started in March.
+
+**Conclusion:**
+
+So that's all I know about the history of calendars. Actually, I have some neat formulas for calculating the day of the week or the days between two dates but I'll save those for another time. Thanks for reading!
+

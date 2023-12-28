@@ -206,6 +206,10 @@ while ($file = array_shift($argv)) {
             logit("Done.\n\n");
 
             logit("Blog entry added. You should review the following files:\n\tposts.json\n\t../nav/blog.json\n\t$basename.html\n\t../assets/img/$basename.jpg\n\nBe sure to create or change the image $basename.jpg\n");
+            logit("Fixing links...");
+            $exe = `./fixlinks.php`;
+            logit("Generating sitemap...");
+            $exe = `./mkpostmap > posts.txt`;
         }
     
     }

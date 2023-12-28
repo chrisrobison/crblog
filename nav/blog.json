@@ -1,5 +1,14 @@
 [
     {
+        "title": "Our Modern Calendar",
+        "subtitle": "Unraveling the History of Figuring Out What Day It Is",
+        "fulltitle": "Our Modern Calendar: Unraveling the History of Figuring Out What Day It Is",
+        "link": "/crblog/blog/calendar.html",
+        "name": "ourmoderncalendar",
+        "target": "iframe",
+        "icon": "fas fa-code"
+    },
+    {
         "title": "Game Concept",
         "subtitle": "AR Alternate Reality Mobile Game",
         "fulltitle": "Game Concept: AR Alternate Reality Mobile Game",

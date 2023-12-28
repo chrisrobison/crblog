@@ -5,7 +5,7 @@
       <title></title>
       <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet' type='text/css'>
       <style>
-         body { margin:0;padding:0;font-size:18px;font-family:Lexend,"Helvetica Neue", Optima, Verdana, sans-serif; font-weight:300; background-color:#fff; display: flex; height: 100vh; width: 100vw; overflow: hidden; }
+         body { margin:0;padding:0;font-size:18px;font-family:Lexend,"Helvetica Neue", Optima, Verdana, sans-serif; font-weight:300; background-color:#fff; display: flex; height: 100vh; width: 100vw; }
          h1, h2, h3, h4, h5, input, select, textarea, button { font-family: Lexend, "Helvetica Neue", Optima, Verdana, sans-serif; }
          a { text-decoration:none;color:#00c; }
          a:hover { text-decoration:underline; }
@@ -182,16 +182,23 @@
         #info p {
         }
         #info {
+         display: none;
+        }
+        #info[open] {
             border: 4px solid #eee;
             border-radius: 1rem;
-            display: none;
+            display: flex;
+        }
+        button:active {
+         transform: translateY(2px);
+         background-color: #fff;
         }
       </style>
   </head>
    <body>
       <div id='main'>
          <form id="thesaurus">
-            <div class='app-title'>Thesaurus</div> <a href="#" class="info-icon" onclick="showInfo(); return false;"></a> Word: <input type='text' id='word' name='word'><button>Lookup</button>
+            <div class='app-title'>Thesaurus</div> <a href="#" class="info-icon" onclick="showInfo(); return false;"></a> Word: <input type='text' id='word' name='word'><button>Lookup</button> <a style="color:#9cf;position:absolute;right:1rem;text-decoration: underline;" href="thesaurus.html">Original Thesaurus</a>
          </form>
          <div id='synonyms'></div>
       </div>
@@ -199,7 +206,7 @@
          <form style="flex-direction:column;" method="dialog">
            <div class='dialog-header'>
                <h2>Online Thesaurus</h2>
-               <button class='close-button' onclick="closeInfo();">x</button>
+               <button class='close-button' onclick="closeInfo(); return false;">x</button>
            </div>
            <div class='dialog-body'>
                <h3>About</h3>
@@ -208,7 +215,7 @@
                <p>So try it out! Enter in a few words, drag a few bubbles around and be amazed at the clever use of CSS and math to get something you would normally need to do with canvas.</p>
             </div>
             <div class='dialog-foot'>
-               <button>Return to Thesaurus</button>
+               <button onclick="closeInfo(); return false;">Return to Thesaurus</button>
             </div>
          </form>
       </dialog>
@@ -216,10 +223,10 @@
    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
    <script type='text/javascript'>
       function showInfo() {
-         document.querySelector("#info").show();
+         document.querySelector("#info").setAttribute("open", true);
       }
       function closeInfo() {
-         document.querySelector("#info").close();
+         document.querySelector("#info").removeAttribute("open");
       }
       function beginDrag(e) {
          console.log('begin dragging');
@@ -354,7 +361,7 @@
                let rot = Math.atan2(y1, x1) * 180 / Math.PI;
                let len = Math.sqrt(x1*x1 + y1*y1);
                
-               arr[arr.length] = `<div style="top:${top}px;left:${left}px" class='word ${css}' id='word_${disp.replace(/\W/g, '')}'><a title='${title}' class='${typ} ${css}' href='#' onclick="lookup('${disp}')">${disp}</a></div><div data-link1="word_${disp.replace(/\W/g, '')}" data-link2="${category.replace(/\W/g, '')}" class='link' style="top:${y}px;left:${x}px;rotate:${rot}deg;width:${len}px;" id="link_${myword}_${disp}"></div>`;
+               arr[arr.length] = `<div style="top:${top}px;left:${left}px" class='word ${css}' id='word_${disp.replace(/\W/g, '')}'><a title='${title}' class='${typ} ${css}' href='#' onclick="lookup('${disp}')">${disp}</a></div><div data-link1="word_${disp.replace(/\W/g, '')}" data-link2="${category.replace(/\W/g, '')}" class='link' style="top:${y-25}px;left:${x+40}px;rotate:${rot}deg;width:${len}px;" id="link_${myword}_${disp}"></div>`;
                ++idx;
             }
 
@@ -372,8 +379,8 @@
             y1 = obj1.y - obj2.y, x1 = obj1.x - obj2.x;
             rot = Math.floor(Math.atan2(y1, x1) * 180 / Math.PI);
             len = Math.floor(Math.sqrt(x1*x1 + y1*y1));
-            link.style.top = obj2.top + 'px';
-            link.style.left = obj2.left + 'px';
+            link.style.top = (obj2.top - 25)+ 'px';
+            link.style.left = (obj2.left + 40)+ 'px';
             link.style.rotate = `${rot}deg`;
             link.style.width = `${len}px`;
          });

@@ -2,18 +2,8 @@
 session_start();
 $in = $_REQUEST;
 $out = array();
-$ref = $_SERVER['HTTP_REFERER'];
-$host = $_SERVER['HTTP_HOST'];
 
-if (preg_match("/^http[s]?:\/\/([^\/]*)(\/.*)/", $ref, $matches)) {
-    $refHost = $matches[1];
-    $refPath = $matches[2];
-    if ($refHost != $host) {
-        
-    }
-}
 if (array_key_exists("page", $in)) {
-
     if (array_key_exists('x', $in) && $in['x']==="save") {
         $json = file_get_contents("php://input");
         $json = htmlspecialchars(strip_tags($json),ENT_NOQUOTES);
@@ -27,7 +17,19 @@ if (array_key_exists("page", $in)) {
     }
     
     if (file_exists("comments/{$in['page']}.json")) {
-        $out = json_decode(htmlspecialchars(strip_tags(file_get_contents("comments/{$in['page']}.json"))));
+        $json = file_get_contents("comments/{$in['page']}.json");
+        $obj = json_decode($json);
+        foreach ($obj as $comment) {
+            $keys = get_object_vars($comment);
+            foreach ($keys as $key) {
+                $comment->{$key} = htmlspecialchars(strip_tags($comment->{$key}));
+            }
+        }
+        $out = $obj;
+    } else {
+        $out = new stdClass();
+        $out->status = "error";
+        $out->error = "Comments file coments/{$in['page']}.json does not exist";
     }
 }
 header("Content-Type: application/json");

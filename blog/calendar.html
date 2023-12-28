@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Modern Calendar: Unraveling the History of Figuring Out What Day It Is - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/ourmoderncalendar.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="/crblog/assets/css/adminlte.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+  <style>
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+     span.required::after {
+      display: inline-block;
+      position: relative;
+      content: "*";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+    section.comments  header {
+      font-size:2rem;
+      background:#333;
+      color: #eee;
+      font-weight: bold;
+    }
+    section.comments {
+      width: 50rem;
+      margin: 0px auto;
+    }
+    section.comments .comment-container {
+      padding: 1rem;
+    }
+    .comment-input {
+      width: 30rem;
+      font-size: 18px;
+      height: 2rem;
+    }
+    .comment-comment {
+      width: 40rem;
+      height: 6rem;
+    }
+    .comment-comments {
+      padding: 1rem;
+    }
+    .comment-date {
+      font-size: 0.8rem;
+      float: right;
+    }
+    #comment label span {
+      display: block;
+      width: 7rem;
+    }
+    @media screen and (max-width: 640px) {
+      section.comments {
+        width: 100vw;
+      }
+      .comment-comment { width: 90vw; }
+      .comment-input { width: 90vw; }
+
+    }
+    p.comment { margin-bottom: 0px; }
+    .comment-item {
+      list-style-type: none;
+      border-top: 0.5rem solid #ccc;
+    }
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comments-list { padding: 0; }
+    .commenter { color: #000; font-weight: bold; }
+    .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
+    .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
+    table {
+      border-collapse: collapse;
+      border: 2px solid #0005;
+      width: 100%;
+    }
+    table td {
+      border-right: 1px solid #0003;
+      background:#eee;
+      color: #000;
+      padding: 4px;
+    }
+    table .header th {
+      background: #000;
+      color: #eee;
+    }
+    .odd td {
+      background-color: #ccc;
+    }
+    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
+      text-align: center;
+      color: #c00;
+    }
+  </style>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Our Modern Calendar: Unraveling the History of Figuring Out What Day It Is",
+      "name": "Our Modern Calendar: Unraveling the History of Figuring Out What Day It Is",
+      "description": "In the intricate tapestry of time, the calendar stands as one of humanity's most vital creations. It defines and regulates our lives in such a fundamental way that we don't give a second thought as to how it came to be. Well, I'm here to tell that tale. As we embark on this whimsical journey through its history, we'll uncover the fascinating reasons behind the seemingly haphazard arrangement of months and why the celebrations of the New Year in various cultures happens in February. Let's set the stage for a captivating exploration into the fascinating world of calendars.",
+      "image": [
+        "https://cdr2.com/crblog/assets/img/calendar_1x1.jpg",
+        "https://cdr2.com/crblog/assets/img/calendar_4x3.jpg",
+        "https://cdr2.com/crblog/assets/img/calendar_16x9.jpg"
+       ],
+      "datePublished": "2023-12-27T00:00:00-08:00",
+      "dateModified": "2023-12-27T14:22:08-08:00",
+      "author": [{
+          "@type": "Person",
+          "name": "Christopher Robison",
+          "url": "https://cdr2.com/crblog/"
+        }]
+    }
+    </script>
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
+              <li class="breadcrumb-item active">Our Modern Calendar</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="blog">
+          <h1 style="font-weight:900;">Our Modern Calendar</h1>
+          <h3>Unraveling the History of Figuring Out What Day It Is</h3>
+          <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p>
+            By Christopher Robison<br>
+            2023-12-27
+          </p>
+          <hr>
+          <img width="640" src="/crblog/assets/img/calendar.jpg" class="banner-pic"> 
+          <hr>
+          <p>In the intricate tapestry of time, the calendar stands as one of
+humanity’s most vital creations. It defines and regulates our lives in
+such a fundamental way that we don’t give a second thought as to how it
+came to be. Well, I’m here to tell that tale. As we embark on this
+whimsical journey through its history, we’ll uncover the fascinating
+reasons behind the seemingly haphazard arrangement of months and why the
+celebrations of the New Year in various cultures happens in February.
+Let’s set the stage for a captivating exploration into the fascinating
+world of calendars.</p>
+<p><strong>The Ancient Roots of the Calendar:</strong></p>
+<p>The purpose of a calendar is to reckon time in advance, to show how
+many days have to elapse until a certain event takes place in the
+future, such as the harvest or the release of Grand Theft Auto 6. The
+earliest calendars, naturally, were crude and tended to be based upon
+the seasons or the lunar cycle. As it is today, so it was in our ancient
+past: we need to eat and growing food requires knowing when to plant and
+when to harvest. The early lunar-based calendars tracked the moon’s
+phases, with months roughly corresponding to the moon’s 29.5-day cycle.
+These lunar calendars laid the foundation for what would become the
+Gregorian calendar we use today. But the lunar cycle does not help when
+it comes to discerning when to plant your crops; the tilt of the earth
+combined with its position circling the sun is responsible for that. So
+from the start we had a conflict of competing methods of tracking the
+date. The moon cycle is much easier to observe and but it does not sync
+up with the solar year and, over time, the date when you should be
+planting your crops will drift to the point where you are no longer
+planting on the correct day.</p>
+<p><strong>Marching into the Past:</strong></p>
+<p>The calendar of the Assyrians, for example, was based upon the phases
+of the moon. They knew that a lunation (the time from one full moon to
+the next) was 29 1/2 days long, so their lunar year had a duration of
+354 days. This fell short of the solar year by about 11 days. (The exact
+time for the solar year is approximately 365 days, 5 hours, 48 minutes,
+and 46 seconds.) After 3 years, such a lunar calendar would be off by a
+whole month, so the Assyrians added an extra month from time to time to
+keep their calendar in synchronization with the seasons.</p>
+<p>The best approximation that was possible in antiquity was a 19-year
+period, with 7 of these 19 years having 13 months (leap months). This
+scheme was adopted as the basis for the lunar calendar used by the
+Hebrews. The Arabs also used this calendar until Mohammed forbade
+shifting from 12 months to 13 months; this causes the Muslim holy month
+of Ramadan to move backwards through the seasons, completing a cycle
+every 32 1/2 years.</p>
+<p>When Rome emerged as a world power, the difficulties of making a
+calendar were well known, but the Romans complicated their lives because
+of their superstition that even numbers were unlucky. Hence their months
+were 29 or 31 days long, with the exception of February, which had 28
+days. Every second year, the Roman calendar included an extra month
+called Mercedonius of 22 or 23 days to keep up with the solar year.</p>
+<p><strong>The Julian Calendar:</strong></p>
+<p>Even this algorithm was very poor, so that in 45 BCE, Caesar, advised
+by the astronomer Sosigenes, ordered a sweeping reform. By imperial
+decree, the year 46 BCE was made 445 days long to bring the calendar
+back in step with the seasons. The new calendar, similar to the one we
+now use was called the Julian calendar (named after Julius Caesar).</p>
+<p>Months in the Julian calendar were 30 or 31 days in length and every
+fourth year was made a leap year (having 366 days) by adding a day to
+the end of the year. This leap year rule was not consistantly applied
+until 8 CE. The year-ending month of February, never a popular month,
+was presently shortened so that Julius Caesar and Emperor Augustus could
+each have long months named after them.</p>
+<p>Caesar also decreed that the year would start with the first of
+January, which since 153 BCE was the day that Roman consuls took office,
+and not the vernal equinox in late March. Not everyone accepted that
+part of his reform, as we shall see.</p>
+<p><strong>The Gregorian Calendar Reform:</strong></p>
+<p>Caesar’s year was 11 1/2 minutes short of the calculations
+recommended by Sosigenes and eventually the date of the vernal equinox
+began to drift. Roger Bacon became alarmed and sent a note to Pope
+Clement IV, who apparently was not impressed. Pope Sixtus IV later
+became convinced that another reform was needed and called the German
+astronomer, Regiomontanus, to Rome to advise him. Unfortunately,
+Regiomontanus died of the plague shortly thereafter and the plans died
+as well.</p>
+<p>In 1545, the Council of Trent authorized Pope Gregory XIII to reform
+the calendar once more. Most of the mathematical work was done by Father
+Christopher Clavius, S.J. The immediate correction that was adopted was
+that Thursday, October 4, 1582 was to be the last day of the Julian
+calendar. The next day was Friday, with the date of October 15. For long
+range accuracy, a formula suggested by the Vatican librarian Aloysius
+Giglio was adopted. It said that every fourth year is a leap year except
+for century years that are not divisible by 400. Thus 1700, 1800 and
+1900 would not be leap years, but 2000 would be a leap year since 2000
+is divisible by 400. This rule eliminates 3 leap years every 4
+centuries, making the calendar sufficiently correct for most ordinary
+purposes. This calendar is known as the Gregorian calendar and is the
+one that we now use today.</p>
+<p>It is interesting to note that in 1582, all the Protestant princes
+ignored the papal decree and so many countries continued to use the
+Julian calendar until either 1698 or 1752. Britain and its American
+colonies went from Wednesday, September 2, 1752 to Thursday, September
+14. Prior to the changeover, the British used March 25 as the start of
+the new year.</p>
+<p>In Russia, it needed the revolution to introduce the Gregorian
+calendar in 1918. Turkey didn’t adopt it until 1927.</p>
+<p><strong>The Numbering of the Year:</strong></p>
+<p>The numbering of the year is generally done according to an “era”,
+such as the year of a ruler’s reign.</p>
+<p>In about 525, a monk named Dionysius Exiguus suggested that the
+calculated year of Jesus’ birth be designated as year 1 in the Julian
+calendar. This suggestion was adopted over the next 500 years and
+subsequently followed in the Gregorian calendar.</p>
+<p>For the benefit of those who seek religious significance to the
+calendar millenium, note that year 1 is too late by at least 4 years.
+Herod the Great, named in the Christian Bible as having all children in
+Bethlehem put to death in an attempt to kill the infant Jesus, died in 4
+BCE.</p>
+<p>Nothing particularly significant of an historic or religious nature
+happened in Gregorian year 1; however it has become a worldwide standard
+as the “common era.” In modern times, the terms “CE” (common era) and
+“BCE” (before common era) are preferred over the earlier (and, as we
+have seen, less accurate) “AD” (anno Domini, “the year of the Lord”) and
+“BC” (before Christ).</p>
+<p>The Hebrew lunar calendar begins at 3760 BCE, the year of creation in
+Jewish tradition. The Muslim lunar calendar begins on July 16, 622, when
+Mohammed fled from Mecca to Medina.</p>
+<p>The Japanese, Taiwanese, and North Koreans use the Gregorian
+calendar, but number the year by political era. In Japan, an era begins
+when an emperor succeeds to the throne; year 1 of the Heisei era was
+1989 when Emperor Akihito ascended to the throne (the first few days of
+1989 was year 64 of the Shouwa era). In Taiwan, year 1 is the first full
+year after the founding of the Republic of China in 1911. In North
+Korea, year 1 is the year of the Juche (self-reliance) ideal,
+corresponding to the birth year of founder Kim Il-Sung (1912). Thus,
+year 2020 is Reiwa 2 (Japan), 109th year of the Republic (Taiwan), and
+Juche 109 (North Korea).</p>
+<p><strong>Further Modifications to the Gregorian Calendar:</strong></p>
+<p>Despite the great accuracy of the Gregorian calendar, it still falls
+behind very slightly every few years. The most serious problem is that
+the earth’s rotation is slowing gradually. If you are very concerned
+about this problem, you can tune in short wave radio station WWV or the
+Global Positioning System, which broadcasts official time signals for
+use in the United States. About once every 3 years, they declare a leap
+second at which time you should be careful to adjust your system clock.
+If you have trouble picking up their signals, you can simply purchase an
+atomic clock.</p>
+<p>There is still the problem that the Gregorian calendar represents a
+year of 365.2425 days and the actual time taken for the earth to rotate
+around the Sun is 365.2421991 days. That means that the Gregorian
+calendar is actually 26 seconds slow each year, resulting in the
+calendar being one day behind every 3,300 or so years (a Y3.3K
+problem).</p>
+<p>Consequently, the Gregorian calendar has been modified with a further
+rule, which is that years evenly divisible by 4000 are not leap years.
+Thus, the year 4000 will not be a leap year. Or, at least we assume
+that’s what will happen assuming that the calendar remains unchanged for
+the next 2000 years.</p>
+<p>The modified Gregorian calendar represents a year of 365.24225 days.
+Thus, the modified Gregorian calendar is actually 4 seconds slow each
+year, resulting in the calendar being one day slow every 20,000 or so
+years. So there will be a Y20K problem.</p>
+<p>There is some dispute whether the modified Gregorian calendar was
+officially adopted, or if it’s just a proposal. Other options (see
+below) exist; fortunately no decision needs to be made for several
+centuries yet.</p>
+<p><strong>Eastern Orthodox Modification of the Gregorian
+Calendar:</strong></p>
+<p>The Eastern Orthodox church in 1923 established its own rules to
+correct the Julian calendar. In their calendar, century years modulo 900
+must result in value of 200 or 600 to be considered a leap year. Both
+the Orthodox and Gregorian calendar agree that the years 2000 and 2400
+will be leap years, and the years 1900, 2100, 2200, 2300, 2500, 2600,
+2700 are not. However, the year 2800 will be a leap year in the
+Gregorian calendar but not in the Orthodox calendar; similarly, the year
+2900 will be a leap year in the Orthodox calendar but not in the
+Gregorian calendar. Both calendars will agree that 3000 and 3100 are
+leap years, but will disagree again in 3200 and 3300.</p>
+<p>The Orthodox calendar represents a year of 365.24222222… days. Thus,
+the Orthodox calendar is actually 2 seconds slow each year, resulting in
+the calendar being one day slow every 40,000 or so years. The Eastern
+Orthodox church has not yet made any statements on how the Y40K bug will
+be fixed.</p>
+<p><strong>The Quirky February New Year Celebrations:</strong></p>
+<p>Now, let’s delve into the world of New Year celebrations in February.
+Many cultures, such the Chinese, Vietnamese, and Tibetan, celebrate
+their New Year based on lunar or lunisolar calendars. This results in
+New Year festivities that usually fall between January 21st and February
+20th in our Gregorian calendar. These celebrations embrace the arrival
+of spring and the promise of new beginnings, aligning with the lunar
+cycles.</p>
+<p><strong>Meanings of Day Names:</strong></p>
+<p>The names of days of the week from a combination of Roman and
+Germanic names for celestial bodies:</p>
+<ul>
+<li>Sunday: Latin “dies solis” =&gt; “Sun’s day”</li>
+<li>Monday: Latin “dies lunae” =&gt; “Moon’s day”</li>
+<li>Tuesday: Germanic “Tiw’s day” =&gt; “Mars’ day”</li>
+<li>Wednesday: Germanic “Woden’s day” =&gt; “Mercury’s day”</li>
+<li>Thursday: Germanic “Thor’s day” =&gt; “Jupiter’s day”</li>
+<li>Friday: Germanic “Frigg’s day” =&gt; “Venus’ day”</li>
+<li>Saturday: Latin “dies Saturni” =&gt; “Saturn’s day”</li>
+</ul>
+<p><strong>Meanings of Month Names:</strong></p>
+<p>The names of the months are from the Roman calendar:</p>
+<ul>
+<li>January: Janus, protector of doorways</li>
+<li>February: Februalia, a time for sacrifice to atone for sins</li>
+<li>March: Mars, god of war</li>
+<li>April: Latin “aperire” =&gt; “to open” buds</li>
+<li>May: Maia, goddess of plant growth</li>
+<li>June: Latin “juvenis” =&gt; “youth”</li>
+<li>July: Julius Caesar</li>
+<li>August: Augustus Caesar</li>
+<li>September: Latin “septem” =&gt; “seven”</li>
+<li>October: Latin “octo” =&gt; “eight”</li>
+<li>November: Latin “novem” =&gt; “nine”</li>
+<li>December: Latin “decem” =&gt; “ten”</li>
+</ul>
+<p>As you’ll notice, the last four months are numbered 7 to 10, which is
+an artifact of the time when the new year started in March.</p>
+<p><strong>Conclusion:</strong></p>
+<p>So that’s all I know about the history of calendars. Actually, I have
+some neat formulas for calculating the day of the week or the days
+between two dates but I’ll save those for another time. Thanks for
+reading!</p>
+
+          <hr>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
+      </div>
+    </section>
+    <section class="comments">
+      <header>Discussion</header>
+      <div id="comment-comments">
+        
+      </div>
+      <hr>
+      <div id="comment-form" class="comment-container" data-_parent="0">
+        <h3>Leave a Reply</h3>
+        <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
+        <hr>
+        <form id="comment" onsubmit="return false;" class="form">
+          <label for="comment-comment"><span class="required">Comment</span>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
+          </label>
+          <label for="comment-name"><span class="required">Name</span> 
+            <input type="text" id="comment-name" name="comment-name" class="comment-input">
+          </label>
+          <label for="comment-email"><span class="required">Email</span>
+            <input type="text" id="comment-email" name="comment-email" class="comment-input">
+          </label>
+          <label for="comment-website"><span>Website</span>
+            <input type="text" id="comment-website" name="comment-website" class="comment-input">
+          </label>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.postComment(this, event);return false;">Post Comment</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/crblog/assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/crblog/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/crblog/assets/js/adminlte.min.js"></script>
+<script src="/crblog/share.js"></script>
+<script>
+  hljs.highlightAll();
+  if (!parent.app) {
+    document.location.href = "/crblog/index.html?tgt="+location.pathname;
+  }
+</script>
+<script src="/crblog/assets/js/comments.js"></script>
+</body>
+</html>

@@ -1,152 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design - Christopher Robison's Blog</title>
-  <link rel="canonical" href="https://cdr2.com/crblog/blog/fontfundamentals.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css">
-  <link rel="stylesheet" href="/crblog/assets/css/adminlte.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
-  <style>
-    span.notrequired::after {
-      display: inline-block;
-      position: relative;
-      content: "";
-      color: #c00;
-      font-size: 1.1rem;
-      font-weight: bold;
-      height: 1rem;
-      width:0.75rem;
-      text-align: left;
-      padding-right: 1rem;
-    }
-     span.required::after {
-      display: inline-block;
-      position: relative;
-      content: "*";
-      color: #c00;
-      font-size: 1.1rem;
-      font-weight: bold;
-      height: 1rem;
-      text-align: left;
-      padding-right: 1rem;
-    }
-    section.comments  header {
-      font-size:2rem;
-      background:#333;
-      color: #eee;
-      font-weight: bold;
-    }
-    section.comments {
-      width: 50rem;
-      margin: 0px auto;
-    }
-    section.comments .comment-container {
-      padding: 1rem;
-    }
-    .comment-input {
-      width: 30rem;
-      font-size: 18px;
-      height: 2rem;
-    }
-    .comment-comment {
-      width: 40rem;
-      height: 6rem;
-    }
-    .comment-comments {
-      padding: 1rem;
-    }
-    .comment-date {
-      font-size: 0.8rem;
-      float: right;
-    }
-    #comment label span {
-      display: block;
-      width: 7rem;
-    }
-    @media screen and (max-width: 640px) {
-      section.comments {
-        width: 100vw;
-      }
-      .comment-comment { width: 90vw; }
-      .comment-input { width: 90vw; }
-
-    }
-    p.comment { margin-bottom: 0px; }
-    .comment-item {
-      list-style-type: none;
-      border-top: 0.5rem solid #ccc;
-    }
-    .comment-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .comments-list { padding: 0; }
-    .commenter { color: #000; font-weight: bold; }
-    .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
-    .comment-reply { padding: 0 0 0 1rem; }
-    label { 
-      display: flex;
-    }
-    label > span {
-      display: inline-block;
-      width: 7rem;
-      text-align: right;
-    }
-    table {
-      border-collapse: collapse;
-      border: 2px solid #0005;
-      width: 100%;
-    }
-    table td {
-      border-right: 1px solid #0003;
-      background:#eee;
-      color: #000;
-      padding: 4px;
-    }
-    table .header th {
-      background: #000;
-      color: #eee;
-    }
-    .odd td {
-      background-color: #ccc;
-    }
-    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
-      text-align: center;
-      color: #c00;
-    }
-  </style>
-   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design",
-      "name": "Font Fundamentals: The Vital Role of Font Choice in Web and Mobile Design",
-      "description": "I hate starting out a new article. I never know how to break the ice; to get the ball rolling. Once I get started I'm fine. But getting started can be tough. I get in my head and start overthinking things: \"How technical should I go?\", \"Will they be reading this on their phones or desktop?\", \"Will anybody actually read this besides me and my Mom?\" or \"Should I start with a joke? But in the end, I usually churn out something I would turn in to my 11th grade English teacher that I wrote the night before; a passable attempt but we both know I could do better. Well, this time I -will- do better, for you dear reader (Hi Mom!). Now would you look at that. I'm a paragraph in, rambling and very off topic. Let's talk fonts. Let's me start again...",
-      "image": [
-        "https://cdr2.com/crblog/assets/img/font-design_1x1.jpg",
-        "https://cdr2.com/crblog/assets/img/font-design_4x3.jpg",
-        "https://cdr2.com/crblog/assets/img/font-design_16x9.jpg"
-       ],
-      "datePublished": "2023-11-17T00:00:00-08:00",
-      "dateModified": "2023-11-30T06:25:04-08:00",
-      "author": [{
-          "@type": "Person",
-          "name": "Christopher Robison",
-          "url": "https://cdr2.com/crblog/"
-        }]
-    }
-    </script>
-</head>
 <body class="hold-transition iframe-mode">
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -480,15 +333,10 @@ Moveable type from an early printing press
 <!-- AdminLTE App -->
 <script src="/crblog/assets/js/adminlte.min.js"></script>
 <script src="/crblog/share.js"></script>
-<script>
-  hljs.highlightAll();
-  if (!parent.app) {
-    document.location.href = "/crblog/index.html?tgt="+location.pathname;
-  }
-</script>
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
+
 
 
 

@@ -6,6 +6,7 @@ $html = buildSitemap($nav->sidemenu);
 $html = tidy($html);
 $out = new stdClass();
 $out->nav = $html;
+$out->topnav = buildTopNav($nav->topmenu);
 
 $index = file_get_contents("index.template.html");
 $index = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
@@ -18,7 +19,13 @@ $index = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
     }
 }, $index);
 print  $index."\n";
-
+function buildTopnav($json) {
+    $out = "";
+    foreach ($json as $idx=>$item) {
+        $out .= '<li class="nav-item d-none d-sm-inline-block"><a href="'.$item->link.'" class="nav-link">'.$item->title.'</a></li>';
+    }
+    return $out;
+}
 function buildSitemap($json, $lvl=0) {
     $out = str_repeat("\t", $lvl);
 
@@ -48,12 +55,12 @@ function buildSitemap($json, $lvl=0) {
                 if (!preg_match("/^[\/\.]/", $item->link)) {
                     $item->link = "/crblog/" . $item->link;
                 }
-                $out .= "<a href=\"{$item->link}\" title=\"{$item->title}\" onclick=\"return app.doClick(this, event)\" class=\"nav-link\">".$ico."<p>".$item->title;
+                $out .= "<a href=\"{$item->link}\" title=\"{$item->title}\" onclick=\"return app.doClick(this, event)\" class=\"nav-link\">".$ico." <p>".$item->title;
             } else {
                 $out .= "<a href=\"{$item->link}\" title=\"{$item->title}\" onclick=\"return app.doClick(this, event)\" class='nav-link' target='_blank'><p>".$item->title;
             }
         } else {
-            $out .= "<a href=\"#\" title=\"{$item->title}\" class=\"nav-link\">$ico<p>".$item->title;
+            $out .= "<a href=\"#\" title=\"{$item->title}\" class=\"nav-link\">$ico <p>".$item->title;
         }
         if (property_exists($item, "_children")) {
             $out .= $arrow. "</p></a>";
