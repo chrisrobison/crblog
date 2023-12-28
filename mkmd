@@ -1,0 +1,27 @@
+#!/usr/bin/php
+<?php
+recurse(".");
+
+function recurse($dir, $lvl = 0) {
+    $files = glob("{$dir}/*");
+
+    foreach ($files as $file) {
+        $searchpath = "./search" . preg_replace("/^\./", '', $file);
+        if (is_dir($file) && (!preg_match("/node_modules|backup|archive|adminlte|search/i", $file))) {
+            print "--> $file\n";
+            if (!file_exists($searchpath)) {
+                mkdir($searchpath, 0755, true);
+                print "Created folder {$searchpath}\n";
+            }
+            if (!is_link($file)) {
+                $out = recurse($file, $lvl + 1);
+            }
+        } else if (preg_match("/\.(pdf|html)/", $file, $matches)) {
+            $results = `pandoc -f {$matches[1]} -t markdown_strict $file`;
+            file_put_contents($searchpath, $results);
+            print str_repeat("\t", $lvl) . "+ {$searchpath}\n";
+        }
+    }
+}
+
+?>
