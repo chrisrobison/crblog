@@ -3,7 +3,6 @@
 
     <head>
         <meta charset="utf-8">
-        <meta name="google-site-verification" content="xov8LdRYMXraj-R2GQ2yDLcUXyKPGc01gjrMhIai6_o" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -20,7 +19,7 @@
 
         <title>Christopher Robison's Incredibly Amazing Website</title>
 
-        <link rel="icon" type="image/png" href="/favicon.ico" />
+        <link rel="icon" href="/crblog/assets/img/crlogo.svg" />
         <!-- Google Font: Source Sans Pro -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,6 +115,7 @@ body {
     .nav-sidebar .nav-link p {
         white-space: nowrap;
         text-overflow: ellipsis;
+        display: inline-block;
     }
     .sidebar-mini.sidebar-collapse .nav-sidebar .nav-link p, .nav-item .nav-item p {
         overflow: hidden;
@@ -179,6 +179,7 @@ body {
                     <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" onclick="saveMenuState()" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
+                    <li class="nav-item d-none d-sm-inline-block"><a href="home.html" class="nav-link">Home</a></li><li class="nav-item d-none d-sm-inline-block"><a href="about.html" class="nav-link">About</a></li><li class="nav-item d-none d-sm-inline-block"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
 
                 <!-- Right navbar links -->
@@ -189,9 +190,9 @@ body {
                             <i class="fas fa-search"></i>
                         </a>
                         <div class="navbar-search-block">
-                            <form class="form-inline">
+                            <form class="form-inline" action="search-results.php" method="POST" onsubmit="doSearch(); return false;">
                                 <div class="input-group input-group-sm">
-                                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" id="bigsearch">
                                     <div class="input-group-append">
                                         <button class="btn btn-navbar" type="submit">
                                             <i class="fas fa-search"></i>
@@ -202,6 +203,7 @@ body {
                                     </div>
                                 </div>
                             </form>
+                            <div id="search-results"></div>
                         </div>
                     </li>
 
@@ -342,7 +344,7 @@ role="menu" data-accordion="false">
         </ul>
     </li>
     <li class="nav-item">
-        <a href="/cv/generated/list2.php" title="Resume" onclick="return app.doClick(this, event)" class="nav-link"><i class=
+        <a href="/cv/resumes/list2.php" title="Resume" onclick="return app.doClick(this, event)" class="nav-link"><i class=
         "nav-icon fa-regular fa-file"></i>
         <p>
             Resume<i class="right fas fa-angle-left" onclick=
@@ -351,14 +353,14 @@ role="menu" data-accordion="false">
         <ul class="nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child" data-widget=
         "treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="/cv/generated/list.php" title="Styled Resumes" onclick="return app.doClick(this, event)" class=
+                <a href="/cv/resumes/list.php" title="Styled Resumes" onclick="return app.doClick(this, event)" class=
                 "nav-link"><i class="nav-icon fas fa-rectangle-list"></i>
                 <p>
                     Styled Resumes
                 </p></a>
             </li>
             <li class="nav-item">
-                <a href="/cv/generated/spartan.html" title="Plain Resume" onclick="return app.doClick(this, event)" class=
+                <a href="/cv/resumes/spartan.html" title="Plain Resume" onclick="return app.doClick(this, event)" class=
                 "nav-link"><i class="nav-icon fas fa-envelope-open-text"></i>
                 <p>
                     Plain Resume
@@ -469,6 +471,34 @@ role="menu" data-accordion="false">
         <ul class="nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child" data-widget=
         "treeview" role="menu" data-accordion="false">
             <li class="nav-item">
+                <a href="/crblog/blog/calendar.html" title="Our Modern Calendar" onclick="return app.doClick(this, event)" class=
+                "nav-link"><i class="nav-icon fas fa-code"></i>
+                <p>
+                    Our Modern Calendar
+                </p></a>
+            </li>
+            <li class="nav-item">
+                <a href="/crblog/blog/game-idea.html" title="Game Concept" onclick="return app.doClick(this, event)" class=
+                "nav-link"><i class="nav-icon fas fa-code"></i>
+                <p>
+                    Game Concept
+                </p></a>
+            </li>
+            <li class="nav-item">
+                <a href="/crblog/blog/vigilance-committees.html" title="The Vigilance Committees of San Francisco" onclick=
+                "return app.doClick(this, event)" class="nav-link"><i class="nav-icon fas fa-code"></i>
+                <p>
+                    The Vigilance Committees of San Francisco
+                </p></a>
+            </li>
+            <li class="nav-item">
+                <a href="/crblog/blog/ideas.html" title="Blog Post Ideas" onclick="return app.doClick(this, event)" class=
+                "nav-link"><i class="nav-icon fas fa-code"></i>
+                <p>
+                    Blog Post Ideas
+                </p></a>
+            </li>
+            <li class="nav-item">
                 <a href="/crblog/blog/font-design.html" title="Font Fundamentals" onclick="return app.doClick(this, event)"
                 class="nav-link"><i class="nav-icon fas fa-code"></i>
                 <p>
@@ -497,41 +527,6 @@ role="menu" data-accordion="false">
                 </p></a>
             </li>
             <li class="nav-item">
-                <a href="/crblog/blog/ai-logistics.html" title="AI and the Art of Logistics" onclick=
-                "return app.doClick(this, event)" class="nav-link"><i class="nav-icon fas fa-code"></i>
-                <p>
-                    AI and the Art of Logistics
-                </p></a>
-            </li>
-            <li class="nav-item">
-                <a href="/crblog/blog/fleet-security.html" title="Cybersecurity for the Road" onclick=
-                "return app.doClick(this, event)" class="nav-link"><i class="nav-icon fas fa-code"></i>
-                <p>
-                    Cybersecurity for the Road
-                </p></a>
-            </li>
-            <li class="nav-item">
-                <a href="/crblog/blog/fleet-iot.html" title="Leveraging IoT" onclick="return app.doClick(this, event)" class=
-                "nav-link"><i class="nav-icon fas fa-code"></i>
-                <p>
-                    Leveraging IoT
-                </p></a>
-            </li>
-            <li class="nav-item">
-                <a href="/crblog/blog/eld.html" title="DOT Compliance" onclick="return app.doClick(this, event)" class=
-                "nav-link"><i class="nav-icon fas fa-code"></i>
-                <p>
-                    DOT Compliance
-                </p></a>
-            </li>
-            <li class="nav-item">
-                <a href="/crblog/blog/fleet-communication.html" title="Tech Talk" onclick="return app.doClick(this, event)"
-                class="nav-link"><i class="nav-icon fas fa-code"></i>
-                <p>
-                    Tech Talk
-                </p></a>
-            </li>
-            <li class="nav-item">
                 <a href="/crblog/blog/index.html" title="Older Posts..." onclick="return app.doClick(this, event)" class=
                 "nav-link"><i class="nav-icon fas fa-box-archive"></i>
                 <p>
@@ -540,6 +535,41 @@ role="menu" data-accordion="false">
                 </p></a>
                 <ul class="nav nav-treeview nav-pills nav-sidebar flex-column nav-child-indent nav-collapse-hide-child"
                 data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="/crblog/blog/ai-logistics.html" title="AI and the Art of Logistics" onclick=
+                        "return app.doClick(this, event)" class="nav-link"><i class="nav-icon fas fa-code"></i>
+                        <p>
+                            AI and the Art of Logistics
+                        </p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/crblog/blog/fleet-security.html" title="Cybersecurity for the Road" onclick=
+                        "return app.doClick(this, event)" class="nav-link"><i class="nav-icon fas fa-code"></i>
+                        <p>
+                            Cybersecurity for the Road
+                        </p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/crblog/blog/fleet-iot.html" title="Leveraging IoT" onclick="return app.doClick(this, event)"
+                        class="nav-link"><i class="nav-icon fas fa-code"></i>
+                        <p>
+                            Leveraging IoT
+                        </p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/crblog/blog/eld.html" title="DOT Compliance" onclick="return app.doClick(this, event)" class=
+                        "nav-link"><i class="nav-icon fas fa-code"></i>
+                        <p>
+                            DOT Compliance
+                        </p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/crblog/blog/fleet-communication.html" title="Tech Talk" onclick=
+                        "return app.doClick(this, event)" class="nav-link"><i class="nav-icon fas fa-code"></i>
+                        <p>
+                            Tech Talk
+                        </p></a>
+                    </li>
                     <li class="nav-item">
                         <a href="/crblog/blog/compliance.html" title="Tech-Enabled Compliance" onclick=
                         "return app.doClick(this, event)" class="nav-link"><i class="nav-icon fas fa-code"></i>
@@ -845,10 +875,10 @@ role="menu" data-accordion="false">
                 </p></a>
             </li>
             <li class="nav-item">
-                <a href="/img-encode/" title="Image Encoder" onclick="return app.doClick(this, event)" class="nav-link"><i class=
-                "nav-icon fas fa-image"></i>
+                <a href="/encode-img/" title="Base64 Image Encoder" onclick="return app.doClick(this, event)" class=
+                "nav-link"><i class="nav-icon fas fa-image"></i>
                 <p>
-                    Image Encoder
+                    Base64 Image Encoder
                 </p></a>
             </li>
             <li class="nav-item">
@@ -873,8 +903,8 @@ role="menu" data-accordion="false">
                 </p></a>
             </li>
             <li class="nav-item">
-                <a href="/thesaurus.html" title="Thesaurus" onclick="return app.doClick(this, event)" class="nav-link"><i class=
-                "nav-icon fas fa-book"></i>
+                <a href="/crblog/thesaurus1.html" title="Thesaurus" onclick="return app.doClick(this, event)" class=
+                "nav-link"><i class="nav-icon fas fa-book"></i>
                 <p>
                     Thesaurus
                 </p></a>
@@ -952,7 +982,7 @@ role="menu" data-accordion="false">
             <!-- /.content-wrapper -->
             <footer class="main-footer" style="display:none;">
                 <div class="float-right d-none d-sm-block">
-                    <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+                    <strong>Copyright &copy; 2024 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
                 </div>
             </footer>
 
@@ -1011,7 +1041,28 @@ role="menu" data-accordion="false">
                     el.style.height = newheight + 'px';
                 });
             }
-            // app.init(app.getNav);
+            
+            async function doSearch() {
+                let query = document.querySelector("#bigsearch").value;
+                query = encodeURIComponent(query);
+                app.loadTab( "search-results.php?q="+query, "Search Results", "searchresults", true)
+                /*
+                let req1 = await fetch("/crblog/search.php?q="+query); 
+                let data = await req1.json();
+                
+                if (data) {
+                    let out = "<h1>Search Results</h1><hr>";
+                    let keys = Object.keys(data);
+
+                    keys.forEach(key=>{
+                        let item = data[key];
+                        out += `<div class='result'><a href="${item.url}" target="_blank" alt="${item.title}">${item.title}</a><br><p>${item.snippet}</p></div>`;
+                    });
+                    document.querySelector("#search-results").innerHTML = out;
+                }
+                */
+            }
+            app.init(app.getNav);
             getMenuState();
         </script>
     </body>
