@@ -1,0 +1,43 @@
+Thesaurus
+
+<a href="#" class="info-icon"></a> Word:
+
+Lookup
+
+[Original Thesaurus](thesaurus.html)
+
+Online Thesaurus
+----------------
+
+x
+
+### About
+
+I've been using AlterVista for thesaurus lookups for years and up until
+now, I had been content with my boring lists of returned words. It was
+better than -any- of the mainstream alternatives which bombard you with
+ads and brings your computer to its knees with its web pages heavy with
+external libraries and trackers. But I recently wanted a way to
+visualize my lookups and be able to tunnel from word to word while still
+retaining my previous lookups. I've used D3.js in the past and so I
+quickly wrote a force directed graph for my thesaurus using D3.js. But
+still I was not satisfied. It still felt heavy. I know it's all probably
+in my head because I -know- there's a bunch of external code being
+loaded; but there were long pauses while before rendereing which I
+chalked up to all the bells and whistles D3.js provides. So I wrote my
+own.
+
+I wrote a bare-bones JavaScript directed graph thesaurus library that is
+pretty unique in that it doesn't use canvas OR SVG (yet!), it only uses
+DOM elements, JavaScript and CSS. I know, the node layout algorithm
+needs a little attention but the basics are there and work. The
+connecting lines are simply DIV tags with a 4px height that I calculate
+the length and rotation using some basic trigonometry and apply using
+CSS. The only trick was changing the transform-origin to \[0, 0\]
+instead of the default of center.
+
+So try it out! Enter in a few words, drag a few bubbles around and be
+amazed at the clever use of CSS and math to get something you would
+normally need to do with canvas.
+
+Return to Thesaurus

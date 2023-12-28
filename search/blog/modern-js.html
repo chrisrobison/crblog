@@ -1,0 +1,222 @@
+1.  [Home](#)
+2.  [Blog](blog/)
+3.  Unpacking Modern JavaScript
+
+Unpacking Modern JavaScript
+===========================
+
+### Optional Chaining and Nullish Coalescing
+
+  
+<a href="#" class="sharelink"><em></em> Share</a>
+
+By Christopher Robison  
+2023-11-04
+
+------------------------------------------------------------------------
+
+<img src="/crblog/assets/img/modern-js.jpg" class="banner-pic" width="640" />
+
+------------------------------------------------------------------------
+
+JavaScript has come a long way since its inception, continuously
+evolving to meet the demands of modern web development. Two of the most
+exciting additions to the language are the Optional Chaining Operator
+(`?.`) and the Nullish Coalescing Operator (`??`). These operators
+simplify the way we write code and handle data that might be `undefined`
+or `null`. Let’s dive in and explore these operators with some practical
+examples.
+
+Optional Chaining Operator (`?.`)
+---------------------------------
+
+Gone are the days of verbose and repetitive checks to avoid the dreaded
+`TypeError: Cannot read property 'x' of undefined`. The Optional
+Chaining Operator allows us to read the value of a property located deep
+within a chain of connected objects without having to explicitly
+validate each reference in the chain.
+
+### Syntax:
+
+    obj?.prop       // Accessing a property
+    obj?.[expr]     // Accessing a property with an expression
+    func?.(...args) // Calling a function if it exists
+
+### Code Example:
+
+    const user = {
+      profile: {
+        name: 'Chris',
+        details: {
+          age: 30,
+          hobbies: ['Golf', 'Karaoke'],
+        },
+      },
+    };
+
+    // Traditional way
+    const userHobbies = user.profile ? user.profile.details ? user.profile.details.hobbies : null : null;
+
+    // With Optional Chaining
+    const userHobbies = user?.profile?.details?.hobbies;
+    console.log(userHobbies); // Output: ['Golf', 'Karaoke']
+
+In the above example, if any part of the chain is `undefined` or `null`,
+the expression short-circuits and returns `undefined` instead of
+throwing an error.
+
+Nullish Coalescing Operator (`??`)
+----------------------------------
+
+The Nullish Coalescing Operator is a logical operator that returns its
+right-hand side operand when its left-hand side operand is `null` or
+`undefined`, and otherwise returns its left-hand side operand. This is
+particularly useful for assigning default values.
+
+### Syntax:
+
+    leftExpr ?? rightExpr
+
+### Code Example:
+
+    const settings = {
+      theme: null,
+      fontSize: undefined,
+    };
+
+    // Traditional way with logical OR operator (||)
+    const theme = settings.theme || 'dark'; // 'dark' would be the default if settings.theme is falsy
+    const fontSize = settings.fontSize || 'medium'; // 'medium' would be the default if settings.fontSize is falsy
+
+    // With Nullish Coalescing Operator
+    const theme = settings.theme ?? 'dark';
+    const fontSize = settings.fontSize ?? 'medium';
+
+    console.log(theme); // Output: 'dark'
+    console.log(fontSize); // Output: 'medium'
+
+The key difference between `??` and `||` is that `??` does not consider
+empty strings or the number `0` as nullish values, while `||` does.
+
+Combining Both Operators
+------------------------
+
+These operators can be combined to provide very concise and readable
+code when dealing with complex data structures.
+
+### Code Example:
+
+    const config = {
+      header: {
+        title: 'New JavaScript Features'
+      }
+    };
+
+    const title = config.header?.title ?? 'Default Title';
+    console.log(title); // Output: 'New JavaScript Features'
+
+In this example, if `config.header` is `undefined`, the `title` would
+default to `'Default Title'`.
+
+Now let’s delve a bit deeper into the difference between using the
+Nullish Coalescing Operator (`??`) and the Logical OR operator (`||`) to
+understand their distinct behaviors.
+
+Truthy vs. Nullish
+------------------
+
+The Logical OR (`||`) operator has been used in JavaScript for a long
+time to provide default values. It works based on the *truthiness* of
+the expressions. In JavaScript, `false`, `0`, `''` (empty string),
+`null`, `undefined`, and `NaN` are all *falsy* values. Everything else
+is *truthy*. If the left-hand operand is falsy, `||` will return the
+right-hand operand.
+
+On the other hand, the Nullish Coalescing Operator (`??`) is more
+specific. It only checks for `null` or `undefined`. It doesn’t care
+about the other falsy values like `0` or `''`.
+
+Code Comparison:
+----------------
+
+    // Let's assume we have an object that holds settings for a user's profile.
+    const profileSettings = {
+      theme: '', // An empty string, meaning the user wants no theme.
+      notifications: 0, // The user has turned off notifications.
+    };
+
+    // Using Logical OR (||)
+    const theme = profileSettings.theme || 'dark'; // 'dark' is the default
+    const notifications = profileSettings.notifications || 10; // 10 is the default
+
+    console.log(theme); // Output: 'dark' (not what the user intended)
+    console.log(notifications); // Output: 10 (not what the user intended)
+
+    // Using Nullish Coalescing Operator (??)
+    const themeCorrect = profileSettings.theme ?? 'dark';
+    const notificationsCorrect = profileSettings.notifications ?? 10;
+
+    console.log(themeCorrect); // Output: '' (exactly what the user intended)
+    console.log(notificationsCorrect); // Output: 0 (exactly what the user intended)
+
+In the above example, the Logical OR (`||`) fails to respect the user’s
+choice of an empty string for `theme` and `0` for `notifications`
+because they are falsy values. It defaults to the provided fallbacks
+even though the user has made a clear choice.
+
+The Nullish Coalescing Operator (`??`), however, correctly identifies
+that the user has set values (even though they are falsy) and doesn’t
+override them with the defaults.
+
+The choice between using `||` or `??` should be made based on whether
+you need to provide a fallback for any falsy value (`||`) or
+specifically for `null` or `undefined` (`??`). Understanding this
+distinction is crucial for writing precise and bug-free code, especially
+when dealing with configurations, settings, or any data that could
+intentionally have falsy values other than `null` or `undefined`.
+
+Conclusion
+----------
+
+The Optional Chaining and Nullish Coalescing operators are excellent
+examples of JavaScript’s evolution. They offer cleaner, more intuitive
+ways to handle data that may not always be present, and they can prevent
+many common errors in code. As browser support for these features
+becomes ubiquitous, they’re quickly becoming indispensable tools in the
+modern JavaScript developer’s toolkit.
+
+Remember, while these operators can make your code more concise, clarity
+should never be sacrificed for brevity. Use these tools wisely to write
+code that’s not only clever but also maintainable and easy to
+understand.
+
+------------------------------------------------------------------------
+
+<a href="/crblog/blog/ai-logistics.html" class="next-entry latest">(AI and the Art of Logistics) Next &gt;</a>
+[&lt; Previous (Haunted
+History)](/crblog/blog/haunted-sf.html "Haunted History: San Francisco ")
+
+Discussion
+
+------------------------------------------------------------------------
+
+### Leave a Reply
+
+Comment? Suggestion? Just plain mad? Why not Leave a comment and let
+everyone know what you're thinking. Your email address will never be
+shared or published. Required fields are marked <span
+style="color:#c00;">\*</span>
+
+------------------------------------------------------------------------
+
+<span class="required">Comment</span>
+
+<span class="required">Name</span> <span class="required">Email</span>
+Website
+
+Cancel
+
+Post Comment
+
+**Copyright © 2023 [Christopher Robison](https://cdr2.com).** All rights
+reserved.
