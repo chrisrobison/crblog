@@ -175,6 +175,7 @@
       }
     },
     buildComments(arr, ul) {
+      if (!arr) return;
       if (!ul) ul = document.querySelector("ul.comment-reply");
       if (!ul) {
         ul = document.createElement("ul");
