@@ -10,9 +10,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
 
 body {
+  background-color: #000 !important;
   font-family: 'Raleway', sans-serif;
   height: 100vh;
-  background: #000 url('https://cdr2.com/crblog/assets/img/sfnight2.jpg') no-repeat center center / cover;
+  background: #000 url('https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png') no-repeat center center / cover;
   color: #ccc;
   overflow-y:scroll;
   background-position: right;
@@ -76,15 +77,7 @@ h2 {
   }
 }
 
-@media(max-width: 500px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-}
+/*
 .ripple {
   min-height: 380px;
   max-width: 850px;
@@ -101,6 +94,7 @@ h2 {
   position:absolute;
   transition: all 5s linear;
 }
+  */
 @keyframes float {
   0% {
     transform: translate(0px, 2000px);
@@ -132,9 +126,14 @@ div.ghost svg {
   transform: scaleX(1);
 }
 
+.santa.start {
+
+
+}
+
 .ghost.start #ghost {
   animation:
-    x 30s linear 1s infinite forwards;
+    x 60s linear 1s infinite forwards;
 }
 @keyframes x {
   0% {
@@ -142,17 +141,17 @@ div.ghost svg {
      transform: scaleX(1);
     bottom: 0rem;
   }
-   40% {
+   10% {
      left: -600px;
      transform: scaleX(1);
     bottom: 0rem;
    }
-   65% {
+   25% {
      left:calc(100% + 300px);
      transform: scaleX(1);
     bottom: 0rem;
    }
-   85% {
+   50% {
      transform: scaleX(-1);
      left: calc(100% + 300px);
     bottom: 7rem;
@@ -163,6 +162,7 @@ div.ghost svg {
     bottom: 7rem;
    }
 }
+   
           .animated { 
             background-repeat: no-repeat;
             background-position: left top; 
@@ -172,7 +172,6 @@ div.ghost svg {
             animation-fill-mode: both;
             animation-iteration-count:infinite;
          }
-         
          @keyframes bounce { 
             0%, 30%, 50%, 70%, 100% {transform: translateY(0);} 
             40% {transform: translateY(-15px);} 
@@ -237,34 +236,150 @@ h3 {
   margin: 0;
   padding: 0;
 }
+  canvas {
+    pointer-events: none;
+
+  }
+  #baybridge { 
+    pointer-events: none;
+
+    position:absolute;
+    bottom:0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/crblog/assets/img/skyline/sf-bridge.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+  }
+div.switcher {
+}
+div.switcher + div.switcher {
+  margin-top: 10px;
+}
+div.switcher label {
+  padding: 0;
+    margin-bottom:0.25rem;
+}
+div.switcher label * {
+  vertical-align: middle;
+}
+div.switcher label input {
+  display: none;
+}
+div.switcher label input + span {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  width: 50px;
+  height: 26px;
+  background: #445;
+  border: 2px solid #445;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+div.switcher label input + span small {
+  position: absolute;
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  left: 0;
+}
+div.switcher label input:checked + span {
+  background: #0a2;
+  border-color: #0a2;
+}
+div.switcher label input:checked + span small {
+  left: 50%;
+}
+  #snow-toggle {
+    position:fixed;
+    bottom: 0px;
+    right: 0px;
+    border-radius:1rem;
+    background: #0009;
+    padding: 1rem;
+  }
+  div.switcher label input + span {
+    background-color: #455;
+  }
+  body.no-snow canvas#snow { display: none; }
+  canvas {
+    pointer-events: none;
+    user-select:none;
+  }
+  small {
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #000;
+    font-size: 2vw;
+  }
+@media(max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  #baybridge {
+    bottom:0px;
+    left: -10vw;
+    height: 200vh;
+    width: 200vw;
+    background-position: bottom;
+    background-size: contain;
+  }
+  small { font-size: 6vw; }
+
+}
+  @media(min-height:1024px) {
+    #baybridge { display:none; };
+  }
 
 </style>
+<!--link rel='stylesheet' href='sleigh.css' /-->
 <script src="/crblog/assets/js/confetti.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="container-wrap">
       <h1>Chris Robison Knows<br>
-        <span class="txt-type" data-wait="3000" data-words='["Technology.","Software.","Internet.","Development.","Management.","Business."]'></span>
+        <span class="txt-type" data-wait="3000" data-words='["Technology.","What, How & When.", "Programming.","Internet.","Servers.","Microservices.","Management.","Business Priorities.","Santa."]'></span>
       </h1>
       <h2>Welcome To My Website</h2>
       <div style="height:80%;"></div> 
       <div class="indicator" style="display: none" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="#ccc" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></div>
     </div>
+    <div id="santa" style="display:none">
+      <div class="santa start"></div>
+    </div>
+    <div id="baybridge"></div>
   </div>
   <div style="display: none" class="wrapper">   
     <section class="blog"><h1>Blog</h1><p id="blog-preview"></p></section>
     <section class="contact"><h1>Contact</h1><p id="contact-preview"></p></section>
   </div>
-  <div class="ghost start">
-    <img id='ghost' src="/crblog/assets/img/turkey3.gif">
+  <div id="snow-toggle" style="display:none;">    
+    <div class="switcher">
+      <label for="snow-switch" >
+        <input type="checkbox" id="snow-switch" onchange="toggleSnow()" />
+        <span><small></small></span>
+        <small>Snow</small>
+      </label>
+    </div>
+    <div class="switcher" style="display:none;">
+      <label for="santa-switch">
+        <input type="checkbox" id="santa-switch" onchange="toggleSanta()" />
+        <span><small></small></span>
+        <small>Santa</small>
+      </label>
   </div>
-    <svg xlmns="http://www.w3.org/2000/svg" version="1.1">
-      <filter id="turbulence" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
-        <feTurbulence id="feturbulence" type="fractalNoise" numOctaves="1" seed="2" baseFrequency="0.01968375 0.1468375"></feTurbulence>
-        <feDisplacementMap xChannelSelector="G" yChannelSelector="B" scale="10" in="SourceGraphic"></feDisplacementMap>
-      </filter>
-    </svg>  
 <script>
 // ES6 Class
 class TypeWriter {
@@ -334,23 +449,26 @@ function init() {
   const words = JSON.parse(txtElement.getAttribute('data-words'));
   const wait = txtElement.getAttribute('data-wait');
   // Init TypeWriter
-  new TypeWriter(txtElement, words, wait);
-  let doGhost = localStorage.getItem("ghost");
-  if (doGhost == "no") {
-    document.querySelector(".ghost").style.display = "none";
-  }
-  document.querySelector("#ghost").addEventListener("click", function(e) {
+   new TypeWriter(txtElement, words, wait);
+  let doSanta = localStorage.getItem("santa");
+  let doSnow = localStorage.getItem("snow");
+  if (doSanta == "no") {
+     document.querySelector(".santa").style.display = "none";
+  } 
+
+  document.querySelector("#santa").addEventListener("click", function(e) {
     e.stopPropagation();
     e.preventDefault();
-    localStorage.setItem("ghost", "no");
-    document.querySelector(".ghost").style.display = "none";
+    document.querySelector("#santa").style.display = "none";
     addDivConfetti(e, 30);
+    setTimeout(function() { document.querySelector("#santa").style.display = "block"; }, 10000);
     return false;
   });
+
   document.addEventListener("keypress", function(e) {
     if (e.key = "r") {
-      localStorage.setItem("ghost", "yes");
-      document.querySelector(".ghost").style.display = "block";
+      localStorage.setItem("santa", "yes");
+      document.querySelector(".santa").style.display = "block";
     }
   });
   document.addEventListener("click", function(e) {
@@ -362,10 +480,102 @@ function init() {
       return addDivConfetti(e, 30);
 
     }
-    localStorage.setItem("ghost", "yes");
-    document.querySelector(".ghost").style.display = "block";
+    localStorage.setItem("santa", "yes");
+    document.querySelector(".santa").style.display = "block";
   });
+
+  // initSnow();
+  // initSanta();
 }
+
+function initSanta() {
+  let santaChoice = localStorage.getItem("santa");
+
+  window.noSanta = (santaChoice==="no") ? true : false;;
+
+  let santacanvas = document.querySelector("canvas#santa");
+
+  if (window["noSanta"]) {
+    if (santacanvas) santacanvas.style.display = "none";
+    document.body.classList.add("no-santa");
+    document.querySelector("#santa-switch").checked = false;
+  } else {
+    if (santacanvas) santacanvas.style.display = "block";
+    document.body.classList.remove("no-santa");
+    document.querySelector("#santa-switch").checked = true;
+  }
+}
+
+function toggleSanta(evt) {
+  let santacanvas = document.querySelector("#santa");
+  if (evt) {
+    evt.stopPropagation();
+  }
+  let santaChoice = localStorage.getItem("santa");
+
+  // Current no santa, switch to santa
+  if (document.body.classList.contains("no-santa")) {
+    if (santacanvas) {
+      santacanvas.style.display = "block";
+      document.querySelector("#santa-switch").checked = true;
+      document.body.classList.remove("no-santa");
+      localStorage.setItem("santa", "yes");
+      window["noSanta"] = false;
+    }
+  } else { 
+    if (santacanvas) {
+      santacanvas.style.display = "none";
+      document.querySelector("#santa-switch").checked = false;
+      document.body.classList.add("no-santa");
+      localStorage.setItem("santa", "no");
+      window["noSanta"] = true;
+    }
+  }
+}
+
+
+function initSnow() {
+  let snowChoice = localStorage.getItem("snow");
+  window.noSnow = (snowChoice === "no") ? true : false;
+
+  let snowcanvas = document.querySelector("canvas#snow");
+
+  if (window['noSnow']) {
+    if (snowcanvas) snowcanvas.style.display = "none";
+    document.body.classList.add("no-snow");
+    document.querySelector("#snow-switch").checked = false;
+  } else {
+    if (snowcanvas) snowcanvas.style.display = "block";
+    document.body.classList.remove("no-snow");
+    document.querySelector("#snow-switch").checked = true;;
+  }
+}
+
+function toggleSnow(evt) {
+  let snowcanvas = document.querySelector("canvas#snow");
+  if (evt) { evt.stopPropagation(); }
+  let snowChoice = localStorage.getItem("snow");
+
+  if (document.body.classList.contains("no-snow")) {
+    if (snowcanvas) {
+      snowcanvas.style.display = "block";
+      document.querySelector("#snow-switch").checked = true;
+      document.body.classList.remove("no-snow");
+      localStorage.setItem("snow", "yes");
+      window["noSnow"] = false;
+      animate();
+    }
+  } else { 
+    if (snowcanvas) {
+      snowcanvas.style.display = "none";
+      document.querySelector("#snow-switch").checked = false;
+      document.body.classList.add("no-snow");
+      localStorage.setItem("snow", "no");
+      window["noSnow"] = true;
+    }
+  }
+}
+
 function getBlogs() {
   fetch("/crblog/blog/posts.json").then(r=>r.json()).then(data=>{
     window.blogentries = data;
@@ -379,5 +589,6 @@ function getBlogs() {
   });
 }
     </script>
+        <!--script src="/crblog/assets/js/snowflake.js"></script-->
 </body>
 </html>
