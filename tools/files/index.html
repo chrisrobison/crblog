@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: "Lexend", "Helvetica Neue", "Helvetica", sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            align-items: center;
+            justify-content: center;
+            background-color:#fff;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #999;
+            color: #eee;
+            height: 0vh;
+        }
+
+        main {
+            background-color: #fff;
+            color: #000;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        footer {
+            background-color: #666;
+            color: #eee;
+            height: 0vh;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        li {
+            margin: 0;
+            padding-left:0.5rem;
+            display: flex;
+            flex-direction: row;
+            white-space: nowrap;
+            width: 100%;
+        }
+        a:hover {
+            background: #05c;
+            color: #fff;
+            border: 1px dashed #fff;
+        }
+        a {
+            transition: all 200ms linear;
+            display: inline-block;
+            width: 100%;
+            border: 1px dashed #fff0;
+        }
+        img.icon {
+            height: 24px;
+            width: 20px;
+        }
+        img.folder {
+            width: 26px;
+        }
+        div#left {
+          width: 24vw;
+          height: 100vh;
+          overflow: scroll;
+        }
+        div#handle {
+            width: 1vw;
+            background-color: #ddd;
+            border-left: 2px solid #fff;
+            border-right: 2px solid #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: ew-resize;
+        }
+        div#handle:hover {
+            background-color:#eee;
+        }
+        div#right {
+          width: 75vw;
+            background:radial-gradient(circle farthest-corner at top center, #878787 0%, #414d53 50%, #2c3344 100%);
+                height:100vh;
+
+        }
+
+        a {
+          text-decoration: none;
+          color: #222;
+          display: flex;
+          width: 100%;
+          justify-content: flex-start;
+          align-content: center;
+          align-items: center;
+        }
+        span.icon {
+          display: inline-block;
+          width: 2.5vw;
+          text-align: center;
+        }
+        .noselect * {
+            user-select: none;
+        }
+        .resizing {
+            cursor: ew-resize;
+        }
+        #viewer {
+            height:100vh;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<main>
+<div id="left"></div>
+<div id="handle">‖</div>
+<div id="right"></div>
+</main>
+<script>
+
+(function() {
+    const $ = str => document.querySelector(str);
+    const $$ = str => document.querySelectorAll(str);
+    const app = {
+        data: {},
+        state: {
+            loaded: false
+        },
+        init: function() {
+            let hx = localStorage.getItem("handle");
+            if (hx) {
+                $("#handle").style.left = hx + 'vw';
+                $("#left").style.width = (hx - 1) + 'vw';
+                $("#right").style.left = (hx + 1) + 'vw';
+                $("#right").style.width = (100 - hx) + 'vw';
+            }
+            $("#left").addEventListener("click", app.doClick);
+            $("#handle").addEventListener("mousedown", app.doDown);
+            fetch("api.php").then(r=>r.json()).then(data=>{
+                app.data = data;
+                app.renderFiles(data);
+            });
+            app.state.loaded = true;
+        },
+        doClick(evt) {
+            console.log("doClick");
+            console.dir(evt);
+
+            if (evt.target.dataset.folder) {
+                app.viewFiles(evt.target.dataset.filename);
+                fetch(`api.php?f=${evt.target.dataset.filename}`).then(r=>r.json()).then(data=>{
+                    app.data.files.concat(data);
+                    app.renderFiles(data, evt.target); 
+                });
+            } else {
+
+            }
+            evt.preventDefault();
+            evt.stopPropagation();
+
+            return false;
+        },
+        doDown(evt) {
+            app.state.resizing = true;
+            app.state.resizeX = evt.x;
+            app.state.left = $("#left").getBoundingClientRect();
+            app.state.right = $("#right").getBoundingClientRect();
+            app.state.handle = $("#handle").getBoundingClientRect();
+            $("body").classList.add("resizing");
+            $("body").classList.add("noselect");
+
+            document.addEventListener("mousemove", app.doMove);
+            document.addEventListener("mouseup", app.doUp);
+
+        },
+        doMove(evt) {
+            if (app.state.resizing) {
+               let xper = (evt.x / window.innerWidth) * 100;
+                $("#left").style.width = (xper - 1) + "vw";
+                $("#right").style.width = (100 - xper) + "vw";
+                $("#right").style.left = xper + "vw";
+                $("#handle").style.left = (xper - 1) + "vw";
+            }
+        },
+        doUp(evt) {
+            app.state.resizing = false;
+            localStorage.setItem("handle", (evt.x / window.innerWidth) * 100);
+            document.removeEventListener("mousemove", app.doMove);
+            document.removeEventListener("mouseup", app.doUp);
+            $("body").classList.remove("resizing");
+            $("body").classList.remove("noselect");
+        },
+        viewFiles(folder) {
+            let el = $("#viewer");
+            if (!el) {
+                el = document.createElement("iframe");
+                el.id = "viewer";
+            }
+            el.src = "view.php?d=" + folder;
+            $("#right").append(el);
+        },
+        renderFiles(files, el) {
+            console.dir(files);
+            if (files.files) {
+                let out = "<ul>";
+                files.files.forEach((file)=>{
+                    let isdir = (file.isdir) ? " folder" : "";
+                    let clean = file.filename.replace(/^\//, '');
+                    let path = file.filename.split(/\//);
+                    let fn = path.pop();
+                    out += `<li><a href="/crblog/${file.filename}" target="_blank" data-filename="${file.filename}" data-folder="${file.isdir}"><span class='icon'><img src='${file.icon}' class='icon${isdir}'></span> ${fn}</a></li>`;
+                });
+                out += "</ul>";
+                let newel = document.createElement("li");
+                newel.innerHTML = out;
+
+                if (!el) {
+                    $("#left").append(newel);
+                } else {
+                    el.parentNode.parentNode.insertBefore(newel, el.parentNode.nextSibling);
+                }
+            }
+
+        },
+        fetch: function(url, callback) {
+            fetch(url).then(response=>response.json()).then(data=>{
+                app.data = data;
+                app.state.loaded = true;
+                if (callback && typeof(callback) === "function") {
+                    callback(data);
+                }
+            });
+        },
+        display: function(data, tgt) {
+            let out = "<table><thead><tr>";
+            const keys = Object.keys(data[0]);
+            if (keys) {
+                keys.forEach(key => {
+                    out += `<th>${key}</th>`;
+                });
+            }
+            out += "</tr></thead><tbody>";
+            data.forEach(item=>{
+                out += `<tr>`;
+                keys.forEach(key => {
+                    out += `<td>${item[i]}</td>`;
+                });
+                out += `</tr>`;
+            });
+            out += "</tbody></table>";
+
+            if (tgt) {
+                tgt.innerHTML = out;
+            }
+            return out;
+        },
+        data: {}
+    }
+    window.app = app;
+    app.init();
+})();
+</script>
+</body>
+
+</html>
