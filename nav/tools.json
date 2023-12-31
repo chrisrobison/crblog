@@ -13,6 +13,13 @@
           "icon": "fas fa-image",
           "desc": "Simple base64 image encoder. Give it a URL and get back the image in base64 goodness.",
           "screenshot": "/crblog/assets/img/img-encoder.gif"
+        }, 
+        {
+          "title": "QR Code Generator",
+          "link": "/qrcode/",
+          "icon": "fas fa-qrcode",
+          "desc": "QR code generator without any ads, watermarks or signup required.",
+          "screenshot": "/crblog/assets/img/qrcode-generator.png"
         },
         {
           "title": "Invoice Generator",
