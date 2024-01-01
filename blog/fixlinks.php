@@ -2,7 +2,11 @@
 <?php
 $posts = json_decode(file_get_contents("posts.json"));
 usort($posts, function($a, $b) { return strtotime($b->date) - strtotime($a->date); });
-
+$exe = array_shift($argv);
+$files = array();
+while ($arg = array_shift($argv)) {
+    $files[] = $arg;
+}
 $tpl = <<<EOT
     <div class="content-footer">
       <a href="%%next_link%%" onclick="if (parent.app.loadTab) return parent.app.loadTab('%%next_link%%', '%%next_title%%', '%%next_name%%', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(%%next_title%%) Next &gt; </a>
@@ -10,23 +14,50 @@ $tpl = <<<EOT
   </div>
 EOT;
 
-for ($idx=1; $idx<count($posts)-1; $idx++) {
-    $post = $posts[$idx];
-    $next = $posts[$idx - 1];
-    $prev = $posts[$idx + 1];
-    print "Post #$idx: {$post->title}\n\tPrev: {$prev->title}\n\tNext: {$next->title}\n";
-    $newhtml = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
-        global $posts;
-        global $post;
-        global $prev;
-        global $next;
-        if (preg_match("/prev_(.*)/", $match[1], $m)) {
-            return $prev->{$m[1]};
-        } else if (preg_match("/next_(.*)/", $match[1], $m)) {
-            return $next->{$m[1]};
-        }
-    }, $tpl);
-    replace($post->link, $newhtml);
+if (count($files)) {
+    $idx = 0;
+    foreach ($posts as $post) {
+        ++$idx;
+        $fn = preg_replace("/.*\//", '', $post->link);
+        if (in_array($fn, $files)) {
+            $next = (isset($posts[$idx-1])) ? $posts[$idx - 1] : '';
+            $prev = (isset($posts[$idx+1])) ? $posts[$idx + 1] : '';
+            print "Post #{$idx}: {$post->title}\n\tPrev: {$prev->title}\n\tNext: {$next->title}";
+            
+            $newhtml = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
+                global $posts;
+                global $post;
+                global $prev;
+                global $next;
+                if (preg_match("/prev_(.*)/", $match[1], $m)) {
+                    return $prev->{$m[1]};
+                } else if (preg_match("/next_(.*)/", $match[1], $m)) {
+                    return $next->{$m[1]};
+                }
+            }, $tpl);
+            replace($post->link, $newhtml);
+         }
+    }
+
+} else {
+    for ($idx=1; $idx<count($posts)-1; $idx++) {
+        $post = $posts[$idx];
+        $next = $posts[$idx - 1];
+        $prev = $posts[$idx + 1];
+        print "Post #$idx: {$post->title}\n\tPrev: {$prev->title}\n\tNext: {$next->title}\n";
+        $newhtml = preg_replace_callback("/\%\%(.+?)\%\%/", function($match) {
+            global $posts;
+            global $post;
+            global $prev;
+            global $next;
+            if (preg_match("/prev_(.*)/", $match[1], $m)) {
+                return $prev->{$m[1]};
+            } else if (preg_match("/next_(.*)/", $match[1], $m)) {
+                return $next->{$m[1]};
+            }
+        }, $tpl);
+        replace($post->link, $newhtml);
+    }
 }
 
 function replace($file, $new) {
