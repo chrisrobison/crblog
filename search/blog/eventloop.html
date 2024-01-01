@@ -1,116 +1,70 @@
-1.  [Home](#)
-2.  [Blog](blog/)
+1.  Home
+2.  Blog
 3.  The JS Event Loop
-
 The JS Event Loop
-=================
-
-### Core Concepts
-
-  
-<a href="#" class="sharelink"><em></em> Share</a>
-
-By Christopher Robison  
+Core Concepts
+Share
+By Christopher Robison
 2022-03-22
-
 ------------------------------------------------------------------------
-
-<img src="/crblog/assets/img/eventloop.jpg" class="banner-pic" width="640" />
-
+[]
 ------------------------------------------------------------------------
-
 JavaScript is a non-blocking, single-threaded language, but how does it
 handle asynchronous operations like AJAX requests, timers, and user
 interactions? Enter the Event Loop, a core concept that allows
 JavaScript to juggle multiple tasks without getting bogged down. In this
 post, we’ll dissect the Event Loop to help you understand its inner
 workings.
-
 The Call Stack: Where It All Begins
------------------------------------
-
 Before we dive into the Event Loop, it’s crucial to understand the Call
 Stack. Think of it as a stack of plates; the last plate you place on the
 stack will be the first one you take off. In JavaScript, when a function
 is invoked, it’s added to the Call Stack. The function is executed and
 removed from the stack once it’s finished.
-
 Heap: Object Storage
---------------------
-
 The Heap is where objects are stored. Unlike the stack, which follows a
 last-in, first-out model, the Heap is unstructured, making it ideal for
 data storage.
-
 The Event Queue: A Waiting Room
--------------------------------
-
 JavaScript uses an Event Queue to keep track of all the events that
 occur. When an event happens—like a mouse click or data received from an
 API—the event’s callback function is placed into the Event Queue.
-
 The Event Loop: The Grand Orchestrator
---------------------------------------
-
 The Event Loop continuously checks the Call Stack to see if it’s empty.
 If it is, the Event Loop takes the first event from the Event Queue and
 moves it to the Call Stack for execution. This is how JavaScript manages
 to be non-blocking despite being single-threaded.
-
-### A Simple Analogy
-
+A Simple Analogy
 Imagine you’re cooking in a kitchen. You’ve got pasta boiling on one
 burner and sauce simmering on another. You can’t leave the pasta
 unattended, but you also need to stir the sauce. The Event Loop is like
 you—the chef—constantly checking each pot and knowing when to switch
 tasks to make sure nothing burns.
-
 A Real-World Example
---------------------
-
 Let’s say you’ve got a button on your webpage that, when clicked,
 fetches data from an API. When the button is clicked, a ‘click’ event is
 registered, and its callback function is sent to the Event Queue. The
 Event Loop waits for the Call Stack to empty before moving the ‘click’
 event’s callback function for execution. Once executed, the API data
 appears on your webpage—smooth and efficient.
-
 Conclusion
-----------
-
 The JavaScript Event Loop is an elegant solution to the challenges of
 asynchronous programming in a single-threaded environment. It ensures
 that JavaScript can handle multiple tasks simultaneously, without
 missing a beat. So, the next time your code performs like a well-oiled
 machine, tip your hat to the Event Loop—the unsung hero of JavaScript.
-
 ------------------------------------------------------------------------
-
-<a href="/crblog/blog/mobile-frameworks.html" class="next-entry latest">(Cross-Platform Mobile Frameworks) Next &gt;</a>
-[&lt; Previous (Async/Await and
-Fetch)](/crblog/blog/async-fetch.html "Mastering Async/Await and Fetch in JavaScript: A Guide for Real-World Application")
-
+(Cross-Platform Mobile Frameworks) Next > < Previous (Async/Await and
+Fetch)
 Discussion
-
 ------------------------------------------------------------------------
-
-### Leave a Reply
-
+Leave a Reply
 Comment? Suggestion? Just plain mad? Why not Leave a comment and let
 everyone know what you're thinking. Your email address will never be
-shared or published. Required fields are marked <span
-style="color:#c00;">\*</span>
-
+shared or published. Required fields are marked *
 ------------------------------------------------------------------------
-
-<span class="required">Comment</span>
-
-<span class="required">Name</span> <span class="required">Email</span>
-Website
-
+Comment
+Name Email Website
 Cancel
-
 Post Comment
-
-**Copyright © 2023 [Christopher Robison](https://cdr2.com).** All rights
-reserved.
+Copyright © 2023 Christopher Robison. All rights reserved.
