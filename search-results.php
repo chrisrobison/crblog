@@ -91,10 +91,9 @@ async function doSearch() {
     
     if (data) {
         let out = "";
-        let keys = Object.keys(data);
+        data.sort((a, b) => { return b.weight - a.weight } );
 
-        keys.forEach(key=>{
-            let item = data[key];
+        data.forEach(item=>{
             out += `<div class='result'><a href="${item.url}" target="_blank" alt="${item.title}">${item.title}</a><br><a class='small' href="${item.url}" target="_blank" alt="${item.title}">https://cdr2.com${item.url}</a><br><p class='small'>${item.snippet}</p></div>`;
         });
         document.querySelector("#search-results").innerHTML = out;

@@ -3,9 +3,15 @@
 recurse(".");
 
 function recurse($dir, $lvl = 0) {
-    $files = glob("{$dir}/*");
+    print "####>>>> ".$dir." ".strpos($dir, "search")."\n";
+    if (!strpos($dir, "search")) {
+        $files = glob("{$dir}/*");
 
-    foreach ($files as $file) {
+        foreach ($files as $file) {
+            if (strpos($file, "search")!==false) {
+                continue;
+            }
+            if (strstr($file, "search")!==true) {
         $searchpath = "./search" . preg_replace("/^\./", '', $file);
         if (is_dir($file) && (!preg_match("/node_modules|backup|archive|adminlte|search/i", $file))) {
             print "--> $file\n";
@@ -14,13 +20,20 @@ function recurse($dir, $lvl = 0) {
                 print "Created folder {$searchpath}\n";
             }
             if (!is_link($file)) {
-                $out = recurse($file, $lvl + 1);
+                if (strpos($file, "search")!==true) {
+                    $out = recurse($file, $lvl + 1);
+                }
             }
-        } else if (preg_match("/\.(pdf|html)/", $file, $matches)) {
-            $results = `pandoc -f {$matches[1]} -t markdown_strict $file`;
+        } else if (preg_match("/\.(html)/", $file, $matches)) {
+            $results = `pandoc -f html -t plain $file`;
+            $results = preg_replace("/\n\n/", "\n", $results);
             file_put_contents($searchpath, $results);
-            print str_repeat("\t", $lvl) . "+ {$searchpath}\n";
+            print str_repeat("\t", $lvl) . "+ {$file}\n";
         }
+            }
+    }
+    } else {
+        print "****** Skipping $dir\n";
     }
 }
 
