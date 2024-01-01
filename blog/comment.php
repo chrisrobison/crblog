@@ -27,9 +27,7 @@ if (array_key_exists("page", $in)) {
         }
         $out = $obj;
     } else {
-        $out = new stdClass();
-        $out->status = "error";
-        $out->error = "Comments file coments/{$in['page']}.json does not exist";
+        
     }
 }
 header("Content-Type: application/json");

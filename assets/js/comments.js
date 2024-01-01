@@ -8,6 +8,7 @@
 
   app.comments = {
     data: {},
+    comments: [],
     state: {
       loaded: false
     },
