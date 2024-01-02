@@ -6,6 +6,9 @@ if (isset($in['d'])) {
     if (is_dir($basedir.$in['d'])) {
         $dir = $basedir . $in['d'];
         $files = glob($basedir . $in['d']. "/*");
+    } else if (preg_match("/\.php$/", $basedir.$in['d'])) {
+        include($basedir.$in['d']);
+       exit; 
     } else if (is_file($basedir.$in['d'])) {
         $x = file_get_contents($basedir.$in['d']);
         header("Content-Type: " . mime_content_type($basedir.$in['d']));
