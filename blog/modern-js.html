@@ -138,7 +138,7 @@
         "https://cdr2.com/crblog/assets/img/modern-js_16x9.jpg"
        ],
       "datePublished": "2023-11-04T00:00:00-07:00",
-      "dateModified": "2023-11-30T06:25:05-08:00",
+      "dateModified": "2024-01-18T12:33:54-08:00",
       "author": [{
           "@type": "Person",
           "name": "Christopher Robison",
@@ -182,9 +182,20 @@
           <hr>
           <img width="640" src="/crblog/assets/img/modern-js.jpg" class="banner-pic"> 
           <hr>
-          <p>JavaScript has come a long way since its inception, continuously evolving to meet the demands of modern web development. Two of the most exciting additions to the language are the Optional Chaining Operator (<code>?.</code>) and the Nullish Coalescing Operator (<code>??</code>). These operators simplify the way we write code and handle data that might be <code>undefined</code> or <code>null</code>. Let’s dive in and explore these operators with some practical examples.</p>
-<h2 id="optional-chaining-operator-.">Optional Chaining Operator (<code>?.</code>)</h2>
-<p>Gone are the days of verbose and repetitive checks to avoid the dreaded <code>TypeError: Cannot read property 'x' of undefined</code>. The Optional Chaining Operator allows us to read the value of a property located deep within a chain of connected objects without having to explicitly validate each reference in the chain.</p>
+          <p>JavaScript has come a long way since its inception, continuously
+evolving to meet the demands of modern web development. Two of the most
+exciting additions to the language are the Optional Chaining Operator
+(<code>?.</code>) and the Nullish Coalescing Operator (<code>??</code>).
+These operators simplify the way we write code and handle data that
+might be <code>undefined</code> or <code>null</code>. Let’s dive in and
+explore these operators with some practical examples.</p>
+<h2 id="optional-chaining-operator-.">Optional Chaining Operator
+(<code>?.</code>)</h2>
+<p>Gone are the days of verbose and repetitive checks to avoid the
+dreaded <code>TypeError: Cannot read property 'x' of undefined</code>.
+The Optional Chaining Operator allows us to read the value of a property
+located deep within a chain of connected objects without having to
+explicitly validate each reference in the chain.</p>
 <h3 id="syntax">Syntax:</h3>
 <pre class="javascript"><code>obj?.prop       // Accessing a property
 obj?.[expr]     // Accessing a property with an expression
@@ -206,9 +217,17 @@ const userHobbies = user.profile ? user.profile.details ? user.profile.details.h
 // With Optional Chaining
 const userHobbies = user?.profile?.details?.hobbies;
 console.log(userHobbies); // Output: [&#39;Golf&#39;, &#39;Karaoke&#39;]</code></pre>
-<p>In the above example, if any part of the chain is <code>undefined</code> or <code>null</code>, the expression short-circuits and returns <code>undefined</code> instead of throwing an error.</p>
-<h2 id="nullish-coalescing-operator">Nullish Coalescing Operator (<code>??</code>)</h2>
-<p>The Nullish Coalescing Operator is a logical operator that returns its right-hand side operand when its left-hand side operand is <code>null</code> or <code>undefined</code>, and otherwise returns its left-hand side operand. This is particularly useful for assigning default values.</p>
+<p>In the above example, if any part of the chain is
+<code>undefined</code> or <code>null</code>, the expression
+short-circuits and returns <code>undefined</code> instead of throwing an
+error.</p>
+<h2 id="nullish-coalescing-operator">Nullish Coalescing Operator
+(<code>??</code>)</h2>
+<p>The Nullish Coalescing Operator is a logical operator that returns
+its right-hand side operand when its left-hand side operand is
+<code>null</code> or <code>undefined</code>, and otherwise returns its
+left-hand side operand. This is particularly useful for assigning
+default values.</p>
 <h3 id="syntax-1">Syntax:</h3>
 <pre class="javascript"><code>leftExpr ?? rightExpr</code></pre>
 <h3 id="code-example-1">Code Example:</h3>
@@ -227,9 +246,12 @@ const fontSize = settings.fontSize ?? &#39;medium&#39;;
 
 console.log(theme); // Output: &#39;dark&#39;
 console.log(fontSize); // Output: &#39;medium&#39;</code></pre>
-<p>The key difference between <code>??</code> and <code>||</code> is that <code>??</code> does not consider empty strings or the number <code>0</code> as nullish values, while <code>||</code> does.</p>
+<p>The key difference between <code>??</code> and <code>||</code> is
+that <code>??</code> does not consider empty strings or the number
+<code>0</code> as nullish values, while <code>||</code> does.</p>
 <h2 id="combining-both-operators">Combining Both Operators</h2>
-<p>These operators can be combined to provide very concise and readable code when dealing with complex data structures.</p>
+<p>These operators can be combined to provide very concise and readable
+code when dealing with complex data structures.</p>
 <h3 id="code-example-2">Code Example:</h3>
 <pre class="javascript"><code>const config = {
   header: {
@@ -239,11 +261,25 @@ console.log(fontSize); // Output: &#39;medium&#39;</code></pre>
 
 const title = config.header?.title ?? &#39;Default Title&#39;;
 console.log(title); // Output: &#39;New JavaScript Features&#39;</code></pre>
-<p>In this example, if <code>config.header</code> is <code>undefined</code>, the <code>title</code> would default to <code>'Default Title'</code>.</p>
-<p>Now let’s delve a bit deeper into the difference between using the Nullish Coalescing Operator (<code>??</code>) and the Logical OR operator (<code>||</code>) to understand their distinct behaviors.</p>
+<p>In this example, if <code>config.header</code> is
+<code>undefined</code>, the <code>title</code> would default to
+<code>'Default Title'</code>.</p>
+<p>Now let’s delve a bit deeper into the difference between using the
+Nullish Coalescing Operator (<code>??</code>) and the Logical OR
+operator (<code>||</code>) to understand their distinct behaviors.</p>
 <h2 id="truthy-vs.-nullish">Truthy vs. Nullish</h2>
-<p>The Logical OR (<code>||</code>) operator has been used in JavaScript for a long time to provide default values. It works based on the <em>truthiness</em> of the expressions. In JavaScript, <code>false</code>, <code>0</code>, <code>''</code> (empty string), <code>null</code>, <code>undefined</code>, and <code>NaN</code> are all <em title="Falsy equals nothing there">falsy</em> values. Everything else is <em>truthy</em>. If the left-hand operand is falsy, <code>||</code> will return the right-hand operand.</p>
-<p>On the other hand, the Nullish Coalescing Operator (<code>??</code>) is more specific. It only checks for <code>null</code> or <code>undefined</code>. It doesn’t care about the other falsy values like <code>0</code> or <code>''</code>.</p>
+<p>The Logical OR (<code>||</code>) operator has been used in JavaScript
+for a long time to provide default values. It works based on the
+<em>truthiness</em> of the expressions. In JavaScript,
+<code>false</code>, <code>0</code>, <code>''</code> (empty string),
+<code>null</code>, <code>undefined</code>, and <code>NaN</code> are all
+<em title="Falsy equals nothing there">falsy</em> values. Everything
+else is <em>truthy</em>. If the left-hand operand is falsy,
+<code>||</code> will return the right-hand operand.</p>
+<p>On the other hand, the Nullish Coalescing Operator (<code>??</code>)
+is more specific. It only checks for <code>null</code> or
+<code>undefined</code>. It doesn’t care about the other falsy values
+like <code>0</code> or <code>''</code>.</p>
 <h2 id="code-comparison">Code Comparison:</h2>
 <pre class="javascript"><code>// Let&#39;s assume we have an object that holds settings for a user&#39;s profile.
 const profileSettings = {
@@ -264,18 +300,39 @@ const notificationsCorrect = profileSettings.notifications ?? 10;
 
 console.log(themeCorrect); // Output: &#39;&#39; (exactly what the user intended)
 console.log(notificationsCorrect); // Output: 0 (exactly what the user intended)</code></pre>
-<p>In the above example, the Logical OR (<code>||</code>) fails to respect the user’s choice of an empty string for <code>theme</code> and <code>0</code> for <code>notifications</code> because they are falsy values. It defaults to the provided fallbacks even though the user has made a clear choice.</p>
-<p>The Nullish Coalescing Operator (<code>??</code>), however, correctly identifies that the user has set values (even though they are falsy) and doesn’t override them with the defaults.</p>
-<p>The choice between using <code>||</code> or <code>??</code> should be made based on whether you need to provide a fallback for any falsy value (<code>||</code>) or specifically for <code>null</code> or <code>undefined</code> (<code>??</code>). Understanding this distinction is crucial for writing precise and bug-free code, especially when dealing with configurations, settings, or any data that could intentionally have falsy values other than <code>null</code> or <code>undefined</code>.</p>
+<p>In the above example, the Logical OR (<code>||</code>) fails to
+respect the user’s choice of an empty string for <code>theme</code> and
+<code>0</code> for <code>notifications</code> because they are falsy
+values. It defaults to the provided fallbacks even though the user has
+made a clear choice.</p>
+<p>The Nullish Coalescing Operator (<code>??</code>), however, correctly
+identifies that the user has set values (even though they are falsy) and
+doesn’t override them with the defaults.</p>
+<p>The choice between using <code>||</code> or <code>??</code> should be
+made based on whether you need to provide a fallback for any falsy value
+(<code>||</code>) or specifically for <code>null</code> or
+<code>undefined</code> (<code>??</code>). Understanding this distinction
+is crucial for writing precise and bug-free code, especially when
+dealing with configurations, settings, or any data that could
+intentionally have falsy values other than <code>null</code> or
+<code>undefined</code>.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The Optional Chaining and Nullish Coalescing operators are excellent examples of JavaScript’s evolution. They offer cleaner, more intuitive ways to handle data that may not always be present, and they can prevent many common errors in code. As browser support for these features becomes ubiquitous, they’re quickly becoming indispensable tools in the modern JavaScript developer’s toolkit.</p>
-<p>Remember, while these operators can make your code more concise, clarity should never be sacrificed for brevity. Use these tools wisely to write code that’s not only clever but also maintainable and easy to understand.</p>
+<p>The Optional Chaining and Nullish Coalescing operators are excellent
+examples of JavaScript’s evolution. They offer cleaner, more intuitive
+ways to handle data that may not always be present, and they can prevent
+many common errors in code. As browser support for these features
+becomes ubiquitous, they’re quickly becoming indispensable tools in the
+modern JavaScript developer’s toolkit.</p>
+<p>Remember, while these operators can make your code more concise,
+clarity should never be sacrificed for brevity. Use these tools wisely
+to write code that’s not only clever but also maintainable and easy to
+understand.</p>
 
           <hr>
-    <div class="content-footer">
-      <a href="/crblog/blog/ai-logistics.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/ai-logistics.html', 'AI and the Art of Logistics', 'aiandtheartoflogistics', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(AI and the Art of Logistics) Next &gt; </a>
-      <a href="/crblog/blog/haunted-sf.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/haunted-sf.html', 'Haunted History', 'hauntedhistory', true, event)" title="Haunted History: San Francisco " style="font-weight:400;">&lt; Previous (Haunted History)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
@@ -314,7 +371,7 @@ console.log(notificationsCorrect); // Output: 0 (exactly what the user intended)
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2024 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
     </div>
   </footer>
 
@@ -342,8 +399,3 @@ console.log(notificationsCorrect); // Output: 0 (exactly what the user intended)
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
-
-
-

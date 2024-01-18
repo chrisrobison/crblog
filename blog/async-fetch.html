@@ -138,7 +138,7 @@
         "https://cdr2.com/crblog/assets/img/async-fetch_16x9.jpg"
        ],
       "datePublished": "2022-01-10T00:00:00-08:00",
-      "dateModified": "2023-11-30T06:25:06-08:00",
+      "dateModified": "2024-01-18T12:33:56-08:00",
       "author": [{
           "@type": "Person",
           "name": "Christopher Robison",
@@ -183,27 +183,46 @@
           <img width="640" src="/crblog/assets/img/async-fetch.jpg" class="banner-pic"> 
           <hr>
           <figure>
-<img src="./assets/img/async-fetch.jpg" alt="" /><figcaption>Image</figcaption>
+<img src="./assets/img/async-fetch.jpg" alt="Image" />
+<figcaption aria-hidden="true">Image</figcaption>
 </figure>
-<p>JavaScript, the language that’s fundamental for front-end development, has evolved immensely over the years. One of the game-changing features introduced is the <code>async/await</code> syntax. This has revolutionized how developers write asynchronous code, making it more readable and manageable. Combine this with the <code>fetch</code> API for making network requests, and you’ve got a powerful toolkit at your fingertips.</p>
+<p>JavaScript, the language that’s fundamental for front-end
+development, has evolved immensely over the years. One of the
+game-changing features introduced is the <code>async/await</code>
+syntax. This has revolutionized how developers write asynchronous code,
+making it more readable and manageable. Combine this with the
+<code>fetch</code> API for making network requests, and you’ve got a
+powerful toolkit at your fingertips.</p>
 <h2 id="what-is-asyncawait">What is Async/Await?</h2>
-<p>Originally, JavaScript had callbacks and promises for dealing with asynchronous operations. While these served their purpose, they could also become hard to manage and read as applications grew complex. Enter <code>async/await</code>, a syntactic feature that makes asynchronous code look and behave more like traditional synchronous code.</p>
+<p>Originally, JavaScript had callbacks and promises for dealing with
+asynchronous operations. While these served their purpose, they could
+also become hard to manage and read as applications grew complex. Enter
+<code>async/await</code>, a syntactic feature that makes asynchronous
+code look and behave more like traditional synchronous code.</p>
 <p>Here’s how it works:</p>
 <pre class="javascript"><code>async function fetchData() {
   const response = await fetch(&quot;https://api.example.com/data&quot;);
   const data = await response.json();
   console.log(data);
 }</code></pre>
-<p>Notice the <code>async</code> keyword before the function definition? It signals that this function will perform an asynchronous operation. Within the function body, the <code>await</code> keyword is used to pause the execution until the promise is resolved.</p>
+<p>Notice the <code>async</code> keyword before the function definition?
+It signals that this function will perform an asynchronous operation.
+Within the function body, the <code>await</code> keyword is used to
+pause the execution until the promise is resolved.</p>
 <h2 id="what-is-fetch">What is Fetch?</h2>
-<p>The Fetch API is a modern interface for making HTTP requests. It returns a Promise that resolves into the Response object representing the finished request.</p>
+<p>The Fetch API is a modern interface for making HTTP requests. It
+returns a Promise that resolves into the Response object representing
+the finished request.</p>
 <p>Example:</p>
 <pre class="javascript"><code>fetch(&quot;https://api.example.com/data&quot;)
   .then(response =&gt; response.json())
   .then(data =&gt; console.log(data))
   .catch((error) =&gt; console.log(&#39;There was a problem!&#39;, error));</code></pre>
-<h2 id="why-combine-asyncawait-and-fetch">Why Combine Async/Await and Fetch?</h2>
-<p>When you combine <code>async/await</code> with <code>fetch</code>, you get to handle asynchronous data fetching in a more readable and concise manner.</p>
+<h2 id="why-combine-asyncawait-and-fetch">Why Combine Async/Await and
+Fetch?</h2>
+<p>When you combine <code>async/await</code> with <code>fetch</code>,
+you get to handle asynchronous data fetching in a more readable and
+concise manner.</p>
 <h3 id="a-simple-example">A Simple Example</h3>
 <pre class="javascript"><code>async function fetchUserData(userId) {
   const response = await fetch(`https://api.example.com/users/${userId}`);
@@ -224,7 +243,8 @@ try {
   console.log(error);
 }</code></pre>
 <h2 id="error-handling">Error Handling</h2>
-<p>To handle errors in an <code>async/await</code> function, use <code>try/catch</code> blocks.</p>
+<p>To handle errors in an <code>async/await</code> function, use
+<code>try/catch</code> blocks.</p>
 <pre class="javascript"><code>async function fetchData() {
   try {
     const response = await fetch(&quot;https://api.example.com/data&quot;);
@@ -235,14 +255,18 @@ try {
   }
 }</code></pre>
 <h2 id="conclusion">Conclusion</h2>
-<p>The advent of <code>async/await</code> has significantly improved code readability and maintainability. Paired with the <code>fetch</code> API, it offers a clean and modern approach to writing asynchronous code for real-world applications.</p>
-<p>So, go ahead and refactor your callbacks and promises to this sleek, new standard. Your future self will thank you.</p>
+<p>The advent of <code>async/await</code> has significantly improved
+code readability and maintainability. Paired with the <code>fetch</code>
+API, it offers a clean and modern approach to writing asynchronous code
+for real-world applications.</p>
+<p>So, go ahead and refactor your callbacks and promises to this sleek,
+new standard. Your future self will thank you.</p>
 
           <hr>
-    <div class="content-footer">
-      <a href="/crblog/blog/eventloop.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/eventloop.html', 'The JS Event Loop', 'eventloop', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(The JS Event Loop) Next &gt; </a>
-      <a href="/crblog/blog/honeypot.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/honeypot.html', 'Unmasking Data Sellers', 'unmaskingdatasellers', true, event)" title="Unmasking Data Sellers: How to Use Honeypot Email Addresses" style="font-weight:400;">&lt; Previous (Unmasking Data Sellers)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
@@ -281,7 +305,7 @@ try {
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2024 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
     </div>
   </footer>
 
@@ -309,8 +333,3 @@ try {
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
-
-
-

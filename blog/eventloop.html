@@ -138,7 +138,7 @@
         "https://cdr2.com/crblog/assets/img/eventloop_16x9.jpg"
        ],
       "datePublished": "2022-03-22T00:00:00-07:00",
-      "dateModified": "2023-11-30T06:25:06-08:00",
+      "dateModified": "2024-01-18T12:33:56-08:00",
       "author": [{
           "@type": "Person",
           "name": "Christopher Robison",
@@ -182,27 +182,60 @@
           <hr>
           <img width="640" src="/crblog/assets/img/eventloop.jpg" class="banner-pic"> 
           <hr>
-          <p>JavaScript is a non-blocking, single-threaded language, but how does it handle asynchronous operations like AJAX requests, timers, and user interactions? Enter the Event Loop, a core concept that allows JavaScript to juggle multiple tasks without getting bogged down. In this post, we’ll dissect the Event Loop to help you understand its inner workings.</p>
-<h2 id="the-call-stack-where-it-all-begins">The Call Stack: Where It All Begins</h2>
-<p>Before we dive into the Event Loop, it’s crucial to understand the Call Stack. Think of it as a stack of plates; the last plate you place on the stack will be the first one you take off. In JavaScript, when a function is invoked, it’s added to the Call Stack. The function is executed and removed from the stack once it’s finished.</p>
+          <p>JavaScript is a non-blocking, single-threaded language, but how does
+it handle asynchronous operations like AJAX requests, timers, and user
+interactions? Enter the Event Loop, a core concept that allows
+JavaScript to juggle multiple tasks without getting bogged down. In this
+post, we’ll dissect the Event Loop to help you understand its inner
+workings.</p>
+<h2 id="the-call-stack-where-it-all-begins">The Call Stack: Where It All
+Begins</h2>
+<p>Before we dive into the Event Loop, it’s crucial to understand the
+Call Stack. Think of it as a stack of plates; the last plate you place
+on the stack will be the first one you take off. In JavaScript, when a
+function is invoked, it’s added to the Call Stack. The function is
+executed and removed from the stack once it’s finished.</p>
 <h2 id="heap-object-storage">Heap: Object Storage</h2>
-<p>The Heap is where objects are stored. Unlike the stack, which follows a last-in, first-out model, the Heap is unstructured, making it ideal for data storage.</p>
-<h2 id="the-event-queue-a-waiting-room">The Event Queue: A Waiting Room</h2>
-<p>JavaScript uses an Event Queue to keep track of all the events that occur. When an event happens—like a mouse click or data received from an API—the event’s callback function is placed into the Event Queue.</p>
-<h2 id="the-event-loop-the-grand-orchestrator">The Event Loop: The Grand Orchestrator</h2>
-<p>The Event Loop continuously checks the Call Stack to see if it’s empty. If it is, the Event Loop takes the first event from the Event Queue and moves it to the Call Stack for execution. This is how JavaScript manages to be non-blocking despite being single-threaded.</p>
+<p>The Heap is where objects are stored. Unlike the stack, which follows
+a last-in, first-out model, the Heap is unstructured, making it ideal
+for data storage.</p>
+<h2 id="the-event-queue-a-waiting-room">The Event Queue: A Waiting
+Room</h2>
+<p>JavaScript uses an Event Queue to keep track of all the events that
+occur. When an event happens—like a mouse click or data received from an
+API—the event’s callback function is placed into the Event Queue.</p>
+<h2 id="the-event-loop-the-grand-orchestrator">The Event Loop: The Grand
+Orchestrator</h2>
+<p>The Event Loop continuously checks the Call Stack to see if it’s
+empty. If it is, the Event Loop takes the first event from the Event
+Queue and moves it to the Call Stack for execution. This is how
+JavaScript manages to be non-blocking despite being single-threaded.</p>
 <h3 id="a-simple-analogy">A Simple Analogy</h3>
-<p>Imagine you’re cooking in a kitchen. You’ve got pasta boiling on one burner and sauce simmering on another. You can’t leave the pasta unattended, but you also need to stir the sauce. The Event Loop is like you—the chef—constantly checking each pot and knowing when to switch tasks to make sure nothing burns.</p>
+<p>Imagine you’re cooking in a kitchen. You’ve got pasta boiling on one
+burner and sauce simmering on another. You can’t leave the pasta
+unattended, but you also need to stir the sauce. The Event Loop is like
+you—the chef—constantly checking each pot and knowing when to switch
+tasks to make sure nothing burns.</p>
 <h2 id="a-real-world-example">A Real-World Example</h2>
-<p>Let’s say you’ve got a button on your webpage that, when clicked, fetches data from an API. When the button is clicked, a ‘click’ event is registered, and its callback function is sent to the Event Queue. The Event Loop waits for the Call Stack to empty before moving the ‘click’ event’s callback function for execution. Once executed, the API data appears on your webpage—smooth and efficient.</p>
+<p>Let’s say you’ve got a button on your webpage that, when clicked,
+fetches data from an API. When the button is clicked, a ‘click’ event is
+registered, and its callback function is sent to the Event Queue. The
+Event Loop waits for the Call Stack to empty before moving the ‘click’
+event’s callback function for execution. Once executed, the API data
+appears on your webpage—smooth and efficient.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The JavaScript Event Loop is an elegant solution to the challenges of asynchronous programming in a single-threaded environment. It ensures that JavaScript can handle multiple tasks simultaneously, without missing a beat. So, the next time your code performs like a well-oiled machine, tip your hat to the Event Loop—the unsung hero of JavaScript.</p>
+<p>The JavaScript Event Loop is an elegant solution to the challenges of
+asynchronous programming in a single-threaded environment. It ensures
+that JavaScript can handle multiple tasks simultaneously, without
+missing a beat. So, the next time your code performs like a well-oiled
+machine, tip your hat to the Event Loop—the unsung hero of
+JavaScript.</p>
 
           <hr>
-    <div class="content-footer">
-      <a href="/crblog/blog/mobile-frameworks.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/mobile-frameworks.html', 'Cross-Platform Mobile Frameworks', 'mobileframeworks', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Cross-Platform Mobile Frameworks) Next &gt; </a>
-      <a href="/crblog/blog/async-fetch.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/async-fetch.html', 'Async/Await and Fetch', 'async-fetch', true, event)" title="Mastering Async/Await and Fetch in JavaScript: A Guide for Real-World Application" style="font-weight:400;">&lt; Previous (Async/Await and Fetch)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
@@ -241,7 +274,7 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2024 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
     </div>
   </footer>
 
@@ -269,8 +302,3 @@
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
-
-
-

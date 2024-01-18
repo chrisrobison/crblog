@@ -140,7 +140,7 @@ In the ceaseless battle against spam, Realtime Black Lists (RBLs) have emerged a
         "https://cdr2.com/crblog/assets/img/renegade-rbls_16x9.jpg"
        ],
       "datePublished": "2020-06-06T00:00:00-07:00",
-      "dateModified": "2023-11-30T06:25:06-08:00",
+      "dateModified": "2024-01-18T12:33:56-08:00",
       "author": [{
           "@type": "Person",
           "name": "Christopher Robison",
@@ -186,53 +186,124 @@ In the ceaseless battle against spam, Realtime Black Lists (RBLs) have emerged a
           <hr>
           <h2 id="realtime-black-lists">Realtime Black Lists</h2>
 <h3 id="introduction">Introduction</h3>
-<p>In the ceaseless battle against spam, Realtime Black Lists (RBLs) have emerged as a potent weapon. A RBL contains lists of email servers, domain names, and IP addresses that are associated with hosting, producing, forwarding or otherwise contributing to creating spam. Email servers can reference these lists to determine if an email is being from a “spammer” host and flagging or denying the message.</p>
+<p>In the ceaseless battle against spam, Realtime Black Lists (RBLs)
+have emerged as a potent weapon. A RBL contains lists of email servers,
+domain names, and IP addresses that are associated with hosting,
+producing, forwarding or otherwise contributing to creating spam. Email
+servers can reference these lists to determine if an email is being from
+a “spammer” host and flagging or denying the message.</p>
 <h3 id="gathering-intel">Gathering Intel</h3>
-<p>The RBL services use a number of methods to compile lists of IP addresses reputed to send spam, mostly by using <a href="https://en.wikipedia.org/wiki/Honeypot_(computing)">honeypots</a>. Honeypots are basically email servers setup to accept mail to “poison” email addresses that have been seeded in the wild by various means but it doesn’t take much more than simply listing an email address on a web page for the spam to start flowing. If a honeypot receives any messages to a “poisoned” email, that sender is a spammer and they are added to the RBL. Other ways to get added to the RBL include being reported or having an insecure or improperly configured server (open relays, etc.).</p>
+<p>The RBL services use a number of methods to compile lists of IP
+addresses reputed to send spam, mostly by using <a
+href="https://en.wikipedia.org/wiki/Honeypot_(computing)">honeypots</a>.
+Honeypots are basically email servers setup to accept mail to “poison”
+email addresses that have been seeded in the wild by various means but
+it doesn’t take much more than simply listing an email address on a web
+page for the spam to start flowing. If a honeypot receives any messages
+to a “poisoned” email, that sender is a spammer and they are added to
+the RBL. Other ways to get added to the RBL include being reported or
+having an insecure or improperly configured server (open relays,
+etc.).</p>
 <h3 id="how-rbls-work">How RBLs Work</h3>
-<p>RBLs leverage the DNS service; normally known for looking up IP addresses for domain names. A suspected spamming domain is added to the RBLs DNS as host entry. This makes it incredibly simple to check if a domain or IP address is in the RBL using a normal DNS lookup; if a record is returned, they are are spammer and you can “blackhole” or otherwise handle the message as having a high probability of being spam. <a href="https://www.dnsbl.info/">https://www.dnsbl.info/</a> has a good short explanation and history of the technology.</p>
-<p>But like any tool, RBLs come with their own set of pros and cons so let’s dive into why they’re both a blessing and a curse and what happens when a once trusted RBL turns bad.</p>
+<p>RBLs leverage the DNS service; normally known for looking up IP
+addresses for domain names. A suspected spamming domain is added to the
+RBLs DNS as host entry. This makes it incredibly simple to check if a
+domain or IP address is in the RBL using a normal DNS lookup; if a
+record is returned, they are are spammer and you can “blackhole” or
+otherwise handle the message as having a high probability of being spam.
+<a href="https://www.dnsbl.info/">https://www.dnsbl.info/</a> has a good
+short explanation and history of the technology.</p>
+<p>But like any tool, RBLs come with their own set of pros and cons so
+let’s dive into why they’re both a blessing and a curse and what happens
+when a once trusted RBL turns bad.</p>
 <h2 id="the-benefits">The Benefits</h2>
 <p>Here’s a quick rundown of the benefits of using an RBL:</p>
 <ol type="1">
 <li><p>Efficient Filtering</p>
-<p>The most obvious benefit of RBLs is their ability to efficiently filter out spam. By cross-referencing incoming emails with a list of known spam IPs, email servers can quickly identify and block unwanted messages.</p></li>
+<p>The most obvious benefit of RBLs is their ability to efficiently
+filter out spam. By cross-referencing incoming emails with a list of
+known spam IPs, email servers can quickly identify and block unwanted
+messages.</p></li>
 <li><p>Resource Savings</p>
-<p>Spam filtering can be resource-intensive. RBLs help to alleviate this by providing a quick way to reject spam before it even enters the system, saving both computational power and storage space.</p></li>
+<p>Spam filtering can be resource-intensive. RBLs help to alleviate this
+by providing a quick way to reject spam before it even enters the
+system, saving both computational power and storage space.</p></li>
 <li><p>Community-Driven</p>
-<p>Many RBLs are maintained by communities of volunteers or organizations dedicated to internet security. This collective effort often results in highly accurate and up-to-date lists.</p></li>
+<p>Many RBLs are maintained by communities of volunteers or
+organizations dedicated to internet security. This collective effort
+often results in highly accurate and up-to-date lists.</p></li>
 <li><p>Flexible</p>
-<p>RBLs can be customized to suit the specific needs of an organization. You can choose to implement multiple lists, or even create your own based on the spam you encounter.</p></li>
+<p>RBLs can be customized to suit the specific needs of an organization.
+You can choose to implement multiple lists, or even create your own
+based on the spam you encounter.</p></li>
 </ol>
 <h2 id="the-drawbacks">The Drawbacks</h2>
-<p>There are always two sides to every coin, so let’s take a look at some of drawbacks of RBLs:</p>
+<p>There are always two sides to every coin, so let’s take a look at
+some of drawbacks of RBLs:</p>
 <ol type="1">
 <li><p>False Positives</p>
-<p>The most glaring issue with RBLs is the potential for false positives. Legitimate emails can sometimes be flagged and blocked, which can lead to missed opportunities or strained relationships.</p></li>
+<p>The most glaring issue with RBLs is the potential for false
+positives. Legitimate emails can sometimes be flagged and blocked, which
+can lead to missed opportunities or strained relationships.</p></li>
 <li><p>Lack of Due Process</p>
-<p>Once an IP is blacklisted, it can be challenging to get it removed, especially if the RBL is not well-maintained. This can be particularly problematic for dynamic IPs, which may be reassigned to innocent users.</p></li>
+<p>Once an IP is blacklisted, it can be challenging to get it removed,
+especially if the RBL is not well-maintained. This can be particularly
+problematic for dynamic IPs, which may be reassigned to innocent
+users.</p></li>
 <li><p>Potential for Abuse</p>
-<p>RBLs can be weaponized to block competitors or dissenting voices. Even worse is when an RBL goes bad as I discuss further a bit later. While neither of these are common, the potential for abuse exists.</p></li>
+<p>RBLs can be weaponized to block competitors or dissenting voices.
+Even worse is when an RBL goes bad as I discuss further a bit later.
+While neither of these are common, the potential for abuse
+exists.</p></li>
 </ol>
-<h2 id="renegade-rbl-providers-the-uceprotect-case">Renegade RBL Providers: The UCEPROTECT Case</h2>
-<p>While RBLs generally aim to make the digital world a safer place, not all providers play by the same rules. Some, like UCEPROTECT, have garnered controversy for their aggressive tactics. The following are some of the tactics UCEPROTECT uses to extort money from innocent sevice providers:</p>
+<h2 id="renegade-rbl-providers-the-uceprotect-case">Renegade RBL
+Providers: The UCEPROTECT Case</h2>
+<p>While RBLs generally aim to make the digital world a safer place, not
+all providers play by the same rules. Some, like UCEPROTECT, have
+garnered controversy for their aggressive tactics. The following are
+some of the tactics UCEPROTECT uses to extort money from innocent sevice
+providers:</p>
 <ol type="1">
 <li><p>Broad Strokes: Blocking Entire Subnets</p>
-<p>UCEPROTECT is known for blocking entire subnets instead of individual IPs, a practice that can cause significant collateral damage. This “guilty by association” approach can result in the blocking of numerous innocent users who happen to share a subnet with a spam source.</p></li>
+<p>UCEPROTECT is known for blocking entire subnets instead of individual
+IPs, a practice that can cause significant collateral damage. This
+“guilty by association” approach can result in the blocking of numerous
+innocent users who happen to share a subnet with a spam source.</p></li>
 <li><p>Pay-to-Play: The Delisting Dilemma</p>
-<p>What sets UCEPROTECT apart from most other RBLs is their requirement for payment to expedite delisting. This has led to accusations of operating more like a “ransom” service than a legitimate security tool. While they argue that the fee is a deterrent against spammers, critics claim it’s a revenue-generating scheme that exploits those desperate to restore their online reputation.</p></li>
+<p>What sets UCEPROTECT apart from most other RBLs is their requirement
+for payment to expedite delisting. This has led to accusations of
+operating more like a “ransom” service than a legitimate security tool.
+While they argue that the fee is a deterrent against spammers, critics
+claim it’s a revenue-generating scheme that exploits those desperate to
+restore their online reputation.</p></li>
 <li><p>Ethical Concerns</p>
-<p>Such practices raise ethical questions about the role and governance of RBL providers. Should they be allowed to hold such sway over online communications, especially when their actions can affect innocent parties? And should delisting ever be a paid service, or should it be based solely on the merit of the case?</p></li>
+<p>Such practices raise ethical questions about the role and governance
+of RBL providers. Should they be allowed to hold such sway over online
+communications, especially when their actions can affect innocent
+parties? And should delisting ever be a paid service, or should it be
+based solely on the merit of the case?</p></li>
 </ol>
 <h2 id="final-thoughts">Final Thoughts</h2>
-<p>The case of UCEPROTECT serves as a cautionary tale in the use of RBLs. While these lists can be incredibly useful, it’s crucial to consider the source and their practices. Always do your due diligence when choosing an RBL provider, and be aware that some may come with ethical and practical complications that could do more harm than good.</p>
-<p>Realtime Black Lists offer a powerful means of filtering out spam, saving resources, and leveraging community knowledge for better security. However, they are not without their flaws, such as the potential for false positives and abuse. Like any tool, the key to using RBLs effectively lies in understanding their limitations and remembering that not all RBLs are created equal. Choose wisely, and keep an eye out for those that might be playing fast and loose with your online security.</p>
+<p>The case of UCEPROTECT serves as a cautionary tale in the use of
+RBLs. While these lists can be incredibly useful, it’s crucial to
+consider the source and their practices. Always do your due diligence
+when choosing an RBL provider, and be aware that some may come with
+ethical and practical complications that could do more harm than
+good.</p>
+<p>Realtime Black Lists offer a powerful means of filtering out spam,
+saving resources, and leveraging community knowledge for better
+security. However, they are not without their flaws, such as the
+potential for false positives and abuse. Like any tool, the key to using
+RBLs effectively lies in understanding their limitations and remembering
+that not all RBLs are created equal. Choose wisely, and keep an eye out
+for those that might be playing fast and loose with your online
+security.</p>
 
           <hr>
-    <div class="content-footer">
-      <a href="/crblog/blog/stellar-dev.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/stellar-dev.html', 'From 0 to 100', 'stellar-dev', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(From 0 to 100) Next &gt; </a>
-      <a href="/crblog/blog/agile-howto.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/agile-howto.html', 'Adapting to Agile', 'agile', true, event)" title="Adapting to Agile: How to Successfully Implement Agile Methodologies in Your Team" style="font-weight:400;">&lt; Previous (Adapting to Agile)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
@@ -271,7 +342,7 @@ In the ceaseless battle against spam, Realtime Black Lists (RBLs) have emerged a
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2024 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
     </div>
   </footer>
 
@@ -299,8 +370,3 @@ In the ceaseless battle against spam, Realtime Black Lists (RBLs) have emerged a
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
-
-
-

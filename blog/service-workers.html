@@ -138,7 +138,7 @@
         "https://cdr2.com/crblog/assets/img/service-workers_16x9.jpg"
        ],
       "datePublished": "2023-06-08T00:00:00-07:00",
-      "dateModified": "2023-11-30T06:25:05-08:00",
+      "dateModified": "2024-01-18T12:33:55-08:00",
       "author": [{
           "@type": "Person",
           "name": "Christopher Robison",
@@ -182,14 +182,40 @@
           <hr>
           <img width="640" src="/crblog/assets/img/service-workers.jpg" class="banner-pic"> 
           <hr>
-          <p>We’ve all been there. You’re on your computer, online taking care of business. You’re just wrapping up the final part of a 6-part online job application form and you click submit. The page just spins and after a few seconds, you get the dreaded <q>Network not available</q> screen and all your work is now gone. Sure, browser s have gotten better at recovering from these types of scenarios but we need to be able to write software that will work, offline or online, if we expect users to rely on our web-based applications.</p>
-Until recently, there was little you could do to address the loss of connectivity as there was no client-side control mechanism for offline asset caching nor any way to hook into and hijack network requests. But now there are Service Workers. They’re perfect for asset caching, which can not only dramatically speed up your web apps, but can also make them available offline. But don’t confuse <code>Service Workers</code> with <code>Web Workers</code>; They are very similar but have one key diff erence: <code>Service Workers</code> are persistent while <code>Web Workers</code> are not. That means anything done in a Service Worker will continue to execute, even af ter the page has unloaded while anything done within a Web Worker is removed when the page is closed.
+          <p>We’ve all been there. You’re on your computer, online taking care of
+business. You’re just wrapping up the final part of a 6-part online job
+application form and you click submit. The page just spins and after a
+few seconds, you get the dreaded <q>Network not available</q> screen and
+all your work is now gone. Sure, browser s have gotten better at
+recovering from these types of scenarios but we need to be able to write
+software that will work, offline or online, if we expect users to rely
+on our web-based applications.</p>
+Until recently, there was little you could do to address the loss of
+connectivity as there was no client-side control mechanism for offline
+asset caching nor any way to hook into and hijack network requests. But
+now there are Service Workers. They’re perfect for asset caching, which
+can not only dramatically speed up your web apps, but can also make them
+available offline. But don’t confuse <code>Service Workers</code> with
+<code>Web Workers</code>; They are very similar but have one key diff
+erence: <code>Service Workers</code> are persistent while <code>Web
+Workers</code> are not. That means anything done in a Service Worker
+will continue to execute, even af ter the page has unloaded while
+anything done within a Web Worker is removed when the page is closed.
 </p>
-<p>tl;dr: A service worker functions like a proxy server, allowing you to modify requests and responses replacing them with items from its own cache. In this post, I’ll walk through setting up a service worker for caching assets and explore using a couple of different caching strategies.</p>
-<h2 id="setup-registering-a-service-worker">Setup: Registering a Service Worker</h2>
-<p>Before we dive into caching, we’ll need to register a service worker. Service Workers must be served over HTTPS as they are restricted to secure domains.</p>
+<p>tl;dr: A service worker functions like a proxy server, allowing you
+to modify requests and responses replacing them with items from its own
+cache. In this post, I’ll walk through setting up a service worker for
+caching assets and explore using a couple of different caching
+strategies.</p>
+<h2 id="setup-registering-a-service-worker">Setup: Registering a Service
+Worker</h2>
+<p>Before we dive into caching, we’ll need to register a service worker.
+Service Workers must be served over HTTPS as they are restricted to
+secure domains.</p>
 <blockquote>
-<p>If you don’t have a secure domain you can use, <code>localhost</code> is usually considered a secure origin by most browsers for local development.</p>
+<p>If you don’t have a secure domain you can use, <code>localhost</code>
+is usually considered a secure origin by most browsers for local
+development.</p>
 </blockquote>
 <p>Save the following code in a file called <code>sw.js</code>.</p>
 <pre class="javascript"><code>self.addEventListener(&#39;install&#39;, (event) =&gt; {
@@ -199,7 +225,9 @@ Until recently, there was little you could do to address the loss of connectivit
 self.addEventListener(&#39;fetch&#39;, (event) =&gt; {
   // Your fetch logic here
 });</code></pre>
-<p>This next part is our entry point into using service workers. Include this code in your main JavaScript file (app.js) to register the service worker:</p>
+<p>This next part is our entry point into using service workers. Include
+this code in your main JavaScript file (app.js) to register the service
+worker:</p>
 <pre class="javascript"><code>
 const registerServiceWorker = async () =&gt; {
   if (&quot;serviceWorker&quot; in navigator) {
@@ -225,16 +253,32 @@ const registerServiceWorker = async () =&gt; {
 registerServiceWorker();
 </code></pre>
 <ol type="1">
-<li>The if-block performs a feature detection test to make sure service workers are supported before trying to register one.</li>
-<li>Then ServiceWorkerContainer.register() function is called to register the service worker for this site. The service worker code is in a JavaScript file residing inside our app</li>
+<li>The if-block performs a feature detection test to make sure service
+workers are supported before trying to register one.</li>
+<li>Then ServiceWorkerContainer.register() function is called to
+register the service worker for this site. The service worker code is in
+a JavaScript file residing inside our app</li>
 </ol>
-<p>Remember, that this code is run as a service worker, which runs in a worker context, and therefore has no DOM access.</p>
+<p>Remember, that this code is run as a service worker, which runs in a
+worker context, and therefore has no DOM access.</p>
 <blockquote>
-<p>Note: By using service worker feature detection, browsers that do not support service workers will continue to work normally, they just won’t work offline.</p>
+<p>Note: By using service worker feature detection, browsers that do not
+support service workers will continue to work normally, they just won’t
+work offline.</p>
 </blockquote>
-<h2 id="fill-your-cache-install-activate">Fill your cache: install &amp; activate:</h2>
-<p>After the service worker is registered, the browser will attempt to <code>install</code> and then <code>activate</code> the service worker for your app.</p>
-<p>The <code>install</code> event is fired when an service worker installation is successfully completed. The <code>install</code> event is where you pre-fetch the assets you need to run your app offline and store them for later use. We use the Service Worker’s storage API, aptly named <code>cache</code>, which is basically a non-blocking persistent version of localStorage where we store our pre-fetched assets keyed by their request URL. The contents of the cache are kept until they are cleared or overwritten.</p>
+<h2 id="fill-your-cache-install-activate">Fill your cache: install &amp;
+activate:</h2>
+<p>After the service worker is registered, the browser will attempt to
+<code>install</code> and then <code>activate</code> the service worker
+for your app.</p>
+<p>The <code>install</code> event is fired when an service worker
+installation is successfully completed. The <code>install</code> event
+is where you pre-fetch the assets you need to run your app offline and
+store them for later use. We use the Service Worker’s storage API, aptly
+named <code>cache</code>, which is basically a non-blocking persistent
+version of localStorage where we store our pre-fetched assets keyed by
+their request URL. The contents of the cache are kept until they are
+cleared or overwritten.</p>
 <p>Here’s how a service worker handles the install event:</p>
 <pre><code>const addResourcesToCache = async (resources) =&gt; {
   const cache = await caches.open(&quot;v1&quot;);
@@ -257,25 +301,52 @@ self.addEventListener(&quot;install&quot;, (event) =&gt; {
 });
 </code></pre>
 <ol type="1">
-<li>First we add an <code>install</code> event listener to the service worker (hence self), and then chain a ExtendableEvent.waitUntil() method onto the event. This creates a promise that ensures that the service worker will not install until the code inside waitUntil() has completed.</li>
-<li>Inside addResourcesToCache() we use the caches.open() method to create a new cache called v1, which will be version 1 of our site resources cache. Then we call a function addAll() on the created cache with an array of URLs to cache.</li>
-<li>If the promise is rejected, the installation fails, and the worker won’t do anything. This is OK, as you can fix your code and then try again the next time registration occurs.</li>
+<li>First we add an <code>install</code> event listener to the service
+worker (hence self), and then chain a ExtendableEvent.waitUntil() method
+onto the event. This creates a promise that ensures that the service
+worker will not install until the code inside waitUntil() has
+completed.</li>
+<li>Inside addResourcesToCache() we use the caches.open() method to
+create a new cache called v1, which will be version 1 of our site
+resources cache. Then we call a function addAll() on the created cache
+with an array of URLs to cache.</li>
+<li>If the promise is rejected, the installation fails, and the worker
+won’t do anything. This is OK, as you can fix your code and then try
+again the next time registration occurs.</li>
 <li>After a successful installation, the service worker activates.</li>
 </ol>
 <h2 id="custom-responses-to-requests">Custom responses to requests</h2>
-<p>With our assets now cached, we need to instruct our service workers on how to serve our cached content. This is done within the fetch event.</p>
+<p>With our assets now cached, we need to instruct our service workers
+on how to serve our cached content. This is done within the fetch
+event.</p>
 <ol type="1">
-<li>A fetch event fires every time any resource controlled by a service worker is requested, which includes the documents inside the specified scope, and any resources referenced in those documents (for example if index.html makes a cross-origin request to embed an image, that still goes through its service worker.)</li>
-<li>Add an event listener for the <code>fetch</code> event to the service worker, then call the <code>respondWith()</code> method on the event to hijack the HTTP requests and respond with our cached content.</li>
+<li>A fetch event fires every time any resource controlled by a service
+worker is requested, which includes the documents inside the specified
+scope, and any resources referenced in those documents (for example if
+index.html makes a cross-origin request to embed an image, that still
+goes through its service worker.)</li>
+<li>Add an event listener for the <code>fetch</code> event to the
+service worker, then call the <code>respondWith()</code> method on the
+event to hijack the HTTP requests and respond with our cached
+content.</li>
 </ol>
 <pre><code>self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
   event.respondWith(caches.match(event.request));
 });
 </code></pre>
-<p><code>caches.match(event.request)</code> allows us to match each resource requested from the network with the equivalent resource available in the cache, if there is a matching one available. The matching is done via URL and various headers, just like with normal HTTP requests.</p>
+<p><code>caches.match(event.request)</code> allows us to match each
+resource requested from the network with the equivalent resource
+available in the cache, if there is a matching one available. The
+matching is done via URL and various headers, just like with normal HTTP
+requests.</p>
 <h2 id="failed-requests">Failed Requests</h2>
-<p><code>caches.match(event.request)</code> works great when it matches something in the service worker cache, but what about when there isn’t? As our code currently stands, there is no failure handling so our promise would end up resolving with <code>undefined</code> and we wouldn’t get anything returned.</p>
-<p>Let’s add some code that first tries the cache and falls back to a regular network request:</p>
+<p><code>caches.match(event.request)</code> works great when it matches
+something in the service worker cache, but what about when there isn’t?
+As our code currently stands, there is no failure handling so our
+promise would end up resolving with <code>undefined</code> and we
+wouldn’t get anything returned.</p>
+<p>Let’s add some code that first tries the cache and falls back to a
+regular network request:</p>
 <pre><code>const cacheFirst = async (request) =&gt; {
   const responseFromCache = await caches.match(request);
   if (responseFromCache) {
@@ -288,8 +359,13 @@ self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
   event.respondWith(cacheFirst(event.request));
 });
 </code></pre>
-<p>If the resources aren’t in the cache, they are requested from the network. This is usually referred to as the <q>cache-then-network</q> strategy. But we can do better.</p>
-<p>By adding a few extra lines of code, we can not only request the un-cached resources from the network but we can also store them in our cache for later. This allows your app to consistently work offline, even when new resources are requested:</p>
+<p>If the resources aren’t in the cache, they are requested from the
+network. This is usually referred to as the <q>cache-then-network</q>
+strategy. But we can do better.</p>
+<p>By adding a few extra lines of code, we can not only request the
+un-cached resources from the network but we can also store them in our
+cache for later. This allows your app to consistently work offline, even
+when new resources are requested:</p>
 <pre><code>const putInCache = async (request, response) =&gt; {
   const cache = await caches.open(&quot;v1&quot;);
   await cache.put(request, response);
@@ -308,7 +384,10 @@ const cacheFirst = async (request) =&gt; {
 self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
   event.respondWith(cacheFirst(event.request));
 });</code></pre>
-<p>The only trouble we have now is that if the request doesn’t match anything in the cache, and the network is not available, our request will still fail. Let’s provide a default fallback so that whatever happens, the user will at least get something:</p>
+<p>The only trouble we have now is that if the request doesn’t match
+anything in the cache, and the network is not available, our request
+will still fail. Let’s provide a default fallback so that whatever
+happens, the user will at least get something:</p>
 <pre><code>const putInCache = async (request, response) =&gt; {
   const cache = await caches.open(&quot;v1&quot;);
   await cache.put(request, response);
@@ -352,8 +431,14 @@ self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
   );
 });</code></pre>
 <h2 id="service-worker-updates">Service worker updates</h2>
-<p>If there is an updated version of a previously installed service worker, the newer version will be available on page refresh/reload. It is installed in the background but will not be activated yet. It is only activated when there are no longer any pages loaded that are still using the old service worker. As soon as nothing is using the old service worker, the new service worker will be activated.</p>
-<p>You will need to update your <code>install</code> event listener in the new service worker with a new version number:</p>
+<p>If there is an updated version of a previously installed service
+worker, the newer version will be available on page refresh/reload. It
+is installed in the background but will not be activated yet. It is only
+activated when there are no longer any pages loaded that are still using
+the old service worker. As soon as nothing is using the old service
+worker, the new service worker will be activated.</p>
+<p>You will need to update your <code>install</code> event listener in
+the new service worker with a new version number:</p>
 <pre><code>const addResourcesToCache = async (resources) =&gt; {
   const cache = await caches.open(&quot;v2&quot;);
   await cache.addAll(resources);
@@ -377,8 +462,15 @@ self.addEventListener(&quot;install&quot;, (event) =&gt; {
 
 </code></pre>
 <h2 id="removing-stale-content">Removing stale content</h2>
-<p>When a service worker is updated to a new version, a new cache is created in the <code>install</code> event handler. If there are open pages that are using the previous version of the worker, both caches must be kept. You can use the <code>activate</code> event to remove data from the previous caches.</p>
-<p>Promises passed into <code>waitUntil()</code> will block other events until completion, so the clean-up operation is guaranteed to have completed by the time the first fetch event on the new service worker fires.</p>
+<p>When a service worker is updated to a new version, a new cache is
+created in the <code>install</code> event handler. If there are open
+pages that are using the previous version of the worker, both caches
+must be kept. You can use the <code>activate</code> event to remove data
+from the previous caches.</p>
+<p>Promises passed into <code>waitUntil()</code> will block other events
+until completion, so the clean-up operation is guaranteed to have
+completed by the time the first fetch event on the new service worker
+fires.</p>
 <pre><code>const deleteCache = async (key) =&gt; {
   await caches.delete(key);
 };
@@ -396,10 +488,10 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
 </code></pre>
 
           <hr>
-    <div class="content-footer">
-      <a href="/crblog/blog/fleet-communication.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/fleet-communication.html', 'Tech Talk: Fleet Communication', 'techtalk', true, event)" class="next-entry latest" style="font-weight:400;float:right;">(Tech Talk: Fleet Communication) Next &gt; </a>
-      <a href="/crblog/blog/compliance.html" onclick="if (parent.app.loadTab) return parent.app.loadTab('/crblog/blog/compliance.html', 'Tech-Enabled Compliance', 'techenabledcompliance', true, event)" title="Tech-Enabled Compliance: Staying Ahead of Regulations in Transportation" style="font-weight:400;">&lt; Previous (Tech-Enabled Compliance)</a>
-  </div>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
       </div>
     </section>
     <section class="comments">
@@ -438,7 +530,7 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <strong>Copyright &copy; 2023 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2024 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
     </div>
   </footer>
 
@@ -466,8 +558,3 @@ self.addEventListener(&quot;activate&quot;, (event) =&gt; {
 <script src="/crblog/assets/js/comments.js"></script>
 </body>
 </html>
-
-
-
-
-
