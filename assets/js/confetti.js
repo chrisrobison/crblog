@@ -19,7 +19,7 @@ const confettiParams = {
         y: [10, 18]
     },
     // power of explosion
-    initSpeed: 20,
+    initSpeed: 10,
     // defines how fast particles go down after blast-off
     gravity: 0.35,
     // how wide is explosion
@@ -28,7 +28,7 @@ const confettiParams = {
     terminalVelocity: 1,
     // how fast particles are rotating around themselves
     flipSpeed: .1,
-    rotateSpeed: ~~(Math.random() * 100) + 1
+    rotateSpeed: ~~(Math.random() * 100) + 10
 };
 const colors = [
     { front: '#3B870A', back: '#235106' },
@@ -46,7 +46,7 @@ window.addEventListener('resize', () => { hideConfetti(); });
 
 // Confetti constructor
 function Conf() {
-    this.randomModifier = rand(-1, 1);
+    this.randomModifier = rand(-2, 2);
     this.colorPair = colors[Math.floor(rand(0, colors.length))];
     this.dimensions = {
         x: rand(confettiParams.size.x[0], confettiParams.size.x[1]),
@@ -58,14 +58,15 @@ function Conf() {
     };
     this.rotation = rand(0, 2 * Math.PI);
     this.scale = {
-        x: 1,
+        x: 1.2,
         y: 1
     };
     this.velocity = {
         x: rand(-confettiParams.initSpeed, confettiParams.initSpeed) * 0.4,
         y: rand(-confettiParams.initSpeed, confettiParams.initSpeed)
     };
-    this.flipSpeed = rand(0.2, 1.5) * confettiParams.flipSpeed;
+    this.flipSpeed = rand(0.2, 4.5) * confettiParams.flipSpeed;
+    this.rotateSpeed = rand(10, 20);
 
     if (this.position.y <= container.h) {
         this.velocity.y = -Math.abs(this.velocity.y);
@@ -75,10 +76,13 @@ function Conf() {
     
     this.element = document.createElement("div");
     this.element.className = "glitter";
-
     let html = "<div class='glitter-inner'><div class='glitter-front'></div><div class='glitter-back'></div></div>";
+    this.element.innerHTML = html;
 
-    this.element.style.backgroundColor = "#800";
+//    this.element.style.backgroundColor = "#fff0";
+    this.element.querySelector(".glitter-front").style.background = "#ccc";
+    this.element.querySelector(".glitter-back").style.background = "#666";
+
     this.element.style.top = this.position.y + "px";
     this.element.style.position = "absolute";
     this.element.style.height = 15 + "px";
@@ -90,7 +94,8 @@ function Conf() {
 document.querySelector("body").append(this.element);
 
     this.update = function() {
-        this.velocity.x *= 0.98;
+        this.scale.x -= 0.01;
+        this.velocity.x *= 0.97;
         this.position.x += this.velocity.x;
 
         this.velocity.y += (this.randomModifier * confettiParams.drag);
@@ -99,8 +104,9 @@ document.querySelector("body").append(this.element);
         this.position.y += this.velocity.y;
         this.rotate += (this.rotateSpeed * this.randomModifier);
         
-        this.scale.y = Math.cos((this.position.y + this.randomModifier) * this.flipSpeed);
-        this.color = this.scale.y > 0 ? "#880" : "#800";
+        this.scale.y = Math.cos((this.position.y + this.randomModifier) * 0.1);
+        this.element.style.backgroundColor = this.scale.y > 0 ? "#eee" : "#666";
+        this.element.style.transform = `scale(${this.scale.x})`;
     }
 }
 
