@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="canonical" href="https://cdr2.com/crblog/home.html" />
+  <title>Welcome To Christopher Robison's Site</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
+* { box-sizing: border-box; }
+
+body {
+  background-color: #000 !important;
+  font-family: 'Raleway', sans-serif;
+  height: 100vh;
+  background: #000 url('https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png') no-repeat center center / cover;
+  color: #ccc;
+  overflow-y:scroll;
+  background-position: right;
+}
+
+.container {
+  display: block;
+  right: 3rem;
+  top: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 3rem;
+}
+
+h1, h2, h3 {
+  font-weight: 200;
+  margin: 0.4rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #aaa;
+}
+
+/* Cursor */
+.txt-type > .txt {
+  border-right: 0.2rem solid #777;
+  animation: blink 1s linear 0s infinite forwards;
+}
+  @keyframes blink {
+    0% {
+      border-right: 0.2rem solid #777;
+    }
+    49% {
+      border-right: 0.2rem solid #777;
+    }
+50% { border-right: 0px; }
+99% { border-right: 0px; }
+    100% {
+      border-right: 0.2rem solid #777;
+    }
+  }
+@media(min-width: 1200px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+@media(max-width: 800px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+/*
+.ripple {
+  min-height: 380px;
+  max-width: 850px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  filter: url('#turbulence');
+  position: relative;
+  z-index: 6;
+  padding-top: 20px;
+  animation: float 15s linear infinite;
+  display:inline-block;
+  position:absolute;
+  transition: all 5s linear;
+}
+  */
+@keyframes float {
+  0% {
+    transform: translate(0px, 2000px);
+  }
+  50% {
+   transform: translate(calc(100*cos(180deg)), 1000px);
+
+  }
+  100% {
+    transform:translate(100px,-500px);
+  }
+}
+div.ghost svg {
+      position: absolute;
+}
+#ghost {
+  width:300px;
+  height:200px;
+  left:-600px;
+  position:absolute;
+
+}
+.ghost {
+  position: absolute;
+  width: 97vw;
+  height: 100%;
+  overflow-x: hidden;
+  bottom:1rem;
+  transform: scaleX(1);
+}
+
+.santa.start {
+
+
+}
+
+.ghost.start #ghost {
+  animation:
+    x 60s linear 1s infinite forwards;
+}
+@keyframes x {
+  0% {
+     left: -600px;
+     transform: scaleX(1);
+    bottom: 0rem;
+  }
+   10% {
+     left: -600px;
+     transform: scaleX(1);
+    bottom: 0rem;
+   }
+   25% {
+     left:calc(100% + 300px);
+     transform: scaleX(1);
+    bottom: 0rem;
+   }
+   50% {
+     transform: scaleX(-1);
+     left: calc(100% + 300px);
+    bottom: 7rem;
+   }
+   100% {
+     transform: scaleX(-1);
+     left:-600px;
+    bottom: 7rem;
+   }
+}
+   
+          .animated { 
+            background-repeat: no-repeat;
+            background-position: left top; 
+            padding-top:95px;
+            margin-bottom:60px;
+            animation-duration: 5s; 
+            animation-fill-mode: both;
+            animation-iteration-count:infinite;
+         }
+         @keyframes bounce { 
+            0%, 30%, 50%, 70%, 100% {transform: translateY(0);} 
+            40% {transform: translateY(-15px);} 
+            60% {transform: translateY(-10px);} 
+         }
+         
+         .indicator { 
+            animation-name: bounce;  
+            position:absolute;
+            font-size:48px; 
+            bottom: -1rem; 
+            left: 30%;
+              background-repeat: no-repeat;
+            background-position: left top; 
+            padding-top:95px;
+            margin-bottom:60px;
+            animation-duration: 5s; 
+            animation-fill-mode: both;
+            animation-iteration-count:infinite;
+       }
+  section {
+
+  }
+  section p {
+    height: 15rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    background-color:#666;
+  }
+  #blog-preview {
+
+  }
+  #contact-preview {
+
+  }
+  .container-wrap {
+    position: absolute;
+    right:3rem;
+    display:inline-block;
+      height:100%;
+
+  }
+  ul.horiz-scroll {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+}
+
+li {
+  background: #fff;
+  color: #111;
+  list-style: none;
+  width: 15rem;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
+  canvas {
+    pointer-events: none;
+
+  }
+  #baybridge { 
+    pointer-events: none;
+
+    position:absolute;
+    bottom:0px;
+    left: 0px;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+  }
+div.switcher {
+}
+div.switcher + div.switcher {
+  margin-top: 10px;
+}
+div.switcher label {
+  padding: 0;
+    margin-bottom:0.25rem;
+}
+div.switcher label * {
+  vertical-align: middle;
+}
+div.switcher label input {
+  display: none;
+}
+div.switcher label input + span {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  width: 50px;
+  height: 26px;
+  background: #445;
+  border: 2px solid #445;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+div.switcher label input + span small {
+  position: absolute;
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  left: 0;
+}
+div.switcher label input:checked + span {
+  background: #0a2;
+  border-color: #0a2;
+}
+div.switcher label input:checked + span small {
+  left: 50%;
+}
+  #snow-toggle {
+    position:fixed;
+    bottom: 0px;
+    right: 0px;
+    border-radius:1rem;
+    background: #0009;
+    padding: 1rem;
+  }
+  div.switcher label input + span {
+    background-color: #455;
+  }
+  body.no-snow canvas#snow { display: none; }
+  canvas {
+    pointer-events: none;
+    user-select:none;
+  }
+  small {
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #000;
+    font-size: 2vw;
+  }
+@media(max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  #baybridge {
+    bottom:0px;
+    left: -10vw;
+    height: 200vh;
+    background-position: bottom;
+    background-size: contain;
+  }
+  small { font-size: 6vw; }
+
+}
+  @media(min-height:1024px) {
+    #baybridge { display:none; };
+  }
+  h1, h2 {
+    color:#eee;
+    text-shadow: 2px 2px 2px #0009;
+  }
+  .hero {
+    background-color: #0008;
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+  #vidbg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    z-index: -1;
+  }
+  h1.type {
+    height: 1em;
+  }
+</style>
+<!--link rel='stylesheet' href='sleigh.css' /-->
+<script src="/crblog/assets/js/confetti.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="container-wrap">
+      <div class="hero">
+      <h1>Chris Robison Knows</h1>
+      <h1 class="type"><span class="txt-type" data-wait="3000" data-words='["Technology.","What, How & When.", "Programming.","Internet.","Servers.","Microservices.","Management.","Business Priorities.","Solutions."]'></span>
+      </h1>
+      <h2>Welcome To My Website</h2>
+      <div style="height:80%;"></div> 
+      <div class="indicator" style="display: none" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="#ccc" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></div>
+    </div>
+    <div id="baybridge"></div>
+  </div>
+  <div style="display: none" class="wrapper">   
+    <section class="blog"><h1>Blog</h1><p id="blog-preview"></p></section>
+    <section class="contact"><h1>Contact</h1><p id="contact-preview"></p></section>
+  </div>
+  <iframe id="vidbg" src="https://w3.mp.lura.live/player/prod/v3/anvload.html?key=eyJhbnZhY2siOiI1VkQ2RXlkNmRqZXdiQ21Od0JGbnNKajE3WUF2R1J3bCIsImV4cGVjdFByZXJvbGwiOnRydWUsImV4cGVjdFByZXJvbGxUaW1lb3V0Ijo1LCJodG1sNSI6dHJ1ZSwibSI6ImNicyIsInBsdWdpbnMiOnsiY29tc2NvcmUiOnsiYzMiOiJzYW5mcmFuY2lzY28uY2JzbG9jYWwuY29tIiwiY2xpZW50SWQiOiIzMDAwMDIzIn0sImRmcCI6eyJjbGllbnRTaWRlIjp7ImFkVGFnVXJsIjoiaHR0cDovL3B1YmFkcy5nLmRvdWJsZWNsaWNrLm5ldC9nYW1wYWQvYWRzP3N6PTJ4Mlx1MDAyNml1PS80MTI4L2Nicy5zZlx1MDAyNmNpdV9zenNcdTAwMjZpbXBsPXNcdTAwMjZnZGZwX3JlcT0xXHUwMDI2ZW52PXZwXHUwMDI2b3V0cHV0PXhtbF92YXN0Mlx1MDAyNnVudmlld2VkX3Bvc2l0aW9uX3N0YXJ0PTFcdTAwMjZ1cmw9W3JlZmVycmVyX3VybF1cdTAwMjZkZXNjcmlwdGlvbl91cmw9W2Rlc2NyaXB0aW9uX3VybF1cdTAwMjZjb3JyZWxhdG9yPVt0aW1lc3RhbXBdIiwia2V5VmFsdWVzIjp7ImNhdGVnb3JpZXMiOiJbW0NBVEVHT1JJRVNdXSIsInByb2dyYW0iOiJbW1BST0dSQU1fTkFNRV1dIiwic2l0ZVNlY3Rpb24iOiJ2aWRlby1leHBlcmllbmNlIn19fSwiaGVhcnRiZWF0QmV0YSI6eyJhY2NvdW50IjoiY2JzbG9jYWwtZ2xvYmFsLXVuaWZpZWQiLCJjaGFwdGVyVHJhY2tpbmciOmZhbHNlLCJjdXN0b21NZXRhZGF0YSI6eyJ2aWRlbyI6eyJjYnNfbWFya2V0Ijoic2FuZnJhbmNpc2NvLmNic2xvY2FsLmNvbSIsImNic19wbGF0Zm9ybSI6ImRlc2t0b3AifX0sImN1c3RvbVRyYWNraW5nU2VydmVyIjoiY2JzZGlnaXRhbG1lZGlhLmQxLnNjLm9tdHJkYy5uZXQiLCJjdXN0b21UcmFja2luZ1NlcnZlclNlY3VyZSI6ImNic2RpZ2l0YWxtZWRpYS5kMS5zYy5vbXRyZGMubmV0Iiwiam9iSWQiOiJzY192YSIsIm1hcmtldGluZ0Nsb3VkSWQiOiI4MjNCQTAzMzU1Njc0OTdGN0YwMDAxMDFAQWRvYmVPcmciLCJwSW5zdGFuY2UiOiJwMCIsInByb2ZpbGUiOiJjYnMiLCJwdWJsaXNoZXJJZCI6ImNic2xvY2FsIiwidHJhY2tpbmdTZXJ2ZXIiOiJjYnNkaWdpdGFsbWVkaWEuaGIub210cmRjLm5ldCIsInZlcnNpb24iOiIxLjUifSwibW9hdCI6eyJjbGllbnRTaWRlIjp7InBhcnRuZXJDb2RlIjoiY2JzbG9jYWxhbnZhdG92aWRlbzE4MTczMjYwOTQzMSJ9fX0sInRva2VuIjoiZGVmYXVsdCIsInYiOiJjNTEwIn0"></iframe>
+  <script>
+// ES6 Class
+class TypeWriter {
+  constructor(txtElement, words, wait = 3000) {
+    this.txtElement = txtElement;
+    this.words = words;
+    this.txt = '';
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.type();
+    this.isDeleting = false;
+  }
+
+  type() {
+    // Current index of word
+    const current = this.wordIndex % this.words.length;
+    // Get full text of current word
+    const fullTxt = this.words[current];
+
+    // Initial Type Speed
+    let typeSpeed = 300;
+
+    if (!typingPaused) {
+      // Check if deleting
+      if(this.isDeleting) {
+        // Remove char
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        // Add char
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      // Insert txt into element
+      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+      if (this.isDeleting) {
+        typeSpeed /= 2;
+      }
+
+      // If word is complete
+      if (!this.isDeleting && this.txt === fullTxt) {
+        // Make pause at end
+        typeSpeed = this.wait;
+        // Set delete to true
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        // Move to next word
+        this.wordIndex++;
+        // Pause before start typing
+        typeSpeed = 500;
+      }
+    }
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
+
+// Init On DOM Load
+document.addEventListener('DOMContentLoaded', init);
+let typingPaused = 0;
+
+// Init App
+function init() {
+  getBlogs();
+  const txtElement = document.querySelector('.txt-type');
+  const words = JSON.parse(txtElement.getAttribute('data-words'));
+  const wait = txtElement.getAttribute('data-wait');
+  // Init TypeWriter
+   new TypeWriter(txtElement, words, wait);
+
+  document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("txt")) {
+      document.querySelector(".txt-type").style.display = (!typingPaused) ? "none" : "inline-block";
+      typingPaused ^= 1;
+      setTimeout(function() { document.querySelector(".txt-type").style.display = "inline-block"; typingPaused = 0; }, 5000);;
+
+      return addDivConfetti(e, 30);
+
+    }
+  });
+
+  // initSnow();
+  // initSanta();
+}
+
+function initSanta() {
+  let santaChoice = localStorage.getItem("santa");
+
+  window.noSanta = (santaChoice==="no") ? true : false;;
+
+  let santacanvas = document.querySelector("canvas#santa");
+
+  if (window["noSanta"]) {
+    if (santacanvas) santacanvas.style.display = "none";
+    document.body.classList.add("no-santa");
+    document.querySelector("#santa-switch").checked = false;
+  } else {
+    if (santacanvas) santacanvas.style.display = "block";
+    document.body.classList.remove("no-santa");
+    document.querySelector("#santa-switch").checked = true;
+  }
+}
+
+function toggleSanta(evt) {
+  let santacanvas = document.querySelector("#santa");
+  if (evt) {
+    evt.stopPropagation();
+  }
+  let santaChoice = localStorage.getItem("santa");
+
+  // Current no santa, switch to santa
+  if (document.body.classList.contains("no-santa")) {
+    if (santacanvas) {
+      santacanvas.style.display = "block";
+      document.querySelector("#santa-switch").checked = true;
+      document.body.classList.remove("no-santa");
+      localStorage.setItem("santa", "yes");
+      window["noSanta"] = false;
+    }
+  } else { 
+    if (santacanvas) {
+      santacanvas.style.display = "none";
+      document.querySelector("#santa-switch").checked = false;
+      document.body.classList.add("no-santa");
+      localStorage.setItem("santa", "no");
+      window["noSanta"] = true;
+    }
+  }
+}
+
+
+function initSnow() {
+  let snowChoice = localStorage.getItem("snow");
+  window.noSnow = (snowChoice === "no") ? true : false;
+
+  let snowcanvas = document.querySelector("canvas#snow");
+
+  if (window['noSnow']) {
+    if (snowcanvas) snowcanvas.style.display = "none";
+    document.body.classList.add("no-snow");
+    document.querySelector("#snow-switch").checked = false;
+  } else {
+    if (snowcanvas) snowcanvas.style.display = "block";
+    document.body.classList.remove("no-snow");
+    document.querySelector("#snow-switch").checked = true;;
+  }
+}
+
+function toggleSnow(evt) {
+  let snowcanvas = document.querySelector("canvas#snow");
+  if (evt) { evt.stopPropagation(); }
+  let snowChoice = localStorage.getItem("snow");
+
+  if (document.body.classList.contains("no-snow")) {
+    if (snowcanvas) {
+      snowcanvas.style.display = "block";
+      document.querySelector("#snow-switch").checked = true;
+      document.body.classList.remove("no-snow");
+      localStorage.setItem("snow", "yes");
+      window["noSnow"] = false;
+      animate();
+    }
+  } else { 
+    if (snowcanvas) {
+      snowcanvas.style.display = "none";
+      document.querySelector("#snow-switch").checked = false;
+      document.body.classList.add("no-snow");
+      localStorage.setItem("snow", "no");
+      window["noSnow"] = true;
+    }
+  }
+}
+
+function getBlogs() {
+  fetch("/crblog/blog/posts.json").then(r=>r.json()).then(data=>{
+    window.blogentries = data;
+    let out = "<ul class='horiz-scroll'>";
+
+    data.forEach((item, idx) => {
+      out += `<li><img src="${item.hero}" height="150"><div class='blogitem'><h3>${item.title}</h3>${item.subtitle}</div></li>`;
+    });
+    out += "</ul>";
+    document.querySelector("#blog-preview").innerHTML = out;
+  });
+}
+    </script>
+        <!--script src="/crblog/assets/js/snowflake.js"></script-->
+</body>
+</html>
