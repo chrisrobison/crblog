@@ -22,7 +22,7 @@ if (isset($in['d'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>CR Files: <?php print $in['d']; ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..800&display=swap" rel="stylesheet">
@@ -80,7 +80,6 @@ if (isset($in['d'])) {
             background: #fff;
             padding-top: 4px;
             font-size: 0.8rem;
-            position: relative;
         }
         .icon {
             width: 5rem;
@@ -110,114 +109,16 @@ if (isset($in['d'])) {
         }
         .info > div {
         }
-.info {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 80%;
-    font-size: 0.6rem;
-    font-weight: 200;
-}
-.metaicons {
-    position: absolute;
-    bottom: 0.25rem;
-    color: #ccc;
-    font-size: 0.7rem;
-    right: 0.25rem;
-transition: all 200ms linear;
-opacity: 0;
-}
-.file:hover .metaicons {
-opacity: 1;
-}
-.metaicons a {
-color: #ccc;
-}
-.metaicons a:hover {
-    color: #0066ff;
-}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 <main>
-<datalist id="markers">
-  <option value="16"></option>
-  <option value="32"></option>
-  <option value="64"></option>
-  <option value="128"></option>
-  <option value="256"></option>
-  <option value="512"></option>
-  </datalist>
-<?php
-$out = array();
-
-foreach ($files as $file) {
-    $item = new stdClass();
-    $item->file = $file;
-    $item->modified = filemtime($file);
-
-    $icon = "";
-    $item->mimetype = $mime = mime_content_type($file);
-    $p = preg_split("/\./", $file);
-    $item->extention = $ext = array_pop($p);
-    $item->perms = getPerms($file);
-    $item->filesize = $size = filesize($file);
-
-    if ($size > 1000000) {
-        $size = sprintf("%.01f", $size / 1000000);
-        $sizeK = "MB";
-    } else if ($size > 1000) {
-        $size = sprintf("%.01f", $size / 1000);
-        $sizeK = "KB";
-    } else {
-        $sizeK = "bytes";
-    }
-    $dimensions = "";
-    if (preg_match("/image/", $mime)) {
-        $icon = preg_replace("|/home/cdr/domains/cdr2.com/www|", '', $file);
-        list($width, $height, $type, $attr) = getimagesize("$file");
-        $dimensions = "{$width}x{$height}";
-    } else if (is_dir($file)) {
-        $icon = "icons/Adwaita/512x512/mimetypes/inode-directory.png";
-    } else if (file_exists("img/".$ext.".png")) {
-        $icon = "img/".$ext.".png";
-    } else {
-        $icon = "img/_blank.png";
-    }
-    $item->icon = $icon;
-    $show = preg_replace("|{$dir}/|", '', $file);
-    $item->name = $show;
-    $out[] = $item;
-    $modified = date("m/d/Y h:i:s a", $item->modified);
-    //print "file: ".$file."<br>mimetype: ".$mime."<br>icon: ".$icon."<br>show: $show<hr>\n";
-    $dim = "";
-    if ($dimensions) {
-        $dim = <<<EOT
-<a href="#view-dimensions" title="Dimensions: {$dimensions}"><i class="fa-solid fa-ruler-combined"></i></a>
-EOT;
-    }
-
-print <<<EOT
-<div class='file' data-filename='{$file}' data-modified='{$modified}' data-perms='{$item->perms}' data-owner='{$item->owner}' data-group='{$item->group}'>
-    <a href='view.php?d={$file}' title='{$show}' class='fileinfo'><div style="background-image:url('{$icon}');" class='icon'></div></a>
-    <a href='view.php?d={$file}' title='{$show}' class='fileinfo'>{$show}</a>
-    <div class="metaicons">
-        <a href="#view-size" title="Filesize: {$size} {$sizeK}"><i class="fa-solid fa-weight-scale"></i></a>
-        {$dim}
-        <a href="#view-modified" title="Last Modified: $modified"><i class="fa-regular fa-clock"></i></a>
-        <a href="#view-perms" title="Permissions: {$item->perms}"><i class="fa-solid fa-user-lock"></i></a>
-    </div>
-</div>
-
-EOT;
-
-}
-?>
+    <div class="column"> </div>
+    <div class="column"> </div>
+    <div class="column"> </div>
+    <div class="column"> </div>
 </main>
-<div id="size-slider">
-    <input list="markers" type="range" min="8" max="512" id="slider" name="slider" oninput="app.size(this.value)">
-</div>
 <script>
 const $ = str => document.querySelector(str);
 const $$ = str => document.querySelectorAll(str);
@@ -281,58 +182,3 @@ const $$ = str => document.querySelectorAll(str);
 </body>
 
 </html>
-<?php
-function getPerms($file) {
-$perms = fileperms($file);
-/*
-switch ($perms & 0xF000) {
-    case 0xC000: // socket
-        $info = 's';
-        break;
-    case 0xA000: // symbolic link
-        $info = 'l';
-        break;
-    case 0x8000: // regular
-        $info = 'r';
-        break;
-    case 0x6000: // block special
-        $info = 'b';
-        break;
-    case 0x4000: // directory
-        $info = 'd';
-        break;
-    case 0x2000: // character special
-        $info = 'c';
-        break;
-    case 0x1000: // FIFO pipe
-        $info = 'p';
-        break;
-    default: // unknown
-        $info = 'u';
-}
- */
-$info = "";
-// Owner
-$info .= (($perms & 0x0100) ? 'r' : '-');
-$info .= (($perms & 0x0080) ? 'w' : '-');
-$info .= (($perms & 0x0040) ?
-            (($perms & 0x0800) ? 's' : 'x' ) :
-            (($perms & 0x0800) ? 'S' : '-'));
-
-// Group
-$info .= (($perms & 0x0020) ? 'r' : '-');
-$info .= (($perms & 0x0010) ? 'w' : '-');
-$info .= (($perms & 0x0008) ?
-            (($perms & 0x0400) ? 's' : 'x' ) :
-            (($perms & 0x0400) ? 'S' : '-'));
-
-// World
-$info .= (($perms & 0x0004) ? 'r' : '-');
-$info .= (($perms & 0x0002) ? 'w' : '-');
-$info .= (($perms & 0x0001) ?
-            (($perms & 0x0200) ? 't' : 'x' ) :
-            (($perms & 0x0200) ? 'T' : '-'));
-
-return $info;
-}
-?>
