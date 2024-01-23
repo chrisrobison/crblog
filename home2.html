@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="canonical" href="https://cdr2.com/crblog/home.html" />
   <title>Welcome To Christopher Robison's Site</title>
+<link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css">
+<link rel="stylesheet" href="/crblog/assets/img/explosion.css">
 <style>
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
 * { box-sizing: border-box; }
@@ -17,6 +19,8 @@ body {
   background: #000 url('https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png') no-repeat center center / cover;
   color: #ccc;
   overflow-y:scroll;
+  overflow-x:hidden;
+  width: 100vw;
   background-position: right;
 }
 
@@ -27,7 +31,7 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: 0 3rem;
+  padding: 0 0;
 }
 
 h1, h2, h3 {
@@ -197,35 +201,73 @@ div.ghost svg {
 
   }
   section p {
-    height: 15rem;
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: scroll;
     background-color:#666;
+    overflow: hidden;
+    align-items: flex-start;
   }
   #blog-preview {
-
+    display: flex;
+    flex-direction: row;
+    position: relative;
   }
   #contact-preview {
 
   }
+  .scroll-btn {
+    background-color: #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;;
+    top: 0;
+    width: 3rem;
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 1px 1px 1px #0009;
+    height: 100%;
+  }
+  #scroll-left {
+    left: 0px;
+  }
+  #scroll-right {
+    right: 0px;
+  }
   .container-wrap {
-    position: absolute;
+    position: relative;
     right:3rem;
-    display:inline-block;
+    display:flex;
       height:100%;
+      justify-content: flex-end;
 
   }
-  ul.horiz-scroll {
+  .scroller {
+  overflow-x: scroll;
+  width: 89vw;
+  position: relative;
+  left: 4vw;
+  }
+ul.horiz-scroll {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: flex-start;
+  width: fit-content;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
 }
 
 li {
+  scroll-snap-align: start;
   background: #fff;
+  padding: 0 1rem;
+  width: 16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
   color: #111;
   list-style: none;
   width: 15rem;
@@ -236,6 +278,11 @@ li {
 h3 {
   margin: 0;
   padding: 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.blogitem {
+  font-size: 14px;
 }
   canvas {
     pointer-events: none;
@@ -343,8 +390,15 @@ div.switcher label input:checked + span small {
     color:#eee;
     text-shadow: 2px 2px 2px #0009;
   }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
   .hero {
     background-color: #0008;
+    height: min-content;
+    overflow: hidden;
     padding: 1rem;
     border-radius: 2rem;
   }
@@ -355,18 +409,53 @@ div.switcher label input:checked + span small {
     top:0px;
     left: 0px;
     z-index: -1;
+    border: 0;
+    background-image:url("https://qt.exploratorium.edu/roofcam/Observatory/image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   h1.type {
-    height: 1em;
+    height: 36px;
+    text-transform: none;
+  }
+  .hero h1 {
+    font-size: 36px;
+    text-transform: none;
+  }
+  #pause {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border:0;
+    background: #ccc0;
+    color: #ccc;
+  }
+  #pause.playing  .fa-circle-play {
+    display:none;
+  }
+  #pause.playing  .fa-circle-pause {
+    display:inline-block;
+  }
+  #pause.paused  .fa-circle-play {
+    display:inline-block;
+  }
+  #pause.paused  .fa-circle-pause {
+    display:none;
+  }
+  .byline {
+    display: flex;
+    justify-content: space-between;
   }
 </style>
 <!--link rel='stylesheet' href='sleigh.css' /-->
+  <script src="/crblog/assets/fontawesome-free-6.4.0-web/js/all.min.js"></script>
 <script src="/crblog/assets/js/confetti.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="container-wrap">
       <div class="hero">
+        <button onclick="togglePause();return false;" id="pause" class="playing"><i class="fa-regular fa-circle-pause"></i><i class="fa-regular fa-circle-play"></i></button>
       <h1>Chris Robison Knows</h1>
       <h1 class="type"><span class="txt-type" data-wait="3000" data-words='["Technology.","What, How & When.", "Programming.","Internet.","Servers.","Microservices.","Management.","Business Priorities.","Solutions."]'></span>
       </h1>
@@ -374,10 +463,12 @@ div.switcher label input:checked + span small {
       <div style="height:80%;"></div> 
       <div class="indicator" style="display: none" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="#ccc" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></div>
     </div>
-    <div id="baybridge"></div>
   </div>
-  <div style="display: none" class="wrapper">   
-    <section class="blog"><h1>Blog</h1><p id="blog-preview"></p></section>
+  <div style="display: block" class="wrapper">   
+    <section class="blog">
+        <h1>Blog</h1>
+        <p id="blog-preview"></p>
+    </section>
     <section class="contact"><h1>Contact</h1><p id="contact-preview"></p></section>
   </div>
   <iframe id="vidbg" src="https://w3.mp.lura.live/player/prod/v3/anvload.html?key=eyJhbnZhY2siOiI1VkQ2RXlkNmRqZXdiQ21Od0JGbnNKajE3WUF2R1J3bCIsImV4cGVjdFByZXJvbGwiOnRydWUsImV4cGVjdFByZXJvbGxUaW1lb3V0Ijo1LCJodG1sNSI6dHJ1ZSwibSI6ImNicyIsInBsdWdpbnMiOnsiY29tc2NvcmUiOnsiYzMiOiJzYW5mcmFuY2lzY28uY2JzbG9jYWwuY29tIiwiY2xpZW50SWQiOiIzMDAwMDIzIn0sImRmcCI6eyJjbGllbnRTaWRlIjp7ImFkVGFnVXJsIjoiaHR0cDovL3B1YmFkcy5nLmRvdWJsZWNsaWNrLm5ldC9nYW1wYWQvYWRzP3N6PTJ4Mlx1MDAyNml1PS80MTI4L2Nicy5zZlx1MDAyNmNpdV9zenNcdTAwMjZpbXBsPXNcdTAwMjZnZGZwX3JlcT0xXHUwMDI2ZW52PXZwXHUwMDI2b3V0cHV0PXhtbF92YXN0Mlx1MDAyNnVudmlld2VkX3Bvc2l0aW9uX3N0YXJ0PTFcdTAwMjZ1cmw9W3JlZmVycmVyX3VybF1cdTAwMjZkZXNjcmlwdGlvbl91cmw9W2Rlc2NyaXB0aW9uX3VybF1cdTAwMjZjb3JyZWxhdG9yPVt0aW1lc3RhbXBdIiwia2V5VmFsdWVzIjp7ImNhdGVnb3JpZXMiOiJbW0NBVEVHT1JJRVNdXSIsInByb2dyYW0iOiJbW1BST0dSQU1fTkFNRV1dIiwic2l0ZVNlY3Rpb24iOiJ2aWRlby1leHBlcmllbmNlIn19fSwiaGVhcnRiZWF0QmV0YSI6eyJhY2NvdW50IjoiY2JzbG9jYWwtZ2xvYmFsLXVuaWZpZWQiLCJjaGFwdGVyVHJhY2tpbmciOmZhbHNlLCJjdXN0b21NZXRhZGF0YSI6eyJ2aWRlbyI6eyJjYnNfbWFya2V0Ijoic2FuZnJhbmNpc2NvLmNic2xvY2FsLmNvbSIsImNic19wbGF0Zm9ybSI6ImRlc2t0b3AifX0sImN1c3RvbVRyYWNraW5nU2VydmVyIjoiY2JzZGlnaXRhbG1lZGlhLmQxLnNjLm9tdHJkYy5uZXQiLCJjdXN0b21UcmFja2luZ1NlcnZlclNlY3VyZSI6ImNic2RpZ2l0YWxtZWRpYS5kMS5zYy5vbXRyZGMubmV0Iiwiam9iSWQiOiJzY192YSIsIm1hcmtldGluZ0Nsb3VkSWQiOiI4MjNCQTAzMzU1Njc0OTdGN0YwMDAxMDFAQWRvYmVPcmciLCJwSW5zdGFuY2UiOiJwMCIsInByb2ZpbGUiOiJjYnMiLCJwdWJsaXNoZXJJZCI6ImNic2xvY2FsIiwidHJhY2tpbmdTZXJ2ZXIiOiJjYnNkaWdpdGFsbWVkaWEuaGIub210cmRjLm5ldCIsInZlcnNpb24iOiIxLjUifSwibW9hdCI6eyJjbGllbnRTaWRlIjp7InBhcnRuZXJDb2RlIjoiY2JzbG9jYWxhbnZhdG92aWRlbzE4MTczMjYwOTQzMSJ9fX0sInRva2VuIjoiZGVmYXVsdCIsInYiOiJjNTEwIn0"></iframe>
@@ -463,111 +554,126 @@ function init() {
     }
   });
 
-  // initSnow();
-  // initSanta();
 }
 
-function initSanta() {
-  let santaChoice = localStorage.getItem("santa");
-
-  window.noSanta = (santaChoice==="no") ? true : false;;
-
-  let santacanvas = document.querySelector("canvas#santa");
-
-  if (window["noSanta"]) {
-    if (santacanvas) santacanvas.style.display = "none";
-    document.body.classList.add("no-santa");
-    document.querySelector("#santa-switch").checked = false;
-  } else {
-    if (santacanvas) santacanvas.style.display = "block";
-    document.body.classList.remove("no-santa");
-    document.querySelector("#santa-switch").checked = true;
+function cleanDate(now) {
+  if (typeof(now) === "string") {
+    now = new Date(now);
   }
-}
+  let mos = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  let out = "";
 
-function toggleSanta(evt) {
-  let santacanvas = document.querySelector("#santa");
-  if (evt) {
-    evt.stopPropagation();
+  if (now && now.getMonth) {
+      out = mos[now.getMonth()].substring(0, 3) + '. ' + now.getDate() + ', ' + now.getFullYear();
   }
-  let santaChoice = localStorage.getItem("santa");
-
-  // Current no santa, switch to santa
-  if (document.body.classList.contains("no-santa")) {
-    if (santacanvas) {
-      santacanvas.style.display = "block";
-      document.querySelector("#santa-switch").checked = true;
-      document.body.classList.remove("no-santa");
-      localStorage.setItem("santa", "yes");
-      window["noSanta"] = false;
-    }
-  } else { 
-    if (santacanvas) {
-      santacanvas.style.display = "none";
-      document.querySelector("#santa-switch").checked = false;
-      document.body.classList.add("no-santa");
-      localStorage.setItem("santa", "no");
-      window["noSanta"] = true;
-    }
-  }
-}
-
-
-function initSnow() {
-  let snowChoice = localStorage.getItem("snow");
-  window.noSnow = (snowChoice === "no") ? true : false;
-
-  let snowcanvas = document.querySelector("canvas#snow");
-
-  if (window['noSnow']) {
-    if (snowcanvas) snowcanvas.style.display = "none";
-    document.body.classList.add("no-snow");
-    document.querySelector("#snow-switch").checked = false;
-  } else {
-    if (snowcanvas) snowcanvas.style.display = "block";
-    document.body.classList.remove("no-snow");
-    document.querySelector("#snow-switch").checked = true;;
-  }
-}
-
-function toggleSnow(evt) {
-  let snowcanvas = document.querySelector("canvas#snow");
-  if (evt) { evt.stopPropagation(); }
-  let snowChoice = localStorage.getItem("snow");
-
-  if (document.body.classList.contains("no-snow")) {
-    if (snowcanvas) {
-      snowcanvas.style.display = "block";
-      document.querySelector("#snow-switch").checked = true;
-      document.body.classList.remove("no-snow");
-      localStorage.setItem("snow", "yes");
-      window["noSnow"] = false;
-      animate();
-    }
-  } else { 
-    if (snowcanvas) {
-      snowcanvas.style.display = "none";
-      document.querySelector("#snow-switch").checked = false;
-      document.body.classList.add("no-snow");
-      localStorage.setItem("snow", "no");
-      window["noSnow"] = true;
-    }
-  }
+  return out;
 }
 
 function getBlogs() {
   fetch("/crblog/blog/posts.json").then(r=>r.json()).then(data=>{
     window.blogentries = data;
-    let out = "<ul class='horiz-scroll'>";
+    let out = "<div class='scroll-btn' id='scroll-left'>&lt</div><div class='scroller'><ul class='horiz-scroll'>";
 
     data.forEach((item, idx) => {
-      out += `<li><img src="${item.hero}" height="150"><div class='blogitem'><h3>${item.title}</h3>${item.subtitle}</div></li>`;
+      out += `<li><img src="${item.hero}" height="150"><div class='blogitem'><h3>${item.title}</h3>${item.subtitle}<br><div class='byline' style="display:flex;"><div>Chris Robison</div><div>${cleanDate(item.date)}</div></div></div></li>`;
     });
-    out += "</ul>";
+    out += "</ul></div><div class='scroll-btn' id='scroll-right'>&gt</div>";
     document.querySelector("#blog-preview").innerHTML = out;
   });
 }
+let animationState = 1;
+function initTyping() {
+  let choice = localStorage.getItem("noAnimations");
+
+  window.animationState = !choice;
+  if (window.animationState) {
+    
+  }
+}
+function togglePause() {
+  document.querySelector("#pause").classList.toggle("playing");  
+  document.querySelector("#pause").classList.toggle("paused");  
+  typingPaused ^= 1;
+}
+let booms = [];
+let rocketTgt = [0, 0];
+let rockets = [];
+function calcAngleDegrees(x1, y1, x2=0, y2=0) {
+  return (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
+}
+function doRocket(x, y) {
+  let rocket = document.createElement("div");
+  rocket.style.top = window.innerHeight + 'px';
+  
+  if (x < window.innerWidth / 2) {
+    rocket.style.left = 0 + 'px';
+    let angle =  calcAngleDegrees(x, y, 0, window.innerHeight);
+    rocket.style.backgroundImage = 'url("/crblog/assets/img/rocket-tiny.png")';
+    rocket.style.transform = `translateX(0px) translateY(0px) scale(2) rotate(${angle+90}deg)`;
+
+    document.body.append(rocket);
+    rocket.classList.add("rocket");
+    rockets.push(rocket);
+    setTimeout(function() {
+      rockets[rockets.length-1].style.transform = `translateX(${x}px) translateY(-${(window.innerHeight - y) +20 }px) scale(0.2) rotate(${angle+90}deg)`;
+    }, 10);
+  } else {
+    rocket.style.left = window.innerWidth + 'px';
+    let angle =  calcAngleDegrees(x, y, window.innerWidth + 25, window.innerHeight);
+    rocket.style.transform = `translateX(0px) translateY(0px) scale(2) rotate(${angle-90}deg)`;
+
+    document.body.append(rocket);
+    rocket.classList.add("rocket");
+    rockets.push(rocket);
+    setTimeout(function() {
+      rockets[rockets.length-1].style.transform = `translateX(-${window.innerWidth-x}px) translateY(-${(window.innerHeight - y + 50)}px) scale(0.2) rotate(${angle - 90}deg)`;
+    }, 10);
+ 
+  }
+    rocketTgt = [x, y];
+  setTimeout(function() { doExplosion(x, y); },300);
+}
+function doExplosion(x, y) {
+  let r = rockets.shift();
+  r.parentElement.removeChild(r);
+
+  let boom = document.createElement("div");
+  boom.style.position = "absolute";
+  boom.style.top = rocketTgt[1] + 20 + 'px';
+  boom.style.left = rocketTgt[0] + 20 + 'px';
+  boom.style.zIndex = 999999;
+  document.body.append(boom);
+  boom.classList.add("explode");
+  booms.push(boom);
+  setTimeout(function() {
+    let el = booms.shift();
+    el.parentElement.removeChild(el);
+  }, 4500);
+
+}
+function ufo() {
+  let ship = document.createElement("div");
+  ship.className = "ufo";
+  ship.style.top = "0px";
+  ship.style.left = "0px";
+  ship.id = "ufo";
+  document.body.append(ship);
+  setTimeout(function() {
+    ship.style.top = (window.innerHeight / 2) + 'px';
+    ship.style.left = window.innerWidth + 100 + 'px';
+  }, 10);
+  setTimeout(function() {
+    let el = document.querySelector("#ship");
+    el.parentElement.removeChild(el);
+  }, 16000);
+}
+document.addEventListener("click", function(e) {
+  console.log("clicking!");
+  console.dir(e);
+  doRocket(e.clientX, e.clientY);
+});
+setInterval(ufo, 30000);
+ufo();
     </script>
-        <!--script src="/crblog/assets/js/snowflake.js"></script-->
 </body>
 </html>
