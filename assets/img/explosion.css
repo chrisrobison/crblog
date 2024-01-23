@@ -1,0 +1,56 @@
+.explode {
+    height: 100px;
+    width: 100px;
+    background-image: url("/crblog/assets/img/explosion2.png");
+    background-size: 1000px 900px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    animation: explodeX 500ms steps(10) infinite, explodeY 4500ms steps(9) infinite;
+    translate: -50px -70px;
+}
+
+@keyframes explodeX {
+    from { background-position-x: 0px; }
+    to { background-position-x: -1000px; }
+}
+@keyframes explodeY {
+    from { background-position-y: 0px; }
+    to { background-position-y: -900px; }
+}
+
+.rocket {
+    position: absolute;
+    background-image: url("/crblog/assets/img/rocket-tiny-up.png");
+    background-size: 25px 94px;
+    height: 94px;
+    width: 25px;
+    bottom: 0px;
+    left:0px;
+    transition: all 500ms linear;
+    transform: translateX(0px) translateY(0px) scale(2);
+    z-index: 999999;
+}
+.left-rocket {
+    rotate(30deg);
+}
+.fire {
+    
+}
+.ufo {
+    position: absolute;
+    height: 32px;
+    width: 140px;
+    background-image: url("/crblog/assets/img/ufo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: left 15000ms linear;
+    animation: hover 2s infinite linear;
+}
+@keyframes hover {
+
+    0% { transform: translateY(-20px) }
+    30% { transform: translateY(0px) }
+    60% { transform: translateY(20px) }
+    80% { transform: translateY(0px) }
+    100% { transform: translateY(-20px) }
+}
