@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
+html{scroll-behavior:smooth; }
+* { box-sizing: border-box; }
+
+body {
+  background-color: #000 !important;
+  font-family: 'Raleway', sans-serif;
+  height: 100vh;
+  background: #000 url('https://cdr2.com/crblog/assets/img/skyline/sf-skyline.png') no-repeat center center / cover;
+  color: #ccc;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  width: 100vw;
+  background-position: right;
+}
+
+.container {
+  display: block;
+  right: 3rem;
+  top: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 0;
+}
+
+h1, h2, h3 {
+  font-weight: 200;
+  margin: 0.4rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #aaa;
+}
+
+/* Cursor */
+.txt-type > .txt {
+  border-right: 0.2rem solid #777;
+  animation: blink 1s linear 0s infinite forwards;
+}
+  @keyframes blink {
+    0% {
+      border-right: 0.2rem solid #777;
+    }
+    49% {
+      border-right: 0.2rem solid #777;
+    }
+50% { border-right: 0px; }
+99% { border-right: 0px; }
+    100% {
+      border-right: 0.2rem solid #777;
+    }
+  }
+@media(min-width: 1200px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+@media(max-width: 800px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+/*
+.ripple {
+  min-height: 380px;
+  max-width: 850px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  filter: url('#turbulence');
+  position: relative;
+  z-index: 6;
+  padding-top: 20px;
+  animation: float 15s linear infinite;
+  display:inline-block;
+  position:absolute;
+  transition: all 5s linear;
+}
+  */
+@keyframes float {
+  0% {
+    transform: translate(0px, 2000px);
+  }
+  50% {
+   transform: translate(calc(100*cos(180deg)), 1000px);
+
+  }
+  100% {
+    transform:translate(100px,-500px);
+  }
+}
+div.ghost svg {
+      position: absolute;
+}
+#ghost {
+  width:300px;
+  height:200px;
+  left:-600px;
+  position:absolute;
+
+}
+.ghost {
+  position: absolute;
+  width: 97vw;
+  height: 100%;
+  overflow-x: hidden;
+  bottom:1rem;
+  transform: scaleX(1);
+}
+
+.santa.start {
+
+
+}
+
+.ghost.start #ghost {
+  animation:
+    x 60s linear 1s infinite forwards;
+}
+@keyframes x {
+  0% {
+     left: -600px;
+     transform: scaleX(1);
+    bottom: 0rem;
+  }
+   10% {
+     left: -600px;
+     transform: scaleX(1);
+    bottom: 0rem;
+   }
+   25% {
+     left:calc(100% + 300px);
+     transform: scaleX(1);
+    bottom: 0rem;
+   }
+   50% {
+     transform: scaleX(-1);
+     left: calc(100% + 300px);
+    bottom: 7rem;
+   }
+   100% {
+     transform: scaleX(-1);
+     left:-600px;
+    bottom: 7rem;
+   }
+}
+   
+          .animated { 
+            background-repeat: no-repeat;
+            background-position: left top; 
+            padding-top:95px;
+            margin-bottom:60px;
+            animation-duration: 5s; 
+            animation-fill-mode: both;
+            animation-iteration-count:infinite;
+         }
+         @keyframes bounce { 
+            0%, 30%, 50%, 70%, 100% {transform: translateY(0);} 
+            40% {transform: translateY(-15px);} 
+            60% {transform: translateY(-10px);} 
+         }
+         
+.indicator {
+    position: absolute;
+    font-size: 48px;
+    bottom: -1rem;
+    /* left: 30%; */
+    left: 0;
+    width: 100vw;
+    display: flex;
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-top: 95px;
+    margin-bottom: 60px;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.indicator > svg {
+    animation-name: bounce;
+    animation-duration: 10s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+
+  }
+
+  section {
+
+  }
+  section p {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color:#666;
+    overflow: hidden;
+    align-items: flex-start;
+  }
+  .fun-preview {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width:100vw;
+    background-color: #333;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
+  }
+  #blog-preview {
+    display: grid;
+    position: relative;
+    width:100vw;
+    background-color: #333;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
+  }
+  #contact-preview {
+
+  }
+  .scroll-btn {
+    background-color: #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;;
+    top: 0;
+    width: 3rem;
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 1px 1px 1px #0009;
+    height: 100%;
+    z-index: 999999;
+    transition: all 300ms linear;
+    cursor: pointer;
+  }
+  #scroll-left, .scroll-left {
+    left: 0px;
+    box-shadow: 3px 0px 3px #0005;
+    opacity: 0;
+  }
+  #scroll-right, .scroll-right {
+    right: 1rem;
+    box-shadow: -1rem 0px 1rem #0005;
+  }
+  h4 {
+    margin:0;
+    padding:0;
+    font-weight: 400;
+  }
+  .container-wrap {
+    position: relative;
+    right:3rem;
+    display:flex;
+      height:100%;
+      justify-content: flex-end;
+    user-select: none;
+  }
+  .fun-scroller {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  overflow-x: scroll;
+  width: 95vw;
+  position: relative;
+  left: 0vw;
+  }
+  .scroller {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  overflow-x: scroll;
+  width: 95vw;
+  position: relative;
+  left: 0vw;
+  }
+  .fun-scroller::-webkit-scrollbar {
+    display: none;
+  }
+  .scroller::-webkit-scrollbar {
+    display: none;
+  }
+ul.horiz-scroll {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  width: fit-content;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+}
+
+li {
+  scroll-snap-align: start;
+  background: #fff;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  color: #111;
+  list-style: none;
+  width: 17rem;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+a.scroll-link {
+  display: flex;
+  color: #111;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+ 
+}
+h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.funitem {
+    font-size: 14px;
+    min-height: 6rem;
+    display: flex;
+    width: 14rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
+.blogitem {
+    font-size: 14px;
+    min-height: 6rem;
+    display: flex;
+    width: 16rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
+canvas {
+    pointer-events: none;
+
+  }
+  #baybridge { 
+    pointer-events: none;
+
+    position:absolute;
+    bottom:0px;
+    left: 0px;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+  }
+div.switcher {
+}
+div.switcher + div.switcher {
+  margin-top: 10px;
+}
+div.switcher label {
+  padding: 0;
+    margin-bottom:0.25rem;
+}
+div.switcher label * {
+  vertical-align: middle;
+}
+div.switcher label input {
+  display: none;
+}
+div.switcher label input + span {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  width: 50px;
+  height: 26px;
+  background: #445;
+  border: 2px solid #445;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+div.switcher label input + span small {
+  position: absolute;
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  left: 0;
+}
+div.switcher label input:checked + span {
+  background: #0a2;
+  border-color: #0a2;
+}
+div.switcher label input:checked + span small {
+  left: 50%;
+}
+  #snow-toggle {
+    position:fixed;
+    bottom: 0px;
+    right: 0px;
+    border-radius:1rem;
+    background: #0009;
+    padding: 1rem;
+  }
+  div.switcher label input + span {
+    background-color: #455;
+  }
+  body.no-snow canvas#snow { display: none; }
+  canvas {
+    pointer-events: none;
+    user-select:none;
+  }
+  small {
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #000;
+    font-size: 2vw;
+  }
+@media(max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  #baybridge {
+    bottom:0px;
+    left: -10vw;
+    height: 200vh;
+    background-position: bottom;
+    background-size: contain;
+  }
+  small { font-size: 6vw; }
+
+}
+  @media(min-height:1024px) {
+    #baybridge { display:none; };
+  }
+  h1, h2 {
+    color:#eee;
+    text-shadow: 2px 2px 2px #0009;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .hero {
+    background-color: #0008;
+    height: min-content;
+    overflow: hidden;
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+  #vidbg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    z-index: -1;
+    border: 0;
+    background-image:url("https://qt.exploratorium.edu/roofcam/Observatory/image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  h1.type {
+    height: 36px;
+    text-transform: none;
+  }
+  .hero h1 {
+    font-size: 36px;
+    text-transform: none;
+  }
+  #pause {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border:0;
+    background: #ccc0;
+    color: #ccc;
+  }
+  #pause.playing  .fa-circle-play {
+    display:none;
+  }
+  #pause.playing  .fa-circle-pause {
+    display:inline-block;
+  }
+  #pause.paused  .fa-circle-play {
+    display:inline-block;
+  }
+  #pause.paused  .fa-circle-pause {
+    display:none;
+  }
+  .byline {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.8em;
+    align-items: flex-end;
+    flex-grow: 10;
+  }
+  .blogtitle {
+    background-color: #0004;
+    color: #fff;
+    position: absolute; 
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 4px 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  .hero-image {
+    width: 18rem;
+    height: 9rem;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }

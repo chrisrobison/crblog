@@ -5,7 +5,7 @@
     background-size: 1000px 900px;
     background-position: 0 0;
     background-repeat: no-repeat;
-    animation: explodeX 500ms steps(10) infinite, explodeY 4500ms steps(9) infinite;
+    animation: explodeX 250ms steps(10) infinite, explodeY 2250ms steps(9) infinite;
     translate: -50px -70px;
 }
 
@@ -26,7 +26,7 @@
     width: 25px;
     bottom: 0px;
     left:0px;
-    transition: all 500ms linear;
+    transition: all 300ms linear;
     transform: translateX(0px) translateY(0px) scale(2);
     z-index: 999999;
 }
@@ -43,11 +43,11 @@
     background-image: url("/crblog/assets/img/ufo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    transition: left 15000ms linear;
-    animation: hover 2s infinite linear;
+    transition: all 3000ms linear;
+    animation: hover 3s infinite linear;
 }
-@keyframes hover {
 
+@keyframes hover {
     0% { transform: translateY(-20px) }
     30% { transform: translateY(0px) }
     60% { transform: translateY(20px) }
