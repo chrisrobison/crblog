@@ -158,7 +158,7 @@ ul#funlist li:hover {
         app.data = data;
         let out = app.makeList(data);
         $("#funlist").innerHTML = out;
-        parent.fixIframeHeight();
+        if (parent && parent.fixIframeHeight) parent.fixIframeHeight();
       });
     },
     makeList: function(data) {

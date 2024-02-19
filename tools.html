@@ -152,7 +152,7 @@ ul#toollist li:hover {
         const $$ = str => document.querySelectorAll(str);
         let app = {
           init: function() {
-            parent.fixIframeHeight();
+            if (parent && parent.fixIframeHeight) parent.fixIframeHeight();
             fetch("nav/tools.json").then(r=>r.json()).then(data=>{
               app.data = data;
               let out = app.makeList(data);
