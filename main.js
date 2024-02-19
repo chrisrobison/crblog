@@ -170,8 +170,11 @@
               console.log("doClick who:");
               console.dir(who);
                 if (who.closest(".icons-no")) {
-                    who.querySelector("i").classList.remove("fa-circle");
-                    who.querySelector("i").classList.add("fa-circle-dot");
+                  let ico = who.querySelector("i");
+                  if (ico) {
+                    ico.classList.remove("fa-circle");
+                    ico.classList.add("fa-circle-dot");
+                  }
                 }
                 let tgt = who.getAttribute("target");
               console.log("tgt"); console.dir(tgt);
