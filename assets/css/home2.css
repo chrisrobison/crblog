@@ -229,7 +229,7 @@ div.ghost svg {
 
   }
   .scroll-btn {
-    background-color: #aaa;
+    background-color: #0000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,13 +244,21 @@ div.ghost svg {
     transition: all 300ms linear;
     cursor: pointer;
   }
+  section:hover .scroll-btn {
+    background-color: #9999;
+  }
   #scroll-left, .scroll-left {
     left: 0px;
-    box-shadow: 3px 0px 3px #0005;
     opacity: 0;
+  }
+  section:hover #scroll-left, section:hover .scroll-left {
+    box-shadow: 3px 0px 3px #0005;
   }
   #scroll-right, .scroll-right {
     right: 1rem;
+  }
+  section:hover #scroll-right, section:hover .scroll-right {
+    background: #9999;
     box-shadow: -1rem 0px 1rem #0005;
   }
   h4 {
