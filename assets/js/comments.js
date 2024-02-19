@@ -29,6 +29,23 @@
       }
       app.comments.state.loaded = true;
     },
+    cleanDate(date) {
+      let parts = date.split(/[\-\/]/);
+      let yr, mo, day;
+      if (parts[0].length == 4) {
+        yr = parts[0];
+        mo = parts[1];
+        day = parts[2];
+      } else if (parts[2].length == 4) {
+        yr = parts[2];
+        mo = parts[0];
+        day = parts[1];
+      }
+      if (mo < 10) mo = '0' + mo;
+      if (day < 10) day = '0' + day;
+
+      return `${mo}/${day}/${yr}`;
+    },
     mkcomment(obj, key='1', pid='0') {
       console.log(`in mkcomment ${obj} ${key} ${pid}`);
       let item = `
