@@ -327,7 +327,7 @@
                     let path = file.filename.split(/\//);
                     let fn = path.pop();
                     let id = file.filename.replace(/\W/g, '_');
-                    out += `<li><a id="${id}" href="/crblog${file.filename}" target="_blank" data-filename="${file.filename}" data-folder="${file.isdir}"><span class="icon"><img src="${file.icon}" class="icon${isdir}"></span> ${fn}</a></li>`;
+                    out += `<li><a id="${id}" href="/crblog${file.filename}" target="_blank" data-filename="/crblog${file.filename}" data-folder="${file.isdir}"><span class="icon"><img src="${file.icon}" class="icon${isdir}"></span> ${fn}</a></li>`;
                 });
                 out += "</ul>";
                 let newel = document.createElement("li");

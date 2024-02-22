@@ -1,0 +1,46 @@
+<form action="contact.php" method="POST" style="width:100%">
+  <input type="hidden" name="token" id="token" value="">
+  <!-- Default box -->
+  <div class="card">
+    <div id="card-body" class="card-body">
+      <div class="card-heading sanserif" style="flex-direction:column;justify-content:space-between !important;">
+        <h1><img src="assets/img/stamp.svg" height="65">Contact</h1>
+        <div id="card-head">
+          <div id="card-name" class="sanserif">
+            <h2>Christopher Robison</h2>
+            <p class="lead">San Francisco, California<br></p>
+            <p>
+              <i class="fas fa-phone"></i> <a title="Telephone 4153000180" href="tel:+14153000180">(415) 300-0180</a> <span style="padding-left:1rem;"><i class="fas fa-envelope"></i> <a title="Email cdr@cdr2.com" href="mailto:cdr@cdr2.com">cdr@cdr2.com</a></span></p>
+          </div>
+          <div class="sanserif">
+            <p class="lead blurb">Have a question? Just want to say "hi"? Or maybe you just want to see the cool animation at the end. Complete the form here with your comments or you can always <a href="mailto:cdr@cdr2.com">email</a>, <a href="sms:4158106991">text</a> or <a href="tel:415-810-6991">call</a>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sanserif fields">
+        <div class="form-group">
+          <label for="inputName">Name<span class="required">*</span></label>
+          <input type="text" name="name" id="inputName" class="form-control" required/>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">E-Mail<span class="required">*</span></label>
+          <input type="email" name="email" id="inputEmail" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="inputSubject">Subject</label>
+          <input type="text" name="subject" id="inputSubject" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="inputMessage">Message<span class="required">*</span></label>
+          <textarea id="inputMessage" name="message" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="form-group" style="display:flex;">
+          <div class="g-recaptcha" style="float:left;" data-sitekey="6LeBZAspAAAAAPqCTJt-DG4nGpyM0nFKwUwfIRR1"></div>
+          <input type="submit" class="btn btn-primary" value="Send message">
+        </div>
+        <div style="position:absolute;top:1rem; right:1rem;font-size:0.9rem;display:inline-block; float:right;"><span class="required">*</span> Required field</div>
+      </div>
+    </div>
+  </div>
+
+</form>

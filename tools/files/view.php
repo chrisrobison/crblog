@@ -1,11 +1,17 @@
 <?php
 $in = $_REQUEST;
-$basedir = "/home/cdr/domains/cdr2.com/www/crblog";
+$basedir = "/home/cdr/domains/cdr2.com/www";
+$httppath = "/crblog";
+$shortpath = "";
 
+if (!isset($in['d'])) {
+    $in['d'] = '/crblog/';
+}
 if (isset($in['d'])) {
     if (is_dir($basedir.$in['d'])) {
         $dir = $basedir . $in['d'];
-        $files = glob($basedir . $in['d']. "/*");
+        $shortpath = $in['d'];
+        $files = glob($dir. "/*");
     } else if (preg_match("/\.php$/", $basedir.$in['d'])) {
         include($basedir.$in['d']);
        exit; 
@@ -26,7 +32,7 @@ if (isset($in['d'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css" />
     <style>
         * { box-sizing: border-box; }
         body {
@@ -137,7 +143,7 @@ color: #ccc;
     color: #0066ff;
 }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/crblog/assets/fontawesome-free-6.4.0-web/js/all.min.js"></script>
 </head>
 <body>
 <main>
@@ -174,7 +180,7 @@ foreach ($files as $file) {
         $sizeK = "bytes";
     }
     $dimensions = "";
-    if (preg_match("/image/", $mime)) {
+    if ((preg_match("/image/", $mime)) && (!preg_match("/\.[psd|svg|bmp]$/", $file))) {
         $icon = preg_replace("|/home/cdr/domains/cdr2.com/www|", '', $file);
         list($width, $height, $type, $attr) = getimagesize("$file");
         $dimensions = "{$width}x{$height}";
@@ -186,7 +192,8 @@ foreach ($files as $file) {
         $icon = "img/_blank.png";
     }
     $item->icon = $icon;
-    $show = preg_replace("|{$dir}/|", '', $file);
+    $show = preg_replace("|{$dir}/?|", '', $file);
+    $shortpath = preg_replace("|/home/cdr/domains/cdr2.com/www|", '', $file);
     $item->name = $show;
     $out[] = $item;
     $modified = date("m/d/Y h:i:s a", $item->modified);
@@ -200,8 +207,8 @@ EOT;
 
 print <<<EOT
 <div class='file' data-filename='{$file}' data-modified='{$modified}' data-perms='{$item->perms}' data-owner='{$item->owner}' data-group='{$item->group}'>
-    <a href='view.php?d={$file}' title='{$show}' class='fileinfo'><div style="background-image:url('{$icon}');" class='icon'></div></a>
-    <a href='view.php?d={$file}' title='{$show}' class='fileinfo'>{$show}</a>
+    <a href='view.php?d={$shortpath}' title='{$show}' class='fileinfo'><div style="background-image:url('{$icon}');" class='icon'></div></a>
+    <a href='view.php?d={$shortpath}' title='{$show}' class='fileinfo'>{$show}</a>
     <div class="metaicons">
         <a href="#view-size" title="Filesize: {$size} {$sizeK}"><i class="fa-solid fa-weight-scale"></i></a>
         {$dim}
