@@ -167,7 +167,7 @@ body {
         width: 1.2rem;
         height: 1.2rem;
     }
-    .tab-content { background-color: #fff; }
+
         </style>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed dark-mode" data-panel-auto-height-mode="height">
@@ -344,7 +344,7 @@ role="menu" data-accordion="false">
         </ul>
     </li>
     <li class="nav-item">
-        <a href="/cv/resumes/list2.php" title="Resume" onclick="return app.doClick(this, event)" class="nav-link"><i class=
+        <a href="/cv/resumes/list2.html" title="Resume" onclick="return app.doClick(this, event)" class="nav-link"><i class=
         "nav-icon fa-regular fa-file"></i>
         <p>
             Resume<i class="right fas fa-angle-left" onclick=
@@ -882,6 +882,13 @@ role="menu" data-accordion="false">
                 </p></a>
             </li>
             <li class="nav-item">
+                <a href="/qrcode/" title="QR Code Generator" onclick="return app.doClick(this, event)" class="nav-link"><i class=
+                "nav-icon fas fa-qrcode"></i>
+                <p>
+                    QR Code Generator
+                </p></a>
+            </li>
+            <li class="nav-item">
                 <a href="/invoice/" title="Invoice Generator" onclick="return app.doClick(this, event)" class=
                 "nav-link"><i class="nav-icon fas fa-file-invoice-dollar"></i>
                 <p>
@@ -968,7 +975,7 @@ role="menu" data-accordion="false">
                     <a class="nav-link bg-dark" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
                 </div>
                 <div class="tab-content">
-                    <div class="tab-pane fade active show" id="panel-index" role="tabpanel" aria-labelledby="tab-index"><iframe id='home-iframe' src="home2.html" style="height: 84vh;"></iframe></div>
+                    <div class="tab-pane fade active show" id="panel-index" role="tabpanel" aria-labelledby="tab-index"><iframe id='home-iframe' src="home.html" style="height: 84vh;"></iframe></div>
                     <div class="tab-empty">
                         <h2 class="display-4">No tab selected!</h2>
                     </div>
@@ -1004,7 +1011,6 @@ role="menu" data-accordion="false">
         <script>
             $.widget.bridge('uibutton', $.ui.button)
         </script>
-        <script src="/crblog/assets/fontawesome-free-6.4.0-web/js/all.min.js"></script>
         <!-- Bootstrap 4 -->
         <!--script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
