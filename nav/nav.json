@@ -39,7 +39,7 @@
     },
     {
       "title": "Resume",
-      "link": "/cv/resumes/list2.php",
+      "link": "/cv/resumes/list2.html",
       "icon": "fa-regular fa-file",
       "_childicons": true,
       "_include": "nav/resume.json"
