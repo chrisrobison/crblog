@@ -10,7 +10,7 @@ Initially, I thought there could only be one of each letter but I was wrong. The
 4. Create tool to assist in word probe
 5. Profit!
 
-There are 8,938 five letter words in total with the following letter counts:
+There are 8,938 five letter words in total with the following overall letter counts:
 ```
 s: 4649
 e: 4586
@@ -40,7 +40,15 @@ j: 186
 q: 79
 ```
 
-This is a count of how many times each letter was found in a word in our list. So the ten most popular letters are S, E, A, O, R, I, L, T, N, and D so we should try and start with a word containing those. 
+This is a count of how many times each letter was found in any position in a word in our list. So the ten most popular letters overall are S, E, A, O, R, I, L, T, N, and D.
+
+I also made letter frequency counts for each letter position within the word. The following table contains my results:
+
+```
+
+```
+
+so we should try and start with a word containing those. 
 I like "ARISE" or "RAISE" or "TRAIN" and then go from there. My tool allows you to specify correct, misplaced and incorrect letters and provides you with a list of words that match. You can then sort that list of words by their english word frequency and the top of those words tend to be the answer.
 Allow me to demonstrate.
 
