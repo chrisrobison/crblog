@@ -1,5 +1,21 @@
 [
     {
+        "fulltitle": "Painting with Code: Unveiling the Magic Behind CSS Gradient Backgrounds",
+        "title": "Painting with Code",
+        "subtitle": "Unveiling the Magic Behind CSS Gradient Backgrounds",
+        "link": "/crblog/blog/css-bg.html",
+        "name": "paintingwithcode",
+        "date": "2024-03-21",
+        "tags": "",
+        "target": "iframe",
+        "hero": "/crblog/pics/",
+        "icon": "fas fa-code",
+        "blurb": "    background:\n        radial-gradient(25% 50%, var(--c1) 98%, #0000) var(--s) 0/calc(2*var(--s)) var(--s),\n        radial-gradient(25% 50%, var(--c2) 98%, #0000) 0 0/calc(2*var(--s)) var(--s),\n        repeating-conic-gradient(var(--c1) 0 25%, var(--c2) 0 50%) 0 0/calc(2*var(--s)) calc(2*var(--s));\n}",
+        "date_published": "2024-03-21T00:00:00-07:00",
+        "date_modified": "2024-03-21T21:47:50-07:00",
+        "image": "css-bg"
+    },
+    {
         "fulltitle": "Our Modern Calendar: Unraveling the History of Figuring Out What Day It Is",
         "title": "Our Modern Calendar",
         "subtitle": "Unraveling the History of Figuring Out What Day It Is",
