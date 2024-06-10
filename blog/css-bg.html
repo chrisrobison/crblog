@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painting with Code: Unveiling the Magic Behind CSS Gradient Backgrounds - Christopher Robison's Blog</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/blog/paintingwithcode.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/crblog/assets/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="stylesheet" href="/crblog/assets/css/adminlte.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/sunburst.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4259851073764949" crossorigin="anonymous"></script>
+  <style>
+    span.notrequired::after {
+      display: inline-block;
+      position: relative;
+      content: "";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      width:0.75rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+     span.required::after {
+      display: inline-block;
+      position: relative;
+      content: "*";
+      color: #c00;
+      font-size: 1.1rem;
+      font-weight: bold;
+      height: 1rem;
+      text-align: left;
+      padding-right: 1rem;
+    }
+    section.comments  header {
+      font-size:2rem;
+      background:#333;
+      color: #eee;
+      font-weight: bold;
+    }
+    section.comments {
+      width: 50rem;
+      margin: 0px auto;
+    }
+    section.comments .comment-container {
+      padding: 1rem;
+    }
+    .comment-input {
+      width: 30rem;
+      font-size: 18px;
+      height: 2rem;
+    }
+    .comment-comment {
+      width: 40rem;
+      height: 6rem;
+    }
+    .comment-comments {
+      padding: 1rem;
+    }
+    .comment-date {
+      font-size: 0.8rem;
+      float: right;
+    }
+    #comment label span {
+      display: block;
+      width: 7rem;
+    }
+    @media screen and (max-width: 640px) {
+      section.comments {
+        width: 100vw;
+      }
+      .comment-comment { width: 90vw; }
+      .comment-input { width: 90vw; }
+
+    }
+    p.comment { margin-bottom: 0px; }
+    .comment-item {
+      list-style-type: none;
+      border-top: 0.5rem solid #ccc;
+    }
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comments-list { padding: 0; }
+    .commenter { color: #000; font-weight: bold; }
+    .reply-link { font-size: 0.8rem; color: #000; display: block;text-align:right;}
+    .comment-reply { padding: 0 0 0 1rem; }
+    label { 
+      display: flex;
+    }
+    label > span {
+      display: inline-block;
+      width: 7rem;
+      text-align: right;
+    }
+    table {
+      border-collapse: collapse;
+      border: 2px solid #0005;
+      width: 100%;
+    }
+    table td {
+      border-right: 1px solid #0003;
+      background:#eee;
+      color: #000;
+      padding: 4px;
+    }
+    table .header th {
+      background: #000;
+      color: #eee;
+    }
+    .odd td {
+      background-color: #ccc;
+    }
+    table > tbody > tr > td:nth-child(2), table > tbody > tr > td:nth-child(3) {
+      text-align: center;
+      color: #c00;
+    }
+  </style>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Painting with Code: Unveiling the Magic Behind CSS Gradient Backgrounds",
+      "name": "Painting with Code: Unveiling the Magic Behind CSS Gradient Backgrounds",
+      "description": "    background:
+        radial-gradient(25% 50%, var(--c1) 98%, #0000) var(--s) 0/calc(2*var(--s)) var(--s),
+        radial-gradient(25% 50%, var(--c2) 98%, #0000) 0 0/calc(2*var(--s)) var(--s),
+        repeating-conic-gradient(var(--c1) 0 25%, var(--c2) 0 50%) 0 0/calc(2*var(--s)) calc(2*var(--s));
+}",
+      "image": [
+        "https://cdr2.com/crblog/assets/img/css-bg_1x1.jpg",
+        "https://cdr2.com/crblog/assets/img/css-bg_4x3.jpg",
+        "https://cdr2.com/crblog/assets/img/css-bg_16x9.jpg"
+       ],
+      "datePublished": "2024-03-21T00:00:00-07:00",
+      "dateModified": "2024-06-05T21:45:14-07:00",
+      "author": [{
+          "@type": "Person",
+          "name": "Christopher Robison",
+          "url": "https://cdr2.com/crblog/"
+        }]
+    }
+    </script>
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="blog/">Blog</a></li>
+              <li class="breadcrumb-item active">Painting with Code</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="blog">
+          <h1 style="font-weight:900;">Painting with Code</h1>
+          <h3>Unveiling the Magic Behind CSS Gradient Backgrounds</h3>
+          <p style="float:right;"><br><a href="#" class="sharelink" onclick="return share.showlist(event)"><i class="fas fa-share"></i> Share</a></p>
+          <p>
+            By Christopher Robison<br>
+            2024-03-21
+          </p>
+          <hr>
+          <img width="640" src="/crblog/assets/img/css-bg.jpg" class="banner-pic"> 
+          <hr>
+          <style>
+.bg0 {
+    --s: 50px;
+    --c1: #5E412F;
+    --c2: #FCEBB6;
+
+    background:
+        radial-gradient(25% 50%, var(--c1) 98%, #0000) var(--s) 0/calc(2*var(--s)) var(--s),
+        radial-gradient(25% 50%, var(--c2) 98%, #0000) 0 0/calc(2*var(--s)) var(--s),
+        repeating-conic-gradient(var(--c1) 0 25%, var(--c2) 0 50%) 0 0/calc(2*var(--s)) calc(2*var(--s));
+}
+
+.bg1 {
+    --s: 200px;
+    /* control the size */
+    --c1: #1d1d1d;
+    --c2: #4e4f51;
+    --c3: #3c3c3c;
+
+    background:
+        repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 180deg) calc(.5*var(--s)) calc(.5*var(--s)*0.577),
+        repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 180deg);
+    background-size: var(--s) calc(var(--s)*0.577);
+}
+
+.bg2 {
+    --s: 84px;
+    /* control the size*/
+    --c1: #f2f2f2;
+    --c2: #cdcbcc;
+    --c3: #999999;
+
+    --_g: 0 120deg, #0000 0;
+    background:
+        conic-gradient(from 0deg at calc(500%/6) calc(100%/3), var(--c3) var(--_g)),
+        conic-gradient(from -120deg at calc(100%/6) calc(100%/3), var(--c2) var(--_g)),
+        conic-gradient(from 120deg at calc(100%/3) calc(500%/6), var(--c1) var(--_g)),
+        conic-gradient(from 120deg at calc(200%/3) calc(500%/6), var(--c1) var(--_g)),
+        conic-gradient(from -180deg at calc(100%/3) 50%, var(--c2) 60deg, var(--c1) var(--_g)),
+        conic-gradient(from 60deg at calc(200%/3) 50%, var(--c1) 60deg, var(--c3) var(--_g)),
+        conic-gradient(from -60deg at 50% calc(100%/3), var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
+    background-size: calc(var(--s)*1.732) var(--s);
+}
+
+.bg3 {
+    --s: 72px;
+    /* control the size */
+
+    background:
+        radial-gradient(#C02942 24%, #0000 25%),
+        radial-gradient(#53777A 30%, #0000 32%) calc(var(--s)/2) calc(var(--s)/2),
+        repeating-conic-gradient(from 30deg, #ECD078 0 30deg, #D95B43 0 90deg);
+    background-size: var(--s) var(--s);
+}
+
+.bg4 {
+    --s: 100px;
+    /* control the size */
+    --c1: #fff0e5;
+    --c2: #025d8c;
+    --c3: #e1642a;
+
+
+    --_g: 50%, #0000 37%, var(--c1) 39% 70%, #0000 72%;
+    --_t: 50%, var(--c2) 40deg, var(--c3) 0 140deg, var(--c2) 0 180deg, #0000 0;
+    --_s: 47% 50% at;
+    background:
+        radial-gradient(var(--_s) -10% var(--_g)) 0 calc(var(--s)/2),
+        radial-gradient(var(--_s) -10% var(--_g)) calc(var(--s)/2) 0,
+        radial-gradient(var(--_s) 110% var(--_g)),
+        radial-gradient(var(--_s) 110% var(--_g)) calc(var(--s)/2) calc(var(--s)/2),
+        conic-gradient(from 0deg at 55% var(--_t)) calc(var(--s)/4) 0,
+        conic-gradient(from 180deg at 45% var(--_t)) calc(var(--s)/4) 0,
+        var(--c2);
+    background-size: var(--s) var(--s);
+}
+
+.bg5 {
+    --s: 150px;
+    /* control the size */
+    --c1: #f7d2a1;
+    --c2: #05057e;
+
+    --_g:
+        var(--c1) 0% 5%, var(--c2) 6% 15%, var(--c1) 16% 25%, var(--c2) 26% 35%, var(--c1) 36% 45%,
+        var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%, var(--c1) 76% 85%, var(--c2) 86% 95%,
+        #0000 96%;
+    background:
+        radial-gradient(50% 50% at 100% 0, var(--_g)),
+        radial-gradient(50% 50% at 0 100%, var(--_g)),
+        radial-gradient(50% 50%, var(--_g)),
+        radial-gradient(50% 50%, var(--_g)) calc(var(--s)/2) calc(var(--s)/2) var(--c1);
+    background-size: var(--s) var(--s);
+}
+
+.bg6 {
+    --s: 105px;
+    /* control the size */
+    --c1: #b9b9b9;
+    --c2: #dcdcdc;
+    --c3: #fafafa;
+
+    background:
+        conic-gradient(from 75deg, var(--c1) 15deg, var(--c2) 0 30deg, #0000 0 180deg,
+            var(--c2) 0 195deg, var(--c1) 0 210deg, #0000 0) calc(0.5*var(--s)) calc(0.5*var(--s)/0.577),
+        conic-gradient(var(--c1) 30deg, var(--c3) 0 75deg, var(--c1) 0 90deg, var(--c2) 0 105deg,
+            var(--c3) 0 150deg, var(--c2) 0 180deg, var(--c3) 0 210deg, var(--c1) 0 256deg,
+            var(--c2) 0 270deg, var(--c1) 0 286deg, var(--c2) 0 331deg, var(--c3) 0);
+    background-size: var(--s) calc(var(--s)/0.577);
+    /* 0.577=tan(30deg)*/
+}
+
+.bg7 {
+    --s: 120px;
+    /* control the size */
+
+    background:
+        conic-gradient(from 150deg at 50% 33%, #0000, #FA6900 .5deg 60deg, #0000 60.5deg) calc(var(--s)/2) calc(var(--s)/1.4),
+        conic-gradient(from -30deg at 50% 66%, #0000, #D95B43 .5deg 60deg, #ECD078 60.5deg);
+    background-size: var(--s) calc(var(--s)/1.154);
+}
+
+.bg8 {
+    --s: 100px;
+    /* control the size */
+    --c1: #4ECDC4;
+    --c2: #556270;
+
+    background:
+        linear-gradient(-26.56deg, var(--c1) 33%, var(--c2) 33.3% 66.6%, var(--c1) 67%) 0/var(--s) var(--s);
+    /* 26.56deg = arctan(0.5) */
+}
+
+
+.bg9 {
+    --s: 140px;
+    /* control the size */
+
+    --_g: #0000 52%, #170409
+        /* first color */
+        54% 57%, #0000 59%;
+    background:
+        radial-gradient(farthest-side at -33.33% 50%, var(--_g)) 0 calc(var(--s)/2),
+        radial-gradient(farthest-side at 50% 133.33%, var(--_g)) calc(var(--s)/2) 0,
+        radial-gradient(farthest-side at 133.33% 50%, var(--_g)),
+        radial-gradient(farthest-side at 50% -33.33%, var(--_g)),
+        #67917A;
+    /* second color */
+    background-size: calc(var(--s)/4.667) var(--s), var(--s) calc(var(--s)/4.667);
+}
+.bg-sample {
+  display: block;
+  height: 10rem;
+}
+</style>
+<p>I program recreationally. There. I’ve said it. I like to code. I like
+to code so much, that I’ll have 3 or 4 projects outside my normal work
+that I actively engage on, just for fun. Often the results of these side
+projects can be lackluster, for my-eyes-only, just me testing out some
+new technologies or techniques. This is not one of those times. I went
+on a deep-dive into the world of CSS backgrounds; a world much more
+fascinating than I originally thought it would be. Come join me on my
+experimental journey to push the boundaries of CSS, exploring the depths
+of gradient backgrounds. The following 10 CSS rules are standalone,
+meaning they don’t require anything other than what’s in the rule. You
+can download the entire set from <a
+href="https://cdr2.com/crblog/blog/code/bg.css">here</a>. I really went
+a little crazy and have dozens more but we’ll start with just these
+10:</p>
+<h4 id="the-geometric-dance---.bg0">The Geometric Dance -
+<code>.bg0</code></h4>
+<div class="bg-sample bg0">
+
+</div>
+<details>
+<summary>
+.bg0 - The Geometric Dance CSS
+</summary>
+<pre><code>.bg0 {
+    --s: 50px;
+    --c1: #5E412F;
+    --c2: #FCEBB6;
+
+    background:
+        radial-gradient(25% 50%, var(--c1) 98%, #0000) var(--s) 0/calc(2*var(--s)) var(--s),
+        radial-gradient(25% 50%, var(--c2) 98%, #0000) 0 0/calc(2*var(--s)) var(--s),
+        repeating-conic-gradient(var(--c1) 0 25%, var(--c2) 0 50%) 0 0/calc(2*var(--s)) calc(2*var(--s));
+}</code></pre>
+</details>
+<p>Starting off, I played with radial gradients and a repeating conic
+gradient to craft <code>.bg0</code>. The result was a mesmerizing
+geometric pattern that seemed to dance across the screen. The blend of
+earthy tones created a warm, inviting texture that felt like a digital
+tapestry.</p>
+<h4 id="the-triangular-symphony---.bg1">The Triangular Symphony -
+<code>.bg1</code></h4>
+<div class="bg-sample bg1">
+
+</div>
+<details>
+<summary>
+.bg1 - “The Triangular Symphony” CSS
+</summary>
+<pre><code>.bg1 {
+    --s: 200px;
+    /* control the size */
+    --c1: #1d1d1d;
+    --c2: #4e4f51;
+    --c3: #3c3c3c;
+
+    background:
+        repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 180deg) calc(.5*var(--s)) calc(.5*var(--s)*0.577),
+        repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 180deg);
+    background-size: var(--s) calc(var(--s)*0.577);
+}</code></pre>
+</details>
+<p>With <code>.bg1</code>, I ventured into the realm of sharp angles and
+crisp lines. The repeating conic gradients formed a symphony of
+triangles, each layer playing its tune. The monochromatic scheme added a
+sophisticated, modern edge to the design.</p>
+<h4 id="the-kaleidoscopic-vision---.bg2">The Kaleidoscopic Vision -
+<code>.bg2</code></h4>
+<div class="bg-sample bg2">
+
+</div>
+<details>
+<summary>
+.bg2 - “The Kaleidoscopic Vision” CSS
+</summary>
+<pre><code>.bg2 {
+    --s: 84px;
+    /* control the size*/
+    --c1: #f2f2f2;
+    --c2: #cdcbcc;
+    --c3: #999999;
+
+    --_g: 0 120deg, #0000 0;
+    background:
+        conic-gradient(from 0deg at calc(500%/6) calc(100%/3), var(--c3) var(--_g)),
+        conic-gradient(from -120deg at calc(100%/6) calc(100%/3), var(--c2) var(--_g)),
+        conic-gradient(from 120deg at calc(100%/3) calc(500%/6), var(--c1) var(--_g)),
+        conic-gradient(from 120deg at calc(200%/3) calc(500%/6), var(--c1) var(--_g)),
+        conic-gradient(from -180deg at calc(100%/3) 50%, var(--c2) 60deg, var(--c1) var(--_g)),
+        conic-gradient(from 60deg at calc(200%/3) 50%, var(--c1) 60deg, var(--c3) var(--_g)),
+        conic-gradient(from -60deg at 50% calc(100%/3), var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
+    background-size: calc(var(--s)*1.732) var(--s);
+}
+&lt;/details&gt;
+`.bg2` was an exploration of symmetry and color. By positioning conic gradients at strategic angles, I created a kaleidoscopic effect that captivated the eye. The subtle color transitions added depth, making the pattern almost leap off the screen.
+
+#### The Circle Saga - `.bg3`
+&lt;div class=&quot;bg-sample bg3&quot;&gt;&lt;/div&gt;
+&lt;details&gt;&lt;summary&gt;.bg3 - The Circle Sage CSS&lt;/summary&gt;</code></pre>
+<p>.bg3 { –s: 72px; /* control the size */</p>
+<pre><code>background:
+    radial-gradient(#C02942 24%, #0000 25%),
+    radial-gradient(#53777A 30%, #0000 32%) calc(var(--s)/2) calc(var(--s)/2),
+    repeating-conic-gradient(from 30deg, #ECD078 0 30deg, #D95B43 0 90deg);
+background-size: var(--s) var(--s);</code></pre>
+<p>}</p>
+<pre><code>&lt;/details&gt;
+In `.bg3`, circles took center stage. I juxtaposed radial gradients to form a pattern that was both harmonious and intriguing. The contrasting colors added a dynamic rhythm, turning the background into a visual saga.
+
+#### The Sunset Mirage - `.bg4`
+&lt;div class=&quot;bg-sample bg4&quot;&gt;&lt;/div&gt;
+&lt;details&gt;&lt;summary&gt;.bg4 - The Sunset Mirage&lt;/summary&gt;</code></pre>
+<p>.bg4 { –s: 100px; /* control the size */ –c1: #fff0e5; –c2: #025d8c;
+–c3: #e1642a;</p>
+<pre><code>--_g: 50%, #0000 37%, var(--c1) 39% 70%, #0000 72%;
+--_t: 50%, var(--c2) 40deg, var(--c3) 0 140deg, var(--c2) 0 180deg, #0000 0;
+--_s: 47% 50% at;
+background:
+    radial-gradient(var(--_s) -10% var(--_g)) 0 calc(var(--s)/2),
+    radial-gradient(var(--_s) -10% var(--_g)) calc(var(--s)/2) 0,
+    radial-gradient(var(--_s) 110% var(--_g)),
+    radial-gradient(var(--_s) 110% var(--_g)) calc(var(--s)/2) calc(var(--s)/2),
+    conic-gradient(from 0deg at 55% var(--_t)) calc(var(--s)/4) 0,
+    conic-gradient(from 180deg at 45% var(--_t)) calc(var(--s)/4) 0,
+    var(--c2);
+background-size: var(--s) var(--s);</code></pre>
+<p>}</p>
+<pre><code>&lt;/details&gt;
+Drawing inspiration from the sky at dusk, `.bg4` became my sunset mirage. The radial and conic gradients mimicked the sun&#39;s glow, fading into the horizon. The play of warm and cool tones created a serene, picturesque backdrop.
+
+#### The Colorful Carousel - `.bg5`
+&lt;div class=&quot;bg-sample bg5&quot;&gt;&lt;/div&gt;
+&lt;details&gt;&lt;summary&gt;.bg5 - The Colorful Carousel&lt;/summary&gt;</code></pre>
+<p>.bg5 { –s: 150px; /* control the size */ –c1: #f7d2a1; –c2:
+#05057e;</p>
+<pre><code>--_g:
+    var(--c1) 0% 5%, var(--c2) 6% 15%, var(--c1) 16% 25%, var(--c2) 26% 35%, var(--c1) 36% 45%,
+    var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%, var(--c1) 76% 85%, var(--c2) 86% 95%,
+    #0000 96%;
+background:
+    radial-gradient(50% 50% at 100% 0, var(--_g)),
+    radial-gradient(50% 50% at 0 100%, var(--_g)),
+    radial-gradient(50% 50%, var(--_g)),
+    radial-gradient(50% 50%, var(--_g)) calc(var(--s)/2) calc(var(--s)/2) var(--c1);
+background-size: var(--s) var(--s);</code></pre>
+<p>}</p>
+<pre><code>&lt;/details&gt;
+With `.bg5`, I aimed to inject vibrancy and movement. The radial gradients created a carousel of colors, spinning with life. It was a celebration of hues, each turn revealing a new shade, a new emotion.
+
+#### The Wheel of Fortune - `.bg6`
+&lt;div class=&quot;bg-sample bg6&quot;&gt;&lt;/div&gt; 
+&lt;details&gt;&lt;summary&gt;.bg6 - The Wheel of Fortune&lt;/summary&gt;</code></pre>
+<p>.bg6 { –s: 105px; /* control the size */ –c1: #b9b9b9; –c2: #dcdcdc;
+–c3: #fafafa;</p>
+<pre><code>background:
+    conic-gradient(from 75deg, var(--c1) 15deg, var(--c2) 0 30deg, #0000 0 180deg,
+        var(--c2) 0 195deg, var(--c1) 0 210deg, #0000 0) calc(0.5*var(--s)) calc(0.5*var(--s)/0.577),
+    conic-gradient(var(--c1) 30deg, var(--c3) 0 75deg, var(--c1) 0 90deg, var(--c2) 0 105deg,
+        var(--c3) 0 150deg, var(--c2) 0 180deg, var(--c3) 0 210deg, var(--c1) 0 256deg,
+        var(--c2) 0 270deg, var(--c1) 0 286deg, var(--c2) 0 331deg, var(--c3) 0);
+background-size: var(--s) calc(var(--s)/0.577);
+/* 0.577=tan(30deg)*/</code></pre>
+<p>}</p>
+<pre><code>&lt;/details&gt;
+`.bg6` was a nod to the classic wheel of fortune. The conic gradients formed segments of color, each representing a slice of fate. The design was both playful and mesmerizing, inviting users to take a spin.
+
+#### The Radiant Burst - `.bg7`
+&lt;div class=&quot;bg-sample bg7&quot;&gt;&lt;/div&gt;
+&lt;details&gt;&lt;summary&gt;.bg7 - The Radiant Burst CSS&lt;/summary&gt;</code></pre>
+<p>.bg7 { –s: 120px; /* control the size */</p>
+<pre><code>background:
+    conic-gradient(from 150deg at 50% 33%, #0000, #FA6900 .5deg 60deg, #0000 60.5deg) calc(var(--s)/2) calc(var(--s)/1.4),
+    conic-gradient(from -30deg at 50% 66%, #0000, #D95B43 .5deg 60deg, #ECD078 60.5deg);
+background-size: var(--s) calc(var(--s)/1.154);</code></pre>
+<p>}</p>
+<pre><code>&lt;/details&gt;
+I sought to capture the explosive beauty of a starburst with `.bg7`. The conic gradients radiated from specific points, creating a burst of color and light. It was a spectacle of radiance, a burst of energy frozen in time.
+
+#### The Striped Illusion - `.bg8`
+&lt;div class=&quot;bg-sample bg8&quot;&gt;&lt;/div&gt;
+&lt;details&gt;&lt;summary&gt;.bg8 - The Striped Illusion&lt;/summary&gt;</code></pre>
+<p>.bg8 { –s: 100px; /* control the size */ –c1: #4ECDC4; –c2:
+#556270;</p>
+<pre><code>background:
+    linear-gradient(-26.56deg, var(--c1) 33%, var(--c2) 33.3% 66.6%, var(--c1) 67%) 0/var(--s) var(--s);
+/* 26.56deg = arctan(0.5) */</code></pre>
+<p>}</p>
+<pre><code>&lt;/details&gt;
+In `.bg8`, I experimented with linear gradients to create an optical illusion. The stripes, angled precisely, offered a sense of movement and depth. The alternating colors played tricks on the eye, making the static background seem alive.
+
+#### The Shadow Play - `.bg9`
+&lt;div class=&quot;bg-sample bg9&quot;&gt;&lt;/div&gt;
+&lt;details&gt;&lt;summary&gt;.bg9 - The Shadow Play CSS&lt;/summary&gt;</code></pre>
+<p>.bg9 { –s: 140px; /* control the size */</p>
+<pre><code>--_g: #0000 52%, #170409
+    /* first color */
+    54% 57%, #0000 59%;
+background:
+    radial-gradient(farthest-side at -33.33% 50%, var(--_g)) 0 calc(var(--s)/2),
+    radial-gradient(farthest-side at 50% 133.33%, var(--_g)) calc(var(--s)/2) 0,
+    radial-gradient(farthest-side at 133.33% 50%, var(--_g)),
+    radial-gradient(farthest-side at 50% -33.33%, var(--_g)),
+    #67917A;
+/* second color */
+background-size: calc(var(--s)/4.667) var(--s), var(--s) calc(var(--s)/4.667);</code></pre>
+<p>} ``<code>&lt;/details&gt;</code>.bg9` was an exploration of shadows
+and light. The radial gradients, placed off-center, created an interplay
+of light and dark. It was a mysterious, enigmatic pattern that invited
+curiosity and contemplation.</p>
+<p>Through these experiments, I discovered the limitless possibilities
+of CSS gradients. Each background was a step into the unknown, a
+testament to the power of code to create beauty. As I continue my
+journey, I’m reminded that in the world of web design, the only limit is
+our imagination.</p>
+
+          <hr>
+          <div class="content-footer">
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" class="next-entry" style="font-weight:400;float:right;color:#cc04;">() Next &gt; </a>
+            <a href="" onclick="if (parent.app.loadTab) return parent.app.loadTab('', '', '', true, event)" title="" style="font-weight:400;">&lt; Previous ()</a>
+        </div>
+      </div>
+    </section>
+    <section class="comments">
+      <header>Discussion</header>
+      <div id="comment-comments">
+        
+      </div>
+      <hr>
+      <div id="comment-form" class="comment-container" data-_parent="0">
+        <h3>Leave a Reply</h3>
+        <p>Comment? Suggestion? Just plain mad? Why not Leave a comment and let everyone know what you're thinking. Your email address will never be shared or published. Required fields are marked <span style="color:#c00;">*</span></p>
+        <hr>
+        <form id="comment" onsubmit="return false;" class="form">
+          <label for="comment-comment"><span class="required">Comment</span>
+            <textarea rows="5" cols="40" class="comment-comment" id="comment-comment" name="comment-comment"></textarea>
+          </label>
+          <label for="comment-name"><span class="required">Name</span> 
+            <input type="text" id="comment-name" name="comment-name" class="comment-input">
+          </label>
+          <label for="comment-email"><span class="required">Email</span>
+            <input type="text" id="comment-email" name="comment-email" class="comment-input">
+          </label>
+          <label for="comment-website"><span>Website</span>
+            <input type="text" id="comment-website" name="comment-website" class="comment-input">
+          </label>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.cancelComment(this, event);return false;">Cancel</button>
+            <button style="border:1px solid #0009;border-radius:6px;" onclick="app.comments.postComment(this, event);return false;">Post Comment</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <strong>Copyright &copy; 2024 <a href="https://cdr2.com">Christopher Robison</a>.</strong> All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/crblog/assets/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/crblog/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/crblog/assets/js/adminlte.min.js"></script>
+<script src="/crblog/share.js"></script>
+<script>
+  hljs.highlightAll();
+  if (!parent.app) {
+    document.location.href = "/crblog/index.html?tgt="+location.pathname;
+  }
+</script>
+<script src="/crblog/assets/js/comments.js"></script>
+</body>
+</html>
